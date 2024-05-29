@@ -1,0 +1,6 @@
+[
+  {"id": 999, "name": "test note 1", "contents": "i am some content"},
+  {"id": 1000, "name": "test note 2", "contents": "yup, contents galore"},
+  {"id": 1001, "name": "test note 3", "contents": "hey look here!"},
+  {"id": 1002, "name": "test note 4", "contents": "buy some books plz"}
+]

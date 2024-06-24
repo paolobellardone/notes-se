@@ -32,7 +32,7 @@ server:
 db:
   source: jdbc
   connection:
-    url: jdbc:oracle:thin:@atp_low
+    url: jdbc:oracle:thin:@atp23ai_low
     username: demos
     # Specify password using one of the following methods:
     # - java command line parameter: -Ddb.connection.password=database_password

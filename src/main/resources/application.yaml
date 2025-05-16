@@ -35,8 +35,8 @@ db:
     url: jdbc:oracle:thin:@atp23ai_low
     username: demos
     # Specify password using one of the following methods:
-    # - java command line parameter: -Ddb.connection.password=database_password (it does not work if the password has "strange" characters such as !)
-    # - enviroment variable: DB_CONNECTION_PASSWORD=database_password (preferred)
+    # - java command line parameter: -Ddb.connection.password=database_password (preferred, it has to be specified before the -jar parameter)
+    # - enviroment variable: DB_CONNECTION_PASSWORD=database_password
     # - uncomment the following line and put the password there
     #password:
     poolName: oracle

@@ -8,27 +8,47 @@ define(["require", "exports", "./SelectionRangeValidatorError"], function (requi
     var _SelectionRangeValidator_instances, _SelectionRangeValidator_getOverflowErrorDetail, _SelectionRangeValidator_getUnderflowErrorDetail, _SelectionRangeValidator_getExactErrorDetail, _SelectionRangeValidator_getRangeErrorDetail;
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.SelectionRangeValidator = void 0;
+    /**
+     * Constructs a SelectionRangeValidator that ensures the number of
+     * selections is within the range specified using min and max.
+     * @template V type of the value to be validated
+     * @implements {Validator}
+     */
     class SelectionRangeValidator {
+        /**
+         * Instantiates the SelectionRangeValidator
+         * @param options The validator options
+         */
         constructor(options) {
             _SelectionRangeValidator_instances.add(this);
             if (options.min && options.max && options.min > options.max) {
+                // this is an app developer error, so it doesn't need to be translated.
                 throw new Error('min must be less than max');
             }
             this.options = options;
         }
+        /**
+         * Validates that the number of selections is within the range
+         * @param value The value to be validated
+         * @throws {SelectionRangeValidatorError} when the value is not within the range
+         */
         validate(value) {
             const { max, min } = this.options;
             const selections = value;
             const numSelections = selections.length;
+            // Check for selection underflow (min only).
             if (min !== undefined && max === undefined && numSelections < min) {
                 throw new SelectionRangeValidatorError_1.SelectionRangeValidatorError(__classPrivateFieldGet(this, _SelectionRangeValidator_instances, "m", _SelectionRangeValidator_getUnderflowErrorDetail).call(this, min));
             }
+            // Check for selection overflow (max only).
             if (min === undefined && max !== undefined && numSelections > max) {
                 throw new SelectionRangeValidatorError_1.SelectionRangeValidatorError(__classPrivateFieldGet(this, _SelectionRangeValidator_instances, "m", _SelectionRangeValidator_getOverflowErrorDetail).call(this, max));
             }
+            // Check for exact number of selections (min === max).
             if (min !== undefined && max !== undefined && min === max && numSelections !== min) {
                 throw new SelectionRangeValidatorError_1.SelectionRangeValidatorError(__classPrivateFieldGet(this, _SelectionRangeValidator_instances, "m", _SelectionRangeValidator_getExactErrorDetail).call(this, min));
             }
+            // Check the number of selections falls between min and max (> min && < max).
             if (min !== undefined &&
                 max !== undefined &&
                 min !== max &&

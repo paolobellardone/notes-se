@@ -3,7 +3,7 @@
   -webkit-tap-highlight-color: transparent;
 }
 .RatingGaugeStyles_baseStyle__5rd6cv0:focus-visible {
-  outline-color: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-border-keyboard-focus);
+  outline-color: var(--oj-c-border-keyboard-focus);
   outline-style: dotted;
   outline-width: 1px;
 }
@@ -28,6 +28,7 @@
 }
 .RatingGaugeStyles_ratingStarBaseStyle__5rd6cv5 {
   position: absolute;
+  left: 0px;
 }
 .RatingGaugeStyles_innerRatingStarColor__5rd6cv6 {
   fill: var(--colorSelected__1kgzocs0);

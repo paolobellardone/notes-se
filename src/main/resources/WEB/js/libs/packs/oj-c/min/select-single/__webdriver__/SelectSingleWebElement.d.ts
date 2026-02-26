@@ -18,6 +18,12 @@ export declare class SelectSingleWebElement extends SelectSingleWebElementBase {
      */
     clear(): Promise<void>;
     /**
+     * Triggers the <code>ojAddToListAction</code> event.
+     * @param searchText The <code>searchText</code> to include in the
+     * <code>ojAddToListAction</code> event.
+     */
+    doAddToListAction(searchText: string): Promise<void>;
+    /**
      * Triggers the <code>ojAdvancedSearchAction</code> event.
      * @param searchText The <code>searchText</code> to include in the
      * <code>ojAdvancedSearchAction</code> event.

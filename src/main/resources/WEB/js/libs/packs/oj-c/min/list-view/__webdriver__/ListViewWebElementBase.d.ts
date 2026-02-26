@@ -124,4 +124,8 @@ export interface Item {
      * It controls the padding around the list item
      */
     padding: string | object;
+    /**
+     * It controls the focus behavior when enter key is pressed on an item
+     */
+    enterKeyFocusBehavior: string;
 }

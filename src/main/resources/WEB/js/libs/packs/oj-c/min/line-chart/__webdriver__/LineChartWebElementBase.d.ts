@@ -35,6 +35,20 @@ export declare class LineChartWebElementBase extends OjWebElement {
      */
     getOrientation(): Promise<string>;
     /**
+     * Gets the value of <code>splitDualY</code> property.
+     * Defines whether the plot area is split into two sections.
+     * @return The value of <code>splitDualY</code> property.
+     *
+     */
+    getSplitDualY(): Promise<string>;
+    /**
+     * Gets the value of <code>splitterPosition</code> property.
+     * Specifies the fraction of the space that is given to the Y-axis subchart.
+     * @return The value of <code>splitterPosition</code> property.
+     *
+     */
+    getSplitterPosition(): Promise<number>;
+    /**
      * Gets the value of <code>timeAxisType</code> property.
      * The time axis type of the chart x axis.
      * @return The value of <code>timeAxisType</code> property.
@@ -48,6 +62,13 @@ export declare class LineChartWebElementBase extends OjWebElement {
      *
      */
     getYAxis(): Promise<YAxis>;
+    /**
+     * Gets the value of <code>y2Axis</code> property.
+     * The y2Axis options for the chart.
+     * @return The value of <code>y2Axis</code> property.
+     *
+     */
+    getY2Axis(): Promise<Y2Axis>;
     /**
      * Gets the value of <code>xAxis</code> property.
      * The xAxis options for the chart.
@@ -71,11 +92,18 @@ export declare class LineChartWebElementBase extends OjWebElement {
     getZoomAndScroll(): Promise<string>;
     /**
      * Gets the value of <code>valueFormats</code> property.
-     * An object specifying value formatting and tooltip behavior, whose keys generally correspond to the attribute names on the data items.
+     * An object specifying value formatting and datatip behavior, whose keys generally correspond to the attribute names on the data items.
      * @return The value of <code>valueFormats</code> property.
      *
      */
     getValueFormats(): Promise<ValueFormats>;
+    /**
+     * Gets the value of <code>styleDefaults</code> property.
+     * An object specifying default styles for chart style attributes..
+     * @return The value of <code>styleDefaults</code> property.
+     *
+     */
+    getStyleDefaults(): Promise<StyleDefaults>;
     /**
      * Gets the value of <code>seriesComparator</code> property.
      * A comparator function that determines the ordering of the chart series when using a DataProvider. If undefined, the series will follow the order in which they are found in the data.
@@ -103,14 +131,14 @@ export declare class LineChartWebElementBase extends OjWebElement {
      * @param selection The value to set for <code>selection</code>
      *
      */
-    changeSelection(selection: Array<any>): Promise<void>;
+    changeSelection(selection: Array<string | number>): Promise<void>;
     /**
      * Gets the value of <code>selection</code> property.
      * An array containing the ids of the initially selected data items.
      * @return The value of <code>selection</code> property.
      *
      */
-    getSelection(): Promise<Array<any>>;
+    getSelection(): Promise<Array<string | number>>;
     /**
      * Gets the value of <code>dragMode</code> property.
      * The action that is performed when a drag occurs on the chart.
@@ -181,6 +209,13 @@ export declare class LineChartWebElementBase extends OjWebElement {
      *
      */
     getContextMenuConfig(): Promise<ContextMenuConfig>;
+    /**
+     * Gets the value of <code>datatipConfig</code> property.
+     * The DatatipConfig object is used to allow applications to control the appearance and behavior of the datatip.
+     * @return The value of <code>datatipConfig</code> property.
+     *
+     */
+    getDatatipConfig(): Promise<null>;
 }
 export interface YAxis {
     /**
@@ -227,6 +262,10 @@ export interface YAxis {
      * The size of the axis.
      */
     size: number;
+    /**
+     * The maximum size of the axis.
+     */
+    maxSize: number;
     /**
      * The scale of the axis.
      */
@@ -290,6 +329,118 @@ export interface YAxisTickLabel {
      */
     style: object;
 }
+export interface Y2Axis {
+    /**
+     * The maximum value of the chart data.
+     */
+    dataMax: number;
+    /**
+     * The minimum value of the chart data.
+     */
+    dataMin: number;
+    /**
+     * The maximum value of the y axis.
+     */
+    max: number;
+    /**
+     * The minimum value of the y axis.
+     */
+    min: number;
+    /**
+     * The y axis major tick properties.
+     */
+    majorTick: Y2AxisMajorTick;
+    /**
+     * The y axis minor tick properties.
+     */
+    minorTick: Y2AxisMinorTick;
+    /**
+     * The y axis tick label properties.
+     */
+    tickLabel: Y2AxisTickLabel;
+    /**
+     * The current minimum value of y axis viewport.
+     */
+    viewportMin: number;
+    /**
+     * The current maximum value of y axis viewport.
+     */
+    viewportMax: number;
+    /**
+     * The increment between major tick marks in y axis.
+     */
+    step: number;
+    /**
+     * The size of the axis.
+     */
+    size: number;
+    /**
+     * The maximum size of the axis.
+     */
+    maxSize: number;
+    /**
+     * The scale of the axis.
+     */
+    scale: string;
+    /**
+     * The axis title.
+     */
+    title: string;
+    /**
+     * The axis title style.
+     */
+    titleStyle: object;
+}
+export interface Y2AxisMajorTick {
+    /**
+     * The color of the line.
+     */
+    lineColor: string;
+    /**
+     * The style of the line.
+     */
+    lineStyle: string;
+    /**
+     * The width of the line.
+     */
+    lineWidth: number;
+    /**
+     * The color of the line.
+     */
+    rendered: string;
+}
+export interface Y2AxisMinorTick {
+    /**
+     * The color of the line.
+     */
+    lineColor: string;
+    /**
+     * The style of the line.
+     */
+    lineStyle: string;
+    /**
+     * The width of the line.
+     */
+    lineWidth: number;
+    /**
+     * Whether the minor tick are rendered.
+     */
+    rendered: string;
+}
+export interface Y2AxisTickLabel {
+    /**
+     * The converter to format the axis tick labels.
+     */
+    converter: object;
+    /**
+     * Whether the tick labels are rendered or not.
+     */
+    rendered: string;
+    /**
+     * The style of the tick labels.
+     */
+    style: object;
+}
 export interface XAxis {
     /**
      * The x axis major tick properties.
@@ -319,6 +470,10 @@ export interface XAxis {
      * The size of the axis.
      */
     size: number;
+    /**
+     * The maximum size of the axis.
+     */
+    maxSize: number;
     /**
      * The scale of the axis.
      */
@@ -394,17 +549,25 @@ export interface PlotArea {
 }
 export interface ValueFormats {
     /**
-     * The object defining formatting and tooltip behavior for the group.
+     * The object defining the tooltip behavior for the group.
      */
     group: ValueFormatsGroup;
     /**
-     * The object defining formatting and tooltip behavior for the series.
+     * The object defining the tooltip behavior for the series.
      */
     series: ValueFormatsSeries;
     /**
      * The object defining formatting and tooltip behavior for the value.
      */
     value: ValueFormatsValue;
+    /**
+     * The object defining formatting and tooltip behavior for the y2 values.
+     */
+    y2: ValueFormatsY2;
+    /**
+     * The object defining the tooltip behavior for the data item labels.
+     */
+    label: ValueFormatsLabel;
 }
 export interface ValueFormatsGroup {
     /**
@@ -439,6 +602,58 @@ export interface ValueFormatsValue {
      * Whether the value is displayed in the tooltip.
      */
     tooltipDisplay: string;
+}
+export interface ValueFormatsY2 {
+    /**
+     * The converter to format the numerical value for the tooltip.
+     */
+    converter: object;
+    /**
+     * A string representing the label that is displayed before the value in the tooltip.
+     */
+    tooltipLabel: string;
+    /**
+     * Whether the value is displayed in the tooltip.
+     */
+    tooltipDisplay: string;
+}
+export interface ValueFormatsLabel {
+    /**
+     * A string representing the label that is displayed before the value in the tooltip.
+     */
+    tooltipLabel: string;
+    /**
+     * Whether the value is displayed in the tooltip.
+     */
+    tooltipDisplay: string;
+}
+export interface StyleDefaults {
+    /**
+     *
+     */
+    groupSeparators: StyleDefaultsGroupSeparators;
+    /**
+     * The shape of the data markers.
+     */
+    markerShape: string;
+    /**
+     * The color of the data markers, if different from the series color.
+     */
+    markerColor: string;
+    /**
+     * The position of the data label.
+     */
+    dataLabelPosition: string;
+}
+export interface StyleDefaultsGroupSeparators {
+    /**
+     * Whether the group separator lines are rendered.
+     */
+    rendered: string;
+    /**
+     * The color of the group separator lines.
+     */
+    color: string;
 }
 export interface Legend {
     /**

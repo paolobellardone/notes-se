@@ -29,7 +29,7 @@
   outline-style: dotted;
   outline-offset: 1px;
   outline-width: 1px;
-  outline-color: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-border-keyboard-focus);
+  outline-color: var(--oj-c-border-keyboard-focus);
 }
 .BadgeStyles_base__r1bnwu0::after {
   content: "";

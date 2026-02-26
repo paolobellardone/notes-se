@@ -92,7 +92,7 @@ class PopupWebElementBase extends elements_1.OjWebElement {
     }
     /**
      * Gets the value of <code>offset</code> property.
-     * Specifies displacement of the Popup from the anchor element placement along the specified axes.
+     * Specifies displacement of the Popup from the anchor element along the specified axes.
      * @return The value of <code>offset</code> property.
      *
      */
@@ -161,6 +161,15 @@ class PopupWebElementBase extends elements_1.OjWebElement {
      */
     getMaxHeight() {
         return this.getProperty('maxHeight');
+    }
+    /**
+     * Gets the value of <code>backgroundColor</code> property.
+     * Specifies background color of the Popup.
+     * @return The value of <code>backgroundColor</code> property.
+     *
+     */
+    getBackgroundColor() {
+        return this.getProperty('backgroundColor');
     }
 }
 exports.PopupWebElementBase = PopupWebElementBase;

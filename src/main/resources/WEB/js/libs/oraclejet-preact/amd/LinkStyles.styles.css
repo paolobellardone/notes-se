@@ -1,10 +1,11 @@
 .LinkStyles_standard__ta6igz0 {
-  display: inline;
+  display: inline-block;
   color: var(--textColor__1w21kyl6);
   -webkit-text-decoration-color: var(--textColor__1w21kyl6);
           text-decoration-color: var(--textColor__1w21kyl6);
   text-decoration-thickness: 1px;
   text-underline-offset: var(--textUnderlineOffset__1w21kyl5);
+  max-width: 100%;
 }
 .LinkStyles_standard__ta6igz0:visited {
   color: var(--textColorVisited__1w21kyl8);

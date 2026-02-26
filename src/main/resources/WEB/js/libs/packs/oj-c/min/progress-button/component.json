@@ -1,7 +1,7 @@
 {
   "name": "progress-button",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -34,7 +34,11 @@
       ]
     },
     "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/ProgressButtonWebElement.html"
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/ProgressButtonWebElement.html",
+      "export": "findProgressButton",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   },
   "propertyLayout": [
@@ -53,17 +57,33 @@
       ]
     }
   ],
+  "requirements": [
+    {
+      "type": "anyOf",
+      "label": "accessibility",
+      "properties": [
+        "label"
+      ]
+    },
+    {
+      "type": "not",
+      "label": "accessibility",
+      "properties": [
+        "aria-label"
+      ]
+    }
+  ],
   "properties": {
     "label": {
       "type": "string",
-      "description": "Text to show in the button or as tooltip for icon mode.",
+      "description": "Text to show in a non-icon-only button and as a tooltip when loading, or as tooltip for icon mode.",
       "help": "#label",
       "required": true,
       "translatable": true
     },
     "tooltip": {
       "type": "string",
-      "description": "Text to show in the tooltip. This overrides the default tooltip that renders the label when in icon mode.",
+      "description": "Text to show in the tooltip. This overrides the default tooltip that renders the label when in icon mode, and can also be used to apply a tooltip for non-icon-only buttons.",
       "help": "#tooltip",
       "translatable": true
     },

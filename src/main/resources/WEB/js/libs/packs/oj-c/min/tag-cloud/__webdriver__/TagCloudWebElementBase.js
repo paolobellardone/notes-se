@@ -47,7 +47,7 @@ class TagCloudWebElementBase extends elements_1.OjWebElement {
     }
     /**
      * Gets the value of <code>touchResponse</code> property.
-     * Data visualizations require a press and hold delay before triggering tooltips and rollover effects on mobile devices to avoid interfering with page panning, but these hold delays can make applications seem slower and less responsive. For a better user experience, the application can remove the touch and hold delay when data visualizations are used within a non scrolling container or if there is sufficient space outside of the visualization for panning. If touchResponse is touchStart the element will instantly trigger the touch gesture and consume the page pan events. If touchResponse is auto, the element will behave like touchStart if it determines that it is not rendered within scrolling content and if element panning is not available for those elements that support the feature.
+     * Data visualizations require a press and hold delay before triggering datatips and rollover effects on mobile devices to avoid interfering with page panning, but these hold delays can make applications seem slower and less responsive. For a better user experience, the application can remove the touch and hold delay when data visualizations are used within a non scrolling container or if there is sufficient space outside of the visualization for panning. If touchResponse is touchStart the element will instantly trigger the touch gesture and consume the page pan events. If touchResponse is auto, the element will behave like touchStart if it determines that it is not rendered within scrolling content and if element panning is not available for those elements that support the feature.
      * @return The value of <code>touchResponse</code> property.
      *
      */
@@ -134,6 +134,15 @@ class TagCloudWebElementBase extends elements_1.OjWebElement {
      */
     getContextMenuConfig() {
         return this.getProperty('contextMenuConfig');
+    }
+    /**
+     * Gets the value of <code>datatipConfig</code> property.
+     * The DatatipConfig object is used to allow applications to control the appearance and behavior of the datatip.
+     * @return The value of <code>datatipConfig</code> property.
+     *
+     */
+    getDatatipConfig() {
+        return this.getProperty('datatipConfig');
     }
 }
 exports.TagCloudWebElementBase = TagCloudWebElementBase;

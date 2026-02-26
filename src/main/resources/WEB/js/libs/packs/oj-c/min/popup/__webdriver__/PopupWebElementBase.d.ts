@@ -71,11 +71,11 @@ export declare class PopupWebElementBase extends OjWebElement {
     getInitialFocus(): Promise<string>;
     /**
      * Gets the value of <code>offset</code> property.
-     * Specifies displacement of the Popup from the anchor element placement along the specified axes.
+     * Specifies displacement of the Popup from the anchor element along the specified axes.
      * @return The value of <code>offset</code> property.
      *
      */
-    getOffset(): Promise<number | object>;
+    getOffset(): Promise<Offset>;
     /**
      * Gets the value of <code>collision</code> property.
      * Specifies rule for alternate placement alignment.
@@ -125,4 +125,21 @@ export declare class PopupWebElementBase extends OjWebElement {
      *
      */
     getMaxHeight(): Promise<number | string>;
+    /**
+     * Gets the value of <code>backgroundColor</code> property.
+     * Specifies background color of the Popup.
+     * @return The value of <code>backgroundColor</code> property.
+     *
+     */
+    getBackgroundColor(): Promise<string>;
+}
+export interface Offset {
+    /**
+     *
+     */
+    x: number;
+    /**
+     *
+     */
+    y: number;
 }

@@ -1,3 +1,10 @@
+/**
+ * @license
+ * Copyright (c) %FIRST_YEAR% %CURRENT_YEAR%, Oracle and/or its affiliates.
+ * The Universal Permissive License (UPL), Version 1.0
+ * as shown at https://oss.oracle.com/licenses/upl/
+ * @ignore
+ */
 define(["require", "exports", "../legend-item/legend-item", "../legend-section/legend-section"], function (require, exports, legend_item_1, legend_section_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
@@ -10,6 +17,9 @@ define(["require", "exports", "../legend-item/legend-item", "../legend-section/l
     exports.transformSection = transformSection;
     exports.isTreeDataProvider = isTreeDataProvider;
     exports.isLegendItemDrillable = isLegendItemDrillable;
+    /**
+     * Returns the text styles for linear and sectional legend.
+     */
     function getTextStyles(styles) {
         return {
             textFontStyle: styles?.fontStyle,
@@ -20,6 +30,9 @@ define(["require", "exports", "../legend-item/legend-item", "../legend-section/l
             textFontFamily: styles?.fontFamily
         };
     }
+    /**
+     * Return the styles for the sectional legend titles.
+     */
     function getSectionStyles(styles) {
         return {
             sectionTitleColor: styles?.color,
@@ -30,6 +43,9 @@ define(["require", "exports", "../legend-item/legend-item", "../legend-section/l
             sectionTitleTextDecoration: styles?.textDecoration
         };
     }
+    /**
+     * Checks if the legend is interactive.
+     */
     function isLegendInteractive(drilling, hideAndShowBehavior, hoverBehavior, hasDrillableItem, isContextMenuEnabled) {
         return (drilling === 'on' ||
             hideAndShowBehavior === 'on' ||
@@ -37,9 +53,18 @@ define(["require", "exports", "../legend-item/legend-item", "../legend-section/l
             hasDrillableItem ||
             isContextMenuEnabled);
     }
+    /**
+     * Parses preact id to corepack id.
+     */
     function parseItemIdx(id) {
         return id.split(';').map((i) => parseInt(i, 10));
     }
+    /**
+     * Transforms the corepack legend item to preact legend item.
+     * @param item The legend item
+     * @param ariaLabelSuffix The suffix to add in the legend item aria label.
+     * @returns
+     */
     function transformItem(dataItem, sectionIndex, itemIndex, ariaLabelSuffix, drilling, hideAndShowBehavior, isContextMenuEnabled) {
         const item = { ...legend_item_1.LegendItemDefaults, ...dataItem };
         return {
@@ -56,9 +81,17 @@ define(["require", "exports", "../legend-item/legend-item", "../legend-section/l
             actionable: hideAndShowBehavior === 'on' || isContextMenuEnabled
                 ? 'inherit'
                 : isLegendItemDrillable(drilling, item.drilling),
+            // ignore corepack ids as it can be string, int, even [undefined] depending on
+            // dataprovider keyAttributes, childAttribute. Instead, we create simple string ids for preact.
             id: `${sectionIndex};${itemIndex}`
         };
     }
+    /**
+     * Transforms the corepack legend sections to the preact legend sections.
+     * @param section The legend section
+     * @param ariaLabelSuffix The suffix to add in the legend item aria-label.
+     * @returns
+     */
     function transformSection(dataSection, ariaLabelSuffix, sectionIndex, drilling) {
         const section = { ...legend_section_1.LegendSectionDefaults, ...dataSection };
         return {
@@ -67,13 +100,22 @@ define(["require", "exports", "../legend-item/legend-item", "../legend-section/l
             id: `${sectionIndex}`
         };
     }
+    /**
+     * Checks if the given dataprovider is a treedataprovider.
+     * @param dataprovider
+     * @returns
+     */
     function isTreeDataProvider(dataprovider) {
         if (dataprovider && dataprovider['getChildDataProvider']) {
             return true;
         }
         return false;
     }
+    /**
+     * Returns the symbolWidth and symbolHeight for the preact legend.
+     */
     const getDefaultSymbolDims = (symbolHeight, symbolWidth) => {
+        // if both are zero, default to preact dims
         if (!symbolHeight && !symbolWidth) {
             return { width: undefined, height: undefined };
         }

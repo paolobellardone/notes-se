@@ -1,7 +1,7 @@
 {
   "name": "file-picker",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -36,7 +36,11 @@
       ]
     },
     "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/FilePickerWebElement.html"
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/FilePickerWebElement.html",
+      "export": "findFilePicker",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   },
   "propertyLayout": [

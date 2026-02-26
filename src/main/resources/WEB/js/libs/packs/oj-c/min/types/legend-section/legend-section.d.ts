@@ -1,15 +1,29 @@
-import { ComponentProps } from 'preact';
-import { JetElement, JetSettableProperties, JetElementCustomEventStrict, JetSetPropertyType } from 'ojs/index';
-import { GlobalProps } from 'ojs/ojvcomponent';
-import 'ojs/oj-jsx-interfaces';
 export declare const LegendSectionDefaults: {
     text: string;
 };
 type LegendSectionProps = {
+    /**
+     * @description
+     * The title of the legend section.
+     * @ojmetadata description "The title of the legend section."
+     * @ojmetadata displayName "Text"
+     * @ojmetadata help "#text"
+     * @ojmetadata translatable
+     */
     text?: string;
 };
+/**
+ * This export corresponds to the LegendSection Preact component. For the oj-c-legend-section custom element, import CLegendSectionElement instead.
+ */
 export declare const LegendSection: import("preact").ComponentType<import("ojs/ojvcomponent").ExtendGlobalProps<LegendSectionProps>>;
 export {};
+import { ComponentProps } from 'preact';
+import { JetElement, JetSettableProperties, JetElementCustomEventStrict, JetSetPropertyType } from 'ojs/index';
+import { GlobalProps } from 'ojs/ojvcomponent';
+import 'ojs/oj-jsx-interfaces';
+/**
+ * This export corresponds to the oj-c-legend-section custom element. For the LegendSection Preact component, import LegendSection instead.
+ */
 export interface CLegendSectionElement extends JetElement<CLegendSectionElementSettableProperties>, CLegendSectionElementSettableProperties {
     addEventListener<T extends keyof CLegendSectionElementEventMap>(type: T, listener: (this: HTMLElement, ev: CLegendSectionElementEventMap[T]) => any, options?: (boolean | AddEventListenerOptions)): void;
     addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: (boolean | AddEventListenerOptions)): void;
@@ -26,6 +40,9 @@ export interface CLegendSectionElementEventMap extends HTMLElementEventMap {
     'textChanged': JetElementCustomEventStrict<CLegendSectionElement['text']>;
 }
 export interface CLegendSectionElementSettableProperties extends JetSettableProperties {
+    /**
+     * The title of the legend section.
+     */
     text?: ComponentProps<typeof LegendSection>['text'];
 }
 export interface CLegendSectionElementSettablePropertiesLenient extends Partial<CLegendSectionElementSettableProperties> {

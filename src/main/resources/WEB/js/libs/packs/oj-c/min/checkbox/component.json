@@ -1,7 +1,7 @@
 {
   "name": "checkbox",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -15,7 +15,7 @@
   "main": "oj-c/checkbox",
   "status": [
     {
-      "type": "candidate",
+      "type": "production",
       "since": "17.0.0"
     }
   ],
@@ -35,7 +35,11 @@
       ]
     },
     "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/CheckboxWebElement.html"
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/CheckboxWebElement.html",
+      "export": "findCheckbox",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   },
   "propertyLayout": [
@@ -51,6 +55,23 @@
       "propertyGroup": "data",
       "items": [
         "value"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "type": "anyOf",
+      "label": "accessibility",
+      "slots": [
+        ""
+      ]
+    },
+    {
+      "type": "not",
+      "label": "accessibility",
+      "properties": [
+        "aria-label",
+        "aria-labelledby"
       ]
     }
   ],
@@ -174,6 +195,17 @@
           "name": "containerReadonly"
         }
       }
+    },
+    "readonlyUserAssistanceShown": {
+      "type": "string",
+      "description": "Specifies which user assistance types should be shown when the component is readonly.",
+      "displayName": "ReadonlyUserAssistanceShown",
+      "help": "#readonlyUserAssistanceShown",
+      "enumValues": [
+        "none",
+        "confirmationAndInfoMessages"
+      ],
+      "value": "none"
     },
     "required": {
       "type": "boolean",

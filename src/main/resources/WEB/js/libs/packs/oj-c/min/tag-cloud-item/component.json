@@ -1,7 +1,7 @@
 {
   "name": "tag-cloud-item",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -60,7 +60,7 @@
     },
     "shortDesc": {
       "type": "string",
-      "description": "The description of the item. This is used for customizing the tooltip text.",
+      "description": "The description of the item. This is used for customizing the datatip text.",
       "displayName": "ShortDesc",
       "help": "#shortDesc"
     }

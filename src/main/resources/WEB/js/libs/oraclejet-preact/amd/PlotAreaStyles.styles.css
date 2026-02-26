@@ -3,7 +3,7 @@
 }
 .PlotAreaStyles_majorTickLineStyles__1650j5y1 {
   stroke-width: 1px;
-  stroke: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-border-divider);
+  stroke: var(--oj-c-border-divider);
   shape-rendering: crispEdges;
 }
 .PlotAreaStyles_minorTickLineStyles__1650j5y2 {
@@ -11,10 +11,10 @@
   shape-rendering: crispEdges;
 }
 .PlotAreaStyles_darkMinorTickLineStroke__1650j5y3 {
-  stroke: rgba(var(--oj-c-EXPERIMENTAL-DO-NOT-USE-palette-neutral-200), 0.07);
+  stroke: rgba(var(--oj-c-palette-neutral-200), 0.07);
 }
 .PlotAreaStyles_lightMinorTickLineStroke__1650j5y4 {
-  stroke: rgba(var(--oj-c-EXPERIMENTAL-DO-NOT-USE-palette-neutral-190), 0.07);
+  stroke: rgba(var(--oj-c-palette-neutral-190), 0.07);
 }
 .PlotAreaStyles_dottedLine__1650j5y5 {
   stroke-dasharray: 3px;
@@ -26,12 +26,12 @@
   fill: transparent;
 }
 .PlotAreaStyles_axisLineStyle__1650j5y8 {
-  stroke: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-border-enabled);
+  stroke: var(--oj-c-border-enabled);
   stroke-width: 1px;
   shape-rendering: crispEdges;
 }
 .PlotAreaStyles_baseLineStyle__1650j5y9 {
-  stroke: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-border-enabled);
+  stroke: var(--oj-c-border-enabled);
   stroke-width: 1px;
   shape-rendering: crispEdges;
 }

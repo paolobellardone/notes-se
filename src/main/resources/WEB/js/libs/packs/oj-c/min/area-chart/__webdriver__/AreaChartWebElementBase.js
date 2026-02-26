@@ -82,6 +82,33 @@ class AreaChartWebElementBase extends elements_1.OjWebElement {
         return this.getProperty('yAxis');
     }
     /**
+     * Gets the value of <code>y2Axis</code> property.
+     * The y2Axis options for the chart.
+     * @return The value of <code>y2Axis</code> property.
+     *
+     */
+    getY2Axis() {
+        return this.getProperty('y2Axis');
+    }
+    /**
+     * Gets the value of <code>splitDualY</code> property.
+     * Defines whether the plot area is split into two sections.
+     * @return The value of <code>splitDualY</code> property.
+     *
+     */
+    getSplitDualY() {
+        return this.getProperty('splitDualY');
+    }
+    /**
+     * Gets the value of <code>splitterPosition</code> property.
+     * Specifies the fraction of the space that is given to the Y-axis subchart.
+     * @return The value of <code>splitterPosition</code> property.
+     *
+     */
+    getSplitterPosition() {
+        return this.getProperty('splitterPosition');
+    }
+    /**
      * Gets the value of <code>xAxis</code> property.
      * An object defining x axis properties.
      * @return The value of <code>xAxis</code> property.
@@ -110,12 +137,21 @@ class AreaChartWebElementBase extends elements_1.OjWebElement {
     }
     /**
      * Gets the value of <code>valueFormats</code> property.
-     * An object specifying value formatting and tooltip behavior.
+     * An object specifying value formatting and datatip behavior.
      * @return The value of <code>valueFormats</code> property.
      *
      */
     getValueFormats() {
         return this.getProperty('valueFormats');
+    }
+    /**
+     * Gets the value of <code>styleDefaults</code> property.
+     * An object specifying default styles for chart style attributes..
+     * @return The value of <code>styleDefaults</code> property.
+     *
+     */
+    getStyleDefaults() {
+        return this.getProperty('styleDefaults');
     }
     /**
      * Gets the value of <code>selectionMode</code> property.
@@ -233,6 +269,15 @@ class AreaChartWebElementBase extends elements_1.OjWebElement {
      */
     getContextMenuConfig() {
         return this.getProperty('contextMenuConfig');
+    }
+    /**
+     * Gets the value of <code>datatipConfig</code> property.
+     * The DatatipConfig object is used to allow applications to control the appearance and behavior of the datatip.
+     * @return The value of <code>datatipConfig</code> property.
+     *
+     */
+    getDatatipConfig() {
+        return this.getProperty('datatipConfig');
     }
 }
 exports.AreaChartWebElementBase = AreaChartWebElementBase;

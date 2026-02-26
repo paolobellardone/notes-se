@@ -1,7 +1,7 @@
 {
   "name": "skeleton",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -19,15 +19,19 @@
       "module": "oj-c/skeleton"
     },
     "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/SkeletonWebElement.html"
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/SkeletonWebElement.html",
+      "export": "findSkeleton",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   },
   "help": "oj-c.Skeleton.html",
   "since": "18.0.0",
   "status": [
     {
-      "type": "candidate",
-      "since": "18.0.0"
+      "type": "production",
+      "since": "19.0.0"
     }
   ],
   "main": "oj-c/skeleton",

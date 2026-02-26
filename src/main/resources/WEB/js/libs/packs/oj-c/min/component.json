@@ -1,7 +1,7 @@
 {
   "name": "oj-c",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "type": "mono-pack",
   "displayName": "Oracle JET Core pack",
   "description": "Core Oracle JET components implemented using virtual DOM technology",
@@ -9,7 +9,7 @@
   "license": "https://opensource.org/licenses/UPL",
   "dependencyScope": "runtime",
   "dependencies": {
-    "oj-ref-oraclejet-preact": "18.1.0"
+    "oj-ref-oraclejet-preact": "20.0.0"
   },
   "bundles": {
     "oj-c/corepackbundle": [
@@ -40,6 +40,8 @@
       "oj-c/select-multiple",
       "oj-c/select-single",
       "oj-c/collapsible",
+      "oj-c/accordion-item-single",
+      "oj-c/accordion-item-multiple",
       "oj-c/file-picker",
       "oj-c/meter-bar",
       "oj-c/meter-circle",
@@ -71,6 +73,8 @@
       "oj-c/tab-bar-mixed",
       "oj-c/card-view",
       "oj-c/conveyor-belt",
+      "oj-c/picto-chart",
+      "oj-c/picto-chart-item",
       "oj-c/drag-handle",
       "oj-c/toggle-button",
       "oj-c/buttonset-single",
@@ -80,7 +84,11 @@
       "oj-c/skeleton",
       "oj-c/toolbar",
       "oj-c/rich-checkboxset",
-      "oj-c/rich-radioset"
+      "oj-c/rich-radioset",
+      "oj-c/input-time-mask",
+      "oj-c/badge",
+      "oj-c/truncating-badge",
+      "oj-c/truncating-text"
     ]
   },
   "contents": [
@@ -287,6 +295,30 @@
     },
     {
       "name": "rich-radioset"
+    },
+    {
+      "name": "input-time-mask"
+    },
+    {
+      "name": "badge"
+    },
+    {
+      "name": "truncating-badge"
+    },
+    {
+      "name": "truncating-text"
+    },
+    {
+      "name": "accordion-item-single"
+    },
+    {
+      "name": "accordion-item-multiple"
+    },
+    {
+      "name": "picto-chart"
+    },
+    {
+      "name": "picto-chart-item"
     }
   ]
 }

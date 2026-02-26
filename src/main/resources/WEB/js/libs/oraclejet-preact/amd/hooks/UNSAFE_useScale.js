@@ -1,2 +1,2 @@
-define(['exports', '../useScale-0fb08a15', 'preact/hooks', '../LayerHost-1b4d03f0', 'preact', '../Common/themes/redwood/theme', '../Common/themes/themeContract.css', 'preact/jsx-runtime', 'preact/compat'], (function(e,t,o,s,c,a,r,m,n){"use strict";e.useScale=t.useScale,Object.defineProperty(e,"__esModule",{value:!0})}));
+define(['exports', '../useScale-04a448c3', 'preact/hooks', '../LayerHost-0b288129', 'preact', '../index-055933ab', 'preact/jsx-runtime', 'preact/compat', '../UNSAFE_Layer/themes/LayerHostStyles.css', 'css!./../LayerHostStyles.styles.css'], (function(e,s,t,a,c,r,o,l,u,y){"use strict";e.useScale=s.useScale,Object.defineProperty(e,"__esModule",{value:!0})}));
 //# sourceMappingURL=UNSAFE_useScale.js.map

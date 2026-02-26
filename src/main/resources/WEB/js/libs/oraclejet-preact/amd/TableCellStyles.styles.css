@@ -1,7 +1,7 @@
 .TableCellStyles_tableCellStyles_base__15znm170 {
   box-sizing: border-box;
-  color: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-text-icon-primary);
-  font-size: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-body-md-font-size);
+  color: var(--oj-c-text-icon-primary);
+  font-size: var(--oj-c-body-md-font-size);
   overflow: hidden;
   position: relative;
   text-overflow: ellipsis;
@@ -18,13 +18,13 @@
   z-index: 2;
 }
 .TableCellStyles_tableCellStyles_rowHighlight__15znm173 {
-  background-image: linear-gradient(var(--oj-c-EXPERIMENTAL-DO-NOT-USE-overlay-hover), var(--oj-c-EXPERIMENTAL-DO-NOT-USE-overlay-hover));
+  background-image: linear-gradient(var(--oj-c-overlay-hover), var(--oj-c-overlay-hover));
 }
-.TableCellStyles_tableCellStyles_focused__15znm174::before {
+.TableCellStyles_tableCellStyles_focused__15znm174::after {
   content: "";
   display: block;
   inset: 0;
-  outline-color: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-border-keyboard-focus);
+  outline-color: var(--oj-c-border-keyboard-focus);
   outline-offset: -1px;
   outline-style: dotted;
   outline-width: 1px;
@@ -32,13 +32,13 @@
   position: absolute;
 }
 .TableCellStyles_tableCellStyles_active__15znm175 {
-  background-image: linear-gradient(var(--oj-c-EXPERIMENTAL-DO-NOT-USE-overlay-hover), var(--oj-c-EXPERIMENTAL-DO-NOT-USE-overlay-hover));
+  background-image: linear-gradient(var(--oj-c-overlay-hover), var(--oj-c-overlay-hover));
 }
-.TableRowStyles_tableRowStyles_base__zfh7v10:not(:active) > .TableCellStyles_tableCellStyles_hover__15znm176 {
-  background-image: linear-gradient(var(--oj-c-EXPERIMENTAL-DO-NOT-USE-overlay-hover), var(--oj-c-EXPERIMENTAL-DO-NOT-USE-overlay-hover));
+.TableRowStyles_tableRowStyles_base__zfh7v10 > .TableCellStyles_tableCellStyles_hover__15znm176 {
+  background-image: linear-gradient(var(--oj-c-overlay-hover), var(--oj-c-overlay-hover));
 }
 @media (hover: hover) {
-  .TableRowStyles_tableRowStyles_base__zfh7v10:hover:not(:active) > .TableCellStyles_tableCellStyles_pseudoHover__15znm177 {
-    background-image: linear-gradient(var(--oj-c-EXPERIMENTAL-DO-NOT-USE-overlay-hover), var(--oj-c-EXPERIMENTAL-DO-NOT-USE-overlay-hover));
+  .TableRowStyles_tableRowStyles_base__zfh7v10:hover > .TableCellStyles_tableCellStyles_pseudoHover__15znm177 {
+    background-image: linear-gradient(var(--oj-c-overlay-hover), var(--oj-c-overlay-hover));
   }
 }

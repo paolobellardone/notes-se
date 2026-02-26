@@ -8,32 +8,25 @@
 }
 @keyframes ProgressCircleStyles_circleLength__o65man1 {
   0% {
-    -webkit-clip-path: polygon(21.1% 0, 21.1% 0, 21.1% 0, 50% 50%, 78.9% 0, 78.9% 0, 78.9% 0);
-            clip-path: polygon(21.1% 0, 21.1% 0, 21.1% 0, 50% 50%, 78.9% 0, 78.9% 0, 78.9% 0);
+    clip-path: polygon(21.1% 0, 21.1% 0, 21.1% 0, 50% 50%, 78.9% 0, 78.9% 0, 78.9% 0);
   }
   6.25% {
-    -webkit-clip-path: polygon(0 0, 0 0, 0 0, 50% 50%, 100% 0, 100% 0, 100% 0);
-            clip-path: polygon(0 0, 0 0, 0 0, 50% 50%, 100% 0, 100% 0, 100% 0);
+    clip-path: polygon(0 0, 0 0, 0 0, 50% 50%, 100% 0, 100% 0, 100% 0);
   }
   43.75% {
-    -webkit-clip-path: polygon(0 0, 0 100%, 0 100%, 50% 50%, 100% 100%, 100% 100%, 100% 0);
-            clip-path: polygon(0 0, 0 100%, 0 100%, 50% 50%, 100% 100%, 100% 100%, 100% 0);
+    clip-path: polygon(0 0, 0 100%, 0 100%, 50% 50%, 100% 100%, 100% 100%, 100% 0);
   }
   50% {
-    -webkit-clip-path: polygon(0 0, 0 100%, 21.1% 100%, 50% 50%, 78.9% 100%, 100% 100%, 100% 0);
-            clip-path: polygon(0 0, 0 100%, 21.1% 100%, 50% 50%, 78.9% 100%, 100% 100%, 100% 0);
+    clip-path: polygon(0 0, 0 100%, 21.1% 100%, 50% 50%, 78.9% 100%, 100% 100%, 100% 0);
   }
   56.25% {
-    -webkit-clip-path: polygon(0 0, 0 100%, 0 100%, 50% 50%, 100% 100%, 100% 100%, 100% 0);
-            clip-path: polygon(0 0, 0 100%, 0 100%, 50% 50%, 100% 100%, 100% 100%, 100% 0);
+    clip-path: polygon(0 0, 0 100%, 0 100%, 50% 50%, 100% 100%, 100% 100%, 100% 0);
   }
   93.75% {
-    -webkit-clip-path: polygon(0 0, 0 0, 0 0, 50% 50%, 100% 0, 100% 0, 100% 0);
-            clip-path: polygon(0 0, 0 0, 0 0, 50% 50%, 100% 0, 100% 0, 100% 0);
+    clip-path: polygon(0 0, 0 0, 0 0, 50% 50%, 100% 0, 100% 0, 100% 0);
   }
   100% {
-    -webkit-clip-path: polygon(21.1% 0, 21.1% 0, 21.1% 0, 50% 50%, 78.9% 0, 78.9% 0, 78.9% 0);
-            clip-path: polygon(21.1% 0, 21.1% 0, 21.1% 0, 50% 50%, 78.9% 0, 78.9% 0, 78.9% 0);
+    clip-path: polygon(21.1% 0, 21.1% 0, 21.1% 0, 50% 50%, 78.9% 0, 78.9% 0, 78.9% 0);
   }
 }
 .ProgressCircleStyles_base__o65man2 {
@@ -48,7 +41,7 @@
 }
 .ProgressCircleStyles_indeterminate__o65man3 {
   border-width: var(--trackWidth__lborgv1);
-  border-color: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-measure-fill-enabled);
+  border-color: var(--oj-c-measure-fill-enabled);
   border-style: solid;
   width: 100%;
   height: 100%;
@@ -71,8 +64,8 @@
   border-style: solid;
 }
 .ProgressCircleStyles_track__o65man5 {
-  border-color: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-measure-track-enabled);
+  border-color: var(--oj-c-measure-track-enabled);
 }
 .ProgressCircleStyles_valueStyle__o65man6 {
-  border-color: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-measure-fill-enabled);
+  border-color: var(--oj-c-measure-fill-enabled);
 }

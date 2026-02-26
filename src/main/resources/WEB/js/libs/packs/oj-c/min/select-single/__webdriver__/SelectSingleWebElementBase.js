@@ -10,6 +10,15 @@ const elements_1 = require("@oracle/oraclejet-webdriver/elements");
  */
 class SelectSingleWebElementBase extends elements_1.OjWebElement {
     /**
+     * Gets the value of <code>addToList</code> property.
+     * Specifies whether the add to list link is shown in the dropdown when the user filters.
+     * @return The value of <code>addToList</code> property.
+     *
+     */
+    getAddToList() {
+        return this.getProperty('addToList');
+    }
+    /**
      * Gets the value of <code>advancedSearch</code> property.
      * Specifies whether the advanced search link is shown in the dropdown when the user filters.
      * @return The value of <code>advancedSearch</code> property.
@@ -136,6 +145,15 @@ class SelectSingleWebElementBase extends elements_1.OjWebElement {
         return this.getProperty('matchBy');
     }
     /**
+     * Gets the value of <code>maxWidth</code> property.
+     * The max width of the control.
+     * @return The value of <code>maxWidth</code> property.
+     *
+     */
+    getMaxWidth() {
+        return this.getProperty('maxWidth');
+    }
+    /**
      * Sets the value of <code>messagesCustom</code> property.
      * List of custom component messages
      * @param messagesCustom The value to set for <code>messagesCustom</code>
@@ -170,6 +188,15 @@ class SelectSingleWebElementBase extends elements_1.OjWebElement {
      */
     getReadonly() {
         return this.getProperty('readonly');
+    }
+    /**
+     * Gets the value of <code>readonlyUserAssistanceShown</code> property.
+     * Specifies which user assistance types should be shown when the component is readonly.
+     * @return The value of <code>readonlyUserAssistanceShown</code> property.
+     *
+     */
+    getReadonlyUserAssistanceShown() {
+        return this.getProperty('readonlyUserAssistanceShown');
     }
     /**
      * Gets the value of <code>required</code> property.
@@ -251,6 +278,15 @@ class SelectSingleWebElementBase extends elements_1.OjWebElement {
      */
     getVirtualKeyboard() {
         return this.getProperty('virtualKeyboard');
+    }
+    /**
+     * Gets the value of <code>width</code> property.
+     * The width of the control.
+     * @return The value of <code>width</code> property.
+     *
+     */
+    getWidth() {
+        return this.getProperty('width');
     }
     /**
      * Gets the value of <code>valid</code> property.

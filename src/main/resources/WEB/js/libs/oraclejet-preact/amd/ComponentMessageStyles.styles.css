@@ -8,14 +8,14 @@
   overflow-y: hidden;
 }
 .ComponentMessageStyles_variants_severity_error__12i4io42 {
-  --startIconColor__1aj7c360: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-text-icon-danger) !important;
+  --startIconColor__1aj7c360: var(--oj-c-text-icon-danger) !important;
 }
 .ComponentMessageStyles_variants_severity_warning__12i4io43 {
-  --startIconColor__1aj7c360: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-text-icon-warning) !important;
+  --startIconColor__1aj7c360: var(--oj-c-text-icon-warning) !important;
 }
 .ComponentMessageStyles_variants_severity_confirmation__12i4io44 {
-  --startIconColor__1aj7c360: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-text-icon-success) !important;
+  --startIconColor__1aj7c360: var(--oj-c-text-icon-success) !important;
 }
 .ComponentMessageStyles_variants_severity_info__12i4io45 {
-  --startIconColor__1aj7c360: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-text-icon-info) !important;
+  --startIconColor__1aj7c360: var(--oj-c-text-icon-info) !important;
 }

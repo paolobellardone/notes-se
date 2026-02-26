@@ -112,6 +112,13 @@ export declare class InputNumberWebElementBase extends OjWebElement {
      */
     getMax(): Promise<number | null>;
     /**
+     * Gets the value of <code>maxWidth</code> property.
+     * The max width of the control.
+     * @return The value of <code>maxWidth</code> property.
+     *
+     */
+    getMaxWidth(): Promise<number | string>;
+    /**
      * Gets the value of <code>min</code> property.
      * The minimum allowed value
      * @return The value of <code>min</code> property.
@@ -141,14 +148,14 @@ export declare class InputNumberWebElementBase extends OjWebElement {
     getNumberRangeExactMessageDetail(): Promise<string>;
     /**
      * Gets the value of <code>numberRangeOverflowMessageDetail</code> property.
-     * Overrides the default NumberRangeValidator's exact message detail.
+     * Overrides the default NumberRangeValidator's overflow message detail.
      * @return The value of <code>numberRangeOverflowMessageDetail</code> property.
      *
      */
     getNumberRangeOverflowMessageDetail(): Promise<string>;
     /**
      * Gets the value of <code>numberRangeUnderflowMessageDetail</code> property.
-     * Overrides the default NumberRangeValidator's exact message detail.
+     * Overrides the default NumberRangeValidator's underflow message detail.
      * @return The value of <code>numberRangeUnderflowMessageDetail</code> property.
      *
      */
@@ -167,6 +174,13 @@ export declare class InputNumberWebElementBase extends OjWebElement {
      *
      */
     getReadonly(): Promise<boolean>;
+    /**
+     * Gets the value of <code>readonlyUserAssistanceShown</code> property.
+     * Specifies which user assistance types should be shown when the component is readonly.
+     * @return The value of <code>readonlyUserAssistanceShown</code> property.
+     *
+     */
+    getReadonlyUserAssistanceShown(): Promise<string>;
     /**
      * Gets the value of <code>required</code> property.
      * Specifies whether or not the component is required.
@@ -237,6 +251,13 @@ export declare class InputNumberWebElementBase extends OjWebElement {
      *
      */
     getVirtualKeyboard(): Promise<string>;
+    /**
+     * Gets the value of <code>width</code> property.
+     * The width of the control.
+     * @return The value of <code>width</code> property.
+     *
+     */
+    getWidth(): Promise<number | string>;
     /**
      * Gets the value of <code>rawValue</code> property.
      * Specifies how the raw value of the component

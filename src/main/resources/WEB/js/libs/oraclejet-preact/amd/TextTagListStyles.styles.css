@@ -2,7 +2,7 @@
   align-items: center;
   box-sizing: border-box;
   display: flex;
-  gap: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem);
+  gap: var(--oj-c-size-units, 0.25rem);
   height: 100%;
   overflow-x: auto;
   margin-inline-start: var(--textToEdgePadding__w6gg1y9);
@@ -18,5 +18,5 @@
   outline: none;
 }
 .TextTagListStyles_textTagListInsideLabel__1cda2601 {
-  padding-top: calc(var(--insideEdgePaddingTop__w6gg1yi) + var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem) - 2px);
+  padding-top: calc(var(--insideEdgePaddingTop__w6gg1yh) + var(--oj-c-size-units, 0.25rem) - 2px);
 }

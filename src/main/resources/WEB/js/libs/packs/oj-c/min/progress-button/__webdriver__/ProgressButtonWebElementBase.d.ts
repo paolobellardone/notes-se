@@ -8,14 +8,14 @@ import { OjWebElement } from '@oracle/oraclejet-webdriver/elements';
 export declare class ProgressButtonWebElementBase extends OjWebElement {
     /**
      * Gets the value of <code>label</code> property.
-     * Text to show in the button or as tooltip for icon mode.
+     * Text to show in a non-icon-only button and as a tooltip when loading, or as tooltip for icon mode.
      * @return The value of <code>label</code> property.
      *
      */
     getLabel(): Promise<string>;
     /**
      * Gets the value of <code>tooltip</code> property.
-     * Text to show in the tooltip. This overrides the default tooltip that renders the label when in icon mode.
+     * Text to show in the tooltip. This overrides the default tooltip that renders the label when in icon mode, and can also be used to apply a tooltip for non-icon-only buttons.
      * @return The value of <code>tooltip</code> property.
      *
      */

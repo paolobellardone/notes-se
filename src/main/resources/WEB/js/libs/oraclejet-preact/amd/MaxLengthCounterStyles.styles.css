@@ -3,14 +3,14 @@
   align-items: center;
   justify-content: flex-end;
   cursor: text;
-  font-size: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-body-xs-font-size);
-  line-height: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-body-xs-line-height);
-  color: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-text-icon-secondary);
+  font-size: var(--oj-c-body-xs-font-size);
+  line-height: var(--oj-c-body-xs-line-height);
+  color: var(--oj-c-text-icon-secondary);
   -webkit-text-decoration-line: none;
           text-decoration-line: none;
   padding-top: 0;
   padding-inline-end: var(--textToEdgePadding__w6gg1y9);
-  padding-bottom: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem);
+  padding-bottom: var(--oj-c-size-units, 0.25rem);
   padding-inline-start: var(--textToEdgePadding__w6gg1y9);
 }
 .MaxLengthCounterStyles_hide__7dy9j71 {

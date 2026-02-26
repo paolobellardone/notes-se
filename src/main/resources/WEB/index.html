@@ -4,7 +4,7 @@
 
     MIT License
 
-    Copyright (c) 2020, 2024 PaoloB
+    Copyright (c) 2020, 2026 PaoloB
 
     Permission is hereby granted, free of charge, to any person obtaining a copy
     of this software and associated documentation files (the "Software"), to deal
@@ -39,8 +39,8 @@
 
   <!-- This is the main css file for the default theme -->
 <!-- injector:theme -->
-<link rel="stylesheet" href="css/redwood/18.1.0/web/redwood.min.css" id="basestyles" />
-<link rel="stylesheet" href="css/theme-redwood/18.1.0/web/theme.css" id="themestyle" />
+<link rel="stylesheet" href="css/redwood/20.0.0/web/redwood.min.css" id="basestyles" />
+<link rel="stylesheet" href="css/theme-redwood/20.0.0/web/theme.css" id="themestyle" />
 <!-- endinjector -->
 
   <!-- This contains icon fonts used by the starter template -->
@@ -79,7 +79,7 @@
           <div class="oj-flex-item oj-sm-10 oj-md-6 oj-lg-8 oj-xl-8">
             <h3>Published notes</h3>
             <oj-table id="table"
-                      data="[[datasource]]"
+                      data="[[dataSource]]"
                       columns='[{"headerText": "Note Id", "field": "id", "sortable": "enabled"},
                                 {"headerText": "Note Name", "field": "name", "sortable": "enabled"},
                                 {"headerText": "Note Contents", "field": "contents", "sortable": "enabled"},
@@ -95,7 +95,7 @@
               </template>
             </oj-table>
 
-            <oj-dialog id="editDialog" style="display:none" dialog-title="Update Note" drag-affordance="title-bar" modality="modeless" resize-behavior="none">
+            <oj-c-dialog id="editDialog" opened="{{isDialogOpened}}" dialog-title="Update Note" drag-affordance="header" modality="modal" resize-behavior="none">
               <div slot="header" class="oj-helper-clearfix" aria-labelledby="dialog-title-id">
                 <div>
                   <span id="dialog-title-id" class="oj-dialog-title">Update Note</span>
@@ -111,7 +111,7 @@
                 <oj-c-button id="submitBtn" on-oj-action="[[updateNote]]" label="Update"></oj-c-button>
                 <oj-c-button id="resetBtn" on-oj-action="[[cancelDialog]]" label="Cancel"></oj-c-button>
               </div>
-            </oj-dialog>
+            </oj-c-dialog>
           </div>
           <div class="oj-flex-item oj-sm-1 oj-md-3 oj-lg-2 oj-xl-2"></div>
         </div>

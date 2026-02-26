@@ -2,6 +2,11 @@ define(["require", "exports", "oj-c/hooks/UNSAFE_useListData/useListData", "prea
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.useCollectionTemplateDataProviderView = useCollectionTemplateDataProviderView;
+    /**
+     * A custom hook to wrap the DP in a CollectionTemplateDataProviderView.
+     * @param param0 The props for the useCollectionTemplateDataProviderView
+     * @returns hook result
+     */
     function useCollectionTemplateDataProviderView({ dataProvider, options: { dataStateOverride, filterCriterion } }) {
         const [state, dispatch] = (0, hooks_1.useReducer)((reducer), {
             dataState: (0, useListData_1.getEmptyState)('atLeast')
@@ -13,6 +18,7 @@ define(["require", "exports", "oj-c/hooks/UNSAFE_useListData/useListData", "prea
                     dispatch({ type: 'loading' });
                 },
                 onNextIteration({ results: { data, metadata, fetchParameters }, offset, done }) {
+                    // if the fetch is aborted, do nothing
                     if (fetchParameters.signal?.aborted)
                         return;
                     const items = data.map((item, index) => ({
@@ -22,6 +28,7 @@ define(["require", "exports", "oj-c/hooks/UNSAFE_useListData/useListData", "prea
                     dispatch({ type: 'append', payload: { items, offset, done } });
                 },
                 onOffsetFetch({ results: { results, done, fetchParameters } }) {
+                    // If the fetch is aborted, do nothing
                     if (fetchParameters.signal?.aborted)
                         return;
                     dispatch({
@@ -30,14 +37,20 @@ define(["require", "exports", "oj-c/hooks/UNSAFE_useListData/useListData", "prea
                     });
                 },
                 onRefresh() {
+                    // if the previous fetch resulted in no results, the select will not render the collection. So, the current filter & the refresh event will
+                    // not cause the collection to initiate a fetch as there is no collection rendered. This results in the component getting
+                    // stuck in a no results state. To fix this, we will put the select in loading state, so the collection will be rendered and the collection
+                    // will fetch the new data.
                     dispatch({ type: 'loading' });
                 }
             }), [dataProvider]);
+        // Update the wrappedDP filter if the filterCriterion is changed
         const prevFilterCriterionRef = (0, hooks_1.useRef)();
         if (prevFilterCriterionRef.current !== filterCriterion) {
             prevFilterCriterionRef.current = filterCriterion;
             wrappedDP?.setFilterCriterion(filterCriterion);
         }
+        // Update the wrappedDP override data if the dataStateOverride is changed
         const prevDataStateOverride = (0, hooks_1.useRef)();
         if (prevDataStateOverride.current !== dataStateOverride) {
             prevDataStateOverride.current = dataStateOverride;
@@ -85,8 +98,7 @@ define(["require", "exports", "oj-c/hooks/UNSAFE_useListData/useListData", "prea
                 return {
                     ...state,
                     dataState: {
-                        status: 'loading',
-                        data: null
+                        status: 'loading'
                     }
                 };
             }

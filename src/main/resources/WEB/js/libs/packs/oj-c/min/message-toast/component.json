@@ -1,7 +1,7 @@
 {
   "name": "message-toast",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -29,7 +29,11 @@
       ]
     },
     "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/MessageToastWebElement.html"
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/MessageToastWebElement.html",
+      "export": "findMessageToast",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   },
   "propertyLayout": [
@@ -74,7 +78,7 @@
       "displayName": "Current Detail Template",
       "help": "#detailTemplateValue",
       "dynamicSlotDef": "MessageToastTemplateContext",
-      "templateSlotRenderType": "RenderDetailTemplate"
+      "templateSlotAlias": "detailTemplate"
     },
     "iconTemplateValue": {
       "type": "string|function",
@@ -82,7 +86,7 @@
       "displayName": "Current Icon Template",
       "help": "#iconTemplateValue",
       "dynamicSlotDef": "MessageToastTemplateContext",
-      "templateSlotRenderType": "RenderIconTemplate"
+      "templateSlotAlias": "iconTemplate"
     },
     "offset": {
       "type": "number|object",
@@ -118,7 +122,27 @@
       "help": "#dynamicTemplates",
       "data": {
         "data": {
-          "type": "any"
+          "type": "object",
+          "properties": {
+            "closeAffordance": {
+              "type": "string"
+            },
+            "detail": {
+              "type": "string"
+            },
+            "severity": {
+              "type": "string"
+            },
+            "sound": {
+              "type": "string"
+            },
+            "summary": {
+              "type": "string"
+            },
+            "autoTimeout": {
+              "type": "number|string"
+            }
+          }
         },
         "key": {
           "type": "string|number"
@@ -133,7 +157,7 @@
               "type": "boolean"
             },
             "key": {
-              "type": "any"
+              "type": "string|number"
             },
             "message": {
               "type": "object",
@@ -150,7 +174,7 @@
               }
             },
             "parentKey": {
-              "type": "any"
+              "type": "string|number"
             },
             "suggestion": {
               "type": "object"
@@ -169,7 +193,38 @@
       "help": "#event:ojClose",
       "detail": {
         "data": {
-          "type": "any"
+          "type": "object",
+          "properties": {
+            "closeAffordance": {
+              "type": "string",
+              "enumValues": [
+                "off",
+                "on"
+              ]
+            },
+            "detail": {
+              "type": "string"
+            },
+            "severity": {
+              "type": "string",
+              "enumValues": [
+                "none",
+                "error",
+                "confirmation",
+                "info",
+                "warning"
+              ]
+            },
+            "sound": {
+              "type": "string"
+            },
+            "summary": {
+              "type": "string"
+            },
+            "autoTimeout": {
+              "type": "number|string"
+            }
+          }
         },
         "key": {
           "type": "string|number"
@@ -184,7 +239,7 @@
               "type": "boolean"
             },
             "key": {
-              "type": "any"
+              "type": "string|number"
             },
             "message": {
               "type": "object",
@@ -201,7 +256,7 @@
               }
             },
             "parentKey": {
-              "type": "any"
+              "type": "string|number"
             },
             "suggestion": {
               "type": "object"

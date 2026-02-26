@@ -3,14 +3,15 @@ define(["require", "exports", "preact/jsx-runtime", "@oracle/oraclejet-preact/ho
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.ListItem = void 0;
     const ListItem = ({ context, itemTemplate }) => {
-        const { isTabbable } = (0, UNSAFE_useTabbableMode_1.useTabbableMode)();
+        const tabbableModeInfo = (0, UNSAFE_useTabbableMode_1.useTabbableMode)();
         const translations = (0, UNSAFE_useTranslationBundle_1.useTranslationBundle)('@oracle/oraclejet-preact');
+        // context.data is Item<K, D> from DataProvider
         const itemContext = {
-            isTabbable,
+            isTabbable: tabbableModeInfo.isTabbable,
             data: context.data.data,
             item: context.data
         };
-        return ((0, jsx_runtime_1.jsx)(ItemKeyContext_1.ItemKeyContext.Provider, { value: context.metadata.key, children: (0, jsx_runtime_1.jsxs)(UNSAFE_useTabbableMode_1.TabbableModeContext.Provider, { value: { isTabbable }, children: [itemTemplate && itemTemplate(itemContext), itemContext.item.metadata?.suggestion && ((0, jsx_runtime_1.jsx)("span", { class: "oj-helper-hidden-accessible", children: translations.list_suggestion() }))] }) }));
+        return ((0, jsx_runtime_1.jsx)(ItemKeyContext_1.ItemKeyContext.Provider, { value: context.metadata.key, children: (0, jsx_runtime_1.jsxs)(UNSAFE_useTabbableMode_1.TabbableModeContext.Provider, { value: tabbableModeInfo, children: [itemTemplate && itemTemplate(itemContext), itemContext.item.metadata?.suggestion && ((0, jsx_runtime_1.jsx)("span", { class: "oj-helper-hidden-accessible", children: translations.list_suggestion() }))] }) }));
     };
     exports.ListItem = ListItem;
 });

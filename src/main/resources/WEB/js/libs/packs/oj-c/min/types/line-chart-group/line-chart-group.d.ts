@@ -1,13 +1,40 @@
+export declare const LineChartGroupDefaults: Partial<LineChartGroupProps>;
+export type LineChartGroupProps = {
+    /**
+     * @description
+     * Whether drilling is enabled on the group label. Drillable objects will show a pointer cursor on hover and fire an <code class="prettyprint">ojDrill</code> event on click. To enable drilling for all group labels at once, use the drilling attribute in the top level.
+     * @ojmetadata description "Whether drilling is enabled on the group label."
+     * @ojmetadata displayName "Drilling"
+     * @ojmetadata help "#drilling"
+     */
+    drilling?: 'on' | 'off' | 'inherit';
+    /**
+     * @description
+     * The name of the group.
+     * @ojmetadata description "The name of the group."
+     * @ojmetadata displayName "Name"
+     * @ojmetadata help "#name"
+     */
+    name?: string;
+    /**
+     * @description
+     * The description of the group. This is used for customizing the datatip text and only applies to a categorical axis.
+     * @ojmetadata description "The description of the group."
+     * @ojmetadata displayName "ShortDesc"
+     * @ojmetadata help "#shortDesc"
+     */
+    shortDesc?: string;
+};
+/**
+ * This export corresponds to the LineChartGroup Preact component. For the oj-c-line-chart-group custom element, import CLineChartGroupElement instead.
+ */
+export declare const LineChartGroup: import("preact").ComponentType<import("ojs/ojvcomponent").ExtendGlobalProps<LineChartGroupProps>>;
 import { JetElement, JetSettableProperties, JetElementCustomEventStrict, JetSetPropertyType } from 'ojs/index';
 import { GlobalProps } from 'ojs/ojvcomponent';
 import 'ojs/oj-jsx-interfaces';
-export declare const LineChartGroupDefaults: Partial<LineChartGroupProps>;
-export type LineChartGroupProps = {
-    drilling?: 'on' | 'off' | 'inherit';
-    name?: string;
-    shortDesc?: string;
-};
-export declare const LineChartGroup: import("preact").ComponentType<import("ojs/ojvcomponent").ExtendGlobalProps<LineChartGroupProps>>;
+/**
+ * This export corresponds to the oj-c-line-chart-group custom element. For the LineChartGroup Preact component, import LineChartGroup instead.
+ */
 export interface CLineChartGroupElement extends JetElement<CLineChartGroupElementSettableProperties>, CLineChartGroupElementSettableProperties {
     addEventListener<T extends keyof CLineChartGroupElementEventMap>(type: T, listener: (this: HTMLElement, ev: CLineChartGroupElementEventMap[T]) => any, options?: (boolean | AddEventListenerOptions)): void;
     addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: (boolean | AddEventListenerOptions)): void;
@@ -28,8 +55,17 @@ export interface CLineChartGroupElementEventMap extends HTMLElementEventMap {
     'shortDescChanged': JetElementCustomEventStrict<CLineChartGroupElement['shortDesc']>;
 }
 export interface CLineChartGroupElementSettableProperties extends JetSettableProperties {
+    /**
+     * Whether drilling is enabled on the group label. Drillable objects will show a pointer cursor on hover and fire an <code class="prettyprint">ojDrill</code> event on click. To enable drilling for all group labels at once, use the drilling attribute in the top level.
+     */
     drilling?: LineChartGroupProps['drilling'];
+    /**
+     * The name of the group.
+     */
     name?: LineChartGroupProps['name'];
+    /**
+     * The description of the group. This is used for customizing the datatip text and only applies to a categorical axis.
+     */
     shortDesc?: LineChartGroupProps['shortDesc'];
 }
 export interface CLineChartGroupElementSettablePropertiesLenient extends Partial<CLineChartGroupElementSettableProperties> {

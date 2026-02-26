@@ -1,7 +1,7 @@
 {
   "name": "toolbar",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -37,7 +37,11 @@
       ]
     },
     "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/ToolbarWebElement.html"
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/ToolbarWebElement.html",
+      "export": "findToolbar",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   },
   "properties": {
@@ -400,7 +404,7 @@
       "help": "#event:ojToolbarSelection",
       "detail": {
         "value": {
-          "type": "any"
+          "type": "string|boolean|Array<string>|object"
         },
         "toolbarSelectionGroupKey": {
           "type": "string"

@@ -145,6 +145,15 @@ class InputNumberWebElementBase extends elements_1.OjWebElement {
         return this.getProperty('max');
     }
     /**
+     * Gets the value of <code>maxWidth</code> property.
+     * The max width of the control.
+     * @return The value of <code>maxWidth</code> property.
+     *
+     */
+    getMaxWidth() {
+        return this.getProperty('maxWidth');
+    }
+    /**
      * Gets the value of <code>min</code> property.
      * The minimum allowed value
      * @return The value of <code>min</code> property.
@@ -182,7 +191,7 @@ class InputNumberWebElementBase extends elements_1.OjWebElement {
     }
     /**
      * Gets the value of <code>numberRangeOverflowMessageDetail</code> property.
-     * Overrides the default NumberRangeValidator's exact message detail.
+     * Overrides the default NumberRangeValidator's overflow message detail.
      * @return The value of <code>numberRangeOverflowMessageDetail</code> property.
      *
      */
@@ -191,7 +200,7 @@ class InputNumberWebElementBase extends elements_1.OjWebElement {
     }
     /**
      * Gets the value of <code>numberRangeUnderflowMessageDetail</code> property.
-     * Overrides the default NumberRangeValidator's exact message detail.
+     * Overrides the default NumberRangeValidator's underflow message detail.
      * @return The value of <code>numberRangeUnderflowMessageDetail</code> property.
      *
      */
@@ -215,6 +224,15 @@ class InputNumberWebElementBase extends elements_1.OjWebElement {
      */
     getReadonly() {
         return this.getProperty('readonly');
+    }
+    /**
+     * Gets the value of <code>readonlyUserAssistanceShown</code> property.
+     * Specifies which user assistance types should be shown when the component is readonly.
+     * @return The value of <code>readonlyUserAssistanceShown</code> property.
+     *
+     */
+    getReadonlyUserAssistanceShown() {
+        return this.getProperty('readonlyUserAssistanceShown');
     }
     /**
      * Gets the value of <code>required</code> property.
@@ -305,6 +323,15 @@ class InputNumberWebElementBase extends elements_1.OjWebElement {
      */
     getVirtualKeyboard() {
         return this.getProperty('virtualKeyboard');
+    }
+    /**
+     * Gets the value of <code>width</code> property.
+     * The width of the control.
+     * @return The value of <code>width</code> property.
+     *
+     */
+    getWidth() {
+        return this.getProperty('width');
     }
     /**
      * Gets the value of <code>rawValue</code> property.

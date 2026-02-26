@@ -1,7 +1,17 @@
-define(["require", "exports", "ojs/ojlogger", "../../utils/UNSAFE_vizUtils/TemplateHandler", "../../utils/PRIVATE_chartUtils/lineAreaUtils"], function (require, exports, Logger, TemplateHandler_1, lineAreaUtils_1) {
+/**
+ * @license
+ * Copyright (c) 2018 %CURRENT_YEAR%, Oracle and/or its affiliates.
+ * Licensed under The Universal Permissive License (UPL), Version 1.0
+ * as shown at https://oss.oracle.com/licenses/upl/
+ * @ignore
+ */
+define(["require", "exports", "ojs/ojlogger", "../../utils/PRIVATE_vizUtils/TemplateHandler", "../../utils/PRIVATE_chartUtils/lineAreaUtils"], function (require, exports, Logger, TemplateHandler_1, lineAreaUtils_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.createGroupsAndSeries = void 0;
+    /**
+     * Takes the dataProvider and templates and returns the series, group and getDataItem needed by preact charts
+     */
     const createGroupsAndSeries = (data, itemTemplate, seriesTemplate, groupTemplate, itemElementName, seriesElementName, groupElementName, seriesComparator, groupComparator) => {
         const getItemContext = (context, index) => {
             return {
@@ -16,6 +26,8 @@ define(["require", "exports", "ojs/ojlogger", "../../utils/UNSAFE_vizUtils/Templ
                 return { id: item.key, _itemData: item.data, ...item.data };
             });
         const groupMap = new Map();
+        // Map for each group Symbol containing indices of belonging items
+        // Only populated if groupTemplate or groupComparator is specified
         const groupItemMap = groupTemplate || groupComparator ? new Map() : null;
         const seriesMap = new Map();
         const addGroup = (groupId) => {
@@ -25,6 +37,7 @@ define(["require", "exports", "ojs/ojlogger", "../../utils/UNSAFE_vizUtils/Templ
                 const gid = groupId[i];
                 let group = currentMap.get(gid);
                 if (!group) {
+                    // gid isn't necessarily globally unique, but still helpful for debugging
                     group = { value: Symbol(gid) };
                     if (i !== groupId?.length - 1) {
                         group.groups = new Map();
@@ -47,6 +60,7 @@ define(["require", "exports", "ojs/ojlogger", "../../utils/UNSAFE_vizUtils/Templ
             const leafSymbol = groupSymbols[groupSymbols?.length - 1];
             if (itemMap.get(leafSymbol) === undefined) {
                 itemMap.set(leafSymbol, itemIndex);
+                // add the itemIndex to all groups if the groupItemMap was passed
                 if (groupItemMap) {
                     groupSymbols.forEach((groupSymbol) => {
                         let groupItems = groupItemMap.get(groupSymbol);
@@ -160,11 +174,11 @@ define(["require", "exports", "ojs/ojlogger", "../../utils/UNSAFE_vizUtils/Templ
         const getGroupSymbols = (groups) => {
             const symbols = [];
             groups.forEach((group) => {
-                if (group.groups) {
-                    symbols.push(...getGroupSymbols(group.groups));
+                if (group['groups']) {
+                    symbols.push(...getGroupSymbols(group['groups']));
                 }
-                else if (group.symbol) {
-                    symbols.push(group.symbol);
+                else if (group['symbol']) {
+                    symbols.push(group['symbol']);
                 }
             });
             return symbols;
@@ -202,15 +216,11 @@ define(["require", "exports", "ojs/ojlogger", "../../utils/UNSAFE_vizUtils/Templ
                     });
                     return series;
                 });
+                // first sort before transforming the series and items.
                 if (seriesComparator) {
                     arSeries.sort((a, b) => seriesComparator(seriesContexts.get(a['id']), seriesContexts.get(b['id'])));
                 }
-                return arSeries.map((series, index) => {
-                    series['items'] = series['items'].map((item) => {
-                        return (0, lineAreaUtils_1.transformItem)(item, series);
-                    });
-                    return (0, lineAreaUtils_1.transformSeries)(series, index);
-                });
+                return arSeries;
             }
             catch (error) {
                 Logger.error(error);
@@ -221,7 +231,7 @@ define(["require", "exports", "ojs/ojlogger", "../../utils/UNSAFE_vizUtils/Templ
         processItems();
         const groups = createGroups();
         const series = createSeries(groups);
-        return { groups, series };
+        return { groups, series, createGroupContext };
     };
     exports.createGroupsAndSeries = createGroupsAndSeries;
 });

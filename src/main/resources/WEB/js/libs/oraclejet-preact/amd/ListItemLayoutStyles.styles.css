@@ -1,9 +1,9 @@
 .ListItemLayoutStyles_selectorStyles__1b15h5i0 {
   align-self: center;
-  margin: calc(-3.5 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem)) calc(-2.5 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem));
+  margin: calc(-3.5 * var(--oj-c-size-units, 0.25rem)) calc(-2.5 * var(--oj-c-size-units, 0.25rem));
 }
 .ListItemLayoutStyles_optInSelectorStyles__1b15h5i1 {
-  margin: calc(-1.5 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem)) calc(-2.5 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem));
+  margin: calc(-1.5 * var(--oj-c-size-units, 0.25rem)) calc(-2.5 * var(--oj-c-size-units, 0.25rem));
 }
 .ListItemLayoutStyles_centerVerticalStyles__1b15h5i2 {
   align-self: center;
@@ -18,18 +18,18 @@
   height: min-content;
 }
 .ListItemLayoutStyles_leftPaddingStyles__1b15h5i5 {
-  padding-inline-start: calc(4 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem));
+  padding-inline-start: calc(4 * var(--oj-c-size-units, 0.25rem));
 }
 .ListItemLayoutStyles_optInRightPaddingStyles__1b15h5i6 {
-  padding-inline-end: calc(4 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem));
+  padding-inline-end: calc(4 * var(--oj-c-size-units, 0.25rem));
 }
 .ListItemLayoutStyles_optInTopPaddingStyles__1b15h5i7 {
-  padding-block-start: calc(4 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem));
+  padding-block-start: calc(4 * var(--oj-c-size-units, 0.25rem));
 }
 .ListItemLayoutStyles_actionStyles__1b15h5i8 {
-  padding-inline-start: calc(4 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem));
-  margin-top: calc(-1 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-list-item-padding-vertical));
-  margin-bottom: calc(-1 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-list-item-padding-vertical));
+  padding-inline-start: calc(4 * var(--oj-c-size-units, 0.25rem));
+  margin-top: calc(-1 * var(--oj-c-list-item-padding-vertical));
+  margin-bottom: calc(-1 * var(--oj-c-list-item-padding-vertical));
 }
 .ListItemLayoutStyles_flexColumnStyles__1b15h5i9 {
   display: flex;

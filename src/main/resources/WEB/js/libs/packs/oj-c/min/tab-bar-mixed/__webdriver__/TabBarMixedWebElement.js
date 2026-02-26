@@ -21,10 +21,36 @@ class TabBarMixedWebElement extends TabBarMixedWebElementBase_1.TabBarMixedWebEl
         await this.whenReady();
         try {
             const tab = await this.findElement(selenium_webdriver_1.By.css(`[data-oj-key="${key}"]`));
+            const driver = this.getDriver();
+            await driver.executeScript((el) => el.scrollIntoView({ behavior: 'instant' }), tab);
             await tab?.click();
         }
         catch (e) {
-            throw new selenium_webdriver_1.error.NoSuchElementError(`Tab with specified key "${key}" cannot be found`);
+            if (e instanceof selenium_webdriver_1.error.NoSuchElementError) {
+                // Try to open overflow and retry item click
+                try {
+                    const driver = this.getDriver();
+                    const overflowBtn = await this.findElement(selenium_webdriver_1.By.css(`[data-oj-key="overflow"]`));
+                    await overflowBtn?.click();
+                    // To check if there are no pending menu animations for opening dropdown so we can proceed with fetching the items
+                    await driver.wait(async () => {
+                        const animatedDropdowns = await driver.findElements(selenium_webdriver_1.By.css(`[data-oj-layer] [oj-animation-pending=true]`));
+                        return !animatedDropdowns.length;
+                    });
+                    // Wait for the overflowing tab item to be located in the DOM
+                    const item = await driver.wait(selenium_webdriver_1.until.elementLocated(selenium_webdriver_1.By.css(`[data-oj-key="${key}"]`)), 500);
+                    // If dropdown does not fit in the test window and item is not in view this allows it to be scrolled into view
+                    await driver.executeScript((el) => el.scrollIntoView({ behavior: 'instant' }), item);
+                    if (item) {
+                        const actions = this.getDriver().actions();
+                        await actions.click(item).perform();
+                    }
+                }
+                catch (e) {
+                    console.error(`Tab with specified key "${key}" cannot be found due to error: ${e}`);
+                    throw e;
+                }
+            }
         }
     }
     /**
@@ -37,11 +63,40 @@ class TabBarMixedWebElement extends TabBarMixedWebElementBase_1.TabBarMixedWebEl
         await this.whenReady();
         try {
             const tab = await this.findElement(selenium_webdriver_1.By.css(`[data-oj-key="${key}"]`));
-            const button = tab.findElement(selenium_webdriver_1.By.css('[data-oj-tabbar-item-remove-icon="true"]'));
-            await button?.click();
+            const driver = this.getDriver();
+            await driver.executeScript((el) => el.scrollIntoView({ behavior: 'instant' }), tab);
+            const removeButton = await tab.findElement(selenium_webdriver_1.By.css('[data-oj-tabbar-item-remove-icon="true"]'));
+            await removeButton?.click();
         }
         catch (e) {
-            throw new selenium_webdriver_1.error.NoSuchElementError(`Tab with specified key "${key}" cannot be found`);
+            if (e instanceof selenium_webdriver_1.error.NoSuchElementError) {
+                // Try to open overflow and retry item click
+                try {
+                    const driver = this.getDriver();
+                    const overflowBtn = await this.findElement(selenium_webdriver_1.By.css(`[data-oj-key="overflow"]`));
+                    await overflowBtn?.click();
+                    // To check if there are no pending menu animations for opening dropdown so we can proceed with fetching the items
+                    await driver.wait(async () => {
+                        const animatedDropdowns = await driver.findElements(selenium_webdriver_1.By.css(`[data-oj-layer] [oj-animation-pending=true]`));
+                        return !animatedDropdowns.length;
+                    });
+                    // Wait for the overflowing tab item to be located in the DOM
+                    const item = await driver.wait(selenium_webdriver_1.until.elementLocated(selenium_webdriver_1.By.css(`[data-oj-key="${key}"]`)), 500);
+                    // If dropdown does not fit in the test window and item is not in view this allows it to be scrolled into view
+                    await driver.executeScript((el) => el.scrollIntoView({ behavior: 'instant' }), item);
+                    // The items inside overflow menu are navigation list items, so we use the data attribute corresponding to its remove icon
+                    const removeButton = await item.findElement(selenium_webdriver_1.By.css('[data-oj-navigationlist-item-remove-icon="true"]'));
+                    await driver.wait(selenium_webdriver_1.until.elementIsVisible(removeButton), 500);
+                    if (removeButton) {
+                        const actions = this.getDriver().actions();
+                        await actions.click(removeButton).perform();
+                    }
+                }
+                catch (e) {
+                    console.error(`Tab with specified key "${key}" cannot be found due to error: ${e}`);
+                    throw e;
+                }
+            }
         }
     }
 }

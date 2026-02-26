@@ -2,6 +2,9 @@ define(["require", "exports", "../PRIVATE_keyUtils/keySetUtils"], function (requ
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.handleOnSelectionChanged = exports.getSelectedKeys = void 0;
+    /**
+     * A helper function to get the selectedKeys to use when selection mode is singleRequired
+     */
     const getSelectedKeys = (selected, listData, selectionMode, onSelectedChanged) => {
         const numOfSelectedItems = !selected?.keys?.all
             ? selected?.keys.keys?.size

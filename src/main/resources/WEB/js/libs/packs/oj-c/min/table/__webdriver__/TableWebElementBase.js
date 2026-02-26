@@ -74,7 +74,7 @@ class TableWebElementBase extends elements_1.OjWebElement {
     }
     /**
      * Gets the value of <code>selectionMode</code> property.
-     * Specifies whether row and/or column selection gestures are enabled on the Table, and the cardinality of each (single/multiple/none).
+     * Specifies whether row and/or column selection gestures are enabled on the Table, and the cardinality of each (single/multiple/multipleToggle/none).
      * @return The value of <code>selectionMode</code> property.
      *
      */
@@ -83,7 +83,7 @@ class TableWebElementBase extends elements_1.OjWebElement {
     }
     /**
      * Gets the value of <code>selectAllControl</code> property.
-     * Controls the display of the Table's select all control when multiple row selection is enabled.
+     * Controls the display of the Table's select all control when multiple or multipleToggle row selection is enabled.
      * @return The value of <code>selectAllControl</code> property.
      *
      */
@@ -152,6 +152,24 @@ class TableWebElementBase extends elements_1.OjWebElement {
      */
     getScrollPolicyOptions() {
         return this.getProperty('scrollPolicyOptions');
+    }
+    /**
+     * Gets the value of <code>columnResizeBehavior</code> property.
+     * The column resize behavior this Table will utilize when column resizing is enabled on a given column.
+     * @return The value of <code>columnResizeBehavior</code> property.
+     *
+     */
+    getColumnResizeBehavior() {
+        return this.getProperty('columnResizeBehavior');
+    }
+    /**
+     * Gets the value of <code>contextMenuConfig</code> property.
+     * Specifies a context menu configuration.
+     * @return The value of <code>contextMenuConfig</code> property.
+     *
+     */
+    getContextMenuConfig() {
+        return this.getProperty('contextMenuConfig');
     }
 }
 exports.TableWebElementBase = TableWebElementBase;

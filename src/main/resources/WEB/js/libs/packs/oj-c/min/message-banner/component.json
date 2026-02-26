@@ -1,7 +1,7 @@
 {
   "name": "message-banner",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -29,7 +29,11 @@
       "module": "oj-c/message-banner"
     },
     "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/MessageBannerWebElement.html"
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/MessageBannerWebElement.html",
+      "export": "findMessageBanner",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   },
   "propertyLayout": [
@@ -100,7 +104,7 @@
       "displayName": "Current Detail Template",
       "help": "#detailTemplateValue",
       "dynamicSlotDef": "MessageBannerTemplateContext",
-      "templateSlotRenderType": "RenderDetailTemplate"
+      "templateSlotAlias": "detailTemplate"
     },
     "sorting": {
       "type": "string",
@@ -131,7 +135,27 @@
       "help": "#dynamicTemplates",
       "data": {
         "data": {
-          "type": "any"
+          "type": "object",
+          "properties": {
+            "closeAffordance": {
+              "type": "string"
+            },
+            "detail": {
+              "type": "string"
+            },
+            "severity": {
+              "type": "string"
+            },
+            "sound": {
+              "type": "string"
+            },
+            "summary": {
+              "type": "string"
+            },
+            "timestamp": {
+              "type": "string"
+            }
+          }
         },
         "key": {
           "type": "string|number"
@@ -146,7 +170,7 @@
               "type": "boolean"
             },
             "key": {
-              "type": "any"
+              "type": "string|number"
             },
             "message": {
               "type": "object",
@@ -163,7 +187,7 @@
               }
             },
             "parentKey": {
-              "type": "any"
+              "type": "string|number"
             },
             "suggestion": {
               "type": "object"
@@ -182,8 +206,39 @@
       "help": "#event:ojClose",
       "detail": {
         "data": {
-          "type": "any",
-          "description": "The data that was used to render the message."
+          "type": "object",
+          "description": "The data that was used to render the message.",
+          "properties": {
+            "closeAffordance": {
+              "type": "string",
+              "enumValues": [
+                "off",
+                "on"
+              ]
+            },
+            "detail": {
+              "type": "string"
+            },
+            "severity": {
+              "type": "string",
+              "enumValues": [
+                "none",
+                "error",
+                "confirmation",
+                "info",
+                "warning"
+              ]
+            },
+            "sound": {
+              "type": "string"
+            },
+            "summary": {
+              "type": "string"
+            },
+            "timestamp": {
+              "type": "string"
+            }
+          }
         },
         "key": {
           "type": "string|number",
@@ -200,7 +255,7 @@
               "type": "boolean"
             },
             "key": {
-              "type": "any"
+              "type": "string|number"
             },
             "message": {
               "type": "object",
@@ -217,7 +272,7 @@
               }
             },
             "parentKey": {
-              "type": "any"
+              "type": "string|number"
             },
             "suggestion": {
               "type": "object"

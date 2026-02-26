@@ -1,7 +1,7 @@
 {
   "name": "date-picker",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -10,7 +10,7 @@
     "CDatePickerElement"
   ],
   "description": "A DatePicker is a calendar interface that allows users to select a single date.",
-  "displayName": "DatePicker",
+  "displayName": "Date Picker",
   "help": "oj-c.DatePicker.html",
   "main": "oj-c/date-picker",
   "extension": {
@@ -24,7 +24,11 @@
       "icon": "oj-ux-ico-date"
     },
     "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/DatePickerWebElement.html"
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/DatePickerWebElement.html",
+      "export": "findDatePicker",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   },
   "since": "17.0.0",

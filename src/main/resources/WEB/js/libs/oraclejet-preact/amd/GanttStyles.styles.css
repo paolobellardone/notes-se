@@ -1,6 +1,6 @@
 .GanttStyles_baseStyle__ikhdhw0 {
   width: 100%;
-  height: calc(140 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem));
+  height: calc(140 * var(--oj-c-size-units, 0.25rem));
   -webkit-tap-highlight-color: transparent;
 }
 .GanttStyles_rowAxisLayoutStyles_base__ikhdhw1 {
@@ -25,26 +25,26 @@
   overflow: hidden;
 }
 .GanttStyles_rowAxisStyles_withSeparatorTop__ikhdhw5 {
-  box-shadow: inset 0px 1px 0px 0px rgba(var(--oj-c-EXPERIMENTAL-DO-NOT-USE-palette-neutral-190), 0.3);
+  box-shadow: inset 0px 1px 0px 0px rgba(var(--oj-c-palette-neutral-190), 0.3);
 }
 .GanttStyles_rowAxisStyles_contentContainer__ikhdhw6 {
   position: relative;
 }
 .GanttStyles_rowAxisStyles_labelContainer__ikhdhw7 {
-  padding-inline-start: calc(4 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem));
-  padding-inline-end: calc(4 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem));
+  padding-inline-start: calc(4 * var(--oj-c-size-units, 0.25rem));
+  padding-inline-end: calc(4 * var(--oj-c-size-units, 0.25rem));
 }
 .GanttStyles_rowAxisStyles_labelContainerFocused__ikhdhw8 {
-  outline-color: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-border-keyboard-focus);
+  outline-color: var(--oj-c-border-keyboard-focus);
   outline-style: dotted;
   outline-width: 1px;
   outline-offset: -1px;
 }
 .GanttStyles_rowAxisStyles_withLabelSeparatorBottom__ikhdhw9 {
-  border-bottom: 1px solid rgba(var(--oj-c-EXPERIMENTAL-DO-NOT-USE-palette-neutral-190), 0.3);
+  border-bottom: 1px solid rgba(var(--oj-c-palette-neutral-190), 0.3);
 }
 .GanttStyles_horizontalGridlinesStyles_base__ikhdhwa {
-  stroke: rgba(var(--oj-c-EXPERIMENTAL-DO-NOT-USE-palette-neutral-190), 0.3);
+  stroke: rgba(var(--oj-c-palette-neutral-190), 0.3);
   shape-rendering: crispEdges;
 }
 .GanttStyles_timeAxisDataBodyStyles_base__ikhdhwb {
@@ -58,14 +58,14 @@
   cursor: grab;
 }
 .GanttStyles_timeAxisDataBodyStyles_withRowAxisSeparatorLeft__ikhdhwd {
-  box-shadow: inset 1px 0px 0px 0px rgba(var(--oj-c-EXPERIMENTAL-DO-NOT-USE-palette-neutral-190), 0.3);
+  box-shadow: inset 1px 0px 0px 0px rgba(var(--oj-c-palette-neutral-190), 0.3);
 }
 .GanttStyles_timeAxisDataBodyStyles_withRowAxisSeparatorRight__ikhdhwe {
-  box-shadow: inset -1px 0px 0px 0px rgba(var(--oj-c-EXPERIMENTAL-DO-NOT-USE-palette-neutral-190), 0.3);
+  box-shadow: inset -1px 0px 0px 0px rgba(var(--oj-c-palette-neutral-190), 0.3);
 }
 .GanttStyles_rowBackgroundStyles_selected__ikhdhwf {
-  background-color: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-surface-selected);
-  fill: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-surface-selected);
+  background-color: var(--oj-c-surface-selected);
+  fill: var(--oj-c-surface-selected);
   shape-rendering: crispEdges;
 }
 .GanttStyles_taskLabelLayerStyles_base__ikhdhwg {
@@ -77,12 +77,12 @@
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  padding-inline-start: calc(2 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem));
-  padding-inline-end: calc(2 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem));
+  padding-inline-start: calc(2 * var(--oj-c-size-units, 0.25rem));
+  padding-inline-end: calc(2 * var(--oj-c-size-units, 0.25rem));
 }
 .GanttStyles_taskLabelLayerStyles_innerLabel__ikhdhwi {
-  padding-inline-start: calc(4 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem));
-  padding-inline-end: calc(4 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem));
+  padding-inline-start: calc(4 * var(--oj-c-size-units, 0.25rem));
+  padding-inline-end: calc(4 * var(--oj-c-size-units, 0.25rem));
 }
 .GanttStyles_taskMobileAccStyles_base__ikhdhwj {
   position: relative;

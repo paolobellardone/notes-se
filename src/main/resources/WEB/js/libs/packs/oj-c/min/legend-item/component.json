@@ -1,7 +1,7 @@
 {
   "name": "legend-item",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -193,7 +193,7 @@
     },
     "shortDesc": {
       "type": "string",
-      "description": "The description of this legend item. This is used for accessibility and for customizing the tooltip text.",
+      "description": "The description of this legend item. This is used for accessibility and for customizing the datatip text.",
       "displayName": "Short Desc",
       "help": "#shortDesc",
       "translatable": true
@@ -218,8 +218,8 @@
         }
       },
       "enumValues": [
-        "inherit",
         "off",
+        "inherit",
         "on"
       ],
       "value": "inherit"

@@ -2,7 +2,7 @@
   display: block;
   width: 100%;
   height: 0;
-  border-color: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-border-divider);
+  border-color: var(--oj-c-border-divider);
   border-style: solid;
   font-size: 0;
   line-height: 0;

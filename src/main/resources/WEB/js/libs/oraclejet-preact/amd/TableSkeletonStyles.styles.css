@@ -7,15 +7,17 @@
   }
 }
 .TableSkeletonStyles_tableSkeletonStyles_bar__o1qmzv1 {
-  background-color: rgb(var(--oj-c-EXPERIMENTAL-DO-NOT-USE-palette-neutral-170));
+  background-color: rgb(var(--oj-c-palette-neutral-170));
 }
 .TableSkeletonStyles_tableSkeletonStyles_row__o1qmzv2 {
   align-items: center;
   background-color: inherit;
+  border-inline-end: var(--gridlineWidth__efrfp90) solid transparent;
+  border-inline-start: var(--gridlineWidth__efrfp90) solid transparent;
   box-sizing: border-box;
   display: flex;
-  padding-inline-end: calc(var(--oj-c-EXPERIMENTAL-DO-NOT-USE-table-cell-padding-horizontal) + var(--gridlineWidth__efrfp90));
-  padding-inline-start: calc(var(--oj-c-EXPERIMENTAL-DO-NOT-USE-table-cell-padding-horizontal) + var(--gridlineWidth__efrfp90));
+  padding-inline-end: var(--oj-c-table-cell-padding-horizontal);
+  padding-inline-start: var(--oj-c-table-cell-padding-horizontal);
 }
 .TableSkeletonStyles_tableSkeletonStyles_cell__o1qmzv3 {
   overflow: hidden;
@@ -34,11 +36,11 @@
   opacity: 0.001;
   overflow: hidden;
 }
-.TableSkeletonStyles_tableSkeletonStyles_focus__o1qmzv5::before {
+.TableSkeletonStyles_tableSkeletonStyles_focus__o1qmzv5::after {
   content: "";
   display: block;
   inset: 0;
-  outline-color: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-border-keyboard-focus);
+  outline-color: var(--oj-c-border-keyboard-focus);
   outline-offset: -1px;
   outline-style: dotted;
   outline-width: 1px;

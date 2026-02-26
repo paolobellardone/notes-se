@@ -1,16 +1,64 @@
+export declare const TagCloudItemDefaults: Partial<TagCloudItemProps>;
+export type TagCloudItemProps = {
+    /**
+     * @description
+     * An array of category strings corresponding to the tag cloud items. This allows highlighting and filtering of items.
+     * @ojmetadata description "An array of category strings corresponding to the tag cloud items."
+     * @ojmetadata displayName "Categories"
+     * @ojmetadata help "#categories"
+     */
+    categories?: string[];
+    /**
+     * @description
+     * The color of the text. Will be overridden by any color defined in the style option. The default value comes from the CSS and varies based on theme.
+     * @ojmetadata description "The color of the text. Will be overridden by any color defined in the style option. The default value comes from the CSS and varies based on theme."
+     * @ojmetadata displayName "Color"
+     * @ojmetadata help "#color"
+     */
+    color?: string;
+    /**
+     * @description
+     * The text of the item.
+     * @ojmetadata description "The text of the item."
+     * @ojmetadata displayName "Label"
+     * @ojmetadata help "#label"
+     */
+    label: string;
+    /**
+     * @description
+     * The value of this item is used to scale its font size within the tag cloud.
+     * @ojmetadata description "The value of this item is used to scale its font size within the tag cloud."
+     * @ojmetadata displayName "Value"
+     * @ojmetadata help "#value"
+     */
+    value: number | null;
+    /**
+     * @description
+     * The url this item references.
+     * @ojmetadata description "The url this item references."
+     * @ojmetadata displayName "Url"
+     * @ojmetadata help "#url"
+     */
+    url?: string;
+    /**
+     * @description
+     * The description of the item. This is used for customizing the datatip text.
+     * @ojmetadata description "The description of the item. This is used for customizing the datatip text."
+     * @ojmetadata displayName "ShortDesc"
+     * @ojmetadata help "#shortDesc"
+     */
+    shortDesc?: string;
+};
+/**
+ * This export corresponds to the TagCloudItem Preact component. For the oj-c-tag-cloud-item custom element, import CTagCloudItemElement instead.
+ */
+export declare const TagCloudItem: import("preact").ComponentType<import("ojs/ojvcomponent").ExtendGlobalProps<TagCloudItemProps>>;
 import { JetElement, JetSettableProperties, JetElementCustomEventStrict, JetSetPropertyType } from 'ojs/index';
 import { GlobalProps } from 'ojs/ojvcomponent';
 import 'ojs/oj-jsx-interfaces';
-export declare const TagCloudItemDefaults: Partial<TagCloudItemProps>;
-export type TagCloudItemProps = {
-    categories?: string[];
-    color?: string;
-    label: string;
-    value: number | null;
-    url?: string;
-    shortDesc?: string;
-};
-export declare const TagCloudItem: import("preact").ComponentType<import("ojs/ojvcomponent").ExtendGlobalProps<TagCloudItemProps>>;
+/**
+ * This export corresponds to the oj-c-tag-cloud-item custom element. For the TagCloudItem Preact component, import TagCloudItem instead.
+ */
 export interface CTagCloudItemElement extends JetElement<CTagCloudItemElementSettableProperties>, CTagCloudItemElementSettableProperties {
     addEventListener<T extends keyof CTagCloudItemElementEventMap>(type: T, listener: (this: HTMLElement, ev: CTagCloudItemElementEventMap[T]) => any, options?: (boolean | AddEventListenerOptions)): void;
     addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: (boolean | AddEventListenerOptions)): void;
@@ -37,11 +85,29 @@ export interface CTagCloudItemElementEventMap extends HTMLElementEventMap {
     'valueChanged': JetElementCustomEventStrict<CTagCloudItemElement['value']>;
 }
 export interface CTagCloudItemElementSettableProperties extends JetSettableProperties {
+    /**
+     * An array of category strings corresponding to the tag cloud items. This allows highlighting and filtering of items.
+     */
     categories?: TagCloudItemProps['categories'];
+    /**
+     * The color of the text. Will be overridden by any color defined in the style option. The default value comes from the CSS and varies based on theme.
+     */
     color?: TagCloudItemProps['color'];
+    /**
+     * The text of the item.
+     */
     label: TagCloudItemProps['label'];
+    /**
+     * The description of the item. This is used for customizing the datatip text.
+     */
     shortDesc?: TagCloudItemProps['shortDesc'];
+    /**
+     * The url this item references.
+     */
     url?: TagCloudItemProps['url'];
+    /**
+     * The value of this item is used to scale its font size within the tag cloud.
+     */
     value: TagCloudItemProps['value'];
 }
 export interface CTagCloudItemElementSettablePropertiesLenient extends Partial<CTagCloudItemElementSettableProperties> {

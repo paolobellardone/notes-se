@@ -1,2 +1,10 @@
-export { AreaChart, AreaChartContextMenuActionDetail, AreaChartContextMenuSelectionDetail } from './area-chart';
+/**
+ * @license
+ * Copyright (c) %FIRST_YEAR% %CURRENT_YEAR%, Oracle and/or its affiliates.
+ * The Universal Permissive License (UPL), Version 1.0
+ * as shown at https://oss.oracle.com/licenses/upl/
+ * @ignore
+ */
+export { AreaChart } from './area-chart';
+export type { AreaChartContextMenuSelectionDetailDeprecated as AreaChartContextMenuSelectionDetail, AreaChartContextMenuActionDetailDeprecated as AreaChartContextMenuActionDetail } from './area-chart.types';
 export { CAreaChartElement } from './area-chart';

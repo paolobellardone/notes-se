@@ -29,8 +29,8 @@
 }
 .LegendStyles_baseLegendStyles__v4wnzs4 {
   display: grid;
-  padding-top: calc(0.75 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem));
-  padding-bottom: calc(0.75 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem));
+  padding-top: calc(0.75 * var(--oj-c-size-units, 0.25rem));
+  padding-bottom: calc(0.75 * var(--oj-c-size-units, 0.25rem));
 }
 .LegendStyles_baseLegendHorizontal__v4wnzs5 {
   grid-auto-flow: column;
@@ -45,13 +45,13 @@
   max-width: 100%;
 }
 .LegendStyles_baseLegendPaddingBottom__v4wnzs8 {
-  padding-bottom: calc(0.4 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem));
+  padding-bottom: calc(0.4 * var(--oj-c-size-units, 0.25rem));
 }
 .LegendStyles_baseLegendPaddingTop__v4wnzs9 {
-  padding-top: calc(0.4 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem));
+  padding-top: calc(0.4 * var(--oj-c-size-units, 0.25rem));
 }
 .LegendStyles_baseLegendPaddingEnd__v4wnzsa {
-  padding-inline-end: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem);
+  padding-inline-end: var(--oj-c-size-units, 0.25rem);
 }
 .LegendStyles_legendItemBaseStyle__v4wnzsb {
   display: flex;
@@ -63,20 +63,20 @@
 }
 .LegendStyles_legendItemIsCurrentWithCursor__v4wnzsc {
   cursor: pointer;
-  background-color: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-overlay-hover);
-  border-radius: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-border-radius-md);
+  background-color: var(--oj-c-overlay-hover);
+  border-radius: var(--oj-c-border-radius-md);
 }
 .LegendStyles_legendItemIsCurrentWithoutCursor__v4wnzsd {
-  background-color: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-overlay-hover);
-  border-radius: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-border-radius-md);
+  background-color: var(--oj-c-overlay-hover);
+  border-radius: var(--oj-c-border-radius-md);
 }
 .LegendStyles_legendItemOpacity__v4wnzse {
-  opacity: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-dimmed-opacity);
+  opacity: var(--oj-c-dimmed-opacity);
 }
 .LegendStyles_legendItemFocusRing__v4wnzsf {
   outline-style: dotted;
   outline-width: 1px;
-  outline-color: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-border-keyboard-focus);
+  outline-color: var(--oj-c-border-keyboard-focus);
   outline-offset: -1px;
 }
 .LegendStyles_imageMarkerStyle__v4wnzsg {
@@ -87,22 +87,22 @@
   position: relative;
   pointer-events: none;
   flex-shrink: 0;
-  height: calc(2.5 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem));
-  width: calc(2.5 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem));
-  margin-bottom: calc(0.85 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem));
-  margin-inline-end: calc(0.75 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem));
-  margin-inline-start: calc(0.75 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem));
-  margin-top: calc(0.85 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem));
+  height: calc(2.5 * var(--oj-c-size-units, 0.25rem));
+  width: calc(2.5 * var(--oj-c-size-units, 0.25rem));
+  margin-bottom: calc(0.85 * var(--oj-c-size-units, 0.25rem));
+  margin-inline-end: calc(0.75 * var(--oj-c-size-units, 0.25rem));
+  margin-inline-start: calc(0.75 * var(--oj-c-size-units, 0.25rem));
+  margin-top: calc(0.85 * var(--oj-c-size-units, 0.25rem));
 }
 .LegendStyles_legendTextBaseStyle__v4wnzsi {
-  color: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-text-icon-primary);
+  color: var(--oj-c-text-icon-primary);
   pointer-events: none;
-  padding-inline-start: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem);
-  padding-inline-end: calc(0.5 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem));
+  padding-inline-start: var(--oj-c-size-units, 0.25rem);
+  padding-inline-end: calc(0.5 * var(--oj-c-size-units, 0.25rem));
   max-width: 100%;
   width: -moz-max-content;
   width: max-content;
-  font-size: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-label-sm-font-size);
+  font-size: var(--oj-c-label-sm-font-size);
   min-width: 0;
   line-height: normal;
   display: inherit;
@@ -110,10 +110,10 @@
 .LegendStyles_legendTextTitle__v4wnzsj {
   font-weight: 600;
   text-align: right;
-  padding-top: calc(0.75 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem));
-  padding-bottom: calc(0.75 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem));
-  padding-inline-end: calc(2 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem));
-  padding-inline-start: calc(0.75 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem));
+  padding-top: calc(0.75 * var(--oj-c-size-units, 0.25rem));
+  padding-bottom: calc(0.75 * var(--oj-c-size-units, 0.25rem));
+  padding-inline-end: calc(2 * var(--oj-c-size-units, 0.25rem));
+  padding-inline-start: calc(0.75 * var(--oj-c-size-units, 0.25rem));
 }
 .LegendStyles_legendTitleStartAlign__v4wnzsk {
   align-self: flex-start;

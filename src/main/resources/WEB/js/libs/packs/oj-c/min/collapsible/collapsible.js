@@ -2,7 +2,101 @@ define(["require", "exports", "preact/jsx-runtime", '@oracle/oraclejet-preact/tr
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Collapsible = void 0;
-    exports.Collapsible = (0, ojvcomponent_1.registerCustomElement)('oj-c-collapsible', ({ id, children, header, disabled = false, expanded = false, iconPosition = 'start', variant = 'basic', ...props }) => {
+    exports.Collapsible = (0, ojvcomponent_1.registerCustomElement)('oj-c-collapsible', 
+    /**
+     * @classdesc
+     * <h3 id="collapsibleOverview-section">
+     *   JET Collapsible
+     *   <a class="bookmarkable-link" title="Bookmarkable Link" href="#collapsibleOverview-section"></a>
+     * </h3>
+     *
+     * <p>Description: A JET Collapsible displays a header that can be expanded to show additional content beneath it.
+     * The child element of the oj-c-collapsible in the named <a href="#header">header</a> slot is displayed in the header, while the child element in the <a href="#Default">default</a> slot is displayed as the content.
+     *
+     * <p>Note for performance reasons, if the collapsible content is expensive to render, you should wrap it in an <code class="prettyprint">oj-defer</code> element to defer the rendering of that content.<br/>
+     * See the Collapsible - Deferred Rendering demo for an example.</p>
+     *
+     * <pre class="prettyprint"><code>
+     * &lt;oj-c-collapsible>
+     *   &lt;h3 slot='header'>Header 1&lt;/h3>
+     *   &lt;p>Content 1&lt;/p>
+     * &lt;/oj-c-collapsible>
+     * </code></pre>
+     *
+     * <h3 id="data-attributes-section">
+     *   Custom Data Attributes
+     *   <a class="bookmarkable-link" title="Bookmarkable Link" href="#data-attributes-section"></a>
+     * </h3>
+     *
+     * <p>Collapsible supports the following custom data attributes.
+     * <table class="keyboard-table">
+     *   <thead>
+     *     <tr>
+     *       <th>Name</th>
+     *       <th>Description</th>
+     *       <th>Example</th>
+     *     </tr>
+     *   </thead>
+     *   <tbody>
+     *     <tr>
+     *       <td><kbd>data-oj-clickthrough</kbd></td>
+     *       <td><p>Specify on any element inside the header where you want to control whether Collapsible should toggle disclosure by
+     *           an event originating from the element or one of its descendants.</p>
+     *           <p>For example, if you specify this attribute with a value of "disabled" on a button inside the header, then Collapsible
+     *           will not trigger disclosure when user clicks on the button.</p>
+     *       </td>
+     *       <td>
+     *         <pre class="prettyprint"><code>&lt;oj-c-collapsible>
+     *   &lt;div slot="header">
+     *     &lt;h3>Header 3&lt;/h3>
+     *     &lt;oj-c-button data-oj-clickthrough="disabled">&lt;/oj-c-button
+     *   &lt;/div>
+     *   &lt;p>Content&lt;/p>
+     * &lt;/oj-c-collapsible></code></pre>
+     *       </td>
+     *     </tr>
+     *   </tbody>
+     * </table>
+     *
+     * @ojmetadata description 'A collapsible displays a header that can be expanded to show its content.'
+     * @ojmetadata displayName 'Collapsible'
+     * @ojmetadata help 'oj-c.Collapsible.html'
+     * @ojmetadata main 'oj-c/collapsible'
+     * @ojmetadata status [
+     *   {
+     *     "type": "supersedes",
+     *     "since": "20.0.0",
+     *     "value": ["oj-collapsible"]
+     *   }
+     * ]
+     * @ojmetadata extension {
+     *   "catalog": {
+     *     "category": "Layout & Nav"
+     *   },
+     *   "vbdt": {
+     *     "module": "oj-c/collapsible"
+     *   },
+     *   "oracle": {
+     *     "icon": "oj-ux-ico-collapsible",
+     *     "uxSpecs": [
+     *       "collapsible"
+     *     ]
+     *   }
+     * }
+     * @ojmetadata propertyLayout [
+     *   {
+     *     "propertyGroup": "common",
+     *     "items": [
+     *       "disabled",
+     *       "expanded",
+     *       "iconPosition",
+     *       "variant"
+     *     ]
+     *   }
+     * ]
+     * @ojmetadata since "14.0.0"
+     */
+    ({ id, children, header, disabled = false, expanded = false, iconPosition = 'start', variant = 'basic', ...props }) => {
         const rootRef = (0, hooks_1.useRef)(null);
         const didMountRef = (0, hooks_1.useRef)(false);
         const hasBeenExpanded = (0, hooks_1.useRef)(expanded);
@@ -15,6 +109,7 @@ define(["require", "exports", "preact/jsx-runtime", '@oracle/oraclejet-preact/tr
             });
         }, [id]);
         (0, hooks_1.useEffect)(() => {
+            // The busy state is not added on the first render, but on each subsequent toggle
             if (!didMountRef.current) {
                 didMountRef.current = true;
                 return;
@@ -22,6 +117,7 @@ define(["require", "exports", "preact/jsx-runtime", '@oracle/oraclejet-preact/tr
             if (expanded) {
                 hasBeenExpanded.current = true;
             }
+            // Resolve current busy state is transition is already in progress
             if (resolveBusyState.current) {
                 resolveBusyState.current();
             }
@@ -40,6 +136,7 @@ define(["require", "exports", "preact/jsx-runtime", '@oracle/oraclejet-preact/tr
                 props.onExpandedChanged?.(event.value);
             }
             catch (_) {
+                // The expansion change was canceled so nothing to do here
             }
         };
         const transitionEndHandler = (event) => {

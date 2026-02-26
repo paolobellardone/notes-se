@@ -1,19 +1,24 @@
 [
   {
-    "pack": "oj-c",
     "id": "oj-c.SplitMenuButton",
     "name": "SplitMenuButton",
     "memberof": "oj-c",
-    "longname": "oj-c.SplitMenuButton",
     "kind": "class",
-    "classdesc": "<h3 id=\"splitMenuButtonOverview-section\">\n  JET Split Menu Button\n  <a class=\"bookmarkable-link\" title=\"Bookmarkable Link\" href=\"#buttonOverview-section\"></a>\n</h3>\n\n<p>Description: A Split Menu Button combines a push button and menu button.\n\n<pre class=\"prettyprint\"><code>&lt;oj-c-split-menu-button label=\"Copy\" onAction=\"[[action]]\" items=\"[[items]]\">\n&lt;/oj-c-split-menu-button>\n</code></pre>\n\n<h3 id=\"touch-section\">\n  Touch End User Information\n  <a class=\"bookmarkable-link\" title=\"Bookmarkable Link\" href=\"#touch-section\"></a>\n</h3>\n\n<table class=\"keyboard-table\">\n  <thead>\n    <tr>\n      <th>Target</th>\n      <th>Gesture</th>\n      <th>Action</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Button</td>\n      <td><kbd>Tap on action side</kbd></td>\n      <td>Invoke the action.</td>\n    </tr>\n    <tr>\n      <td>Button</td>\n      <td><kbd>Tap on menu side</kbd></td>\n      <td>Invoke the menu.</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"keyboard-section\">\n  Keyboard End User Information\n  <a class=\"bookmarkable-link\" title=\"Bookmarkable Link\" href=\"#keyboard-section\"></a>\n</h3>\n\n<table class=\"keyboard-table\">\n  <thead>\n    <tr>\n      <th>Target</th>\n      <th>Key</th>\n      <th>Action</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Split Menu Button</td>\n      <td><kbd>Enter</kbd> or <kbd>Space</kbd></td>\n      <td>Invoke the Button action.</td>\n    </tr>\n    <tr>\n      <td>Split Menu Button</td>\n      <td><kbd>Down Arrow</kbd></td>\n      <td>Invoke the Button menu.</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"a11y-section\">\n  Accessibility\n  <a class=\"bookmarkable-link\" title=\"Bookmarkable Link\" href=\"#a11y-section\"></a>\n</h3>\n\n<p>For accessibility, the label is used as the accessible aria label.  This is required\nas persistent split menu buttons modify the label depending on the last menu item selection.\n\n<p>Disabled content: JET supports an accessible luminosity contrast ratio,\nas specified in <a href=\"http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast\">WCAG 2.0 - Section 1.4.3 \"Contrast\"</a>,\nin the themes that are accessible.  (See the \"Theming\" chapter of the JET Developer Guide for more information on which\nthemes are accessible.)  Note that Section 1.4.3 says that text or images of text that are part of an inactive user\ninterface component have no contrast requirement.  Because disabled content may not meet the minimum contrast ratio\nrequired of enabled content, it cannot be used to convey meaningful information.<p>",
+    "meta": {
+      "filename": "split-menu-button.tsx",
+      "path": "web/components/oj-c/split-menu-button"
+    },
+    "ojcomponent": true,
+    "isvcomponent": true,
+    "since": "14.0.0",
+    "longname": "oj-c.SplitMenuButton",
+    "pack": "oj-c",
+    "classdesc": "<h3 id=\"splitMenuButtonOverview-section\">\n  JET Split Menu Button\n  <a class=\"bookmarkable-link\" title=\"Bookmarkable Link\" href=\"#buttonOverview-section\"></a>\n</h3>\n\n<p>Description: A Split Menu Button combines a push button and menu button.\n\n<pre class=\"prettyprint\"><code>&lt;oj-c-split-menu-button label=\"Copy\" onAction=\"[[action]]\" items=\"[[items]]\">\n&lt;/oj-c-split-menu-button>\n</code></pre>\n\n<h3 id=\"touch-section\">\n  Touch End User Information\n  <a class=\"bookmarkable-link\" title=\"Bookmarkable Link\" href=\"#touch-section\"></a>\n</h3>\n\n<table class=\"keyboard-table\">\n  <thead>\n    <tr>\n      <th>Target</th>\n      <th>Gesture</th>\n      <th>Action</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Button</td>\n      <td><kbd>Tap on action side</kbd></td>\n      <td>Invoke the action.</td>\n    </tr>\n    <tr>\n      <td>Button</td>\n      <td><kbd>Tap on menu side</kbd></td>\n      <td>Invoke the menu.</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"keyboard-section\">\n  Keyboard End User Information\n  <a class=\"bookmarkable-link\" title=\"Bookmarkable Link\" href=\"#keyboard-section\"></a>\n</h3>\n\n<table class=\"keyboard-table\">\n  <thead>\n    <tr>\n      <th>Target</th>\n      <th>Key</th>\n      <th>Action</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Split Menu Button</td>\n      <td><kbd>Enter</kbd> or <kbd>Space</kbd></td>\n      <td>Invoke the Button action.</td>\n    </tr>\n    <tr>\n      <td>Split Menu Button</td>\n      <td><kbd>Down Arrow</kbd></td>\n      <td>Invoke the Button menu.</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"a11y-section\">\n  Accessibility\n  <a class=\"bookmarkable-link\" title=\"Bookmarkable Link\" href=\"#a11y-section\"></a>\n</h3>\n\n<p>For accessibility, the label is used as the accessible aria label.  This is required\nas persistent split menu buttons modify the label depending on the last menu item selection.\n\n<p>oj-c-split-menu-button follows the ARIA Authoring Practices Guide patterns for\n<a href=\"https://www.w3.org/WAI/ARIA/apg/patterns/menubar/\">menu</a> and\n<a href=\"https://www.w3.org/WAI/ARIA/apg/patterns/menu-button/\">menu button</a>.\nNote that this is an implementation detail that may change in the future.\n\n<p>\nDisabled content: JET supports an accessible luminosity contrast ratio,\nas specified in <a href=\"http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast\">WCAG 2.0 - Section 1.4.3 \"Contrast\"</a>,\nin the themes that are accessible.  (See the \"Theming\" chapter of the JET Developer Guide for more information on which\nthemes are accessible.)  Note that Section 1.4.3 says that text or images of text that are part of an inactive user\ninterface component have no contrast requirement.  Because disabled content may not meet the minimum contrast ratio\nrequired of enabled content, it cannot be used to convey meaningful information.\n</p>",
     "scope": "static",
     "tagWithoutBrackets": "oj-c-split-menu-button",
     "tagWithBrackets": "<oj-c-split-menu-button>",
     "domInterface": "CSplitMenuButtonElement",
     "ojPageTitle": "&lt;oj-c-split-menu-button>",
-    "ojcomponent": true,
-    "isvcomponent": true,
     "camelCaseName": "SplitMenuButton",
     "ojPageTitlePrefix": "Element: ",
     "ojtsvcomponent": true,
@@ -27,117 +32,139 @@
         "value": "interface CSplitMenuButtonElement extends JetElement<SplitMenuButtonElementSettableProperties>"
       }
     ],
-    "since": "14.0.0",
     "tsdeprecated": [
       {
         "type": "production",
         "since": "17.0.0"
       }
     ],
-    "meta": {
-      "filename": "split-menu-button.tsx",
-      "path": "web/components/oj-c/split-menu-button"
+    "extension": {
+      "catalog": {
+        "category": "Controls"
+      },
+      "vbdt": {
+        "module": "oj-c/split-menu-button"
+      },
+      "oracle": {
+        "icon": "oj-ux-ico-menu-button",
+        "uxSpecs": [
+          "menu-button"
+        ]
+      }
     },
     "ojmodule": "split-menu-button"
   },
   {
-    "memberof": "oj-c.SplitMenuButton",
     "id": "oj-c.SplitMenuButton#label",
     "name": "label",
-    "kind": "member",
-    "longname": "oj-c.SplitMenuButton#label",
-    "optional": false,
-    "scope": "instance",
-    "description": "Text to show in the button.",
+    "memberof": "oj-c.SplitMenuButton",
     "meta": {
       "filename": "split-menu-button.tsx",
       "path": "web/components/oj-c/split-menu-button"
     },
+    "kind": "member",
+    "longname": "oj-c.SplitMenuButton#label",
+    "scope": "instance",
     "type": {
       "names": [
         "string"
       ]
-    }
+    },
+    "optional": false,
+    "ojdisplayname": "label",
+    "ojshortdesc": "Text to show in the button.",
+    "description": "Text to show in the button."
   },
   {
-    "memberof": "oj-c.SplitMenuButton",
     "id": "oj-c.SplitMenuButton#items",
     "name": "items",
-    "kind": "member",
-    "longname": "oj-c.SplitMenuButton#items",
-    "optional": true,
-    "scope": "instance",
-    "description": "Items describe the menu items rendered by the menu button.",
+    "memberof": "oj-c.SplitMenuButton",
     "meta": {
       "filename": "split-menu-button.tsx",
       "path": "web/components/oj-c/split-menu-button"
     },
-    "defaultvalue": "[]",
+    "kind": "member",
+    "longname": "oj-c.SplitMenuButton#items",
+    "scope": "instance",
     "type": {
       "names": [
         "Array<object>"
       ]
     },
+    "optional": true,
+    "ojshortdesc": "Items describe the menu items rendered by the menu button.",
+    "description": "Items describe the menu items rendered by the menu button.",
+    "defaultvalue": "[]",
     "tstype": [
       {
         "target": "Type",
-        "value": "Array<oj-c.SplitMenuButton.MenuSeparator|oj-c.SplitMenuButton.MenuItem>",
+        "value": "Array<oj-c.SplitMenuButton.MenuItems>",
         "jsdocOverride": true
       }
     ]
   },
   {
-    "memberof": "oj-c.SplitMenuButton",
     "id": "oj-c.SplitMenuButton#tooltip",
     "name": "tooltip",
-    "kind": "member",
-    "longname": "oj-c.SplitMenuButton#tooltip",
-    "optional": true,
-    "scope": "instance",
-    "description": "Text to show in the tooltip.",
+    "memberof": "oj-c.SplitMenuButton",
     "meta": {
       "filename": "split-menu-button.tsx",
       "path": "web/components/oj-c/split-menu-button"
     },
+    "kind": "member",
+    "longname": "oj-c.SplitMenuButton#tooltip",
+    "scope": "instance",
     "type": {
       "names": [
         "string"
       ]
-    }
+    },
+    "optional": true,
+    "ojshortdesc": "Text to show in the tooltip.",
+    "description": "Text to show in the tooltip."
   },
   {
-    "memberof": "oj-c.SplitMenuButton",
     "id": "oj-c.SplitMenuButton#disabled",
     "name": "disabled",
-    "kind": "member",
-    "longname": "oj-c.SplitMenuButton#disabled",
-    "optional": true,
-    "scope": "instance",
-    "description": "Specifies that the button element should be disabled.",
+    "memberof": "oj-c.SplitMenuButton",
     "meta": {
       "filename": "split-menu-button.tsx",
       "path": "web/components/oj-c/split-menu-button"
     },
-    "defaultvalue": false,
+    "kind": "member",
+    "longname": "oj-c.SplitMenuButton#disabled",
+    "scope": "instance",
     "type": {
       "names": [
         "boolean"
       ]
-    }
+    },
+    "optional": true,
+    "ojshortdesc": "Specifies that the button element should be disabled.",
+    "description": "Specifies that the button element should be disabled.",
+    "defaultvalue": false
   },
   {
-    "memberof": "oj-c.SplitMenuButton",
     "id": "oj-c.SplitMenuButton#size",
     "name": "size",
-    "kind": "member",
-    "longname": "oj-c.SplitMenuButton#size",
-    "optional": true,
-    "scope": "instance",
-    "description": "Size of button",
+    "memberof": "oj-c.SplitMenuButton",
     "meta": {
       "filename": "split-menu-button.tsx",
       "path": "web/components/oj-c/split-menu-button"
     },
+    "kind": "member",
+    "longname": "oj-c.SplitMenuButton#size",
+    "scope": "instance",
+    "type": {
+      "names": [
+        "\"sm\"",
+        "\"md\"",
+        "\"lg\""
+      ]
+    },
+    "optional": true,
+    "ojshortdesc": "Size of button",
+    "description": "Size of button",
     "ojvalues": [
       {
         "name": "sm",
@@ -170,47 +197,50 @@
         }
       }
     ],
-    "defaultvalue": "\"md\"",
-    "type": {
-      "names": [
-        "\"sm\"",
-        "\"md\"",
-        "\"lg\""
-      ]
-    }
+    "ojvalueskeeporder": true,
+    "defaultvalue": "'md'"
   },
   {
-    "memberof": "oj-c.SplitMenuButton",
     "id": "oj-c.SplitMenuButton#width",
     "name": "width",
-    "kind": "member",
-    "longname": "oj-c.SplitMenuButton#width",
-    "optional": true,
-    "scope": "instance",
-    "description": "Specifies that the button style width",
+    "memberof": "oj-c.SplitMenuButton",
     "meta": {
       "filename": "split-menu-button.tsx",
       "path": "web/components/oj-c/split-menu-button"
     },
+    "kind": "member",
+    "longname": "oj-c.SplitMenuButton#width",
+    "scope": "instance",
     "type": {
       "names": [
         "number|string"
       ]
-    }
+    },
+    "optional": true,
+    "ojshortdesc": "Specifies that the button style width",
+    "description": "Specifies that the button style width"
   },
   {
-    "memberof": "oj-c.SplitMenuButton",
     "id": "oj-c.SplitMenuButton#chroming",
     "name": "chroming",
-    "kind": "member",
-    "longname": "oj-c.SplitMenuButton#chroming",
-    "optional": true,
-    "scope": "instance",
-    "description": "Indicates in what states the button has chromings in background and border.",
+    "memberof": "oj-c.SplitMenuButton",
     "meta": {
       "filename": "split-menu-button.tsx",
       "path": "web/components/oj-c/split-menu-button"
     },
+    "kind": "member",
+    "longname": "oj-c.SplitMenuButton#chroming",
+    "scope": "instance",
+    "type": {
+      "names": [
+        "\"solid\"",
+        "\"outlined\"",
+        "\"callToAction\""
+      ]
+    },
+    "optional": true,
+    "ojshortdesc": "Indicates in what states the button has chromings in background and border.",
+    "description": "Indicates in what states the button has chromings in background and border.",
     "ojvalues": [
       {
         "name": "outlined",
@@ -243,26 +273,19 @@
         }
       }
     ],
-    "defaultvalue": "\"outlined\"",
-    "type": {
-      "names": [
-        "\"solid\"",
-        "\"outlined\"",
-        "\"callToAction\""
-      ]
-    }
+    "ojvalueskeeporder": true,
+    "defaultvalue": "'outlined'"
   },
   {
-    "memberof": "oj-c.SplitMenuButton",
     "id": "oj-c.SplitMenuButton#focus",
     "name": "focus",
+    "memberof": "oj-c.SplitMenuButton",
+    "meta": {
+      "filename": "split-menu-button.tsx",
+      "path": "web/components/oj-c/split-menu-button"
+    },
     "kind": "function",
     "longname": "oj-c.SplitMenuButton#focus",
-    "description": "",
-    "meta": {
-      "filename": "split-menu-button.tsx",
-      "path": "web/components/oj-c/split-menu-button"
-    },
     "scope": "instance",
     "returns": [
       {
@@ -272,19 +295,19 @@
           ]
         }
       }
-    ]
+    ],
+    "description": ""
   },
   {
-    "memberof": "oj-c.SplitMenuButton",
     "id": "oj-c.SplitMenuButton#blur",
     "name": "blur",
+    "memberof": "oj-c.SplitMenuButton",
+    "meta": {
+      "filename": "split-menu-button.tsx",
+      "path": "web/components/oj-c/split-menu-button"
+    },
     "kind": "function",
     "longname": "oj-c.SplitMenuButton#blur",
-    "description": "",
-    "meta": {
-      "filename": "split-menu-button.tsx",
-      "path": "web/components/oj-c/split-menu-button"
-    },
     "scope": "instance",
     "returns": [
       {
@@ -294,19 +317,19 @@
           ]
         }
       }
-    ]
+    ],
+    "description": ""
   },
   {
-    "memberof": "oj-c.SplitMenuButton",
     "id": "oj-c.SplitMenuButton#click",
     "name": "click",
-    "kind": "function",
-    "longname": "oj-c.SplitMenuButton#click",
-    "description": "",
+    "memberof": "oj-c.SplitMenuButton",
     "meta": {
       "filename": "split-menu-button.tsx",
       "path": "web/components/oj-c/split-menu-button"
     },
+    "kind": "function",
+    "longname": "oj-c.SplitMenuButton#click",
     "scope": "instance",
     "returns": [
       {
@@ -316,63 +339,44 @@
           ]
         }
       }
-    ]
+    ],
+    "description": ""
   },
   {
-    "memberof": "oj-c.SplitMenuButton",
     "id": "oj-c.SplitMenuButton#setProperty",
     "name": "setProperty",
-    "kind": "function",
-    "longname": "oj-c.SplitMenuButton#setProperty",
-    "description": "Sets a property or a single subproperty for complex properties and notifies the component of the change, triggering a corresponding event.",
+    "memberof": "oj-c.SplitMenuButton",
     "meta": {
       "filename": "split-menu-button.tsx",
       "path": "web/components/oj-c/split-menu-button"
     },
+    "kind": "function",
+    "longname": "oj-c.SplitMenuButton#setProperty",
     "scope": "instance",
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "void"
+          ]
+        }
+      }
+    ],
+    "ojshortdesc": "Sets a property or a single subproperty for complex properties and notifies the component of the change, triggering a corresponding event.",
+    "description": "Sets a property or a single subproperty for complex properties and notifies the component of the change, triggering a corresponding event.",
     "params": [
       {
         "name": "property",
         "description": "The property name to set. Supports dot notation for subproperty access.",
-        "type": "string"
+        "type": {
+          "names": [
+            "string"
+          ]
+        }
       },
       {
         "name": "value",
         "description": "The new value to set the property to.",
-        "type": "any"
-      }
-    ],
-    "returns": [
-      {
-        "type": {
-          "names": [
-            "void"
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "memberof": "oj-c.SplitMenuButton",
-    "id": "oj-c.SplitMenuButton#getProperty",
-    "name": "getProperty",
-    "kind": "function",
-    "longname": "oj-c.SplitMenuButton#getProperty",
-    "description": "Retrieves the value of a property or a subproperty.",
-    "meta": {
-      "filename": "split-menu-button.tsx",
-      "path": "web/components/oj-c/split-menu-button"
-    },
-    "scope": "instance",
-    "params": [
-      {
-        "name": "property",
-        "description": "The property name to get. Supports dot notation for subproperty access.",
-        "type": "string"
-      }
-    ],
-    "returns": [
-      {
         "type": {
           "names": [
             "any"
@@ -382,50 +386,31 @@
     ]
   },
   {
+    "id": "oj-c.SplitMenuButton#getProperty",
+    "name": "getProperty",
     "memberof": "oj-c.SplitMenuButton",
-    "id": "oj-c.SplitMenuButton#setProperties",
-    "name": "setProperties",
-    "kind": "function",
-    "longname": "oj-c.SplitMenuButton#setProperties",
-    "description": "Performs a batch set of properties.",
     "meta": {
       "filename": "split-menu-button.tsx",
       "path": "web/components/oj-c/split-menu-button"
     },
+    "kind": "function",
+    "longname": "oj-c.SplitMenuButton#getProperty",
     "scope": "instance",
-    "params": [
-      {
-        "name": "properties",
-        "description": "An object containing the property and value pairs to set.",
-        "type": "object"
-      }
-    ],
     "returns": [
       {
         "type": {
           "names": [
-            "void"
+            "any"
           ]
         }
       }
-    ]
-  },
-  {
-    "memberof": "oj-c.SplitMenuButton",
-    "id": "oj-c.SplitMenuButton#event:ojMenuAction",
-    "name": "ojMenuAction",
-    "kind": "event",
-    "longname": "oj-c.SplitMenuButton#event:ojMenuAction",
-    "description": "Triggered when a menu item is clicked, whether by keyboard, mouse, or touch events. Detail indicates which menu item was clicked.",
-    "meta": {
-      "filename": "split-menu-button.tsx",
-      "path": "web/components/oj-c/split-menu-button"
-    },
-    "scope": "instance",
-    "properties": [
+    ],
+    "ojshortdesc": "Retrieves the value of a property or a subproperty.",
+    "description": "Retrieves the value of a property or a subproperty.",
+    "params": [
       {
-        "name": "key",
-        "optional": false,
+        "name": "property",
+        "description": "The property name to get. Supports dot notation for subproperty access.",
         "type": {
           "names": [
             "string"
@@ -435,17 +420,68 @@
     ]
   },
   {
+    "id": "oj-c.SplitMenuButton#setProperties",
+    "name": "setProperties",
     "memberof": "oj-c.SplitMenuButton",
-    "id": "oj-c.SplitMenuButton#event:ojAction",
-    "name": "ojAction",
-    "kind": "event",
-    "longname": "oj-c.SplitMenuButton#event:ojAction",
-    "description": "Triggered when a button is clicked, whether by keyboard, mouse, or touch events. To meet accessibility requirements, the only supported way to react to the click of a button is to listen for this event.",
     "meta": {
       "filename": "split-menu-button.tsx",
       "path": "web/components/oj-c/split-menu-button"
     },
-    "scope": "instance"
+    "kind": "function",
+    "longname": "oj-c.SplitMenuButton#setProperties",
+    "scope": "instance",
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "void"
+          ]
+        }
+      }
+    ],
+    "ojshortdesc": "Performs a batch set of properties.",
+    "description": "Performs a batch set of properties.",
+    "params": [
+      {
+        "name": "properties",
+        "description": "An object containing the property and value pairs to set.",
+        "type": {
+          "names": [
+            "object"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "oj-c.SplitMenuButton#event:ojMenuAction",
+    "name": "ojMenuAction",
+    "kind": "event",
+    "memberof": "oj-c.SplitMenuButton",
+    "meta": {
+      "filename": "split-menu-button.tsx",
+      "path": "web/components/oj-c/split-menu-button"
+    },
+    "longname": "oj-c.SplitMenuButton#event:ojMenuAction",
+    "scope": "instance",
+    "bubbles": true,
+    "ojshortdesc": "Triggered when a menu item is clicked, whether by keyboard, mouse, or touch events. Detail indicates which menu item was clicked.",
+    "description": "<p style=\"background-color: RGB(var(--oj-palette-info-rgb-30)); border: 2px solid #ddd\"><strong>Note:</strong> The event detail contains the following properties: [oj-c.SplitMenuButton.MenuItemSelectionDetail]{@link oj-c.SplitMenuButton.MenuItemSelectionDetail}</p>Triggered when a menu item is clicked, whether by keyboard, mouse, or touch events. Detail indicates which menu item was clicked."
+  },
+  {
+    "id": "oj-c.SplitMenuButton#event:ojAction",
+    "name": "ojAction",
+    "kind": "event",
+    "memberof": "oj-c.SplitMenuButton",
+    "meta": {
+      "filename": "split-menu-button.tsx",
+      "path": "web/components/oj-c/split-menu-button"
+    },
+    "longname": "oj-c.SplitMenuButton#event:ojAction",
+    "scope": "instance",
+    "bubbles": true,
+    "ojshortdesc": "Triggered when a button is clicked, whether by keyboard, mouse, or touch events. To meet accessibility requirements, the only supported way to react to the click of a button is to listen for this event.",
+    "description": "Triggered when a button is clicked, whether by keyboard, mouse, or touch events. To meet accessibility requirements, the only supported way to react to the click of a button is to listen for this event."
   },
   {
     "id": "oj-c.SplitMenuButton.touchDoc",
@@ -474,22 +510,22 @@
     "ojfragment": true
   },
   {
-    "memberof": "oj-c.SplitMenuButton",
     "id": "oj-c.SplitMenuButton.MenuSeparator",
     "name": "MenuSeparator",
     "kind": "typedef",
+    "memberof": "oj-c.SplitMenuButton",
+    "meta": {
+      "filename": "split-menu-button.tsx",
+      "path": "web/components/oj-c/split-menu-button"
+    },
     "longname": "oj-c.SplitMenuButton.MenuSeparator",
-    "scope": "static",
-    "description": "Specifies a menu separator:  <code>{ type: \"separator\" }</code>.",
     "type": {
       "names": [
         "Object"
       ]
     },
-    "meta": {
-      "filename": "split-menu-button.tsx",
-      "path": "web/components/oj-c/split-menu-button"
-    },
+    "scope": "static",
+    "description": "Specifies a menu separator:  <code>{ type: \"separator\" }</code>.",
     "properties": [
       {
         "name": "type",
@@ -511,27 +547,28 @@
             ],
             "description": "Use 'separator' instead."
           }
-        ]
+        ],
+        "ojshortdesc": "Specifies a separator menu item."
       }
     ]
   },
   {
-    "memberof": "oj-c.SplitMenuButton",
     "id": "oj-c.SplitMenuButton.MenuItem",
     "name": "MenuItem",
     "kind": "typedef",
+    "memberof": "oj-c.SplitMenuButton",
+    "meta": {
+      "filename": "split-menu-button.tsx",
+      "path": "web/components/oj-c/split-menu-button"
+    },
     "longname": "oj-c.SplitMenuButton.MenuItem",
-    "scope": "static",
-    "description": "Specifies a standard menu item.",
     "type": {
       "names": [
         "Object"
       ]
     },
-    "meta": {
-      "filename": "split-menu-button.tsx",
-      "path": "web/components/oj-c/split-menu-button"
-    },
+    "scope": "static",
+    "description": "Specifies a standard menu item.",
     "properties": [
       {
         "name": "type",
@@ -541,7 +578,8 @@
           "names": [
             "\"item\""
           ]
-        }
+        },
+        "ojshortdesc": "Specifies a standard menu item."
       },
       {
         "name": "label",
@@ -551,7 +589,8 @@
           "names": [
             "string"
           ]
-        }
+        },
+        "ojshortdesc": "The menu item label."
       },
       {
         "name": "key",
@@ -561,7 +600,8 @@
           "names": [
             "string"
           ]
-        }
+        },
+        "ojshortdesc": "A unique key associated with the menu item."
       },
       {
         "name": "disabled",
@@ -571,7 +611,8 @@
           "names": [
             "boolean"
           ]
-        }
+        },
+        "ojshortdesc": "Specifies if the menu item is disabled (enabled by default)."
       },
       {
         "name": "onAction",
@@ -581,7 +622,8 @@
           "names": [
             "function"
           ]
-        }
+        },
+        "ojshortdesc": "Optional callback function associated with the menu item."
       },
       {
         "name": "startIcon",
@@ -599,7 +641,8 @@
             "jsdocOverride": true,
             "for": "startIcon"
           }
-        ]
+        ],
+        "ojshortdesc": "Optional icon to render at the start of the menu item."
       },
       {
         "name": "endIcon",
@@ -617,7 +660,8 @@
             "jsdocOverride": true,
             "for": "endIcon"
           }
-        ]
+        ],
+        "ojshortdesc": "Optional icon to render at the end of the menu item."
       },
       {
         "name": "variant",
@@ -627,6 +671,61 @@
           "names": [
             "\"standard\"",
             "\"destructive\""
+          ]
+        },
+        "ojshortdesc": "Specifies the menu item behavior."
+      }
+    ]
+  },
+  {
+    "id": "oj-c.SplitMenuButton.MenuItems",
+    "name": "MenuItems",
+    "kind": "typedef",
+    "memberof": "oj-c.SplitMenuButton",
+    "meta": {
+      "filename": "split-menu-button.tsx",
+      "path": "web/components/oj-c/split-menu-button"
+    },
+    "longname": "oj-c.SplitMenuButton.MenuItems",
+    "type": {
+      "names": [
+        "Object"
+      ]
+    },
+    "scope": "static",
+    "description": "",
+    "tstype": [
+      {
+        "target": "Type",
+        "value": "oj-c.SplitMenuButton.MenuSeparator|oj-c.SplitMenuButton.MenuItem",
+        "jsdocOverride": true
+      }
+    ]
+  },
+  {
+    "id": "oj-c.SplitMenuButton.MenuItemSelectionDetail",
+    "name": "MenuItemSelectionDetail",
+    "kind": "typedef",
+    "memberof": "oj-c.SplitMenuButton",
+    "meta": {
+      "filename": "split-menu-button.tsx",
+      "path": "web/components/oj-c/split-menu-button"
+    },
+    "longname": "oj-c.SplitMenuButton.MenuItemSelectionDetail",
+    "type": {
+      "names": [
+        "Object"
+      ]
+    },
+    "scope": "static",
+    "description": "",
+    "properties": [
+      {
+        "name": "key",
+        "optional": false,
+        "type": {
+          "names": [
+            "string"
           ]
         }
       }

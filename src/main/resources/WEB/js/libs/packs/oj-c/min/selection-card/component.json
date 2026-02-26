@@ -1,7 +1,7 @@
 {
   "name": "selection-card",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -13,8 +13,8 @@
   "displayName": "Selection Card",
   "status": [
     {
-      "type": "candidate",
-      "since": "17.0.0"
+      "type": "production",
+      "since": "19.0.0"
     }
   ],
   "extension": {
@@ -33,7 +33,11 @@
       "minColumns": 1
     },
     "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/SelectionCardWebElement.html"
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/SelectionCardWebElement.html",
+      "export": "findSelectionCard",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   },
   "since": "16.0.0",

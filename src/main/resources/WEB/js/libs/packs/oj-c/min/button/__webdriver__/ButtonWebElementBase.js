@@ -81,6 +81,15 @@ class ButtonWebElementBase extends elements_1.OjWebElement {
     getChroming() {
         return this.getProperty('chroming');
     }
+    /**
+     * Gets the value of <code>buttonType</code> property.
+     * Specifes the button type to be rendered. This can be used to prevent form submission from happening when the value is set to &quot;button&quot;.
+     * @return The value of <code>buttonType</code> property.
+     *
+     */
+    getButtonType() {
+        return this.getProperty('buttonType');
+    }
 }
 exports.ButtonWebElementBase = ButtonWebElementBase;
 //# sourceMappingURL=ButtonWebElementBase.js.map

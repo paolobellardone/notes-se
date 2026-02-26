@@ -2,9 +2,11 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.TableWebElement = void 0;
 const TableWebElementBase_1 = require("./TableWebElementBase");
-const selenium_webdriver_1 = require("selenium-webdriver");
 const oraclejet_webdriver_1 = require("@oracle/oraclejet-webdriver");
 const oj_module_proxy_1 = require("@oracle/oraclejet-webdriver/lib/oj-module-proxy");
+const testing_1 = require("@oracle/oraclejet-preact/UNSAFE_TableView/testing");
+const UNSAFE_Locators_1 = require("@oracle/oraclejet-testing/UNSAFE_Locators");
+const PRIVATE_preact_webdriver_1 = require("../../../webdriver/PRIVATE_preact-webdriver");
 /**
  * The component WebElement for [oj-c-table](../../jsdocs/oj-c.Table.html).
  * Do not instantiate this class directly, instead, use
@@ -42,12 +44,12 @@ class TableWebElement extends TableWebElementBase_1.TableWebElementBase {
     async getSelected() {
         await this.whenReady();
         const selected = await this.getDriver().executeScript((ele) => {
-            const row = ele.selected.row.keys.all
-                ? { all: true, deletedKeys: Array.from(ele.selected.row.keys.deletedKeys) }
-                : { all: false, keys: Array.from(ele.selected.row.keys.keys) };
-            const column = ele.selected.column.keys.all
-                ? { all: true, deletedKeys: Array.from(ele.selected.column.keys.deletedKeys) }
-                : { all: false, keys: Array.from(ele.selected.column.keys.keys) };
+            const row = ele.selected?.row?.keys.all
+                ? { all: true, deletedKeys: Array.from(ele.selected.row.keys.deletedKeys.values()) }
+                : { all: false, keys: Array.from(ele.selected?.row?.keys.keys?.values() || []) };
+            const column = ele.selected?.column?.keys.all
+                ? { all: true, deletedKeys: Array.from(ele.selected.column.keys.deletedKeys.values()) }
+                : { all: false, keys: Array.from(ele.selected?.column?.keys.keys?.values() || []) };
             return { row, column };
         }, this);
         return selected;
@@ -58,13 +60,7 @@ class TableWebElement extends TableWebElementBase_1.TableWebElementBase {
      */
     async doRowAction(itemLocator) {
         await this.whenReady();
-        try {
-            const row = await this.findElement(selenium_webdriver_1.By.css(`[data-oj-key="${itemLocator.rowKey}"]`));
-            await row?.click();
-        }
-        catch (e) {
-            throw new selenium_webdriver_1.error.NoSuchElementError(`Row with specified key cannot be found`);
-        }
+        return (0, testing_1.findTableView)((0, UNSAFE_Locators_1.byCss)('* > div > div'), (0, PRIVATE_preact_webdriver_1.getTestElement)(this)).doRowAction(itemLocator.rowKey);
     }
     /**
      * Retrieve a SlotProxy which represents a cell.
@@ -76,15 +72,19 @@ class TableWebElement extends TableWebElementBase_1.TableWebElementBase {
      */
     async findCell(itemLocator) {
         await this.whenReady();
-        const el = await this.getDriver().executeScript((element, columnKey, rowKey) => {
-            const column = element.columns[columnKey];
-            const hasDefaultCellTemplate = element.firstElementChild.getAttribute('data-oj-ct');
-            if (column['template'] == null && !hasDefaultCellTemplate) {
-                return null;
-            }
-            const row = element.querySelector(`[data-oj-key="${rowKey}"]`);
-            if (row) {
-                return row.querySelector(`[data-oj-column-key="${columnKey}"]`);
+        const el = await this.getDriver().executeScript(
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (element, columnKey, rowKey) => {
+            const column = element.columns && element.columns[columnKey];
+            if (column != null) {
+                const hasDefaultCellTemplate = element.firstElementChild?.getAttribute('data-oj-ct');
+                if (column['template'] == null && !hasDefaultCellTemplate) {
+                    return null;
+                }
+                const row = element.querySelector(`[data-oj-key="${rowKey}"]`);
+                if (row) {
+                    return row.querySelector(`[data-oj-column-key="${columnKey}"]`);
+                }
             }
             return null;
         }, this, itemLocator.columnKey, itemLocator.rowKey);
@@ -104,13 +104,18 @@ class TableWebElement extends TableWebElementBase_1.TableWebElementBase {
      */
     async findHeader(itemLocator) {
         await this.whenReady();
-        const el = await this.getDriver().executeScript((element, columnKey) => {
-            const column = element.columns[columnKey];
-            const hasDefaultHeaderTemplate = element.firstElementChild.getAttribute('data-oj-ht');
-            if (column['headerTemplate'] == null && !hasDefaultHeaderTemplate) {
-                return null;
+        const el = await this.getDriver().executeScript(
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (element, columnKey) => {
+            const column = element.columns && element.columns[columnKey];
+            if (column != null) {
+                const hasDefaultHeaderTemplate = element.firstElementChild?.getAttribute('data-oj-ht');
+                if (column['headerTemplate'] == null && !hasDefaultHeaderTemplate) {
+                    return null;
+                }
+                return element.querySelector(`[data-oj-cell-type="header"][data-oj-column-key="${columnKey}"]`);
             }
-            return element.querySelector(`[data-oj-cell-type="header"][data-oj-column-key="${columnKey}"]`);
+            return null;
         }, this, itemLocator.columnKey);
         if (el) {
             return (0, oraclejet_webdriver_1.slotProxy)(el, this);
@@ -128,13 +133,18 @@ class TableWebElement extends TableWebElementBase_1.TableWebElementBase {
      */
     async findFooter(itemLocator) {
         await this.whenReady();
-        const el = await this.getDriver().executeScript((element, columnKey) => {
-            const column = element.columns[columnKey];
-            const hasDefaultFooterTemplate = element.firstElementChild.getAttribute('data-oj-ft');
-            if (column['footerTemplate'] == null && !hasDefaultFooterTemplate) {
-                return null;
+        const el = await this.getDriver().executeScript(
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (element, columnKey) => {
+            const column = element.columns && element.columns[columnKey];
+            if (column != null) {
+                const hasDefaultFooterTemplate = element.firstElementChild?.getAttribute('data-oj-ft');
+                if (column['footerTemplate'] == null && !hasDefaultFooterTemplate) {
+                    return null;
+                }
+                return element.querySelector(`[data-oj-cell-type="footer"][data-oj-column-key="${columnKey}"]`);
             }
-            return element.querySelector(`[data-oj-cell-type="footer"][data-oj-column-key="${columnKey}"]`);
+            return null;
         }, this, itemLocator.columnKey);
         if (el) {
             return (0, oraclejet_webdriver_1.slotProxy)(el, this);
@@ -148,8 +158,10 @@ class TableWebElement extends TableWebElementBase_1.TableWebElementBase {
      */
     async findNoData() {
         await this.whenReady();
-        const el = await this.getDriver().executeScript((element) => {
-            if (!element.firstElementChild.getAttribute('data-oj-ndt')) {
+        const el = await this.getDriver().executeScript(
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (element) => {
+            if (!element.firstElementChild?.getAttribute('data-oj-ndt')) {
                 return null;
             }
             return element.querySelector('[data-oj-cell-type="noData"]');

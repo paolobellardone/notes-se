@@ -1,7 +1,7 @@
 {
   "name": "table",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -17,6 +17,16 @@
     {
       "type": "candidate",
       "since": "17.1.0"
+    }
+  ],
+  "requirements": [
+    {
+      "type": "anyOf",
+      "label": "accessibility",
+      "properties": [
+        "aria-label",
+        "aria-labelledby"
+      ]
     }
   ],
   "extension": {
@@ -35,7 +45,11 @@
       "icon": "oj-ux-ico-tables-basic"
     },
     "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/TableWebElement.html"
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/TableWebElement.html",
+      "export": "findTable",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   },
   "propertyLayout": [
@@ -223,6 +237,15 @@
                     "left",
                     "right"
                   ]
+                },
+                "resizable": {
+                  "type": "string",
+                  "description": "Enable or disable width resizing along the column end headers.",
+                  "displayName": "Resizable",
+                  "enumValues": [
+                    "disabled",
+                    "enabled"
+                  ]
                 }
               }
             }
@@ -309,7 +332,7 @@
     },
     "selectionMode": {
       "type": "object",
-      "description": "Specifies whether row and/or column selection gestures are enabled on the Table, and the cardinality of each (single/multiple/none).",
+      "description": "Specifies whether row and/or column selection gestures are enabled on the Table, and the cardinality of each (single/multiple/multipleToggle/none).",
       "displayName": "Selection Mode",
       "help": "#selectionMode",
       "properties": {
@@ -351,8 +374,12 @@
               "displayName": "Single"
             },
             "multiple": {
-              "description": "Any number of rows can be selected via user gestures.",
+              "description": "Any number of rows can be selected via user gestures. Performing a selection gesture may affect the selection state of previously selected rows depending on render context as well as the use of modifier keys.",
               "displayName": "Multiple"
+            },
+            "multipleToggle": {
+              "description": "Any number of rows can be selected via user gestures. Performing a selection gesture will not affect the selection state of previously selected rows regardless of rendering context or the use of modifier keys.",
+              "displayName": "Multiple Toggle"
             }
           },
           "description": "Specifies whether row selection gestures are enabled on the Table.",
@@ -361,7 +388,8 @@
           "enumValues": [
             "none",
             "multiple",
-            "single"
+            "single",
+            "multipleToggle"
           ],
           "value": "none"
         }
@@ -379,7 +407,7 @@
           "displayName": "Visible"
         }
       },
-      "description": "Controls the display of the Table's select all control when multiple row selection is enabled.",
+      "description": "Controls the display of the Table's select all control when multiple or multipleToggle row selection is enabled.",
       "displayName": "Select All Control",
       "help": "#selectAllControl",
       "enumValues": [
@@ -442,6 +470,41 @@
           "value": 25
         }
       }
+    },
+    "columnResizeBehavior": {
+      "type": "string",
+      "description": "The column resize behavior this Table will utilize when column resizing is enabled on a given column.",
+      "displayName": "Column Resize Behavior",
+      "help": "#columnResizeBehavior",
+      "propertyEditorValues": {
+        "add": {
+          "description": "Column resize gestures only affect the width of the column on the start side of the divider.",
+          "displayName": "add"
+        },
+        "redistribute": {
+          "description": "Column resize gestures affect the widths of columns on each side of the divider.",
+          "displayName": "redistribute"
+        }
+      },
+      "enumValues": [
+        "add",
+        "redistribute"
+      ],
+      "value": "redistribute"
+    },
+    "contextMenuConfig": {
+      "type": "object",
+      "description": "Specifies a context menu configuration.",
+      "displayName": "Context Menu Config",
+      "help": "#contextMenuConfig",
+      "properties": {
+        "accessibleLabel": {
+          "type": "string"
+        },
+        "items": {
+          "type": "function"
+        }
+      }
     }
   },
   "slots": {
@@ -451,7 +514,7 @@
       "help": "#cellTemplate",
       "data": {
         "columnKey": {
-          "type": "any"
+          "type": "string"
         },
         "item": {
           "type": "object",
@@ -469,7 +532,7 @@
                   "type": "boolean"
                 },
                 "key": {
-                  "type": "any"
+                  "type": "string|number"
                 },
                 "message": {
                   "type": "object",
@@ -486,7 +549,7 @@
                   }
                 },
                 "parentKey": {
-                  "type": "any"
+                  "type": "string|number"
                 },
                 "suggestion": {
                   "type": "object"
@@ -512,7 +575,7 @@
       "help": "#headerTemplate",
       "data": {
         "key": {
-          "type": "any"
+          "type": "string"
         },
         "headerText": {
           "type": "string"
@@ -528,7 +591,7 @@
       "help": "#footerTemplate",
       "data": {
         "key": {
-          "type": "any"
+          "type": "string"
         },
         "footerText": {
           "type": "string"
@@ -542,7 +605,7 @@
       "description": "The template for rendering content when the table has an empty data set. See the Help documentation for more information.",
       "displayName": "No Data",
       "help": "#noData",
-      "templateSlotRenderType": "RenderNoDataTemplate",
+      "templateSlotAlias": "noDataTemplate",
       "data": {
         "isTabbable": {
           "type": "boolean"
@@ -557,7 +620,7 @@
       "help": "#dynamicTemplates",
       "data": {
         "columnKey": {
-          "type": "any"
+          "type": "string"
         },
         "item": {
           "type": "object",
@@ -575,7 +638,7 @@
                   "type": "boolean"
                 },
                 "key": {
-                  "type": "any"
+                  "type": "string|number"
                 },
                 "message": {
                   "type": "object",
@@ -592,7 +655,7 @@
                   }
                 },
                 "parentKey": {
-                  "type": "any"
+                  "type": "string|number"
                 },
                 "suggestion": {
                   "type": "object"
@@ -618,7 +681,7 @@
       "help": "#dynamicTemplates",
       "data": {
         "key": {
-          "type": "any"
+          "type": "string"
         },
         "headerText": {
           "type": "string"
@@ -634,7 +697,7 @@
       "help": "#dynamicTemplates",
       "data": {
         "key": {
-          "type": "any"
+          "type": "string"
         },
         "footerText": {
           "type": "string"
@@ -671,7 +734,7 @@
                       "type": "boolean"
                     },
                     "key": {
-                      "type": "any"
+                      "type": "string|number"
                     },
                     "message": {
                       "type": "object",
@@ -688,7 +751,7 @@
                       }
                     },
                     "parentKey": {
-                      "type": "any"
+                      "type": "string|number"
                     },
                     "suggestion": {
                       "type": "object"

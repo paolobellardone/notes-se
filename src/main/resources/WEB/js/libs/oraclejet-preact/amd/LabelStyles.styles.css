@@ -45,7 +45,7 @@
   position: absolute;
   max-width: calc(100% - 2 * var(--textToEdgePadding__w6gg1y9));
   inset-inline-start: var(--textToEdgePadding__w6gg1y9);
-  top: calc(var(--insideEdgeHeight__w6gg1yh)/ 2);
+  top: calc(var(--insideEdgeHeight__w6gg1yg)/ 2);
   transform: translateY(-50%);
   transition-property: all;
   transition-duration: .25s;
@@ -96,4 +96,8 @@
 }
 .LabelStyles_uaDensityCompactLabelTopInside__t9j3mrg {
   width: inherit;
+}
+.LabelStyles_safariAfter__t9j3mrh::after {
+  content: "";
+  display: block;
 }

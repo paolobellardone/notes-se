@@ -91,6 +91,15 @@ class CheckboxWebElementBase extends elements_1.OjWebElement {
         return this.getProperty('readonly');
     }
     /**
+     * Gets the value of <code>readonlyUserAssistanceShown</code> property.
+     * Specifies which user assistance types should be shown when the component is readonly.
+     * @return The value of <code>readonlyUserAssistanceShown</code> property.
+     *
+     */
+    getReadonlyUserAssistanceShown() {
+        return this.getProperty('readonlyUserAssistanceShown');
+    }
+    /**
      * Gets the value of <code>required</code> property.
      * Specifies whether or not the component is required.
      * @return The value of <code>required</code> property.

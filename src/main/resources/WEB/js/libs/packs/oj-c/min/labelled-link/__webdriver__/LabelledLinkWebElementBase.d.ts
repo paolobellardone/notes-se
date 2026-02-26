@@ -56,6 +56,13 @@ export declare class LabelledLinkWebElementBase extends OjWebElement {
      */
     getLabelWrapping(): Promise<string>;
     /**
+     * Gets the value of <code>lineClamp</code> property.
+     * Truncates text at a specific number of lines and then displays an ellipsis (…) at the end of the last line. The parent of the element needs to have a specific width so that text starts overflowing and produces a truncation. The lineClamp property is ignored when the oj-c-labelled-link is in a oj-c-form-layout.
+     * @return The value of <code>lineClamp</code> property.
+     *
+     */
+    getLineClamp(): Promise<number>;
+    /**
      * Gets the value of <code>target</code> property.
      * Sets the target attribute of the link.
      * @return The value of <code>target</code> property.

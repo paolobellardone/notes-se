@@ -1,7 +1,7 @@
 {
   "name": "split-menu-button",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -33,7 +33,11 @@
       ]
     },
     "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/SplitMenuButtonWebElement.html"
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/SplitMenuButtonWebElement.html",
+      "export": "findSplitMenuButton",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   },
   "propertyLayout": [
@@ -46,12 +50,33 @@
         "chroming",
         "size",
         "width",
-        "disabled",
+        "disabled"
+      ]
+    },
+    {
+      "propertyGroup": "data",
+      "items": [
         "items"
       ]
     }
   ],
   "since": "14.0.0",
+  "requirements": [
+    {
+      "type": "anyOf",
+      "label": "accessibility",
+      "properties": [
+        "label"
+      ]
+    },
+    {
+      "type": "not",
+      "label": "accessibility",
+      "properties": [
+        "aria-label"
+      ]
+    }
+  ],
   "properties": {
     "label": {
       "type": "string",

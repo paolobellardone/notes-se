@@ -2,6 +2,14 @@ define(["require", "exports", "preact/hooks", "ojs/ojvalidator-numberrange"], fu
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.useImplicitNumberRangeValidator = useImplicitNumberRangeValidator;
+    /**
+     * A custom hook the creates an implicit new NumberRangeValidator for oj-c-input-number if there is a min or max property.
+     * Otherwise it will return null.
+     *
+     * @param param0 The props for the export function useImplicitNumberRangeValidator({
+     hook
+     * @returns A NumberRangeValidator instance or null
+     */
     function useImplicitNumberRangeValidator({ converter, max, min, numberRangeExactMessageDetail, numberRangeOverflowMessageDetail, numberRangeUnderflowMessageDetail }) {
         const numberRangeValidator = (0, hooks_1.useMemo)(() => {
             if (min !== undefined || max !== undefined) {

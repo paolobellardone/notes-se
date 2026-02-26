@@ -7,6 +7,11 @@ type UseSelectDataParams<K, D> = {
     filterCriterion?: DataFilter.Filter<D>;
     hasCollectionTemplate: boolean;
 };
+/**
+ * A custom hook for creating the data related properties for the select component.
+ * @param param0 hook params
+ * @returns hook result
+ */
 export declare const useSelectData: <K, D>({ data, dataStateOverride: propDataStateOverride, filterCriterion, hasCollectionTemplate }: UseSelectDataParams<K, D>) => {
     dataProvider: DataProvider<K, D> | import("../PRIVATE_DebouncingDataProviderView/DebouncingDataProviderView").DebouncingDataProviderView<K, D> | null | undefined;
     dataState: ListDataState<K, D>;

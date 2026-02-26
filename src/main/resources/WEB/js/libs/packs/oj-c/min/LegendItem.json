@@ -1,19 +1,24 @@
 [
   {
-    "pack": "oj-c",
     "id": "oj-c.LegendItem",
     "name": "LegendItem",
     "memberof": "oj-c",
-    "longname": "oj-c.LegendItem",
     "kind": "class",
+    "meta": {
+      "filename": "legend-item.tsx",
+      "path": "/home/jenkins/uitech/workspace/OJET_Code_20.0.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
+    },
+    "ojcomponent": true,
+    "isvcomponent": true,
+    "since": "15.0.0",
+    "longname": "oj-c.LegendItem",
+    "pack": "oj-c",
     "classdesc": " <h3 id=\"overview\">\n   JET Legend Item\n   <a class=\"bookmarkable-link\" title=\"Bookmarkable Link\" href=\"#overview\"></a>\n </h3>\n\n <p>\n  The oj-c-legend-item element is used to declare properties for legend items and is only valid as the\n  child of a template element for the <a target=\"_blank\" href=\"oj-c.Legend.html#itemTemplate\">itemTemplate</a>\n  slot of oj-c-legend.\n </p>\n\n <pre class=\"prettyprint\">\n <code>\n &lt;oj-c-legend data='[[dataProvider]]'>\n  &lt;template slot='itemTemplate'>\n    &lt;oj-c-legend-item  text='[[$current.data.text]]' color='[[$current.data.color]]'>\n    &lt;/oj-c-legend-item>\n  &lt;/template>\n &lt;/oj-c-legend>\n </code>\n </pre>\n\n <h3 id=\"a11y-section\">\n  Accessibility\n  <a class=\"bookmarkable-link\" title=\"Bookmarkable Link\" href=\"#a11y-section\"></a>\n </h3>\n <p>\n  Read the <a target=\"_blank\" href=\"oj-c.Legend.html#a11y-section\">Accessibility Section</a> of the oj-c-legend component for details about making this component accessible.\n </p>",
     "scope": "static",
     "tagWithoutBrackets": "oj-c-legend-item",
     "tagWithBrackets": "<oj-c-legend-item>",
     "domInterface": "CLegendItemElement",
     "ojPageTitle": "&lt;oj-c-legend-item>",
-    "ojcomponent": true,
-    "isvcomponent": true,
     "camelCaseName": "LegendItem",
     "ojPageTitlePrefix": "Element: ",
     "ojtsvcomponent": true,
@@ -27,72 +32,84 @@
         "value": "interface CLegendItemElement extends JetElement<LegendItemElementSettableProperties>"
       }
     ],
-    "since": "15.0.0",
     "tsdeprecated": [
       {
         "type": "candidate",
         "since": "17.0.0"
       }
     ],
-    "meta": {
-      "filename": "legend-item.tsx",
-      "path": "/home/jenkins/uitech/workspace/OJET_Code_18.1.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
+    "extension": {
+      "catalog": {
+        "category": "Visualizations"
+      }
     },
     "ojmodule": "legend-item",
     "ojslotcomponent": true
   },
   {
-    "memberof": "oj-c.LegendItem",
     "id": "oj-c.LegendItem#text",
     "name": "text",
-    "kind": "member",
-    "longname": "oj-c.LegendItem#text",
-    "optional": false,
-    "scope": "instance",
-    "description": "The legend item text. Also used as item aria label if short-desc is not provided.",
+    "memberof": "oj-c.LegendItem",
     "meta": {
       "filename": "legend-item.tsx",
-      "path": "/home/jenkins/uitech/workspace/OJET_Code_18.1.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
+      "path": "/home/jenkins/uitech/workspace/OJET_Code_20.0.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
     },
+    "kind": "member",
+    "longname": "oj-c.LegendItem#text",
+    "scope": "instance",
     "type": {
       "names": [
         "string"
       ]
-    }
+    },
+    "optional": false,
+    "ojdisplayname": "Text",
+    "ojshortdesc": "The legend item text.",
+    "description": "The legend item text. Also used as item aria label if short-desc is not provided."
   },
   {
-    "memberof": "oj-c.LegendItem",
     "id": "oj-c.LegendItem#categories",
     "name": "categories",
-    "kind": "member",
-    "longname": "oj-c.LegendItem#categories",
-    "optional": true,
-    "scope": "instance",
-    "description": "An array of categories for the legend item. Legend items currently only support a single category.",
+    "memberof": "oj-c.LegendItem",
     "meta": {
       "filename": "legend-item.tsx",
-      "path": "/home/jenkins/uitech/workspace/OJET_Code_18.1.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
+      "path": "/home/jenkins/uitech/workspace/OJET_Code_20.0.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
     },
-    "defaultvalue": "[]",
+    "kind": "member",
+    "longname": "oj-c.LegendItem#categories",
+    "scope": "instance",
     "type": {
       "names": [
         "Array<string>"
       ]
-    }
+    },
+    "optional": true,
+    "ojdisplayname": "Categories",
+    "description": "An array of categories for the legend item. Legend items currently only support a single category.",
+    "defaultvalue": "'[]'"
   },
   {
-    "memberof": "oj-c.LegendItem",
     "id": "oj-c.LegendItem#symbolType",
     "name": "symbolType",
-    "kind": "member",
-    "longname": "oj-c.LegendItem#symbolType",
-    "optional": true,
-    "scope": "instance",
-    "description": "The type of legend symbol to display.",
+    "memberof": "oj-c.LegendItem",
     "meta": {
       "filename": "legend-item.tsx",
-      "path": "/home/jenkins/uitech/workspace/OJET_Code_18.1.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
+      "path": "/home/jenkins/uitech/workspace/OJET_Code_20.0.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
     },
+    "kind": "member",
+    "longname": "oj-c.LegendItem#symbolType",
+    "scope": "instance",
+    "type": {
+      "names": [
+        "\"marker\"",
+        "\"image\"",
+        "\"line\"",
+        "\"lineWithMarker\""
+      ]
+    },
+    "optional": true,
+    "ojdisplayname": "Symbol Type",
+    "description": "The type of legend symbol to display.",
     "ojvalues": [
       {
         "name": "line",
@@ -135,87 +152,92 @@
         }
       }
     ],
-    "defaultvalue": "\"marker\"",
-    "type": {
-      "names": [
-        "\"marker\"",
-        "\"image\"",
-        "\"line\"",
-        "\"lineWithMarker\""
-      ]
-    }
+    "ojvalueskeeporder": true,
+    "defaultvalue": "'marker'"
   },
   {
-    "memberof": "oj-c.LegendItem",
     "id": "oj-c.LegendItem#source",
     "name": "source",
+    "memberof": "oj-c.LegendItem",
+    "meta": {
+      "filename": "legend-item.tsx",
+      "path": "/home/jenkins/uitech/workspace/OJET_Code_20.0.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
+    },
     "kind": "member",
     "longname": "oj-c.LegendItem#source",
-    "optional": true,
     "scope": "instance",
-    "description": "The URI of the image of the legend symbol.",
-    "meta": {
-      "filename": "legend-item.tsx",
-      "path": "/home/jenkins/uitech/workspace/OJET_Code_18.1.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
-    },
     "type": {
       "names": [
         "string"
       ]
-    }
+    },
+    "optional": true,
+    "ojdisplayname": "Source",
+    "description": "The URI of the image of the legend symbol."
   },
   {
-    "memberof": "oj-c.LegendItem",
     "id": "oj-c.LegendItem#color",
     "name": "color",
+    "memberof": "oj-c.LegendItem",
+    "meta": {
+      "filename": "legend-item.tsx",
+      "path": "/home/jenkins/uitech/workspace/OJET_Code_20.0.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
+    },
     "kind": "member",
     "longname": "oj-c.LegendItem#color",
-    "optional": true,
     "scope": "instance",
-    "description": "The color of the legend symbol (line or marker). When symbolType is \"lineWithMarker\", this attribute defines the line color and the markerColor attribute defines the marker color.",
-    "meta": {
-      "filename": "legend-item.tsx",
-      "path": "/home/jenkins/uitech/workspace/OJET_Code_18.1.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
-    },
     "type": {
       "names": [
         "string"
       ]
-    }
+    },
+    "optional": true,
+    "ojdisplayname": "Color",
+    "description": "The color of the legend symbol (line or marker). When symbolType is \"lineWithMarker\", this attribute defines the line color and the markerColor attribute defines the marker color."
   },
   {
-    "memberof": "oj-c.LegendItem",
     "id": "oj-c.LegendItem#borderColor",
     "name": "borderColor",
-    "kind": "member",
-    "longname": "oj-c.LegendItem#borderColor",
-    "optional": true,
-    "scope": "instance",
-    "description": "The border color of the marker. Only applies if symbolType is \"marker\" or \"lineWithMarker",
+    "memberof": "oj-c.LegendItem",
     "meta": {
       "filename": "legend-item.tsx",
-      "path": "/home/jenkins/uitech/workspace/OJET_Code_18.1.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
+      "path": "/home/jenkins/uitech/workspace/OJET_Code_20.0.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
     },
-    "defaultvalue": "\"\"",
+    "kind": "member",
+    "longname": "oj-c.LegendItem#borderColor",
+    "scope": "instance",
     "type": {
       "names": [
         "string"
       ]
-    }
+    },
+    "optional": true,
+    "ojdisplayname": "Border Color",
+    "ojshortdesc": "The border color of the marker. Only applies if symbolType is \"marker\" or \"lineWithMarker.",
+    "description": "The border color of the marker. Only applies if symbolType is \"marker\" or \"lineWithMarker",
+    "defaultvalue": "''"
   },
   {
-    "memberof": "oj-c.LegendItem",
     "id": "oj-c.LegendItem#lineStyle",
     "name": "lineStyle",
-    "kind": "member",
-    "longname": "oj-c.LegendItem#lineStyle",
-    "optional": true,
-    "scope": "instance",
-    "description": "The line style. Only applies when the symbolType is \"line\" or \"lineWithMarker\".",
+    "memberof": "oj-c.LegendItem",
     "meta": {
       "filename": "legend-item.tsx",
-      "path": "/home/jenkins/uitech/workspace/OJET_Code_18.1.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
+      "path": "/home/jenkins/uitech/workspace/OJET_Code_20.0.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
     },
+    "kind": "member",
+    "longname": "oj-c.LegendItem#lineStyle",
+    "scope": "instance",
+    "type": {
+      "names": [
+        "\"dashed\"",
+        "\"solid\"",
+        "\"dotted\""
+      ]
+    },
+    "optional": true,
+    "ojdisplayname": "Line Style",
+    "description": "The line style. Only applies when the symbolType is \"line\" or \"lineWithMarker\".",
     "ojvalues": [
       {
         "name": "dotted",
@@ -248,47 +270,57 @@
         }
       }
     ],
-    "defaultvalue": "\"solid\"",
-    "type": {
-      "names": [
-        "\"dashed\"",
-        "\"solid\"",
-        "\"dotted\""
-      ]
-    }
+    "ojvalueskeeporder": true,
+    "defaultvalue": "'solid'"
   },
   {
-    "memberof": "oj-c.LegendItem",
     "id": "oj-c.LegendItem#lineWidth",
     "name": "lineWidth",
-    "kind": "member",
-    "longname": "oj-c.LegendItem#lineWidth",
-    "optional": true,
-    "scope": "instance",
-    "description": "The line width in pixels. Only applies when the symbolType is \"line\" or \"lineWithMarker.",
+    "memberof": "oj-c.LegendItem",
     "meta": {
       "filename": "legend-item.tsx",
-      "path": "/home/jenkins/uitech/workspace/OJET_Code_18.1.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
+      "path": "/home/jenkins/uitech/workspace/OJET_Code_20.0.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
     },
+    "kind": "member",
+    "longname": "oj-c.LegendItem#lineWidth",
+    "scope": "instance",
     "type": {
       "names": [
         "number"
       ]
-    }
+    },
+    "optional": true,
+    "ojdisplayname": "Line Width",
+    "description": "The line width in pixels. Only applies when the symbolType is \"line\" or \"lineWithMarker."
   },
   {
-    "memberof": "oj-c.LegendItem",
     "id": "oj-c.LegendItem#markerShape",
     "name": "markerShape",
-    "kind": "member",
-    "longname": "oj-c.LegendItem#markerShape",
-    "optional": true,
-    "scope": "instance",
-    "description": "The shape of the marker. Only applies if symbolType is \"marker\" or \"lineWithMarker\". Does not apply if a custom image is specified.",
+    "memberof": "oj-c.LegendItem",
     "meta": {
       "filename": "legend-item.tsx",
-      "path": "/home/jenkins/uitech/workspace/OJET_Code_18.1.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
+      "path": "/home/jenkins/uitech/workspace/OJET_Code_20.0.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
     },
+    "kind": "member",
+    "longname": "oj-c.LegendItem#markerShape",
+    "scope": "instance",
+    "type": {
+      "names": [
+        "\"square\"",
+        "\"circle\"",
+        "\"ellipse\"",
+        "\"diamond\"",
+        "\"human\"",
+        "\"plus\"",
+        "\"star\"",
+        "\"triangleDown\"",
+        "\"triangleUp\"",
+        "\"rectangle\""
+      ]
+    },
+    "optional": true,
+    "ojdisplayname": "Marker Shape",
+    "description": "The shape of the marker. Only applies if symbolType is \"marker\" or \"lineWithMarker\". Does not apply if a custom image is specified.",
     "ojvalues": [
       {
         "name": "circle",
@@ -391,73 +423,71 @@
         }
       }
     ],
-    "defaultvalue": "\"square\"",
-    "type": {
-      "names": [
-        "\"square\"",
-        "\"circle\"",
-        "\"ellipse\"",
-        "\"diamond\"",
-        "\"human\"",
-        "\"plus\"",
-        "\"star\"",
-        "\"triangleDown\"",
-        "\"triangleUp\"",
-        "\"rectangle\""
-      ]
-    }
+    "ojvalueskeeporder": true,
+    "defaultvalue": "'square'"
   },
   {
-    "memberof": "oj-c.LegendItem",
     "id": "oj-c.LegendItem#markerColor",
     "name": "markerColor",
+    "memberof": "oj-c.LegendItem",
+    "meta": {
+      "filename": "legend-item.tsx",
+      "path": "/home/jenkins/uitech/workspace/OJET_Code_20.0.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
+    },
     "kind": "member",
     "longname": "oj-c.LegendItem#markerColor",
-    "optional": true,
     "scope": "instance",
-    "description": "The color of the marker, if different than the line color. Only applies if the symbolType is \"lineWithMarker\".",
-    "meta": {
-      "filename": "legend-item.tsx",
-      "path": "/home/jenkins/uitech/workspace/OJET_Code_18.1.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
-    },
     "type": {
       "names": [
         "string"
       ]
-    }
+    },
+    "optional": true,
+    "ojdisplayname": "sections",
+    "description": "The color of the marker, if different than the line color. Only applies if the symbolType is \"lineWithMarker\"."
   },
   {
-    "memberof": "oj-c.LegendItem",
     "id": "oj-c.LegendItem#shortDesc",
     "name": "shortDesc",
-    "kind": "member",
-    "longname": "oj-c.LegendItem#shortDesc",
-    "optional": true,
-    "scope": "instance",
-    "description": "The description of this legend item. This is used for accessibility and for customizing the tooltip text.",
+    "memberof": "oj-c.LegendItem",
     "meta": {
       "filename": "legend-item.tsx",
-      "path": "/home/jenkins/uitech/workspace/OJET_Code_18.1.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
+      "path": "/home/jenkins/uitech/workspace/OJET_Code_20.0.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
     },
+    "kind": "member",
+    "longname": "oj-c.LegendItem#shortDesc",
+    "scope": "instance",
     "type": {
       "names": [
         "string"
       ]
-    }
+    },
+    "optional": true,
+    "ojdisplayname": "Short Desc",
+    "description": "The description of this legend item. This is used for accessibility and for customizing the datatip text."
   },
   {
-    "memberof": "oj-c.LegendItem",
     "id": "oj-c.LegendItem#drilling",
     "name": "drilling",
-    "kind": "member",
-    "longname": "oj-c.LegendItem#drilling",
-    "optional": true,
-    "scope": "instance",
-    "description": "Whether drilling is enabled on the legend item. Drillable objects will show a pointer cursor on hover and fire ojDrill event on click. To enable drilling for all legend items at once, use the drilling attribute in the top level.",
+    "memberof": "oj-c.LegendItem",
     "meta": {
       "filename": "legend-item.tsx",
-      "path": "/home/jenkins/uitech/workspace/OJET_Code_18.1.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
+      "path": "/home/jenkins/uitech/workspace/OJET_Code_20.0.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
     },
+    "kind": "member",
+    "longname": "oj-c.LegendItem#drilling",
+    "scope": "instance",
+    "type": {
+      "names": [
+        "\"off\"",
+        "\"inherit\"",
+        "\"on\""
+      ]
+    },
+    "optional": true,
+    "ojdisplayname": "Drilling",
+    "ojshortdesc": "Whether drilling is enabled on the legend item.",
+    "description": "Whether drilling is enabled on the legend item. Drillable objects will show a pointer cursor on hover and fire ojDrill event on click. To enable drilling for all legend items at once, use the drilling attribute in the top level.",
     "ojvalues": [
       {
         "name": "inherit",
@@ -490,39 +520,20 @@
         }
       }
     ],
-    "defaultvalue": "\"inherit\"",
-    "type": {
-      "names": [
-        "\"inherit\"",
-        "\"off\"",
-        "\"on\""
-      ]
-    }
+    "ojvalueskeeporder": true,
+    "defaultvalue": "'inherit'"
   },
   {
-    "memberof": "oj-c.LegendItem",
     "id": "oj-c.LegendItem#setProperty",
     "name": "setProperty",
-    "kind": "function",
-    "longname": "oj-c.LegendItem#setProperty",
-    "description": "Sets a property or a single subproperty for complex properties and notifies the component of the change, triggering a corresponding event.",
+    "memberof": "oj-c.LegendItem",
     "meta": {
       "filename": "legend-item.tsx",
-      "path": "/home/jenkins/uitech/workspace/OJET_Code_18.1.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
+      "path": "/home/jenkins/uitech/workspace/OJET_Code_20.0.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
     },
+    "kind": "function",
+    "longname": "oj-c.LegendItem#setProperty",
     "scope": "instance",
-    "params": [
-      {
-        "name": "property",
-        "description": "The property name to set. Supports dot notation for subproperty access.",
-        "type": "string"
-      },
-      {
-        "name": "value",
-        "description": "The new value to set the property to.",
-        "type": "any"
-      }
-    ],
     "returns": [
       {
         "type": {
@@ -531,29 +542,22 @@
           ]
         }
       }
-    ]
-  },
-  {
-    "memberof": "oj-c.LegendItem",
-    "id": "oj-c.LegendItem#getProperty",
-    "name": "getProperty",
-    "kind": "function",
-    "longname": "oj-c.LegendItem#getProperty",
-    "description": "Retrieves the value of a property or a subproperty.",
-    "meta": {
-      "filename": "legend-item.tsx",
-      "path": "/home/jenkins/uitech/workspace/OJET_Code_18.1.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
-    },
-    "scope": "instance",
+    ],
+    "ojshortdesc": "Sets a property or a single subproperty for complex properties and notifies the component of the change, triggering a corresponding event.",
+    "description": "Sets a property or a single subproperty for complex properties and notifies the component of the change, triggering a corresponding event.",
     "params": [
       {
         "name": "property",
-        "description": "The property name to get. Supports dot notation for subproperty access.",
-        "type": "string"
-      }
-    ],
-    "returns": [
+        "description": "The property name to set. Supports dot notation for subproperty access.",
+        "type": {
+          "names": [
+            "string"
+          ]
+        }
+      },
       {
+        "name": "value",
+        "description": "The new value to set the property to.",
         "type": {
           "names": [
             "any"
@@ -563,29 +567,68 @@
     ]
   },
   {
+    "id": "oj-c.LegendItem#getProperty",
+    "name": "getProperty",
     "memberof": "oj-c.LegendItem",
-    "id": "oj-c.LegendItem#setProperties",
-    "name": "setProperties",
-    "kind": "function",
-    "longname": "oj-c.LegendItem#setProperties",
-    "description": "Performs a batch set of properties.",
     "meta": {
       "filename": "legend-item.tsx",
-      "path": "/home/jenkins/uitech/workspace/OJET_Code_18.1.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
+      "path": "/home/jenkins/uitech/workspace/OJET_Code_20.0.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
     },
+    "kind": "function",
+    "longname": "oj-c.LegendItem#getProperty",
     "scope": "instance",
-    "params": [
+    "returns": [
       {
-        "name": "properties",
-        "description": "An object containing the property and value pairs to set.",
-        "type": "object"
+        "type": {
+          "names": [
+            "any"
+          ]
+        }
       }
     ],
+    "ojshortdesc": "Retrieves the value of a property or a subproperty.",
+    "description": "Retrieves the value of a property or a subproperty.",
+    "params": [
+      {
+        "name": "property",
+        "description": "The property name to get. Supports dot notation for subproperty access.",
+        "type": {
+          "names": [
+            "string"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "oj-c.LegendItem#setProperties",
+    "name": "setProperties",
+    "memberof": "oj-c.LegendItem",
+    "meta": {
+      "filename": "legend-item.tsx",
+      "path": "/home/jenkins/uitech/workspace/OJET_Code_20.0.0/packages/oraclejet-core-pack/web/components/oj-c/legend-item"
+    },
+    "kind": "function",
+    "longname": "oj-c.LegendItem#setProperties",
+    "scope": "instance",
     "returns": [
       {
         "type": {
           "names": [
             "void"
+          ]
+        }
+      }
+    ],
+    "ojshortdesc": "Performs a batch set of properties.",
+    "description": "Performs a batch set of properties.",
+    "params": [
+      {
+        "name": "properties",
+        "description": "An object containing the property and value pairs to set.",
+        "type": {
+          "names": [
+            "object"
           ]
         }
       }

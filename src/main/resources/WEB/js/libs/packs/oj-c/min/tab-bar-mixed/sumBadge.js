@@ -2,6 +2,13 @@ define(["require", "exports", "ojs/ojlogger"], function (require, exports, Logge
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.sumBadge = sumBadge;
+    /**
+     * Returns a numerical total of numerical badge values extracted from
+     * a collection of objects.
+     *
+     * @param tabs
+     * @returns
+     */
     function sumBadge(items) {
         return items.reduce((total, item) => {
             if (!item.badge) {

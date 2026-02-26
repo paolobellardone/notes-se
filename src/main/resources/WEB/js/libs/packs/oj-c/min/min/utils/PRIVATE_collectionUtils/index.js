@@ -15,5 +15,12 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 define(["require", "exports", "./collectionUtils"], function (require, exports, collectionUtils_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
+    /**
+     * @license
+     * Copyright (c) %FIRST_YEAR% %CURRENT_YEAR%, Oracle and/or its affiliates.
+     * The Universal Permissive License (UPL), Version 1.0
+     * as shown at https://oss.oracle.com/licenses/upl/
+     * @ignore
+     */
     __exportStar(collectionUtils_1, exports);
 });

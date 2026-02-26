@@ -8,6 +8,9 @@ export type TabData<K extends string | number> = {
     icon?: DataTabBarMixedIconProps['icon'];
     itemKey: K;
     label: string;
+    /**
+     * Accepts the tabpanel element's ID associated with the tab item
+     **/
     tabPanelId?: string;
 };
 export type DataTabBarMixedProps<K extends string | number> = {

@@ -1,2 +1,2 @@
-export { SplitMenuButton, MenuSelection, MenuItems, MenuItemSelectionDetail } from './split-menu-button';
+export { SplitMenuButton, MenuSelectionDeprecated as MenuSelection, MenuItemsDeprecated as MenuItems, MenuItemSelectionDetailDeprecated as MenuItemSelectionDetail } from './split-menu-button';
 export { CSplitMenuButtonElement } from './split-menu-button';

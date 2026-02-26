@@ -1,7 +1,7 @@
 {
   "name": "form-layout",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -35,7 +35,11 @@
       ]
     },
     "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/FormLayoutWebElement.html"
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/FormLayoutWebElement.html",
+      "export": "findFormLayout",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   },
   "propertyLayout": [
@@ -51,6 +55,15 @@
         "maxColumns",
         "readonly",
         "userAssistanceDensity"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "type": "anyOf",
+      "label": "accessibility",
+      "slots": [
+        ""
       ]
     }
   ],
@@ -164,6 +177,13 @@
     },
     "labelWrapping": {
       "type": "string",
+      "status": [
+        {
+          "type": "deprecated",
+          "since": "18.0.0",
+          "description": "Label truncation for 'start' and 'top' aligned labels is no longer recommended by the Redwood Design System. The default for labelWrapping was 'wrap' and that is now the only suggested pattern by UX design for 'start' and 'top' aligned labels. 'inside' aligned labels are always truncated per UX design and are not affected by this property's value."
+        }
+      ],
       "description": "Should the labels wrap or truncate when there is not enough available space.",
       "displayName": "Label Wrapping",
       "help": "#labelWrapping",
@@ -177,13 +197,6 @@
           "displayName": "Wrap"
         }
       },
-      "status": [
-        {
-          "type": "deprecated",
-          "since": "18.0.0",
-          "description": "Label truncation for 'start' and 'top' aligned labels is no longer recommended by the Redwood Design System. The default for labelWrapping was 'wrap' and that is now the only suggested pattern by UX design for 'start' and 'top' aligned labels. 'inside' aligned labels are always truncated per UX design and are not affected by this property's value."
-        }
-      ],
       "enumValues": [
         "truncate",
         "wrap"

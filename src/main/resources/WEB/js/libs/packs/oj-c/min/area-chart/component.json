@@ -1,7 +1,7 @@
 {
   "name": "area-chart",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -35,7 +35,11 @@
       ]
     },
     "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/AreaChartWebElement.html"
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/AreaChartWebElement.html",
+      "export": "findAreaChart",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   },
   "propertyLayout": [
@@ -59,6 +63,16 @@
     }
   ],
   "since": "16.0.0",
+  "requirements": [
+    {
+      "type": "anyOf",
+      "label": "accessibility",
+      "properties": [
+        "aria-label",
+        "aria-labelledby"
+      ]
+    }
+  ],
   "properties": {
     "data": {
       "type": "DataProvider|null",
@@ -157,20 +171,6 @@
       "description": "The time axis type of the chart x axis.",
       "displayName": "TimeAxisType",
       "help": "#timeAxisType",
-      "propertyEditorValues": {
-        "enabled": {
-          "description": "The regular time axis type. Time values are passed using <a target='_blank' href='oj-c.AreaChartItem.html'>oj-c-area-chart-item</a> group-id attribute.",
-          "displayName": "Regular"
-        },
-        "mixedFrequency": {
-          "description": "The mixed frequency time axis type. The mixed frequency time axis type is used when different series have different sampling frequencies. Time values are passed using <a target='_blank' href='oj-c.AreaChartItem.html'>oj-c-area-chart-item</a> x attribute.",
-          "displayName": "MixedFrequency"
-        },
-        "skipGaps": {
-          "description": "The regular time axis type. Time values are passed using <a target='_blank' href='oj-c.AreaChartItem.html'>oj-c-area-chart-item</a> group-id attribute. Gap between time values will be ignored.",
-          "displayName": "SkipGaps"
-        }
-      },
       "enumValues": [
         "enabled",
         "mixedFrequency",
@@ -391,6 +391,11 @@
           "description": "The size of the axis.",
           "displayName": "Size"
         },
+        "maxSize": {
+          "type": "number",
+          "description": "The maximum size of the axis.",
+          "displayName": "Max Size"
+        },
         "scale": {
           "type": "string",
           "description": "The scale of the axis.",
@@ -421,6 +426,286 @@
           "displayName": "Title Style"
         }
       }
+    },
+    "y2Axis": {
+      "type": "object",
+      "description": "The y2Axis options for the chart.",
+      "displayName": "Y2 Axis",
+      "help": "#yAxis",
+      "properties": {
+        "dataMax": {
+          "type": "number",
+          "description": "The maximum value of the chart data.",
+          "displayName": "Data Max"
+        },
+        "dataMin": {
+          "type": "number",
+          "description": "The minimum value of the chart data.",
+          "displayName": "Data Min"
+        },
+        "max": {
+          "type": "number",
+          "description": "The maximum value of the y axis.",
+          "displayName": "Max"
+        },
+        "min": {
+          "type": "number",
+          "description": "The minimum value of the y axis.",
+          "displayName": "Min"
+        },
+        "majorTick": {
+          "type": "object",
+          "description": "The y axis major tick properties.",
+          "displayName": "Major Tick",
+          "properties": {
+            "lineColor": {
+              "type": "string",
+              "description": "The color of the line.",
+              "displayName": "Line Color",
+              "format": "color"
+            },
+            "lineStyle": {
+              "type": "string",
+              "description": "The style of the line.",
+              "displayName": "Line Style",
+              "propertyEditorValues": {
+                "dashed": {
+                  "description": "Renders dashed major tick.",
+                  "displayName": "Dashed"
+                },
+                "dotted": {
+                  "description": "Renders dotted major tick.",
+                  "displayName": "Dotted"
+                },
+                "solid": {
+                  "description": "Renders solid major tick.",
+                  "displayName": "Solid"
+                }
+              },
+              "enumValues": [
+                "dashed",
+                "solid",
+                "dotted"
+              ]
+            },
+            "lineWidth": {
+              "type": "number",
+              "description": "The width of the line.",
+              "displayName": "Line Width"
+            },
+            "rendered": {
+              "type": "string",
+              "description": "The color of the line.",
+              "displayName": "Rendered",
+              "propertyEditorValues": {
+                "off": {
+                  "description": "Renders the minor tick.",
+                  "displayName": "Off"
+                },
+                "on": {
+                  "description": "Does not render the minor tick.",
+                  "displayName": "On"
+                },
+                "auto": {
+                  "description": "Renders the minor tick for log scale.",
+                  "displayName": "Auto"
+                }
+              },
+              "enumValues": [
+                "auto",
+                "off",
+                "on"
+              ]
+            }
+          }
+        },
+        "minorTick": {
+          "type": "object",
+          "description": "The y axis minor tick properties.",
+          "displayName": "Minor Tick",
+          "properties": {
+            "lineColor": {
+              "type": "string",
+              "description": "The color of the line.",
+              "displayName": "Line Color",
+              "format": "color"
+            },
+            "lineStyle": {
+              "type": "string",
+              "description": "The style of the line.",
+              "displayName": "Line Style",
+              "propertyEditorValues": {
+                "dashed": {
+                  "description": "Renders dashed major tick.",
+                  "displayName": "Dashed"
+                },
+                "dotted": {
+                  "description": "Renders dotted major tick.",
+                  "displayName": "Dotted"
+                },
+                "solid": {
+                  "description": "Renders solid major tick.",
+                  "displayName": "Solid"
+                }
+              },
+              "enumValues": [
+                "dashed",
+                "solid",
+                "dotted"
+              ]
+            },
+            "lineWidth": {
+              "type": "number",
+              "description": "The width of the line.",
+              "displayName": "Line Width"
+            },
+            "rendered": {
+              "type": "string",
+              "description": "Whether the minor tick are rendered.",
+              "displayName": "Rendered",
+              "propertyEditorValues": {
+                "off": {
+                  "description": "Renders the minor tick.",
+                  "displayName": "Off"
+                },
+                "on": {
+                  "description": "Does not render the minor tick.",
+                  "displayName": "On"
+                },
+                "auto": {
+                  "description": "Renders the minor tick for log scale.",
+                  "displayName": "Auto"
+                }
+              },
+              "enumValues": [
+                "auto",
+                "off",
+                "on"
+              ]
+            }
+          }
+        },
+        "tickLabel": {
+          "type": "object",
+          "description": "The y axis tick label properties.",
+          "displayName": "Tick Label",
+          "properties": {
+            "converter": {
+              "type": "object",
+              "description": "The converter to format the axis tick labels.",
+              "displayName": "Converter"
+            },
+            "rendered": {
+              "type": "string",
+              "description": "Whether the tick labels are rendered or not.",
+              "displayName": "Rendered",
+              "propertyEditorValues": {
+                "on": {
+                  "description": "Renders the axis tick label.",
+                  "displayName": "On"
+                },
+                "off": {
+                  "description": "Axis tick labels won't be rendered.",
+                  "displayName": "Off"
+                }
+              },
+              "enumValues": [
+                "off",
+                "on"
+              ]
+            },
+            "style": {
+              "type": "object",
+              "description": "The style of the tick labels.",
+              "displayName": "Style"
+            }
+          }
+        },
+        "viewportMin": {
+          "type": "number",
+          "description": "The current minimum value of y axis viewport.",
+          "displayName": "Viewport Min"
+        },
+        "viewportMax": {
+          "type": "number",
+          "description": "The current maximum value of y axis viewport.",
+          "displayName": "Viewport Max"
+        },
+        "step": {
+          "type": "number",
+          "description": "The increment between major tick marks in y axis.",
+          "displayName": "Step"
+        },
+        "size": {
+          "type": "number",
+          "description": "The size of the axis.",
+          "displayName": "Size"
+        },
+        "maxSize": {
+          "type": "number",
+          "description": "The maximum size of the axis.",
+          "displayName": "Max Size"
+        },
+        "scale": {
+          "type": "string",
+          "description": "The scale of the axis.",
+          "displayName": "Scale",
+          "propertyEditorValues": {
+            "linear": {
+              "description": "Renders linear y axis.",
+              "displayName": "Linear"
+            },
+            "log": {
+              "description": "Renders log y axis.",
+              "displayName": "Log"
+            }
+          },
+          "enumValues": [
+            "linear",
+            "log"
+          ]
+        },
+        "title": {
+          "type": "string",
+          "description": "The axis title.",
+          "displayName": "Title"
+        },
+        "titleStyle": {
+          "type": "object",
+          "description": "The axis title style.",
+          "displayName": "Title Style"
+        }
+      }
+    },
+    "splitDualY": {
+      "type": "string",
+      "description": "Defines whether the plot area is split into two sections.",
+      "displayName": "Split Dual Y",
+      "help": "#splitDualY",
+      "propertyEditorValues": {
+        "on": {
+          "description": "Plot Area is split into two sections, one for each Y-axis.",
+          "displayName": "On"
+        },
+        "off": {
+          "description": "Plot Area is not split.",
+          "displayName": "Off"
+        }
+      },
+      "enumValues": [
+        "off",
+        "on"
+      ],
+      "value": "off"
+    },
+    "splitterPosition": {
+      "type": "number",
+      "description": "Specifies the fraction of the space that is given to the Y-axis subchart.",
+      "displayName": "Splitter Position",
+      "help": "#splitterPosition",
+      "minimum": 0,
+      "maximum": 1,
+      "value": 0.5
     },
     "xAxis": {
       "type": "object",
@@ -635,6 +920,11 @@
           "description": "The size of the axis.",
           "displayName": "Size"
         },
+        "maxSize": {
+          "type": "number",
+          "description": "The maximum size of the axis.",
+          "displayName": "Max Size"
+        },
         "scale": {
           "type": "string",
           "description": "The scale of the axis.",
@@ -682,13 +972,13 @@
     },
     "valueFormats": {
       "type": "object",
-      "description": "An object specifying value formatting and tooltip behavior.",
+      "description": "An object specifying value formatting and datatip behavior.",
       "displayName": "Value Formats",
       "help": "#valueFormats",
       "properties": {
         "group": {
           "type": "object",
-          "description": "The object defining formatting and tooltip behavior for the group.",
+          "description": "The object defining the tooltip behavior for the group.",
           "properties": {
             "tooltipLabel": {
               "type": "string",
@@ -718,7 +1008,7 @@
         },
         "series": {
           "type": "object",
-          "description": "The object defining formatting and tooltip behavior for the series.",
+          "description": "The object defining the tooltip behavior for the series.",
           "properties": {
             "tooltipLabel": {
               "type": "string",
@@ -779,6 +1069,192 @@
               ]
             }
           }
+        },
+        "y2": {
+          "type": "object",
+          "description": "The object defining formatting and tooltip behavior for the y2 values.",
+          "properties": {
+            "converter": {
+              "type": "object",
+              "description": "The converter to format the numerical value for the tooltip."
+            },
+            "tooltipLabel": {
+              "type": "string",
+              "description": "A string representing the label that is displayed before the value in the tooltip.",
+              "displayName": "Tooltip Label"
+            },
+            "tooltipDisplay": {
+              "type": "string",
+              "description": "Whether the value is displayed in the tooltip.",
+              "displayName": "Tooltip Display",
+              "propertyEditorValues": {
+                "off": {
+                  "description": "The property will not be displayed in tooltip.",
+                  "displayName": "Off"
+                },
+                "on": {
+                  "description": "The property will be displayed in tooltip.",
+                  "displayName": "On"
+                }
+              },
+              "enumValues": [
+                "auto",
+                "off"
+              ]
+            }
+          }
+        },
+        "label": {
+          "type": "object",
+          "description": "The object defining the tooltip behavior for the data item labels.",
+          "properties": {
+            "tooltipLabel": {
+              "type": "string",
+              "description": "A string representing the label that is displayed before the value in the tooltip.",
+              "displayName": "Tooltip Label"
+            },
+            "tooltipDisplay": {
+              "type": "string",
+              "description": "Whether the value is displayed in the tooltip.",
+              "displayName": "Tooltip Display",
+              "propertyEditorValues": {
+                "off": {
+                  "description": "The property will not be displayed in tooltip.",
+                  "displayName": "Off"
+                },
+                "on": {
+                  "description": "The property will be displayed in tooltip.",
+                  "displayName": "On"
+                }
+              },
+              "enumValues": [
+                "auto",
+                "off"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "styleDefaults": {
+      "type": "object",
+      "description": "An object specifying default styles for chart style attributes..",
+      "displayName": "Style Defaults",
+      "help": "#styleDefaults",
+      "properties": {
+        "groupSeparators": {
+          "type": "object",
+          "properties": {
+            "rendered": {
+              "type": "string",
+              "description": "Whether the group separator lines are rendered.",
+              "enumValues": [
+                "auto",
+                "off"
+              ]
+            },
+            "color": {
+              "type": "string",
+              "description": "The color of the group separator lines.",
+              "format": "color"
+            }
+          }
+        },
+        "markerShape": {
+          "type": "string",
+          "description": "The shape of the data markers.",
+          "displayName": "Marker Shape",
+          "help": "#markerShape",
+          "propertyEditorValues": {
+            "circle": {
+              "description": "Data markers will be circular in shape.",
+              "displayName": "Circle"
+            },
+            "diamond": {
+              "description": "Data markers will be diamond in shape.",
+              "displayName": "Diamond"
+            },
+            "human": {
+              "description": "Data markers will be human in shape.",
+              "displayName": "Human"
+            },
+            "plus": {
+              "description": "Data markers will be plus in shape.",
+              "displayName": "Plus"
+            },
+            "square": {
+              "description": "Data markers will be square in shape.",
+              "displayName": "Square"
+            },
+            "star": {
+              "description": "Data markers will be star in shape.",
+              "displayName": "Star"
+            },
+            "triangleDown": {
+              "description": "Data markers will be of a triangular shape facing down.",
+              "displayName": "Triangle Down"
+            },
+            "triangleUp": {
+              "description": "Data markers will be of a triangular shape facing up.",
+              "displayName": "Triangle Up"
+            },
+            "auto": {
+              "description": "Data marker shape will be based on chart type.",
+              "displayName": "Auto"
+            }
+          },
+          "enumValues": [
+            "auto",
+            "square",
+            "circle",
+            "diamond",
+            "human",
+            "plus",
+            "star",
+            "triangleDown",
+            "triangleUp"
+          ]
+        },
+        "markerColor": {
+          "type": "string",
+          "description": "The color of the data markers, if different from the series color.",
+          "displayName": "Marker Color",
+          "help": "#markerColor"
+        },
+        "dataLabelPosition": {
+          "type": "string",
+          "description": "The position of the data label.",
+          "displayName": "Data Label Position",
+          "help": "#dataLabelPosition",
+          "propertyEditorValues": {
+            "center": {
+              "description": "Label will be placed in the center of the data marker.",
+              "displayName": "Center"
+            },
+            "belowMarker": {
+              "description": "Label will be placed below the data marker.",
+              "displayName": "Below Marker"
+            },
+            "aboveMarker": {
+              "description": "Label will be placed above the data marker.",
+              "displayName": "Above Marker"
+            },
+            "beforeMarker": {
+              "description": "Label will be placed before the data marker.",
+              "displayName": "Before Marker"
+            },
+            "afterMarker": {
+              "description": "Label will be placed after the data marker.",
+              "displayName": "After Marker"
+            }
+          },
+          "enumValues": [
+            "center",
+            "belowMarker",
+            "aboveMarker",
+            "beforeMarker",
+            "afterMarker"
+          ]
         }
       }
     },
@@ -809,7 +1285,7 @@
       "value": "none"
     },
     "selection": {
-      "type": "Array<any>",
+      "type": "Array<string|number>",
       "description": "An array containing the ids of the initially selected data items.",
       "displayName": "Selection",
       "help": "#selection",
@@ -830,10 +1306,10 @@
       "displayName": "Drag Mode",
       "help": "#dragMode",
       "enumValues": [
+        "off",
         "pan",
         "zoom",
         "select",
-        "off",
         "user"
       ]
     },
@@ -966,6 +1442,10 @@
           "type": "function"
         }
       }
+    },
+    "datatipConfig": {
+      "type": "function",
+      "description": "The DatatipConfig object is used to allow applications to control the appearance and behavior of the datatip."
     }
   },
   "slots": {
@@ -1052,6 +1532,243 @@
           "type": "number"
         }
       }
+    },
+    "datatipTemplate": {
+      "description": "The datatipTemplate slot is used to specify custom datatip content.",
+      "data": {
+        "color": {
+          "type": "string"
+        },
+        "data": {
+          "type": "object"
+        },
+        "group": {
+          "type": "string|Array<string>"
+        },
+        "groupData": {
+          "type": "Array<object>",
+          "extension": {
+            "vbdt": {
+              "itemProperties": {
+                "drilling": {
+                  "type": "string",
+                  "enumValues": [
+                    "off",
+                    "inherit",
+                    "on"
+                  ]
+                },
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "accessibleLabel": {
+                  "type": "string"
+                },
+                "groups": {
+                  "type": "Array<object>"
+                }
+              }
+            }
+          }
+        },
+        "id": {
+          "type": "any"
+        },
+        "itemData": {
+          "type": "any"
+        },
+        "label": {
+          "type": "string"
+        },
+        "series": {
+          "type": "string"
+        },
+        "seriesData": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "items": {
+              "type": "Array<object>",
+              "extension": {
+                "vbdt": {
+                  "itemProperties": {
+                    "id": {
+                      "type": "any"
+                    },
+                    "seriesId": {
+                      "type": "string",
+                      "description": "The id for the series the item belongs to.",
+                      "displayName": "Series Id",
+                      "help": "#seriesId"
+                    },
+                    "groupId": {
+                      "type": "Array<string>",
+                      "description": "The array of ids for the groups the item belongs to.",
+                      "displayName": "Group Id",
+                      "help": "#groupId"
+                    },
+                    "value": {
+                      "type": "number",
+                      "description": "The value of the data item.",
+                      "displayName": "Value",
+                      "help": "#value"
+                    },
+                    "x": {
+                      "type": "string",
+                      "description": "The x value of the data item.",
+                      "displayName": "X",
+                      "help": "#x"
+                    },
+                    "color": {
+                      "type": "string",
+                      "description": "The color of the data item.",
+                      "displayName": "Color",
+                      "help": "#color"
+                    },
+                    "markerDisplayed": {
+                      "type": "string",
+                      "description": "Defines whether the data marker is displayed.",
+                      "displayName": "Marker Displayed",
+                      "help": "#markerDisplayed",
+                      "enumValues": [
+                        "auto",
+                        "off",
+                        "on"
+                      ]
+                    },
+                    "markerShape": {
+                      "type": "string",
+                      "description": "The shape of the data markers.",
+                      "displayName": "Marker Shape",
+                      "help": "#markerShape",
+                      "enumValues": [
+                        "auto",
+                        "square",
+                        "circle",
+                        "diamond",
+                        "human",
+                        "plus",
+                        "star",
+                        "triangleDown",
+                        "triangleUp"
+                      ]
+                    },
+                    "markerColor": {
+                      "type": "string",
+                      "description": "The color of the data markers, if different from the series color.",
+                      "displayName": "Marker Color",
+                      "help": "#markerColor"
+                    },
+                    "markerSize": {
+                      "type": "number",
+                      "description": "The size of the data markers.",
+                      "displayName": "Marker Size",
+                      "help": "#markerSize"
+                    },
+                    "categories": {
+                      "type": "Array<string>",
+                      "description": "An optional array of category strings corresponding to this data item.",
+                      "displayName": "Categories",
+                      "help": "#categories"
+                    },
+                    "drilling": {
+                      "type": "string",
+                      "description": "Whether drilling is enabled for the data item.",
+                      "displayName": "Drilling",
+                      "help": "#drilling",
+                      "enumValues": [
+                        "off",
+                        "inherit",
+                        "on"
+                      ]
+                    },
+                    "shortDesc": {
+                      "type": "string",
+                      "displayName": "Short Desc",
+                      "help": "#shortDesc"
+                    },
+                    "label": {
+                      "type": "string",
+                      "displayName": "Label",
+                      "help": "#label"
+                    }
+                  }
+                }
+              }
+            },
+            "assignedToY2": {
+              "type": "string",
+              "description": "Defines whether the series is associated with the y2 axis"
+            },
+            "categories": {
+              "type": "Array<string>",
+              "description": "An array of category strings corresponding to the tag cloud items."
+            },
+            "color": {
+              "type": "string",
+              "description": "The color of the series. The chart legend item will inherit this color value."
+            },
+            "areaColor": {
+              "type": "string",
+              "description": "The area color of the series. Only applies if series type is area or lineWithArea."
+            },
+            "drilling": {
+              "type": "string",
+              "description": "Whether drilling is enabled on the series item."
+            },
+            "lineType": {
+              "type": "string",
+              "description": "The line type of the data of area chart."
+            },
+            "markerShape": {
+              "type": "string",
+              "description": "The shape of the data markers."
+            },
+            "markerColor": {
+              "type": "string",
+              "description": "The color of the data markers, if different from the series color."
+            },
+            "markerDisplayed": {
+              "type": "string",
+              "description": "Defines whether the data marker is displayed."
+            },
+            "markerSize": {
+              "type": "number",
+              "description": "The size of the data markers."
+            },
+            "name": {
+              "type": "string",
+              "description": "The name of the series, displayed in the legend and datatips."
+            },
+            "shortDesc": {
+              "type": "string",
+              "description": "The description of this series. This is used for accessibility and for customizing the datatip text on the corresponding legend item for the series."
+            },
+            "lineStyle": {
+              "type": "string",
+              "description": "The line style of the data line."
+            },
+            "lineWidth": {
+              "type": "number",
+              "description": "The width of the data line."
+            }
+          }
+        },
+        "value": {
+          "type": "number"
+        },
+        "high": {
+          "type": "number"
+        },
+        "low": {
+          "type": "number"
+        }
+      }
     }
   },
   "events": {
@@ -1081,6 +1798,14 @@
           "description": "The maximum y value of the new viewport."
         },
         "yMin": {
+          "type": "number",
+          "description": "The minimum y value of the new viewport."
+        },
+        "y2Max": {
+          "type": "number",
+          "description": "The maximum y value of the new viewport."
+        },
+        "y2Min": {
           "type": "number",
           "description": "The minimum y value of the new viewport."
         }
@@ -1132,7 +1857,7 @@
             },
             "markerDisplayed": {
               "type": "string",
-              "description": "Defines whether the data marker is displayed. Only applies to line, area, scatter, and bubble series.",
+              "description": "Defines whether the data marker is displayed.",
               "enumValues": [
                 "auto",
                 "off",
@@ -1141,7 +1866,7 @@
             },
             "markerShape": {
               "type": "string",
-              "description": "The shape of the data markers. Only applies to line, area, scatter, and bubble series.",
+              "description": "The shape of the data markers.",
               "enumValues": [
                 "auto",
                 "square",
@@ -1154,9 +1879,13 @@
                 "triangleUp"
               ]
             },
+            "markerColor": {
+              "type": "string",
+              "description": "The color of the data markers, if different from the series color."
+            },
             "markerSize": {
               "type": "number",
-              "description": "The size of the data markers. Only applies to line, area, and scatter series."
+              "description": "The size of the data markers."
             },
             "categories": {
               "type": "Array<string>",
@@ -1166,12 +1895,15 @@
               "type": "string",
               "description": "Whether drilling is enabled for the data item.",
               "enumValues": [
-                "inherit",
                 "off",
+                "inherit",
                 "on"
               ]
             },
             "shortDesc": {
+              "type": "string"
+            },
+            "label": {
               "type": "string"
             }
           }
@@ -1184,6 +1916,9 @@
           "type": "object",
           "description": "The data for the series of the drilled object",
           "properties": {
+            "id": {
+              "type": "string"
+            },
             "items": {
               "type": "Array<object>",
               "extension": {
@@ -1224,7 +1959,7 @@
                     },
                     "markerDisplayed": {
                       "type": "string",
-                      "description": "Defines whether the data marker is displayed. Only applies to line, area, scatter, and bubble series.",
+                      "description": "Defines whether the data marker is displayed.",
                       "displayName": "Marker Displayed",
                       "help": "#markerDisplayed",
                       "enumValues": [
@@ -1235,7 +1970,7 @@
                     },
                     "markerShape": {
                       "type": "string",
-                      "description": "The shape of the data markers. Only applies to line, area, scatter, and bubble series.",
+                      "description": "The shape of the data markers.",
                       "displayName": "Marker Shape",
                       "help": "#markerShape",
                       "enumValues": [
@@ -1250,9 +1985,15 @@
                         "triangleUp"
                       ]
                     },
+                    "markerColor": {
+                      "type": "string",
+                      "description": "The color of the data markers, if different from the series color.",
+                      "displayName": "Marker Color",
+                      "help": "#markerColor"
+                    },
                     "markerSize": {
                       "type": "number",
-                      "description": "The size of the data markers. Only applies to line, area, and scatter series.",
+                      "description": "The size of the data markers.",
                       "displayName": "Marker Size",
                       "help": "#markerSize"
                     },
@@ -1268,8 +2009,8 @@
                       "displayName": "Drilling",
                       "help": "#drilling",
                       "enumValues": [
-                        "inherit",
                         "off",
+                        "inherit",
                         "on"
                       ]
                     },
@@ -1277,10 +2018,23 @@
                       "type": "string",
                       "displayName": "Short Desc",
                       "help": "#shortDesc"
+                    },
+                    "label": {
+                      "type": "string",
+                      "displayName": "Label",
+                      "help": "#label"
                     }
                   }
                 }
               }
+            },
+            "assignedToY2": {
+              "type": "string",
+              "description": "Defines whether the series is associated with the y2 axis",
+              "enumValues": [
+                "off",
+                "on"
+              ]
             },
             "categories": {
               "type": "Array<string>",
@@ -1290,18 +2044,22 @@
               "type": "string",
               "description": "The color of the series. The chart legend item will inherit this color value."
             },
+            "areaColor": {
+              "type": "string",
+              "description": "The area color of the series. Only applies if series type is area or lineWithArea."
+            },
             "drilling": {
               "type": "string",
               "description": "Whether drilling is enabled on the series item.",
               "enumValues": [
-                "inherit",
                 "off",
+                "inherit",
                 "on"
               ]
             },
             "lineType": {
               "type": "string",
-              "description": "The line type of the data line or area.",
+              "description": "The line type of the data of area chart.",
               "enumValues": [
                 "curved",
                 "straight"
@@ -1328,7 +2086,7 @@
             },
             "markerDisplayed": {
               "type": "string",
-              "description": "Defines whether the data marker is displayed. Only applies to line, area, scatter, and bubble series."
+              "description": "Defines whether the data marker is displayed."
             },
             "markerSize": {
               "type": "number",
@@ -1336,11 +2094,24 @@
             },
             "name": {
               "type": "string",
-              "description": "The name of the series, displayed in the legend and tooltips."
+              "description": "The name of the series, displayed in the legend and datatips."
             },
             "shortDesc": {
               "type": "string",
-              "description": "The description of this series. This is used for accessibility and for customizing the tooltip text on the corresponding legend item for the series."
+              "description": "The description of this series. This is used for accessibility and for customizing the datatip text on the corresponding legend item for the series."
+            },
+            "lineStyle": {
+              "type": "string",
+              "description": "The line style of the data line.",
+              "enumValues": [
+                "dashed",
+                "solid",
+                "dotted"
+              ]
+            },
+            "lineWidth": {
+              "type": "number",
+              "description": "The width of the data line."
             }
           }
         },
@@ -1351,8 +2122,8 @@
             "drilling": {
               "type": "string",
               "enumValues": [
-                "inherit",
                 "off",
+                "inherit",
                 "on"
               ]
             },
@@ -1364,6 +2135,9 @@
             },
             "accessibleLabel": {
               "type": "string"
+            },
+            "groups": {
+              "type": "Array<object>"
             }
           }
         }
@@ -1389,8 +2163,8 @@
             "drilling": {
               "type": "string",
               "enumValues": [
-                "inherit",
                 "off",
+                "inherit",
                 "on"
               ]
             },
@@ -1402,6 +2176,9 @@
             },
             "accessibleLabel": {
               "type": "string"
+            },
+            "groups": {
+              "type": "Array<object>"
             }
           }
         },
@@ -1446,7 +2223,7 @@
                 },
                 "markerDisplayed": {
                   "type": "string",
-                  "description": "Defines whether the data marker is displayed. Only applies to line, area, scatter, and bubble series.",
+                  "description": "Defines whether the data marker is displayed.",
                   "displayName": "Marker Displayed",
                   "help": "#markerDisplayed",
                   "enumValues": [
@@ -1457,7 +2234,7 @@
                 },
                 "markerShape": {
                   "type": "string",
-                  "description": "The shape of the data markers. Only applies to line, area, scatter, and bubble series.",
+                  "description": "The shape of the data markers.",
                   "displayName": "Marker Shape",
                   "help": "#markerShape",
                   "enumValues": [
@@ -1472,9 +2249,15 @@
                     "triangleUp"
                   ]
                 },
+                "markerColor": {
+                  "type": "string",
+                  "description": "The color of the data markers, if different from the series color.",
+                  "displayName": "Marker Color",
+                  "help": "#markerColor"
+                },
                 "markerSize": {
                   "type": "number",
-                  "description": "The size of the data markers. Only applies to line, area, and scatter series.",
+                  "description": "The size of the data markers.",
                   "displayName": "Marker Size",
                   "help": "#markerSize"
                 },
@@ -1490,8 +2273,8 @@
                   "displayName": "Drilling",
                   "help": "#drilling",
                   "enumValues": [
-                    "inherit",
                     "off",
+                    "inherit",
                     "on"
                   ]
                 },
@@ -1499,6 +2282,11 @@
                   "type": "string",
                   "displayName": "Short Desc",
                   "help": "#shortDesc"
+                },
+                "label": {
+                  "type": "string",
+                  "displayName": "Label",
+                  "help": "#label"
                 }
               }
             }
@@ -1523,6 +2311,9 @@
           "type": "object",
           "description": "The data for the series of the drilled object",
           "properties": {
+            "id": {
+              "type": "string"
+            },
             "items": {
               "type": "Array<object>",
               "extension": {
@@ -1563,7 +2354,7 @@
                     },
                     "markerDisplayed": {
                       "type": "string",
-                      "description": "Defines whether the data marker is displayed. Only applies to line, area, scatter, and bubble series.",
+                      "description": "Defines whether the data marker is displayed.",
                       "displayName": "Marker Displayed",
                       "help": "#markerDisplayed",
                       "enumValues": [
@@ -1574,7 +2365,7 @@
                     },
                     "markerShape": {
                       "type": "string",
-                      "description": "The shape of the data markers. Only applies to line, area, scatter, and bubble series.",
+                      "description": "The shape of the data markers.",
                       "displayName": "Marker Shape",
                       "help": "#markerShape",
                       "enumValues": [
@@ -1589,9 +2380,15 @@
                         "triangleUp"
                       ]
                     },
+                    "markerColor": {
+                      "type": "string",
+                      "description": "The color of the data markers, if different from the series color.",
+                      "displayName": "Marker Color",
+                      "help": "#markerColor"
+                    },
                     "markerSize": {
                       "type": "number",
-                      "description": "The size of the data markers. Only applies to line, area, and scatter series.",
+                      "description": "The size of the data markers.",
                       "displayName": "Marker Size",
                       "help": "#markerSize"
                     },
@@ -1607,8 +2404,8 @@
                       "displayName": "Drilling",
                       "help": "#drilling",
                       "enumValues": [
-                        "inherit",
                         "off",
+                        "inherit",
                         "on"
                       ]
                     },
@@ -1616,10 +2413,23 @@
                       "type": "string",
                       "displayName": "Short Desc",
                       "help": "#shortDesc"
+                    },
+                    "label": {
+                      "type": "string",
+                      "displayName": "Label",
+                      "help": "#label"
                     }
                   }
                 }
               }
+            },
+            "assignedToY2": {
+              "type": "string",
+              "description": "Defines whether the series is associated with the y2 axis",
+              "enumValues": [
+                "off",
+                "on"
+              ]
             },
             "categories": {
               "type": "Array<string>",
@@ -1629,18 +2439,22 @@
               "type": "string",
               "description": "The color of the series. The chart legend item will inherit this color value."
             },
+            "areaColor": {
+              "type": "string",
+              "description": "The area color of the series. Only applies if series type is area or lineWithArea."
+            },
             "drilling": {
               "type": "string",
               "description": "Whether drilling is enabled on the series item.",
               "enumValues": [
-                "inherit",
                 "off",
+                "inherit",
                 "on"
               ]
             },
             "lineType": {
               "type": "string",
-              "description": "The line type of the data line or area.",
+              "description": "The line type of the data of area chart.",
               "enumValues": [
                 "curved",
                 "straight"
@@ -1667,7 +2481,7 @@
             },
             "markerDisplayed": {
               "type": "string",
-              "description": "Defines whether the data marker is displayed. Only applies to line, area, scatter, and bubble series."
+              "description": "Defines whether the data marker is displayed."
             },
             "markerSize": {
               "type": "number",
@@ -1675,11 +2489,24 @@
             },
             "name": {
               "type": "string",
-              "description": "The name of the series, displayed in the legend and tooltips."
+              "description": "The name of the series, displayed in the legend and datatips."
             },
             "shortDesc": {
               "type": "string",
-              "description": "The description of this series. This is used for accessibility and for customizing the tooltip text on the corresponding legend item for the series."
+              "description": "The description of this series. This is used for accessibility and for customizing the datatip text on the corresponding legend item for the series."
+            },
+            "lineStyle": {
+              "type": "string",
+              "description": "The line style of the data line.",
+              "enumValues": [
+                "dashed",
+                "solid",
+                "dotted"
+              ]
+            },
+            "lineWidth": {
+              "type": "number",
+              "description": "The width of the data line."
             }
           }
         },
@@ -1724,7 +2551,7 @@
                 },
                 "markerDisplayed": {
                   "type": "string",
-                  "description": "Defines whether the data marker is displayed. Only applies to line, area, scatter, and bubble series.",
+                  "description": "Defines whether the data marker is displayed.",
                   "displayName": "Marker Displayed",
                   "help": "#markerDisplayed",
                   "enumValues": [
@@ -1735,7 +2562,7 @@
                 },
                 "markerShape": {
                   "type": "string",
-                  "description": "The shape of the data markers. Only applies to line, area, scatter, and bubble series.",
+                  "description": "The shape of the data markers.",
                   "displayName": "Marker Shape",
                   "help": "#markerShape",
                   "enumValues": [
@@ -1750,9 +2577,15 @@
                     "triangleUp"
                   ]
                 },
+                "markerColor": {
+                  "type": "string",
+                  "description": "The color of the data markers, if different from the series color.",
+                  "displayName": "Marker Color",
+                  "help": "#markerColor"
+                },
                 "markerSize": {
                   "type": "number",
-                  "description": "The size of the data markers. Only applies to line, area, and scatter series.",
+                  "description": "The size of the data markers.",
                   "displayName": "Marker Size",
                   "help": "#markerSize"
                 },
@@ -1768,8 +2601,8 @@
                   "displayName": "Drilling",
                   "help": "#drilling",
                   "enumValues": [
-                    "inherit",
                     "off",
+                    "inherit",
                     "on"
                   ]
                 },
@@ -1777,6 +2610,11 @@
                   "type": "string",
                   "displayName": "Short Desc",
                   "help": "#shortDesc"
+                },
+                "label": {
+                  "type": "string",
+                  "displayName": "Label",
+                  "help": "#label"
                 }
               }
             }
@@ -1795,7 +2633,7 @@
           "type": "string"
         },
         "contextMenuContext": {
-          "type": "any"
+          "type": "object"
         }
       }
     },
@@ -1810,7 +2648,7 @@
           "type": "string|Array<string>"
         },
         "contextMenuContext": {
-          "type": "any"
+          "type": "object"
         },
         "menuSelectionGroupKey": {
           "type": "string"
@@ -1819,6 +2657,15 @@
     }
   },
   "methods": {
+    "_getYAxis": {
+      "return": "object|undefined"
+    },
+    "_getXAxis": {
+      "return": "object|undefined"
+    },
+    "_getY2Axis": {
+      "return": "object|undefined"
+    },
     "setProperty": {
       "description": "Sets a property or a single subproperty for complex properties and notifies the component of the change, triggering a corresponding event.",
       "help": "#setProperty",

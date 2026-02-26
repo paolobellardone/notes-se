@@ -2,7 +2,7 @@
   border-width: var(--borderWidth__w6gg1y1);
   border-color: var(--borderColorDisabled__w6gg1yd);
   background-color: transparent;
-  height: var(--height__w6gg1yg);
+  height: var(--height__w6gg1yi);
   min-width: 1em;
   flex: 1;
 }
@@ -33,28 +33,28 @@
   padding-bottom: 0;
 }
 .ReadonlyTextFieldVariants_multiVariantStyles_compound_1__ck0nxoh {
-  min-height: var(--insideEdgeHeight__w6gg1yh);
+  min-height: var(--insideEdgeHeight__w6gg1yg);
 }
 .ReadonlyTextFieldVariants_multiVariantStyles_compound_2__ck0nxoi {
   height: auto;
 }
 .ReadonlyTextFieldVariants_multiVariantStyles_compound_3__ck0nxoj {
-  min-height: calc(var(--oj-c-EXPERIMENTAL-DO-NOT-USE-body-md-line-height) * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-body-md-font-size));
+  min-height: calc(var(--oj-c-body-md-line-height) * var(--oj-c-body-md-font-size));
 }
 .ReadonlyTextFieldVariants_multiVariantStyles_compound_4__ck0nxok {
-  min-height: calc(var(--oj-c-EXPERIMENTAL-DO-NOT-USE-body-md-line-height) * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-body-md-font-size));
+  min-height: calc(var(--oj-c-body-md-line-height) * var(--oj-c-body-md-font-size));
 }
 .ReadonlyTextFieldVariants_multiVariantStyles_compound_5__ck0nxol {
-  min-height: calc((var(--oj-c-EXPERIMENTAL-DO-NOT-USE-body-md-line-height) + var(--insideEdgeLineHeight__kn3t7f6)) * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-body-md-font-size));
+  min-height: calc((var(--oj-c-body-md-line-height) + var(--insideEdgeLineHeight__kn3t7f6)) * var(--oj-c-body-md-font-size));
 }
 .ReadonlyTextFieldVariants_multiVariantStyles_compound_6__ck0nxom {
-  min-height: calc((var(--oj-c-EXPERIMENTAL-DO-NOT-USE-body-md-line-height) + var(--insideEdgeLineHeight__kn3t7f6)) * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-body-md-font-size));
+  min-height: calc((var(--oj-c-body-md-line-height) + var(--insideEdgeLineHeight__kn3t7f6)) * var(--oj-c-body-md-font-size));
 }
 .ReadonlyTextFieldVariants_multiVariantStyles_compound_7__ck0nxon {
-  min-height: var(--height__w6gg1yg);
+  min-height: var(--height__w6gg1yi);
 }
 .ReadonlyTextFieldVariants_multiVariantStyles_compound_8__ck0nxoo {
-  min-height: var(--height__w6gg1yg);
+  min-height: var(--height__w6gg1yi);
 }
 .ReadonlyTextFieldVariants_multiVariantStyles_compound_9__ck0nxop {
   border-top-right-radius: 0;
@@ -73,5 +73,5 @@
   margin-left: -1px;
 }
 .ReadonlyTextFieldVariants_multiVariantStyles_compound_12__ck0nxos {
-  min-height: var(--insideEdgeHeight__w6gg1yh);
+  min-height: var(--insideEdgeHeight__w6gg1yg);
 }

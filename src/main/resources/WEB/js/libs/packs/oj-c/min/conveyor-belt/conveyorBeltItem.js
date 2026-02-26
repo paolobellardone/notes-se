@@ -3,11 +3,7 @@ define(["require", "exports", "preact/jsx-runtime", "@oracle/oraclejet-preact/UN
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.ConveyorBeltItem = void 0;
     const ConveyorBeltItem = ({ context, itemTemplate }) => {
-        const itemContext = {
-            data: context.data.data,
-            item: context.data
-        };
-        return ((0, jsx_runtime_1.jsx)(UNSAFE_ConveyorBelt_1.ConveyorBeltItem, { children: itemTemplate && itemTemplate(itemContext) }));
+        return (0, jsx_runtime_1.jsx)(UNSAFE_ConveyorBelt_1.ConveyorBeltItem, { children: itemTemplate && itemTemplate(context) });
     };
     exports.ConveyorBeltItem = ConveyorBeltItem;
 });

@@ -1,19 +1,24 @@
 [
   {
-    "pack": "oj-c",
     "id": "oj-c.Button",
     "name": "Button",
     "memberof": "oj-c",
-    "longname": "oj-c.Button",
     "kind": "class",
-    "classdesc": "<h3 id=\"buttonOverview-section\">\n  JET Button\n  <a class=\"bookmarkable-link\" title=\"Bookmarkable Link\" href=\"#buttonOverview-section\"></a>\n</h3>\n\n<p>Description: Themeable, WAI-ARIA-compliant push buttons, with appropriate styles for hover, active, and disabled.\n\n<pre class=\"prettyprint\"><code>&lt;oj-c-button id=\"myButton\" label=\"My Button\">\n&lt;/oj-c-button>\n&lt;oj-c-button label=\"start icon\">\n  &lt;span slot='startIcon' class='myIconClass'>&lt;/span>\n&lt;/oj-c-button>\n &lt;oj-c-button label=\"end icon\">\n  &lt;span slot='endIcon' class='myIconClass'>&lt;/span>\n&lt;/oj-c-button>\n</code></pre>\n\n<h3 id=\"pushButtons-section\">\n  Push Buttons\n  <a class=\"bookmarkable-link\" title=\"Bookmarkable Link\" href=\"#pushButtons-section\"></a>\n</h3>\n\n<p>Push buttons are ordinary buttons that do not stay pressed in when clicked.\nPush buttons are created from <code class=\"prettyprint\">oj-c-button</code> elements.\n\n<h3 id=\"touch-section\">\n  Touch End User Information\n  <a class=\"bookmarkable-link\" title=\"Bookmarkable Link\" href=\"#touch-section\"></a>\n</h3>\n\n<table class=\"keyboard-table\">\n  <thead>\n    <tr>\n      <th>Target</th>\n      <th>Gesture</th>\n      <th>Action</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Push Button</td>\n      <td><kbd>Tap</kbd></td>\n      <td>Push the button.</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"keyboard-section\">\n  Keyboard End User Information\n  <a class=\"bookmarkable-link\" title=\"Bookmarkable Link\" href=\"#keyboard-section\"></a>\n</h3>\n\n<table class=\"keyboard-table\">\n  <thead>\n    <tr>\n      <th>Target</th>\n      <th>Key</th>\n      <th>Action</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Push Button</td>\n      <td><kbd>Enter</kbd> or <kbd>Space</kbd></td>\n      <td>Push the button.</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"a11y-section\">\n  Accessibility\n  <a class=\"bookmarkable-link\" title=\"Bookmarkable Link\" href=\"#a11y-section\"></a>\n</h3>\n\n<p>For accessibility, it is not required to set an aria label on a JET button as it uses the label text to generate an aria label.\nTherefore the label should be specified even if the button is <a href=\"#display\">icon-only (display=icons)</a>. However,\nyou can override the default behavior by setting <code class=\"prettyprint\">aria-label</code>.\nThe label can be hidden using the display attribute.\n\n<p>Disabled content: JET supports an accessible luminosity contrast ratio,\nas specified in <a href=\"http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast\">WCAG 2.0 - Section 1.4.3 \"Contrast\"</a>,\nin the themes that are accessible.  (See the \"Theming\" chapter of the JET Developer Guide for more information on which\nthemes are accessible.)  Note that Section 1.4.3 says that text or images of text that are part of an inactive user\ninterface component have no contrast requirement.  Because disabled content may not meet the minimum contrast ratio\nrequired of enabled content, it cannot be used to convey meaningful information.<p>",
+    "meta": {
+      "filename": "button.tsx",
+      "path": "web/components/oj-c/button"
+    },
+    "ojcomponent": true,
+    "isvcomponent": true,
+    "since": "13.0.0",
+    "longname": "oj-c.Button",
+    "pack": "oj-c",
+    "classdesc": "<h3 id=\"buttonOverview-section\">\n  JET Button\n  <a class=\"bookmarkable-link\" title=\"Bookmarkable Link\" href=\"#buttonOverview-section\"></a>\n</h3>\n\n<p>Description: Themeable, WAI-ARIA-compliant push buttons, with appropriate styles for hover, active, and disabled.\n\n<pre class=\"prettyprint\"><code>&lt;oj-c-button id=\"myButton\" label=\"My Button\">\n&lt;/oj-c-button>\n&lt;oj-c-button label=\"start icon\">\n  &lt;span slot='startIcon' class='myIconClass'>&lt;/span>\n&lt;/oj-c-button>\n &lt;oj-c-button label=\"end icon\">\n  &lt;span slot='endIcon' class='myIconClass'>&lt;/span>\n&lt;/oj-c-button>\n</code></pre>\n\n<h3 id=\"pushButtons-section\">\n  Push Buttons\n  <a class=\"bookmarkable-link\" title=\"Bookmarkable Link\" href=\"#pushButtons-section\"></a>\n</h3>\n\n<p>Push buttons are ordinary buttons that do not stay pressed in when clicked.\nPush buttons are created from <code class=\"prettyprint\">oj-c-button</code> elements.\n\n<h3 id=\"touch-section\">\n  Touch End User Information\n  <a class=\"bookmarkable-link\" title=\"Bookmarkable Link\" href=\"#touch-section\"></a>\n</h3>\n\n<table class=\"keyboard-table\">\n  <thead>\n    <tr>\n      <th>Target</th>\n      <th>Gesture</th>\n      <th>Action</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Push Button</td>\n      <td><kbd>Tap</kbd></td>\n      <td>Push the button.</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"keyboard-section\">\n  Keyboard End User Information\n  <a class=\"bookmarkable-link\" title=\"Bookmarkable Link\" href=\"#keyboard-section\"></a>\n</h3>\n\n<table class=\"keyboard-table\">\n  <thead>\n    <tr>\n      <th>Target</th>\n      <th>Key</th>\n      <th>Action</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td>Push Button</td>\n      <td><kbd>Enter</kbd> or <kbd>Space</kbd></td>\n      <td>Push the button.</td>\n    </tr>\n  </tbody>\n</table>\n\n<h3 id=\"a11y-section\">\n  Accessibility\n  <a class=\"bookmarkable-link\" title=\"Bookmarkable Link\" href=\"#a11y-section\"></a>\n</h3>\n\n<p>For accessibility, it is not required to set an aria label on a JET button as it uses the label text to generate an aria label.\nTherefore the label should be specified even if the button is <a href=\"#display\">icon-only (display=icons)</a>. However,\nyou can override the default behavior by setting <code class=\"prettyprint\">aria-label</code>.\nThe label can be hidden using the display attribute.\n\n<p>\nDisabled content: JET supports an accessible luminosity contrast ratio,\nas specified in <a href=\"http://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast\">WCAG 2.0 - Section 1.4.3 \"Contrast\"</a>,\nin the themes that are accessible.  (See the \"Theming\" chapter of the JET Developer Guide for more information on which\nthemes are accessible.)  Note that Section 1.4.3 says that text or images of text that are part of an inactive user\ninterface component have no contrast requirement.  Because disabled content may not meet the minimum contrast ratio\nrequired of enabled content, it cannot be used to convey meaningful information.\n</p>",
     "scope": "static",
     "tagWithoutBrackets": "oj-c-button",
     "tagWithBrackets": "<oj-c-button>",
     "domInterface": "CButtonElement",
     "ojPageTitle": "&lt;oj-c-button>",
-    "ojcomponent": true,
-    "isvcomponent": true,
     "camelCaseName": "Button",
     "ojPageTitlePrefix": "Element: ",
     "ojtsvcomponent": true,
@@ -27,7 +32,6 @@
         "value": "interface CButtonElement extends JetElement<ButtonElementSettableProperties>"
       }
     ],
-    "since": "13.0.0",
     "tsdeprecated": [
       {
         "type": "supersedes",
@@ -37,102 +41,124 @@
         ]
       }
     ],
-    "meta": {
-      "filename": "button.tsx",
-      "path": "web/components/oj-c/button"
+    "extension": {
+      "catalog": {
+        "category": "Controls"
+      },
+      "vbdt": {
+        "module": "oj-c/button"
+      },
+      "oracle": {
+        "icon": "oj-ux-ico-button",
+        "uxSpecs": [
+          "button"
+        ]
+      }
     },
     "ojmodule": "button"
   },
   {
-    "memberof": "oj-c.Button",
     "id": "oj-c.Button#label",
     "name": "label",
+    "memberof": "oj-c.Button",
+    "meta": {
+      "filename": "button.tsx",
+      "path": "web/components/oj-c/button"
+    },
     "kind": "member",
     "longname": "oj-c.Button#label",
-    "optional": false,
     "scope": "instance",
-    "description": "Text to show in the button.",
-    "meta": {
-      "filename": "button.tsx",
-      "path": "web/components/oj-c/button"
-    },
     "type": {
       "names": [
         "string"
       ]
-    }
+    },
+    "optional": false,
+    "ojshortdesc": "Text to show in the button.",
+    "description": "Text to show in the button."
   },
   {
-    "memberof": "oj-c.Button",
     "id": "oj-c.Button#tooltip",
     "name": "tooltip",
-    "kind": "member",
-    "longname": "oj-c.Button#tooltip",
-    "optional": true,
-    "scope": "instance",
-    "description": "Text to show in the tooltip. This overrides the default tooltip that renders the label when in icon mode.",
+    "memberof": "oj-c.Button",
     "meta": {
       "filename": "button.tsx",
       "path": "web/components/oj-c/button"
     },
+    "kind": "member",
+    "longname": "oj-c.Button#tooltip",
+    "scope": "instance",
     "type": {
       "names": [
         "string"
       ]
-    }
+    },
+    "optional": true,
+    "ojshortdesc": "Text to show in the tooltip. This overrides the default tooltip that renders the label when in icon mode.",
+    "description": "Text to show in the tooltip. This overrides the default tooltip that renders the label when in icon mode."
   },
   {
-    "memberof": "oj-c.Button",
     "id": "oj-c.Button#disabled",
     "name": "disabled",
-    "kind": "member",
-    "longname": "oj-c.Button#disabled",
-    "optional": true,
-    "scope": "instance",
-    "description": "Specifies that the button element should be disabled.",
+    "memberof": "oj-c.Button",
     "meta": {
       "filename": "button.tsx",
       "path": "web/components/oj-c/button"
     },
-    "defaultvalue": false,
+    "kind": "member",
+    "longname": "oj-c.Button#disabled",
+    "scope": "instance",
     "type": {
       "names": [
         "boolean"
       ]
-    }
+    },
+    "optional": true,
+    "ojshortdesc": "Specifies that the button element should be disabled.",
+    "description": "Specifies that the button element should be disabled.",
+    "defaultvalue": false
   },
   {
-    "memberof": "oj-c.Button",
     "id": "oj-c.Button#width",
     "name": "width",
-    "kind": "member",
-    "longname": "oj-c.Button#width",
-    "optional": true,
-    "scope": "instance",
-    "description": "Specifies that the button style width",
+    "memberof": "oj-c.Button",
     "meta": {
       "filename": "button.tsx",
       "path": "web/components/oj-c/button"
     },
+    "kind": "member",
+    "longname": "oj-c.Button#width",
+    "scope": "instance",
     "type": {
       "names": [
         "number|string"
       ]
-    }
+    },
+    "optional": true,
+    "ojshortdesc": "Specifies that the button style width",
+    "description": "Specifies that the button style width"
   },
   {
-    "memberof": "oj-c.Button",
     "id": "oj-c.Button#display",
     "name": "display",
-    "kind": "member",
-    "longname": "oj-c.Button#display",
-    "optional": true,
-    "scope": "instance",
-    "description": "Display just the label, the icons, or all. Label is used as tooltip and should be set in all cases.",
+    "memberof": "oj-c.Button",
     "meta": {
       "filename": "button.tsx",
       "path": "web/components/oj-c/button"
     },
+    "kind": "member",
+    "longname": "oj-c.Button#display",
+    "scope": "instance",
+    "type": {
+      "names": [
+        "\"all\"",
+        "\"label\"",
+        "\"icons\""
+      ]
+    },
+    "optional": true,
+    "ojshortdesc": "Display just the label, the icons, or all. Label is used as tooltip and should be set in all cases.",
+    "description": "Display just the label, the icons, or all. Label is used as tooltip and should be set in all cases.",
     "ojvalues": [
       {
         "name": "all",
@@ -165,28 +191,31 @@
         }
       }
     ],
-    "defaultvalue": "\"all\"",
-    "type": {
-      "names": [
-        "\"all\"",
-        "\"label\"",
-        "\"icons\""
-      ]
-    }
+    "ojvalueskeeporder": true,
+    "defaultvalue": "'all'"
   },
   {
-    "memberof": "oj-c.Button",
     "id": "oj-c.Button#size",
     "name": "size",
-    "kind": "member",
-    "longname": "oj-c.Button#size",
-    "optional": true,
-    "scope": "instance",
-    "description": "Size of button",
+    "memberof": "oj-c.Button",
     "meta": {
       "filename": "button.tsx",
       "path": "web/components/oj-c/button"
     },
+    "kind": "member",
+    "longname": "oj-c.Button#size",
+    "scope": "instance",
+    "type": {
+      "names": [
+        "\"xs\"",
+        "\"sm\"",
+        "\"md\"",
+        "\"lg\""
+      ]
+    },
+    "optional": true,
+    "ojshortdesc": "Size of button",
+    "description": "Size of button",
     "ojvalues": [
       {
         "name": "xs",
@@ -229,29 +258,29 @@
         }
       }
     ],
-    "defaultvalue": "\"md\"",
-    "type": {
-      "names": [
-        "\"xs\"",
-        "\"sm\"",
-        "\"md\"",
-        "\"lg\""
-      ]
-    }
+    "ojvalueskeeporder": true,
+    "defaultvalue": "'md'"
   },
   {
-    "memberof": "oj-c.Button",
     "id": "oj-c.Button#edge",
     "name": "edge",
-    "kind": "member",
-    "longname": "oj-c.Button#edge",
-    "optional": true,
-    "scope": "instance",
-    "description": "Specifies whether the button is attached to an edge. For example setting edge='bottom' can be used to attach a button to the bottom of a card. The button is then stretched to 100% width, and borders adjusted.",
+    "memberof": "oj-c.Button",
     "meta": {
       "filename": "button.tsx",
       "path": "web/components/oj-c/button"
     },
+    "kind": "member",
+    "longname": "oj-c.Button#edge",
+    "scope": "instance",
+    "type": {
+      "names": [
+        "\"none\"",
+        "\"bottom\""
+      ]
+    },
+    "optional": true,
+    "ojshortdesc": "Specifies whether the button is attached to an edge. For example setting edge='bottom' can be used to attach a button to the bottom of a card. The button is then stretched to 100% width, and borders adjusted.",
+    "description": "Specifies whether the button is attached to an edge. For example setting edge='bottom' can be used to attach a button to the bottom of a card. The button is then stretched to 100% width, and borders adjusted.",
     "ojvalues": [
       {
         "name": "none",
@@ -274,27 +303,33 @@
         }
       }
     ],
-    "defaultvalue": "\"none\"",
-    "type": {
-      "names": [
-        "\"none\"",
-        "\"bottom\""
-      ]
-    }
+    "ojvalueskeeporder": true,
+    "defaultvalue": "'none'"
   },
   {
-    "memberof": "oj-c.Button",
     "id": "oj-c.Button#chroming",
     "name": "chroming",
-    "kind": "member",
-    "longname": "oj-c.Button#chroming",
-    "optional": true,
-    "scope": "instance",
-    "description": "Indicates in what states the button has variants in background and border.",
+    "memberof": "oj-c.Button",
     "meta": {
       "filename": "button.tsx",
       "path": "web/components/oj-c/button"
     },
+    "kind": "member",
+    "longname": "oj-c.Button#chroming",
+    "scope": "instance",
+    "type": {
+      "names": [
+        "\"solid\"",
+        "\"ghost\"",
+        "\"borderless\"",
+        "\"outlined\"",
+        "\"callToAction\"",
+        "\"danger\""
+      ]
+    },
+    "optional": true,
+    "ojshortdesc": "Indicates in what states the button has variants in background and border.",
+    "description": "Indicates in what states the button has variants in background and border.",
     "ojvalues": [
       {
         "name": "ghost",
@@ -357,29 +392,64 @@
         }
       }
     ],
-    "defaultvalue": "\"outlined\"",
+    "ojvalueskeeporder": true,
+    "defaultvalue": "'outlined'"
+  },
+  {
+    "id": "oj-c.Button#buttonType",
+    "name": "buttonType",
+    "memberof": "oj-c.Button",
+    "meta": {
+      "filename": "button.tsx",
+      "path": "web/components/oj-c/button"
+    },
+    "kind": "member",
+    "longname": "oj-c.Button#buttonType",
+    "scope": "instance",
     "type": {
       "names": [
-        "\"solid\"",
-        "\"ghost\"",
-        "\"borderless\"",
-        "\"outlined\"",
-        "\"callToAction\"",
-        "\"danger\""
+        "\"button\"",
+        "\"submit\""
       ]
-    }
+    },
+    "optional": true,
+    "ojshortdesc": "Specifes the button type to be rendered. This can be used to prevent form submission from happening when the value is set to &quot;button&quot;.",
+    "description": "Specifes the button type to be rendered. This can be used to prevent form submission from happening when the value is set to &quot;button&quot;.",
+    "ojvalues": [
+      {
+        "name": "button",
+        "description": "Renders a standard HTML button element.",
+        "displayName": "Button",
+        "type": {
+          "names": [
+            "string"
+          ]
+        }
+      },
+      {
+        "name": "submit",
+        "description": "Renders an HTML submit button element.",
+        "displayName": "Submit",
+        "type": {
+          "names": [
+            "string"
+          ]
+        }
+      }
+    ],
+    "ojvalueskeeporder": true,
+    "defaultvalue": "'submit'"
   },
   {
-    "memberof": "oj-c.Button",
     "id": "oj-c.Button#focus",
     "name": "focus",
+    "memberof": "oj-c.Button",
+    "meta": {
+      "filename": "button.tsx",
+      "path": "web/components/oj-c/button"
+    },
     "kind": "function",
     "longname": "oj-c.Button#focus",
-    "description": "",
-    "meta": {
-      "filename": "button.tsx",
-      "path": "web/components/oj-c/button"
-    },
     "scope": "instance",
     "returns": [
       {
@@ -389,19 +459,19 @@
           ]
         }
       }
-    ]
+    ],
+    "description": ""
   },
   {
-    "memberof": "oj-c.Button",
     "id": "oj-c.Button#blur",
     "name": "blur",
+    "memberof": "oj-c.Button",
+    "meta": {
+      "filename": "button.tsx",
+      "path": "web/components/oj-c/button"
+    },
     "kind": "function",
     "longname": "oj-c.Button#blur",
-    "description": "",
-    "meta": {
-      "filename": "button.tsx",
-      "path": "web/components/oj-c/button"
-    },
     "scope": "instance",
     "returns": [
       {
@@ -411,19 +481,19 @@
           ]
         }
       }
-    ]
+    ],
+    "description": ""
   },
   {
-    "memberof": "oj-c.Button",
     "id": "oj-c.Button#click",
     "name": "click",
-    "kind": "function",
-    "longname": "oj-c.Button#click",
-    "description": "",
+    "memberof": "oj-c.Button",
     "meta": {
       "filename": "button.tsx",
       "path": "web/components/oj-c/button"
     },
+    "kind": "function",
+    "longname": "oj-c.Button#click",
     "scope": "instance",
     "returns": [
       {
@@ -433,63 +503,44 @@
           ]
         }
       }
-    ]
+    ],
+    "description": ""
   },
   {
-    "memberof": "oj-c.Button",
     "id": "oj-c.Button#setProperty",
     "name": "setProperty",
-    "kind": "function",
-    "longname": "oj-c.Button#setProperty",
-    "description": "Sets a property or a single subproperty for complex properties and notifies the component of the change, triggering a corresponding event.",
+    "memberof": "oj-c.Button",
     "meta": {
       "filename": "button.tsx",
       "path": "web/components/oj-c/button"
     },
+    "kind": "function",
+    "longname": "oj-c.Button#setProperty",
     "scope": "instance",
+    "returns": [
+      {
+        "type": {
+          "names": [
+            "void"
+          ]
+        }
+      }
+    ],
+    "ojshortdesc": "Sets a property or a single subproperty for complex properties and notifies the component of the change, triggering a corresponding event.",
+    "description": "Sets a property or a single subproperty for complex properties and notifies the component of the change, triggering a corresponding event.",
     "params": [
       {
         "name": "property",
         "description": "The property name to set. Supports dot notation for subproperty access.",
-        "type": "string"
+        "type": {
+          "names": [
+            "string"
+          ]
+        }
       },
       {
         "name": "value",
         "description": "The new value to set the property to.",
-        "type": "any"
-      }
-    ],
-    "returns": [
-      {
-        "type": {
-          "names": [
-            "void"
-          ]
-        }
-      }
-    ]
-  },
-  {
-    "memberof": "oj-c.Button",
-    "id": "oj-c.Button#getProperty",
-    "name": "getProperty",
-    "kind": "function",
-    "longname": "oj-c.Button#getProperty",
-    "description": "Retrieves the value of a property or a subproperty.",
-    "meta": {
-      "filename": "button.tsx",
-      "path": "web/components/oj-c/button"
-    },
-    "scope": "instance",
-    "params": [
-      {
-        "name": "property",
-        "description": "The property name to get. Supports dot notation for subproperty access.",
-        "type": "string"
-      }
-    ],
-    "returns": [
-      {
         "type": {
           "names": [
             "any"
@@ -499,24 +550,50 @@
     ]
   },
   {
+    "id": "oj-c.Button#getProperty",
+    "name": "getProperty",
     "memberof": "oj-c.Button",
-    "id": "oj-c.Button#setProperties",
-    "name": "setProperties",
-    "kind": "function",
-    "longname": "oj-c.Button#setProperties",
-    "description": "Performs a batch set of properties.",
     "meta": {
       "filename": "button.tsx",
       "path": "web/components/oj-c/button"
     },
+    "kind": "function",
+    "longname": "oj-c.Button#getProperty",
     "scope": "instance",
-    "params": [
+    "returns": [
       {
-        "name": "properties",
-        "description": "An object containing the property and value pairs to set.",
-        "type": "object"
+        "type": {
+          "names": [
+            "any"
+          ]
+        }
       }
     ],
+    "ojshortdesc": "Retrieves the value of a property or a subproperty.",
+    "description": "Retrieves the value of a property or a subproperty.",
+    "params": [
+      {
+        "name": "property",
+        "description": "The property name to get. Supports dot notation for subproperty access.",
+        "type": {
+          "names": [
+            "string"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "id": "oj-c.Button#setProperties",
+    "name": "setProperties",
+    "memberof": "oj-c.Button",
+    "meta": {
+      "filename": "button.tsx",
+      "path": "web/components/oj-c/button"
+    },
+    "kind": "function",
+    "longname": "oj-c.Button#setProperties",
+    "scope": "instance",
     "returns": [
       {
         "type": {
@@ -525,49 +602,64 @@
           ]
         }
       }
+    ],
+    "ojshortdesc": "Performs a batch set of properties.",
+    "description": "Performs a batch set of properties.",
+    "params": [
+      {
+        "name": "properties",
+        "description": "An object containing the property and value pairs to set.",
+        "type": {
+          "names": [
+            "object"
+          ]
+        }
+      }
     ]
   },
   {
-    "memberof": "oj-c.Button",
     "id": "oj-c.Button#event:ojAction",
     "name": "ojAction",
     "kind": "event",
-    "longname": "oj-c.Button#event:ojAction",
-    "description": "Triggered when a button is clicked, whether by keyboard, mouse, or touch events. To meet accessibility requirements, the only supported way to react to the click of a button is to listen for this event.",
+    "memberof": "oj-c.Button",
     "meta": {
       "filename": "button.tsx",
       "path": "web/components/oj-c/button"
     },
-    "scope": "instance"
+    "longname": "oj-c.Button#event:ojAction",
+    "scope": "instance",
+    "bubbles": true,
+    "ojshortdesc": "Triggered when a button is clicked, whether by keyboard, mouse, or touch events. To meet accessibility requirements, the only supported way to react to the click of a button is to listen for this event.",
+    "description": "<p style=\"background-color: RGB(var(--oj-palette-info-rgb-30)); border: 2px solid #ddd\"><strong>Note:</strong> The event detail contains the following properties: [oj-c.Button.ActionDetail]{@link oj-c.Button.ActionDetail}</p>Triggered when a button is clicked, whether by keyboard, mouse, or touch events. To meet accessibility requirements, the only supported way to react to the click of a button is to listen for this event."
   },
   {
-    "memberof": "oj-c.Button",
     "id": "oj-c.Button#startIcon",
     "name": "startIcon",
-    "kind": "member",
-    "longname": "oj-c.Button#startIcon",
-    "description": "The startIcon slot is the button's start icon. The oj-c-button element accepts DOM nodes as children with the startIcon slot.",
+    "memberof": "oj-c.Button",
     "meta": {
       "filename": "button.tsx",
       "path": "web/components/oj-c/button"
     },
+    "kind": "member",
+    "longname": "oj-c.Button#startIcon",
     "scope": "instance",
-    "ojchild": false,
+    "description": "The startIcon slot is the button's start icon. The oj-c-button element accepts DOM nodes as children with the startIcon slot.",
+    "ojshortdesc": "The startIcon slot is the button's start icon. The oj-c-button element accepts DOM nodes as children with the startIcon slot.",
     "ojslot": true
   },
   {
-    "memberof": "oj-c.Button",
     "id": "oj-c.Button#endIcon",
     "name": "endIcon",
-    "kind": "member",
-    "longname": "oj-c.Button#endIcon",
-    "description": "The endIcon slot is the button's end icon. The oj-c-button element accepts DOM nodes as children with the endIcon slot.",
+    "memberof": "oj-c.Button",
     "meta": {
       "filename": "button.tsx",
       "path": "web/components/oj-c/button"
     },
+    "kind": "member",
+    "longname": "oj-c.Button#endIcon",
     "scope": "instance",
-    "ojchild": false,
+    "description": "The endIcon slot is the button's end icon. The oj-c-button element accepts DOM nodes as children with the endIcon slot.",
+    "ojshortdesc": "The endIcon slot is the button's end icon. The oj-c-button element accepts DOM nodes as children with the endIcon slot.",
     "ojslot": true
   },
   {
@@ -595,5 +687,37 @@
       "path": "web/components/oj-c/button"
     },
     "ojfragment": true
+  },
+  {
+    "id": "oj-c.Button.ActionDetail",
+    "name": "ActionDetail",
+    "kind": "typedef",
+    "memberof": "oj-c.Button",
+    "meta": {
+      "filename": "button.tsx",
+      "path": "web/components/oj-c/button"
+    },
+    "longname": "oj-c.Button.ActionDetail",
+    "type": {
+      "names": [
+        "Object"
+      ]
+    },
+    "scope": "static",
+    "description": "",
+    "properties": [
+      {
+        "name": "reason",
+        "description": "trigger for the button action",
+        "optional": false,
+        "type": {
+          "names": [
+            "\"pointer\"",
+            "\"keyboard\""
+          ]
+        },
+        "ojshortdesc": "trigger for the button action"
+      }
+    ]
   }
 ]

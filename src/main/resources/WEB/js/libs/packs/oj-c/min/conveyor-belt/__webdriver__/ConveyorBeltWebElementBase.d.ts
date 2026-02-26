@@ -33,7 +33,7 @@ export declare class ConveyorBeltWebElementBase extends OjWebElement {
      * @return The value of <code>items</code> property.
      *
      */
-    getItems(): Promise<Array<object>>;
+    getItems(): Promise<Array<any>>;
     /**
      * Gets the value of <code>orientation</code> property.
      *

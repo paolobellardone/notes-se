@@ -15,10 +15,13 @@ define(["require", "exports", "preact/jsx-runtime", "@oracle/oraclejet-preact/UN
         const setSelectionValue = (selection, value, key, menuButtonSelection = {}) => {
             let updatedSelection = { ...selection };
             if (!key) {
+                // special logic for updating selection for menu buttons
                 for (const k in menuButtonSelection) {
+                    //delete select multiple selections when missing from incoming change value, using menuButtonSelection to determine which key to index
                     if (!(k in value))
                         delete updatedSelection[k];
                 }
+                //overwrite previous selection group values with new ones
                 updatedSelection = { ...updatedSelection, ...value };
             }
             else {
@@ -72,7 +75,7 @@ define(["require", "exports", "preact/jsx-runtime", "@oracle/oraclejet-preact/UN
                             }, ...toIconProps(item) }));
                     }
                     case 'split-menu-button': {
-                        return ((0, jsx_runtime_1.jsx)(split_menu_button_1.SplitMenuButton, { size: size, disabled: item.disabled, label: item.label, tooltip: item.tooltip, items: item.items, "data-oj-private-key": item.key, onOjAction: getItemActionHandler(item.key, item.onAction) }));
+                        return ((0, jsx_runtime_1.jsx)(split_menu_button_1.SplitMenuButton, { size: size, disabled: item.disabled, label: item.label, tooltip: item.tooltip, items: item.items, chroming: item.chroming, "data-oj-private-key": item.key, onOjAction: getItemActionHandler(item.key, item.onAction) }));
                     }
                     case 'buttonset-single': {
                         return ((0, jsx_runtime_1.jsx)(buttonset_single_1.ButtonsetSingle, { disabled: item.disabled, display: item.display, items: item.items, chroming: item.chroming || chroming, size: size, value: toolbarSelection[item.key], "data-oj-private-key": item.key, onValueChanged: (value) => {

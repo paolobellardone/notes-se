@@ -1,7 +1,7 @@
 {
   "name": "button",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -27,7 +27,11 @@
       ]
     },
     "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/ButtonWebElement.html"
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/ButtonWebElement.html",
+      "export": "findButton",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   },
   "propertyLayout": [
@@ -52,6 +56,22 @@
       "since": "15.0.0",
       "value": [
         "oj-button"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "type": "anyOf",
+      "label": "accessibility",
+      "properties": [
+        "label"
+      ]
+    },
+    {
+      "type": "not",
+      "label": "accessibility",
+      "properties": [
+        "aria-label"
       ]
     }
   ],
@@ -199,6 +219,26 @@
         }
       },
       "value": "outlined"
+    },
+    "buttonType": {
+      "type": "string",
+      "description": "Specifes the button type to be rendered. This can be used to prevent form submission from happening when the value is set to &quot;button&quot;.",
+      "help": "#buttonType",
+      "propertyEditorValues": {
+        "button": {
+          "description": "Renders a standard HTML button element.",
+          "displayName": "Button"
+        },
+        "submit": {
+          "description": "Renders an HTML submit button element.",
+          "displayName": "Submit"
+        }
+      },
+      "enumValues": [
+        "button",
+        "submit"
+      ],
+      "value": "submit"
     }
   },
   "slots": {
@@ -216,7 +256,17 @@
       "bubbles": true,
       "description": "Triggered when a button is clicked, whether by keyboard, mouse, or touch events. To meet accessibility requirements, the only supported way to react to the click of a button is to listen for this event.",
       "eventGroup": "common",
-      "help": "#event:action"
+      "help": "#event:action",
+      "detail": {
+        "reason": {
+          "type": "string",
+          "description": "trigger for the button action",
+          "enumValues": [
+            "pointer",
+            "keyboard"
+          ]
+        }
+      }
     }
   },
   "methods": {

@@ -27,9 +27,14 @@ type UseEditableValueProps<V, DV> = {
     validators?: (AsyncValidator<V> | Validator<V>)[];
     value?: V;
 };
+/**
+ * A custom hook to handle value and value based life cycle of an editable component.
+ * This uses a reducer to handle form component states like value, displayValue, valid, etc.
+ */
 export declare function useEditableValue<V = string, DV = V>({ addBusyState, ariaDescribedBy, converter, defaultDisplayValue, deferredValidators, disabled, displayOptions, messagesCustom, onDisplayValueChanged, onMessagesCustomChanged, onRawValueChanged, onTransientValueChanged, onValidChanged: propOnValidChanged, onValueChanged, translateConverterParseError, readonly, validators, value }: UseEditableValueProps<V, DV>): {
     value: Optional<V>;
     addMessage: (message: ComponentMessageItem) => void;
+    dispatchClearAllMessages: () => void;
     clearInteractionFlags: () => void;
     displayValue: DV | undefined;
     formatValue: (value: Optional<V>) => DV | undefined;

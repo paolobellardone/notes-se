@@ -1,7 +1,7 @@
 {
   "name": "tag-cloud",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -35,7 +35,11 @@
       ]
     },
     "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/TagCloudWebElement.html"
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/TagCloudWebElement.html",
+      "export": "findTagCloud",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   },
   "propertyLayout": [
@@ -55,6 +59,16 @@
     }
   ],
   "since": "15.0.0",
+  "requirements": [
+    {
+      "type": "anyOf",
+      "label": "accessibility",
+      "properties": [
+        "aria-label",
+        "aria-labelledby"
+      ]
+    }
+  ],
   "properties": {
     "data": {
       "type": "DataProvider|null",
@@ -89,7 +103,7 @@
     },
     "touchResponse": {
       "type": "string",
-      "description": "Data visualizations require a press and hold delay before triggering tooltips and rollover effects on mobile devices to avoid interfering with page panning, but these hold delays can make applications seem slower and less responsive. For a better user experience, the application can remove the touch and hold delay when data visualizations are used within a non scrolling container or if there is sufficient space outside of the visualization for panning. If touchResponse is touchStart the element will instantly trigger the touch gesture and consume the page pan events. If touchResponse is auto, the element will behave like touchStart if it determines that it is not rendered within scrolling content and if element panning is not available for those elements that support the feature.",
+      "description": "Data visualizations require a press and hold delay before triggering datatips and rollover effects on mobile devices to avoid interfering with page panning, but these hold delays can make applications seem slower and less responsive. For a better user experience, the application can remove the touch and hold delay when data visualizations are used within a non scrolling container or if there is sufficient space outside of the visualization for panning. If touchResponse is touchStart the element will instantly trigger the touch gesture and consume the page pan events. If touchResponse is auto, the element will behave like touchStart if it determines that it is not rendered within scrolling content and if element panning is not available for those elements that support the feature.",
       "displayName": "Touch Response",
       "help": "#touchResponse",
       "enumValues": [
@@ -171,7 +185,7 @@
       "value": "none"
     },
     "selection": {
-      "type": "Array<any>",
+      "type": "Array<string|number>",
       "description": "An array containing the ids of the initially selected data items.",
       "displayName": "Selection",
       "help": "#selection",
@@ -191,6 +205,10 @@
           "type": "function"
         }
       }
+    },
+    "datatipConfig": {
+      "type": "function",
+      "description": "The DatatipConfig object is used to allow applications to control the appearance and behavior of the datatip."
     }
   },
   "slots": {
@@ -210,6 +228,23 @@
           "type": "number"
         }
       }
+    },
+    "datatipTemplate": {
+      "description": "The datatipTemplate slot is used to specify custom datatip content.",
+      "data": {
+        "color": {
+          "type": "string"
+        },
+        "id": {
+          "type": "any"
+        },
+        "label": {
+          "type": "string"
+        },
+        "value": {
+          "type": "number"
+        }
+      }
     }
   },
   "events": {
@@ -224,7 +259,7 @@
           "type": "string"
         },
         "contextMenuContext": {
-          "type": "any"
+          "type": "object"
         }
       }
     },
@@ -239,7 +274,7 @@
           "type": "string|Array<string>"
         },
         "contextMenuContext": {
-          "type": "any"
+          "type": "object"
         },
         "menuSelectionGroupKey": {
           "type": "string"

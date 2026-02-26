@@ -2,6 +2,7 @@ define(["require", "exports", "preact/jsx-runtime", '@oracle/oraclejet-preact/tr
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.ConveyorBelt = void 0;
+    // TODO: refactor to a single util along with radioset 
     function isDataProvider(items) {
         return (items && 'fetchFirst' in items) || false;
     }
@@ -18,49 +19,76 @@ define(["require", "exports", "preact/jsx-runtime", '@oracle/oraclejet-preact/tr
             addBusyState
         });
         const dataArr = (0, hooks_1.useMemo)(() => {
+            // if the options are an array, we want to clone the prop
             const clonedOptions = !isFromDataProvider && items
-                ? [...items].map((item) => {
-                    const metadata = { key: item.key };
+                ? [...items].map((item, index) => {
                     return {
-                        key: item.key,
-                        data: {
-                            data: item.data,
-                            metadata: metadata
-                        }
+                        key: index,
+                        data: item
                     };
                 })
                 : [];
             return isFromDataProvider
                 ? Array.isArray(data)
                     ? data.map((item) => {
-                        const metadata = { key: item.key };
                         return {
                             key: item.key,
-                            data: {
-                                data: item.data,
-                                metadata: item.metadata ?? metadata
-                            }
+                            data: item.data
                         };
                     })
                     : []
                 : clonedOptions;
         }, [data, isFromDataProvider, items]);
         const scrollPositionChangedHandler = (value) => {
-            if (value)
+            if (value != null)
                 onScrollPositionChanged?.(value);
         };
         const childrenContent = itemTemplate
-            ? dataArr.map((dataObj, index) => {
+            ? dataArr.map((dataObj) => {
                 const context = {
-                    index: index,
-                    data: dataObj.data,
-                    metadata: dataObj.data.metadata
+                    key: dataObj.key,
+                    data: dataObj.data
                 };
-                return (0, jsx_runtime_1.jsx)(conveyorBeltItem_1.ConveyorBeltItem, { context: context, itemTemplate: itemTemplate });
+                return ((0, jsx_runtime_1.jsx)(conveyorBeltItem_1.ConveyorBeltItem, { context: context, itemTemplate: itemTemplate }, dataObj.key));
             })
             : children;
         return ((0, jsx_runtime_1.jsx)(UNSAFE_ConveyorBelt_1.ConveyorBelt, { onScrollPositionChanged: scrollPositionChangedHandler, ref: conveyorRef, ...rest, children: childrenContent }));
     });
+    /**
+     * @description
+     * <p>Container element that manages overflow for its child
+     * elements and allows scrolling among them.
+     *
+     *
+     * <pre class="prettyprint"><code>
+     * &lt;oj-c-conveyor-belt items="[[dataArray]]">
+     *    &lt;template slot='itemTemplate'>
+     *        &lt;oj-c-button label="[[$current.data]]"></oj-c-button>
+     *     &lt;/template>
+     * &lt;/oj-c-conveyor-belt>
+     * </code></pre>
+     *
+     * <p>Use ConveyorBelt when you want to:
+     * <ul>
+     * <li>handle overflow without showing a scrollbar</li>
+     * <li>keep all items accessible via tabbing and readable by a screen reader</li>
+     * </ul>
+     *
+     *
+     * @ojmetadata displayName "Conveyor Belt"
+     * @ojmetadata description "A conveyor belt manages overflow for its child elements and allows scrolling among them."
+     * @ojmetadata main "oj-c/conveyor-belt"
+     * @ojmetadata help "oj-c.ConveyorBelt.html"
+     * @ojmetadata status [
+     *   {
+     *     "type": "supersedes",
+     *     "since": "17.0.0",
+     *     "value": ["oj-conveyor-belt"]
+     *   }
+     * ]
+     *
+     * @ojmetadata since "17.0.0"
+     */
     const ConveyorBeltComp = ({ children, orientation = 'horizontal', ...rest }, ref) => {
         const rootRef = (0, hooks_1.useRef)();
         const conveyorBeltRef = (0, hooks_1.useRef)(null);
@@ -71,6 +99,11 @@ define(["require", "exports", "preact/jsx-runtime", '@oracle/oraclejet-preact/tr
             });
         }, []);
         const { direction } = (0, UNSAFE_useUser_1.useUser)();
+        /**
+         * Handles arrow key navigation when the root element has focus
+         *
+         * @param event
+         */
         const keyDownHandler = (event) => {
             if (event.target !== rootRef.current) {
                 return;
@@ -119,7 +152,7 @@ define(["require", "exports", "preact/jsx-runtime", '@oracle/oraclejet-preact/tr
         }), []);
         return ((0, jsx_runtime_1.jsx)(ojvcomponent_1.Root, { ref: rootRef, onKeyDown: keyDownHandler, children: (0, jsx_runtime_1.jsx)(ConveyorBeltPreactWrapper, { ref: conveyorBeltRef, addBusyState: addBusyState, orientation: orientation, ...rest, children: children }) }));
     };
-    exports.ConveyorBelt = (0, ojvcomponent_1.registerCustomElement)('oj-c-conveyor-belt', (0, compat_1.forwardRef)(ConveyorBeltComp), "ConveyorBelt", { "slots": { "": {}, "itemTemplate": { "data": {} } }, "properties": { "scrollPosition": { "type": "number", "writeback": true }, "arrowVisibility": { "type": "string", "enumValues": ["auto", "hidden", "visible"] }, "items": { "type": "Array<object>|DataProvider" }, "orientation": { "type": "string", "enumValues": ["horizontal", "vertical"] } }, "extension": { "_WRITEBACK_PROPS": ["scrollPosition"], "_READ_ONLY_PROPS": [] }, "methods": { "scrollElementIntoView": {} } }, { "orientation": "horizontal" }, {
+    exports.ConveyorBelt = (0, ojvcomponent_1.registerCustomElement)('oj-c-conveyor-belt', (0, compat_1.forwardRef)(ConveyorBeltComp), "ConveyorBelt", { "slots": { "": {}, "itemTemplate": { "data": {} } }, "properties": { "scrollPosition": { "type": "number", "writeback": true }, "arrowVisibility": { "type": "string", "enumValues": ["auto", "hidden", "visible"] }, "items": { "type": "Array<any>|DataProvider" }, "orientation": { "type": "string", "enumValues": ["horizontal", "vertical"] } }, "extension": { "_WRITEBACK_PROPS": ["scrollPosition"], "_READ_ONLY_PROPS": [] }, "methods": { "scrollElementIntoView": {} } }, { "orientation": "horizontal" }, {
         '@oracle/oraclejet-preact': translationBundle_1.default
     });
 });

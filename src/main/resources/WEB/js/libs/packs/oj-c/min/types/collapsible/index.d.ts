@@ -1,2 +1,2 @@
-export { Collapsible, type CollapsibleToggleDetail } from './collapsible';
+export { Collapsible, type CollapsibleToggleDetailDeprecated as CollapsibleToggleDetail } from './collapsible';
 export { CCollapsibleElement } from './collapsible';

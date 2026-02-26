@@ -15,7 +15,7 @@ export declare class TableWebElement extends TableWebElementBase {
      * @param selected The value to set for "selected"
      * @typeparam K Type of keys
      */
-    changeSelected<K, C>(selected: {
+    changeSelected<K extends string | number, C extends string>(selected: {
         row: {
             all: true;
             keys?: never;
@@ -40,7 +40,7 @@ export declare class TableWebElement extends TableWebElementBase {
      * @typeparam K Type of keys
      * @return The value of "selected" property.
      */
-    getSelected<K, C>(): Promise<{
+    getSelected<K extends string | number, C extends string>(): Promise<{
         row: {
             all: true;
             keys?: never;
@@ -64,7 +64,7 @@ export declare class TableWebElement extends TableWebElementBase {
      * Set a given row active. Triggers a ojRowAction Event.
      * @param itemLocator.rowKey The rowKey associated with the row.
      */
-    doRowAction<K>(itemLocator: {
+    doRowAction<K extends string | number>(itemLocator: {
         rowKey: K;
     }): Promise<void>;
     /**
@@ -75,7 +75,7 @@ export declare class TableWebElement extends TableWebElementBase {
      * @param itemLocator.rowKey The rowKey associated with the cell
      * @param itemLocator.columnKey The columnKey associated with the cell
      */
-    findCell<K, C>(itemLocator: {
+    findCell<K extends string | number, C extends string>(itemLocator: {
         rowKey: K;
         columnKey: C;
     }): Promise<SlotProxy>;
@@ -86,7 +86,7 @@ export declare class TableWebElement extends TableWebElementBase {
      *
      * @param itemLocator.columnKey The columnKey associated with the header cell
      */
-    findHeader<C>(itemLocator: {
+    findHeader<C extends string>(itemLocator: {
         columnKey: C;
     }): Promise<SlotProxy>;
     /**
@@ -96,7 +96,7 @@ export declare class TableWebElement extends TableWebElementBase {
      *
      * @param itemLocator.columnKey The columnKey associated with the footer cell
      */
-    findFooter<C>(itemLocator: {
+    findFooter<C extends string>(itemLocator: {
         columnKey: C;
     }): Promise<SlotProxy>;
     /**

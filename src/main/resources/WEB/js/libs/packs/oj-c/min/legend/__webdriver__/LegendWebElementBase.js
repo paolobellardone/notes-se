@@ -162,6 +162,15 @@ class LegendWebElementBase extends elements_1.OjWebElement {
     getContextMenuConfig() {
         return this.getProperty('contextMenuConfig');
     }
+    /**
+     * Gets the value of <code>datatipConfig</code> property.
+     * The DatatipConfig object is used to allow applications to control the appearance and behavior of the datatip.
+     * @return The value of <code>datatipConfig</code> property.
+     *
+     */
+    getDatatipConfig() {
+        return this.getProperty('datatipConfig');
+    }
 }
 exports.LegendWebElementBase = LegendWebElementBase;
 //# sourceMappingURL=LegendWebElementBase.js.map

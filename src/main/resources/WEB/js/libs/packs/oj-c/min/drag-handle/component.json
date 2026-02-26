@@ -1,7 +1,7 @@
 {
   "name": "drag-handle",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -10,7 +10,7 @@
     "CDragHandleElement"
   ],
   "displayName": "Drag Handle",
-  "description": "A drag handle is a draggable icon used in components with reorder features.",
+  "description": "A drag handle is a draggable icon used in oj-c-list-view and oj-c-card-view.",
   "help": "oj-c.DragHandle.html",
   "main": "oj-c/drag-handle",
   "status": [
@@ -32,7 +32,11 @@
       ]
     },
     "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/DragHandleWebElement.html"
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/DragHandleWebElement.html",
+      "export": "findDragHandle",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   },
   "since": "17.0.0",

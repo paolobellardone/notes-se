@@ -1,7 +1,7 @@
 {
   "name": "select-single",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -9,14 +9,18 @@
   "implements": [
     "CSelectSingleElement"
   ],
-  "displayName": "SelectSingle",
+  "displayName": "Select Single",
   "description": "A select single is a dropdown list that supports single selection and search filtering.",
   "help": "oj-c.SelectSingle.html",
   "main": "oj-c/select-single",
   "status": [
     {
-      "type": "candidate",
-      "since": "17.0.0"
+      "type": "supersedes",
+      "since": "19.0.0",
+      "value": [
+        "oj-select-single",
+        "oj-combobox-one"
+      ]
     }
   ],
   "extension": {
@@ -35,7 +39,11 @@
       ]
     },
     "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/SelectSingleWebElement.html"
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/SelectSingleWebElement.html",
+      "export": "findSelectSingle",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   },
   "propertyLayout": [
@@ -61,7 +69,35 @@
     }
   ],
   "since": "14.0.0",
+  "requirements": [
+    {
+      "type": "anyOf",
+      "label": "accessibility",
+      "properties": [
+        "labelHint"
+      ]
+    },
+    {
+      "type": "not",
+      "label": "accessibility",
+      "properties": [
+        "aria-label",
+        "aria-labelledby"
+      ]
+    }
+  ],
   "properties": {
+    "addToList": {
+      "type": "string",
+      "description": "Specifies whether the add to list link is shown in the dropdown when the user filters.",
+      "displayName": "Add to List",
+      "help": "#addToList",
+      "enumValues": [
+        "off",
+        "on"
+      ],
+      "value": "off"
+    },
     "advancedSearch": {
       "type": "string",
       "description": "Specifies whether the advanced search link is shown in the dropdown when the user filters.",
@@ -226,6 +262,13 @@
     },
     "labelWrapping": {
       "type": "string",
+      "status": [
+        {
+          "type": "deprecated",
+          "since": "18.0.0",
+          "description": "Label truncation for 'start' and 'top' aligned labels is no longer recommended by the Redwood Design System. The default for labelWrapping was 'wrap' and that is now the only suggested pattern by UX design for 'start' and 'top' aligned labels. 'inside' aligned labels are always truncated per UX design and are not affected by this property's value."
+        }
+      ],
       "description": "Should the labels wrap or truncate when there is not enough available space.",
       "displayName": "Label Wrapping",
       "help": "#labelWrapping",
@@ -239,13 +282,6 @@
           "displayName": "Wrap"
         }
       },
-      "status": [
-        {
-          "type": "deprecated",
-          "since": "18.0.0",
-          "description": "Label truncation for 'start' and 'top' aligned labels is no longer recommended by the Redwood Design System. The default for labelWrapping was 'wrap' and that is now the only suggested pattern by UX design for 'start' and 'top' aligned labels. 'inside' aligned labels are always truncated per UX design and are not affected by this property's value."
-        }
-      ],
       "enumValues": [
         "truncate",
         "wrap"
@@ -262,6 +298,16 @@
       "displayName": "Match By",
       "help": "#matchBy",
       "value": null
+    },
+    "maxWidth": {
+      "type": "number|string",
+      "description": "The max width of the control.",
+      "displayName": "Max Width",
+      "help": "#maxWidth",
+      "propertyEditorValues": {
+        "sm": {},
+        "md": {}
+      }
     },
     "messagesCustom": {
       "type": "Array<object>",
@@ -309,6 +355,17 @@
           "name": "containerReadonly"
         }
       }
+    },
+    "readonlyUserAssistanceShown": {
+      "type": "string",
+      "description": "Specifies which user assistance types should be shown when the component is readonly.",
+      "displayName": "ReadonlyUserAssistanceShown",
+      "help": "#readonlyUserAssistanceShown",
+      "enumValues": [
+        "none",
+        "confirmationAndInfoMessages"
+      ],
+      "value": "none"
     },
     "required": {
       "type": "boolean",
@@ -397,7 +454,7 @@
           "type": "any"
         },
         "key": {
-          "type": "any"
+          "type": "string|number"
         },
         "metadata": {
           "type": "object",
@@ -409,7 +466,7 @@
               "type": "boolean"
             },
             "key": {
-              "type": "any"
+              "type": "string|number"
             },
             "message": {
               "type": "object",
@@ -433,7 +490,7 @@
               }
             },
             "parentKey": {
-              "type": "any"
+              "type": "string|number"
             },
             "suggestion": {
               "type": "object"
@@ -493,6 +550,16 @@
       ],
       "value": "auto"
     },
+    "width": {
+      "type": "number|string",
+      "description": "The width of the control.",
+      "displayName": "Width",
+      "help": "#width",
+      "propertyEditorValues": {
+        "sm": {},
+        "md": {}
+      }
+    },
     "valid": {
       "type": "string",
       "description": "Specifies how the valid state of the component",
@@ -533,7 +600,8 @@
       "help": "#collectionTemplate",
       "maxItems": 1,
       "preferredContent": [
-        "CTableElement"
+        "CTableElement",
+        "CListViewElement"
       ],
       "data": {
         "data": {
@@ -586,7 +654,7 @@
                   "type": "boolean"
                 },
                 "key": {
-                  "type": "any"
+                  "type": "string|number"
                 },
                 "message": {
                   "type": "object",
@@ -603,7 +671,7 @@
                   }
                 },
                 "parentKey": {
-                  "type": "any"
+                  "type": "string|number"
                 },
                 "suggestion": {
                   "type": "object"
@@ -619,6 +687,16 @@
     }
   },
   "events": {
+    "ojAddToListAction": {
+      "description": "Event triggered when the user clicks or presses Enter on the add to list link in the dropdown.",
+      "displayName": "onOjAddToListAction",
+      "help": "#event:addToListAction",
+      "detail": {
+        "searchText": {
+          "type": "string"
+        }
+      }
+    },
     "ojAdvancedSearchAction": {
       "description": "Event triggered when the user clicks or presses Enter on the advanced search link in the dropdown.",
       "displayName": "onOjAdvancedSearchAction",
@@ -641,7 +719,7 @@
               "type": "any"
             },
             "key": {
-              "type": "any"
+              "type": "string|number"
             },
             "metadata": {
               "type": "object",
@@ -653,7 +731,7 @@
                   "type": "boolean"
                 },
                 "key": {
-                  "type": "any"
+                  "type": "string|number"
                 },
                 "message": {
                   "type": "object",
@@ -670,7 +748,7 @@
                   }
                 },
                 "parentKey": {
-                  "type": "any"
+                  "type": "string|number"
                 },
                 "suggestion": {
                   "type": "object"
@@ -683,10 +761,10 @@
           }
         },
         "previousValue": {
-          "type": "any"
+          "type": "string|number|null"
         },
         "value": {
-          "type": "any"
+          "type": "string|number|null"
         }
       }
     }
@@ -711,6 +789,17 @@
     "validate": {
       "description": "If enabled, validates the component's display value using the converter and all validators registered on the component. The Promise resolves to 'valid' if there were no converter parse errors and the component passed all validations, or if the component is disabled or readonly.",
       "return": "Promise"
+    },
+    "_doAddToListAction": {
+      "description": "This method imitates triggering the add to list link in the dropdown. This is used by the WebElement implementation of oj-c-select-single.\"",
+      "params": [
+        {
+          "name": "searchText",
+          "description": "The search text to include in the event",
+          "type": "string"
+        }
+      ],
+      "return": "void"
     },
     "_doAdvancedSearchAction": {
       "description": "This method imitates triggering the advanced search link in the dropdown. This is used by the WebElement implementation of oj-c-select-single.",

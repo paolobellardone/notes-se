@@ -9,7 +9,7 @@
   outline: none;
 }
 .PictoChartStyles_dimmedItemStyle__10gosed1 {
-  opacity: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-dimmed-opacity);
+  opacity: var(--oj-c-dimmed-opacity);
 }
 .PictoChartStyles_interactiveItemStyle__10gosed2 {
   cursor: pointer;

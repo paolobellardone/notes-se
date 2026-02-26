@@ -2,7 +2,124 @@ define(["require", "exports", "preact/jsx-runtime", '@oracle/oraclejet-preact/tr
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.TabBarMixed = void 0;
-    exports.TabBarMixed = (0, ojvcomponent_1.registerCustomElement)('oj-c-tab-bar-mixed', (props) => {
+    exports.TabBarMixed = (0, ojvcomponent_1.registerCustomElement)('oj-c-tab-bar-mixed', 
+    /**
+     * @classdesc
+     * <h3 id="tabBarMixedOverview-section">
+     *   JET TabBarMixed
+     *   <a class="bookmarkable-link" title="Bookmarkable Link" href="#tabBarMixedOverview-section"></a>
+     * </h3>
+     *
+     * The oj-c-tab-bar-mixed enables horizontal navigation between distinct content with a mixture of static and dynamic tabs.
+     *
+     * <h3 id="touch-section">
+     *   Touch End User Information
+     *   <a class="bookmarkable-link" title="Bookmarkable Link" href="#touch-section"></a>
+     * </h3>
+     *
+     * <table class="keyboard-table">
+     *   <thead>
+     *     <tr>
+     *       <th>Target</th>
+     *       <th>Gesture</th>
+     *       <th>Action</th>
+     *     </tr>
+     *   </thead>
+     *   <tbody>
+     *     <tr>
+     *       <td>Tab</td>
+     *       <td><kbd>Tap</kbd></td>
+     *       <td>Selects the tab.</td>
+     *     </tr>
+     *     <tr>
+     *       <td>Remove button</td>
+     *       <td><kbd>Tap</kbd></td>
+     *       <td>Removes the tab.</td>
+     *     </tr>
+     *     <tr>
+     *       <td>Arrow button</td>
+     *       <td><kbd>Tap</kbd></td>
+     *       <td>When dynamic tabs are displayed inside a conveyor belt, tapping the arrow button will scroll the conveyor belt.</td>
+     *     </tr>
+     *   </tbody>
+     * </table>
+     *
+     * <h3 id="keyboard-section">
+     *   Keyboard End User Information
+     *   <a class="bookmarkable-link" title="Bookmarkable Link" href="#keyboard-section"></a>
+     * </h3>
+     *
+     * <table class="keyboard-table">
+     *   <thead>
+     *     <tr>
+     *       <th>Target</th>
+     *       <th>Key</th>
+     *       <th>Action</th>
+     *     </tr>
+     *   </thead>
+     *   <tbody>
+     *     <tr>
+     *       <td rowspan="6" nowrap>Tab</td>
+     *       <td><kbd>Enter or Space</kbd></td>
+     *       <td>Select the current tab.</td>
+     *     </tr>
+     *     <tr>
+     *       <td><kbd>LeftArrow or RightArrow</kbd></td>
+     *       <td>Navigate to the previous or next tab.</td>
+     *     </tr>
+     *     <tr>
+     *       <td><kbd>Delete</kbd></td>
+     *       <td>Remove the current tab.</td>
+     *     </tr>
+     *     <tr>
+     *       <td><kbd>Esc</kbd></td>
+     *       <td>Hide the tooltip if tooltip is shown.</td>
+     *     </tr>
+     *     <tr>
+     *       <td><kbd>Home</kbd></td>
+     *       <td>Navigates to the first tab in the tablist.</td>
+     *      </tr>
+     *      <tr>
+     *        <td><kbd>End</kbd></td>
+     *        <td>Navigates to the last tab in the tablist.</td>
+     *      </tr>
+     *     <tr>
+     *       <td rowspan="3" nowrap>Dropdown</td>
+     *       <td><kbd>UpArrow or DownArrow</kbd></td>
+     *       <td>Navigate the dynamic tab represented as item in the list in the direction of the arrow.</td>
+     *     </tr>
+     *     <tr>
+     *       <td><kbd>Enter or Space</kbd></td>
+     *       <td>Select the highlighted choice from the dropdown and close the dropdown.</td>
+     *     </tr>
+     *     <tr>
+     *       <td><kbd>Esc</kbd></td>
+     *       <td>Close the dropdown.</td>
+     *     </tr>
+     *   </tbody>
+     * </table>
+     *
+     * @ojmetadata description 'A navigation component that enables horizontal navigation between distinct content with a mixture of static and dynamic tabs.'
+     * @ojmetadata displayName 'Tab Bar Mixed'
+     * @ojmetadata help 'oj-c.TabBarMixed.html'
+     * @ojmetadata main 'oj-c/tab-bar-mixed'
+     * @ojmetadata status [
+     *   {
+     *     type: "production",
+     *     since: "17.0.0"
+     *   }
+     * ]
+     * @ojmetadata extension {
+     *   "catalog": {
+     *     "category": "Layout & Nav"
+     *   },
+     *   "vbdt": {
+     *     "module": "oj-c/tab-bar-mixed"
+     *   }
+     * }
+     * @ojmetadata since "16.1.0"
+     */
+    (props) => {
         const { dynamicTabs = [], dynamicTabsOverflow = 'conveyor', dynamicTabsOverflowIcon = { type: 'class', class: 'oj-ux-ico-collection' }, onOjBeforeSelect, onOjRemove, onOjSelectionAction, onSelectionChanged, selection, separatorPadding = '3rem', size, staticTabs = [], staticTabsDisplay = 'standard', 'aria-label': ariaLabel, 'aria-labelledby': ariaLabelledby, id } = props;
         const handleRemove = (event) => {
             if (onOjRemove) {
@@ -12,11 +129,14 @@ define(["require", "exports", "preact/jsx-runtime", '@oracle/oraclejet-preact/tr
         const handleSelect = (event) => {
             (async () => {
                 handleOnSelectionChanged: {
+                    // If 'onOjBeforeSelect' is provided, handle the result before calling 'onSelectionChanged'
                     if (onOjBeforeSelect) {
                         try {
                             await onOjBeforeSelect({ key: event.value });
                         }
                         catch {
+                            // If 'onOjBeforeSelect' rejects, break out of the 'handleOnSelectionChanged'
+                            // labeled block (preventing 'onSelectionChanged' from firing)
                             break handleOnSelectionChanged;
                         }
                     }

@@ -1,7 +1,7 @@
 {
   "name": "line-chart-item",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -59,7 +59,7 @@
     },
     "markerDisplayed": {
       "type": "string",
-      "description": "Defines whether the data marker is displayed. Only applies to line, area, scatter, and bubble series.",
+      "description": "Defines whether the data marker is displayed.",
       "displayName": "Marker Displayed",
       "help": "#markerDisplayed",
       "enumValues": [
@@ -70,7 +70,7 @@
     },
     "markerShape": {
       "type": "string",
-      "description": "The shape of the data markers. Only applies to line, area, scatter, and bubble series.",
+      "description": "The shape of the data markers.",
       "displayName": "Marker Shape",
       "help": "#markerShape",
       "enumValues": [
@@ -87,7 +87,7 @@
     },
     "markerSize": {
       "type": "number",
-      "description": "The size of the data markers. Only applies to line, area, and scatter series.",
+      "description": "The size of the data markers.",
       "displayName": "Marker Size",
       "help": "#markerSize"
     },
@@ -103,15 +103,22 @@
       "displayName": "Drilling",
       "help": "#drilling",
       "enumValues": [
-        "inherit",
         "off",
+        "inherit",
         "on"
       ]
     },
     "shortDesc": {
       "type": "string",
+      "description": "The description of this object.",
       "displayName": "Short Desc",
       "help": "#shortDesc"
+    },
+    "label": {
+      "type": "string|Array<string>",
+      "description": "The label for the data item.",
+      "displayName": "Label",
+      "help": "#label"
     }
   },
   "methods": {

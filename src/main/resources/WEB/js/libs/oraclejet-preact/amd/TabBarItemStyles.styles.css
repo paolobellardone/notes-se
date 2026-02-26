@@ -1,7 +1,7 @@
 .TabBarItemStyles_tabBarItemBase__1jor8oq0 {
   position: relative;
   color: var(--labelColor__1vg465e0);
-  cursor: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-cursor-clickable);
+  cursor: var(--oj-c-cursor-clickable);
   border-left: var(--borderWidthLeftRight__1vg465e5) solid transparent;
   border-bottom: var(--borderWidthBottom__1vg465e4) solid transparent;
   border-right: var(--borderWidthLeftRight__1vg465e5) solid transparent;
@@ -68,4 +68,6 @@
 .TabBarItemStyles_tabBarItemStackedBadgeRtl__1jor8oq9 {
   left: 0;
   right: calc(var(--iconSize__1vg465e3) * 0.40);
+  min-width: -moz-fit-content;
+  min-width: fit-content;
 }

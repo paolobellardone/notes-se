@@ -34,35 +34,24 @@ class SelectSingleWebElement extends SelectSingleWebElementBase_1.SelectSingleWe
     clear() {
         return this.changeValue(null);
     }
-    // /**
-    //  * Triggers the <code>ojAddToListAction</code> event.
-    //  * @param searchText The <code>searchText</code> to include in the
-    //  * <code>ojAddToListAction</code> event.
-    //  */
-    // async doAddToListAction(searchText: string) {
-    //   // Call focus() on the root element
-    //   await this.getDriver().executeScript('arguments[0].focus()', this);
-    //   // Only fire event if advanced search is on and component is not readonly/disabled
-    //   const readonly = await this.getReadonly();
-    //   const disabled = await this.getDisabled();
-    //   const addToList = await this.getAddToList();
-    //   if (!(readonly || disabled) && addToList === 'on') {
-    //     await this.whenBusyContextReady();
-    //     await this.getDriver().executeAsyncScript(
-    //       `
-    //       var element = arguments[0];
-    //       var searchText = arguments[1];
-    //       // Last argument will be the done function
-    //       var doneFunc = arguments[arguments.length - 1];
-    //       element._doAddToListAction(searchText)
-    //         .then(doneFunc, doneFunc)
-    //         .catch(doneFunc);
-    //     `,
-    //       this,
-    //       searchText
-    //     );
-    //   }
-    // }
+    /**
+     * Triggers the <code>ojAddToListAction</code> event.
+     * @param searchText The <code>searchText</code> to include in the
+     * <code>ojAddToListAction</code> event.
+     */
+    async doAddToListAction(searchText) {
+        // Only fire event if add to list is on and component is not readonly/disabled
+        const readonly = await this.getReadonly();
+        const disabled = await this.getDisabled();
+        const addToList = await this.getAddToList();
+        if (!(readonly || disabled) && addToList === 'on') {
+            await this.getDriver().executeScript('arguments[0].focus()', this);
+            await this.whenBusyContextReady();
+            await this.getDriver().executeAsyncScript((element, searchText) => {
+                return element._doAddToListAction(searchText);
+            }, this, searchText);
+        }
+    }
     /**
      * Triggers the <code>ojAdvancedSearchAction</code> event.
      * @param searchText The <code>searchText</code> to include in the

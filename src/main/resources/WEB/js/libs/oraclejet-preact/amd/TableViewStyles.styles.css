@@ -1,6 +1,6 @@
 .TableViewStyles_tableViewStyles_base__1cet5nj0 {
   align-items: stretch;
-  background-color: var(--oj-current-bg-color);
+  background-color: var(--oj-current-bg-color, var(--oj-c-page-background-neutral0));
   box-sizing: border-box;
   clear: both;
   display: inline-flex;

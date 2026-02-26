@@ -18,11 +18,11 @@
   transition-timing-function: linear;
 }
 .TextFieldStyles_textFieldEndContent__952vaf2 {
-  padding-inline-end: calc(2 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem));
+  padding-inline-end: calc(2 * var(--oj-c-size-units, 0.25rem));
 }
 .TextFieldStyles_textFieldBase__952vaf3 {
   display: inline-block;
-  line-height: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-body-md-line-height);
+  line-height: var(--oj-c-body-md-line-height);
   max-width: 100%;
   width: 100%;
   box-sizing: border-box;

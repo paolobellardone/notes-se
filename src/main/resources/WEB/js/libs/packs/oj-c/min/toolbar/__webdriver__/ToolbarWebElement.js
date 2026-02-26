@@ -3,13 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ToolbarWebElement = void 0;
 const selenium_webdriver_1 = require("selenium-webdriver");
 const ToolbarWebElementBase_1 = require("./ToolbarWebElementBase");
-const __webdriver__1 = require("../../button/__webdriver__");
-const __webdriver__2 = require("../../split-menu-button/__webdriver__");
-const __webdriver__3 = require("../../menu-button/__webdriver__");
-const __webdriver__4 = require("../../progress-button/__webdriver__");
-const __webdriver__5 = require("../../buttonset-single/__webdriver__");
-const __webdriver__6 = require("../../buttonset-multiple/__webdriver__");
-const __webdriver__7 = require("../../toggle-button/__webdriver__");
+const webdriver_1 = require("../../../webdriver");
 /**
  * The component WebElement for [oj-c-toolbar](../../jsdocs/oj-c.Toolbar.html).
  * Do not instantiate this class directly, instead, use
@@ -39,8 +33,8 @@ class ToolbarWebElement extends ToolbarWebElementBase_1.ToolbarWebElementBase {
         const toolbarItem = await this.findElement(selenium_webdriver_1.By.css(`[data-oj-private-key="${itemLocator.key}"]`));
         const elementType = toolbarItem.constructor;
         switch (elementType) {
-            case __webdriver__1.ButtonWebElement:
-            case __webdriver__4.ProgressButtonWebElement:
+            case webdriver_1.ButtonWebElement:
+            case webdriver_1.ProgressButtonWebElement:
                 if (path) {
                     throw Error(`A path was supplied, but item types of 'button' or 'progress-button' do not support menus`);
                 }
@@ -48,12 +42,12 @@ class ToolbarWebElement extends ToolbarWebElementBase_1.ToolbarWebElementBase {
                     await toolbarItem.doAction();
                 }
                 break;
-            case __webdriver__3.MenuButtonWebElement:
+            case webdriver_1.MenuButtonWebElement:
                 if (path) {
                     await toolbarItem.doMenuAction(path.label);
                 }
                 break;
-            case __webdriver__2.SplitMenuButtonWebElement:
+            case webdriver_1.SplitMenuButtonWebElement:
                 if (path) {
                     await toolbarItem.doMenuAction(path.label);
                 }
@@ -61,9 +55,9 @@ class ToolbarWebElement extends ToolbarWebElementBase_1.ToolbarWebElementBase {
                     await toolbarItem.doAction();
                 }
                 break;
-            case __webdriver__5.ButtonsetSingleWebElement:
-            case __webdriver__6.ButtonsetMultipleWebElement:
-            case __webdriver__7.ToggleButtonWebElement:
+            case webdriver_1.ButtonsetSingleWebElement:
+            case webdriver_1.ButtonsetMultipleWebElement:
+            case webdriver_1.ToggleButtonWebElement:
                 throw Error(`The toolbar item found for the itemLocator ${JSON.stringify(itemLocator, null, 2)} is of item type 'buttonset-single', 'buttonset-multiple', or 'toggle-button', which do not support actions. Try using the changeToolbarSelection method instead.`);
         }
     }

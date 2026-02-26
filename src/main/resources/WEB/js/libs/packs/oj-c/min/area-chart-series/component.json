@@ -1,7 +1,7 @@
 {
   "name": "area-chart-series",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -27,6 +27,16 @@
   },
   "since": "16.0.0",
   "properties": {
+    "assignedToY2": {
+      "type": "string",
+      "description": "Defines whether the series is associated with the y2 axis",
+      "displayName": "Assigned To Y2",
+      "help": "#assignedToY2",
+      "enumValues": [
+        "off",
+        "on"
+      ]
+    },
     "categories": {
       "type": "Array<string>",
       "description": "An array of category strings corresponding to the tag cloud items.",
@@ -39,21 +49,27 @@
       "displayName": "Color",
       "help": "#color"
     },
+    "areaColor": {
+      "type": "string",
+      "description": "The area color of the series. Only applies if series type is area or lineWithArea.",
+      "displayName": "Area Color",
+      "help": "#areaColor"
+    },
     "drilling": {
       "type": "string",
       "description": "Whether drilling is enabled on the series item.",
       "displayName": "Drilling",
       "help": "#drilling",
       "enumValues": [
-        "inherit",
         "off",
+        "inherit",
         "on"
       ],
       "value": "inherit"
     },
     "lineType": {
       "type": "string",
-      "description": "The line type of the data line or area.",
+      "description": "The line type of the data of area chart.",
       "displayName": "Line Type",
       "help": "#lineType",
       "enumValues": [
@@ -86,7 +102,7 @@
     },
     "markerDisplayed": {
       "type": "string",
-      "description": "Defines whether the data marker is displayed. Only applies to line, area, scatter, and bubble series.",
+      "description": "Defines whether the data marker is displayed.",
       "displayName": "Marker Displayed",
       "help": "#markerDisplayed"
     },
@@ -98,15 +114,32 @@
     },
     "name": {
       "type": "string",
-      "description": "The name of the series, displayed in the legend and tooltips.",
+      "description": "The name of the series, displayed in the legend and datatips.",
       "displayName": "Name",
       "help": "#name"
     },
     "shortDesc": {
       "type": "string",
-      "description": "The description of this series. This is used for accessibility and for customizing the tooltip text on the corresponding legend item for the series.",
+      "description": "The description of this series. This is used for accessibility and for customizing the datatip text on the corresponding legend item for the series.",
       "displayName": "Short Desc",
       "help": "#shortDesc"
+    },
+    "lineStyle": {
+      "type": "string",
+      "description": "The line style of the data line.",
+      "displayName": "Line Style",
+      "help": "#lineStyle",
+      "enumValues": [
+        "dashed",
+        "solid",
+        "dotted"
+      ]
+    },
+    "lineWidth": {
+      "type": "number",
+      "description": "The width of the data line.",
+      "displayName": "Line Width",
+      "help": "#lineWidth"
     }
   },
   "methods": {

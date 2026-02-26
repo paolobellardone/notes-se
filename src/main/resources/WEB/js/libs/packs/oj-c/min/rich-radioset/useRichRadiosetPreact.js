@@ -1,8 +1,8 @@
-define(["require", "exports", "oj-c/editable-value/UNSAFE_useDeferredValidators/useDeferredValidators", "oj-c/hooks/UNSAFE_useEditableValue/index", "@oracle/oraclejet-preact/hooks/UNSAFE_useTranslationBundle"], function (require, exports, useDeferredValidators_1, index_1, UNSAFE_useTranslationBundle_1) {
+define(["require", "exports", "oj-c/hooks/UNSAFE_useComponentMessages/useComponentMessages", "oj-c/editable-value/UNSAFE_useDeferredValidators/useDeferredValidators", "oj-c/hooks/UNSAFE_useEditableValue/index", "@oracle/oraclejet-preact/hooks/UNSAFE_useTranslationBundle"], function (require, exports, useComponentMessages_1, useDeferredValidators_1, index_1, UNSAFE_useTranslationBundle_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.useRichRadiosetPreact = useRichRadiosetPreact;
-    function useRichRadiosetPreact({ disabled, displayOptions, labelEdge, labelHint, labelStartWidth, layout, messagesCustom, readonly, requiredMessageDetail: propRequiredMessageDetail, required, userAssistanceDensity, value: propValue, onMessagesCustomChanged, onValidChanged, onValueChanged, ...otherProps }, addBusyState) {
+    function useRichRadiosetPreact({ disabled, displayOptions, labelEdge, labelHint, labelStartWidth, layout, messagesCustom, readonly, readonlyUserAssistanceShown, requiredMessageDetail: propRequiredMessageDetail, required, userAssistanceDensity, value: propValue, onMessagesCustomChanged, onValidChanged, onValueChanged, ...otherProps }, addBusyState) {
         const translations = (0, UNSAFE_useTranslationBundle_1.useTranslationBundle)('@oracle/oraclejet-preact');
         const requiredMessageDetail = propRequiredMessageDetail || translations.radio_requiredMessageDetail();
         const deferredValidators = (0, useDeferredValidators_1.useDeferredValidators)({
@@ -10,7 +10,7 @@ define(["require", "exports", "oj-c/editable-value/UNSAFE_useDeferredValidators/
             required,
             requiredMessageDetail
         });
-        const { value, methods, textFieldProps } = (0, index_1.useEditableValue)({
+        const { value, methods, textFieldProps: evTextFieldProps } = (0, index_1.useEditableValue)({
             ariaDescribedBy: otherProps['aria-describedby'],
             deferredValidators,
             defaultDisplayValue: null,
@@ -24,6 +24,13 @@ define(["require", "exports", "oj-c/editable-value/UNSAFE_useDeferredValidators/
             onValidChanged,
             onValueChanged
         });
+        const { messages: evMessages, ...textFieldProps } = evTextFieldProps;
+        const messages = (0, useComponentMessages_1.useComponentMessages)({
+            evMessages,
+            messagesCustom,
+            readonly,
+            readonlyUserAssistanceShown
+        });
         return {
             methods,
             richRadiosetProps: {
@@ -35,7 +42,7 @@ define(["require", "exports", "oj-c/editable-value/UNSAFE_useDeferredValidators/
                 labelEdge,
                 labelStartWidth,
                 layout,
-                messages: textFieldProps['messages'],
+                messages,
                 onCommit: textFieldProps['onCommit'],
                 userAssistanceDensity,
                 value

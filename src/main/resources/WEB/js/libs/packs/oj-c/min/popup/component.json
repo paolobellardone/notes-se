@@ -1,7 +1,7 @@
 {
   "name": "popup",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -15,8 +15,11 @@
   "main": "oj-c/popup",
   "status": [
     {
-      "type": "candidate",
-      "since": "17.0.0"
+      "type": "supersedes",
+      "since": "19.0.0",
+      "value": [
+        "oj-popup"
+      ]
     }
   ],
   "extension": {
@@ -33,7 +36,11 @@
       ]
     },
     "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/PopupWebElement.html"
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/PopupWebElement.html",
+      "export": "findPopup",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   },
   "propertyLayout": [
@@ -189,10 +196,18 @@
       "value": "auto"
     },
     "offset": {
-      "type": "number|object",
-      "description": "Specifies displacement of the Popup from the anchor element placement along the specified axes.",
+      "type": "object",
+      "description": "Specifies displacement of the Popup from the anchor element along the specified axes.",
       "displayName": "Offset",
-      "help": "#offset"
+      "help": "#offset",
+      "properties": {
+        "x": {
+          "type": "number"
+        },
+        "y": {
+          "type": "number"
+        }
+      }
     },
     "collision": {
       "type": "string",
@@ -245,6 +260,12 @@
       "displayName": "Max Height",
       "help": "#maxHeight",
       "value": "calc(100vh - 3rem)"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "description": "Specifies background color of the Popup.",
+      "displayName": "Background Color",
+      "help": "#backgroundColor"
     }
   },
   "events": {
@@ -262,6 +283,35 @@
         "accept": {
           "description": "This method can be called with an application-created Promise to cancel this event asynchronously.  The Promise should be resolved or rejected to accept or cancel the event, respectively.",
           "type": "function"
+        },
+        "reason": {
+          "type": "string",
+          "description": "reason for closing the popup",
+          "enumValues": [
+            "outsideClick",
+            "escapeKey",
+            "closeSkipLink"
+          ]
+        },
+        "detail": {
+          "type": "object",
+          "status": [
+            {
+              "type": "deprecated",
+              "since": "20.0.0",
+              "description": "use sibling 'reason' property instead"
+            }
+          ],
+          "properties": {
+            "reason": {
+              "type": "string",
+              "enumValues": [
+                "outsideClick",
+                "escapeKey",
+                "closeSkipLink"
+              ]
+            }
+          }
         }
       }
     },

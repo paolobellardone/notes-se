@@ -3,6 +3,7 @@
   height: var(--size__n2nsgo2);
   width: var(--size__n2nsgo2);
   border-radius: var(--borderRadius__n2nsgo3);
+  vertical-align: bottom;
 }
 .AvatarStyles_baseStyle__167n05h1 {
   border-radius: var(--borderRadius__n2nsgo3);

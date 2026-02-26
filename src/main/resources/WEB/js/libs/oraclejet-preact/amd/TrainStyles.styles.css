@@ -65,7 +65,7 @@
   outline-style: dotted;
   outline-offset: -1px;
   outline-width: -1px;
-  outline-color: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-border-keyboard-focus);
+  outline-color: var(--oj-c-border-keyboard-focus);
 }
 .TrainStyles_stepLabelDisabledStyle__s507m19 {
   color: var(--labelColorDisabled__wmjnh613);
@@ -92,7 +92,7 @@
   border-style: solid;
   width: var(--buttonDiameter__wmjnh66);
   height: var(--buttonDiameter__wmjnh66);
-  line-height: calc(6 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem));
+  line-height: calc(6 * var(--oj-c-size-units, 0.25rem));
   border-radius: 50%;
   border-width: 2px;
   cursor: default;
@@ -128,17 +128,17 @@
   font-size: var(--buttonDiameter__wmjnh66);
 }
 .TrainStyles_messageTypeIconConfirmation__s507m1k {
-  color: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-text-icon-success);
+  color: var(--oj-c-text-icon-success);
 }
 .TrainStyles_messageTypeIconError__s507m1l {
-  color: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-text-icon-danger);
+  color: var(--oj-c-text-icon-danger);
 }
 .TrainStyles_messageTypeIconFatal__s507m1m {
-  color: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-text-icon-danger);
+  color: var(--oj-c-text-icon-danger);
 }
 .TrainStyles_messageTypeIconInfo__s507m1n {
-  color: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-text-icon-info);
+  color: var(--oj-c-text-icon-info);
 }
 .TrainStyles_messageTypeIconWarning__s507m1o {
-  color: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-text-icon-warning);
+  color: var(--oj-c-text-icon-warning);
 }

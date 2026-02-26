@@ -90,6 +90,15 @@ class TabBarWebElementBase extends elements_1.OjWebElement {
     getTruncation() {
         return this.getProperty('truncation');
     }
+    /**
+     * Gets the value of <code>contextMenuConfig</code> property.
+     * Specifies a context menu configuration.
+     * @return The value of <code>contextMenuConfig</code> property.
+     *
+     */
+    getContextMenuConfig() {
+        return this.getProperty('contextMenuConfig');
+    }
 }
 exports.TabBarWebElementBase = TabBarWebElementBase;
 //# sourceMappingURL=TabBarWebElementBase.js.map

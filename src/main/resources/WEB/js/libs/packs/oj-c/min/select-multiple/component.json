@@ -1,7 +1,7 @@
 {
   "name": "select-multiple",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -9,7 +9,7 @@
   "implements": [
     "CSelectMultipleElement"
   ],
-  "displayName": "SelectMultiple",
+  "displayName": "Select Multiple",
   "description": "A select multiple is a dropdown list that supports multiple selections and search filtering.",
   "help": "oj-c.SelectMultiple.html",
   "main": "oj-c/select-multiple",
@@ -29,7 +29,11 @@
       ]
     },
     "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/SelectMultipleWebElement.html"
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/SelectMultipleWebElement.html",
+      "export": "findSelectMultiple",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   },
   "propertyLayout": [
@@ -61,6 +65,23 @@
       "since": "15.0.0",
       "value": [
         "oj-select-many"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "type": "anyOf",
+      "label": "accessibility",
+      "properties": [
+        "labelHint"
+      ]
+    },
+    {
+      "type": "not",
+      "label": "accessibility",
+      "properties": [
+        "aria-label",
+        "aria-labelledby"
       ]
     }
   ],
@@ -124,7 +145,7 @@
                   "type": "boolean"
                 },
                 "key": {
-                  "type": "any"
+                  "type": "string|number"
                 },
                 "message": {
                   "type": "object",
@@ -141,7 +162,7 @@
                   }
                 },
                 "parentKey": {
-                  "type": "any"
+                  "type": "string|number"
                 },
                 "suggestion": {
                   "type": "object"
@@ -316,6 +337,13 @@
     },
     "labelWrapping": {
       "type": "string",
+      "status": [
+        {
+          "type": "deprecated",
+          "since": "18.0.0",
+          "description": "Label truncation for 'start' and 'top' aligned labels is no longer recommended by the Redwood Design System. The default for labelWrapping was 'wrap' and that is now the only suggested pattern by UX design for 'start' and 'top' aligned labels. 'inside' aligned labels are always truncated per UX design and are not affected by this property's value."
+        }
+      ],
       "description": "Should the labels wrap or truncate when there is not enough available space.",
       "displayName": "Label Wrapping",
       "help": "#labelWrapping",
@@ -329,13 +357,6 @@
           "displayName": "Wrap"
         }
       },
-      "status": [
-        {
-          "type": "deprecated",
-          "since": "18.0.0",
-          "description": "Label truncation for 'start' and 'top' aligned labels is no longer recommended by the Redwood Design System. The default for labelWrapping was 'wrap' and that is now the only suggested pattern by UX design for 'start' and 'top' aligned labels. 'inside' aligned labels are always truncated per UX design and are not affected by this property's value."
-        }
-      ],
       "enumValues": [
         "truncate",
         "wrap"
@@ -352,6 +373,16 @@
       "displayName": "Match By",
       "help": "#matchBy",
       "value": null
+    },
+    "maxWidth": {
+      "type": "number|string",
+      "description": "The max width of the control.",
+      "displayName": "Max Width",
+      "help": "#maxWidth",
+      "propertyEditorValues": {
+        "sm": {},
+        "md": {}
+      }
     },
     "messagesCustom": {
       "type": "Array<object>",
@@ -399,6 +430,17 @@
           "name": "containerReadonly"
         }
       }
+    },
+    "readonlyUserAssistanceShown": {
+      "type": "string",
+      "description": "Specifies which user assistance types should be shown when the component is readonly.",
+      "displayName": "ReadonlyUserAssistanceShown",
+      "help": "#readonlyUserAssistanceShown",
+      "enumValues": [
+        "none",
+        "confirmationAndInfoMessages"
+      ],
+      "value": "none"
     },
     "required": {
       "type": "boolean",
@@ -495,7 +537,7 @@
                   "type": "any"
                 },
                 "key": {
-                  "type": "any"
+                  "type": "string|number"
                 },
                 "metadata": {
                   "type": "object",
@@ -507,7 +549,7 @@
                       "type": "boolean"
                     },
                     "key": {
-                      "type": "any"
+                      "type": "string|number"
                     },
                     "message": {
                       "type": "object",
@@ -531,7 +573,7 @@
                       }
                     },
                     "parentKey": {
-                      "type": "any"
+                      "type": "string|number"
                     },
                     "suggestion": {
                       "type": "object"
@@ -594,6 +636,16 @@
         "tel"
       ],
       "value": "auto"
+    },
+    "width": {
+      "type": "number|string",
+      "description": "The width of the control.",
+      "displayName": "Width",
+      "help": "#width",
+      "propertyEditorValues": {
+        "sm": {},
+        "md": {}
+      }
     },
     "valid": {
       "type": "string",

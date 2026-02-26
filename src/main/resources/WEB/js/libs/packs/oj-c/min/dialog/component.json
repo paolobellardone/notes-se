@@ -1,7 +1,7 @@
 {
   "name": "dialog",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -15,8 +15,11 @@
   "main": "oj-c/dialog",
   "status": [
     {
-      "type": "candidate",
-      "since": "18.0.0"
+      "type": "supersedes",
+      "since": "19.0.0",
+      "value": [
+        "oj-dialog"
+      ]
     }
   ],
   "extension": {
@@ -33,7 +36,11 @@
       ]
     },
     "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/DialogWebElement.html"
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/DialogWebElement.html",
+      "export": "findDialog",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   },
   "since": "18.0.0",
@@ -273,6 +280,33 @@
         "accept": {
           "description": "This method can be called with an application-created Promise to cancel this event asynchronously.  The Promise should be resolved or rejected to accept or cancel the event, respectively.",
           "type": "function"
+        },
+        "reason": {
+          "type": "string",
+          "description": "reason for closing the dialog",
+          "enumValues": [
+            "icon",
+            "escapeKey"
+          ]
+        },
+        "detail": {
+          "type": "object",
+          "status": [
+            {
+              "type": "deprecated",
+              "since": "20.0.0",
+              "description": "use sibling 'reason' property instead"
+            }
+          ],
+          "properties": {
+            "reason": {
+              "type": "string",
+              "enumValues": [
+                "icon",
+                "escapeKey"
+              ]
+            }
+          }
         }
       }
     },
@@ -289,32 +323,296 @@
     "ojDragStart": {
       "description": "Triggered immediately before the Dialog moves.",
       "displayName": "ojDragStart",
-      "help": "#event:onOjDragStart"
+      "help": "#event:onOjDragStart",
+      "detail": {
+        "originalPosition": {
+          "type": "object",
+          "description": "original position of the dragged element",
+          "properties": {
+            "x": {
+              "type": "number",
+              "description": "x coordinate"
+            },
+            "y": {
+              "type": "number",
+              "description": "y coordinate"
+            }
+          }
+        },
+        "position": {
+          "type": "object",
+          "description": "current position of the dragged element",
+          "properties": {
+            "x": {
+              "type": "number",
+              "description": "x coordinate"
+            },
+            "y": {
+              "type": "number",
+              "description": "y coordinate"
+            }
+          }
+        }
+      }
     },
     "ojDragMove": {
       "description": "Triggered when the Dialog moves.",
       "displayName": "ojDragMove",
-      "help": "#event:onOjDragMove"
+      "help": "#event:onOjDragMove",
+      "detail": {
+        "originalPosition": {
+          "type": "object",
+          "description": "original position of the dragged element",
+          "properties": {
+            "x": {
+              "type": "number",
+              "description": "x coordinate"
+            },
+            "y": {
+              "type": "number",
+              "description": "y coordinate"
+            }
+          }
+        },
+        "position": {
+          "type": "object",
+          "description": "current position of the dragged element",
+          "properties": {
+            "x": {
+              "type": "number",
+              "description": "x coordinate"
+            },
+            "y": {
+              "type": "number",
+              "description": "y coordinate"
+            }
+          }
+        }
+      }
     },
     "ojDragEnd": {
       "description": "Triggered immediately after the Dialog stops moving.",
       "displayName": "ojDragEnd",
-      "help": "#event:onOjDragEnd"
+      "help": "#event:onOjDragEnd",
+      "detail": {
+        "originalPosition": {
+          "type": "object",
+          "description": "original position of the dragged element",
+          "properties": {
+            "x": {
+              "type": "number",
+              "description": "x coordinate"
+            },
+            "y": {
+              "type": "number",
+              "description": "y coordinate"
+            }
+          }
+        },
+        "position": {
+          "type": "object",
+          "description": "current position of the dragged element",
+          "properties": {
+            "x": {
+              "type": "number",
+              "description": "x coordinate"
+            },
+            "y": {
+              "type": "number",
+              "description": "y coordinate"
+            }
+          }
+        }
+      }
     },
     "ojResizeStart": {
       "description": "Triggered immediately before the Dialog resizes.",
       "displayName": "ojResizeStart",
-      "help": "#event:onOjResizeStart"
+      "help": "#event:onOjResizeStart",
+      "detail": {
+        "originalPosition": {
+          "type": "object",
+          "description": "original position of the resized element",
+          "properties": {
+            "x": {
+              "type": "number",
+              "description": "x coordinate"
+            },
+            "y": {
+              "type": "number",
+              "description": "y coordinate"
+            }
+          }
+        },
+        "originalSize": {
+          "type": "object",
+          "description": "original dimensions of the resized element",
+          "properties": {
+            "width": {
+              "type": "number",
+              "description": "element's width"
+            },
+            "height": {
+              "type": "number",
+              "description": "element's height"
+            }
+          }
+        },
+        "position": {
+          "type": "object",
+          "description": "current position of the resized element",
+          "properties": {
+            "x": {
+              "type": "number",
+              "description": "x coordinate"
+            },
+            "y": {
+              "type": "number",
+              "description": "y coordinate"
+            }
+          }
+        },
+        "size": {
+          "type": "object",
+          "description": "current dimensions of the resized element",
+          "properties": {
+            "width": {
+              "type": "number",
+              "description": "element's width"
+            },
+            "height": {
+              "type": "number",
+              "description": "element's height"
+            }
+          }
+        }
+      }
     },
     "ojResize": {
       "description": "Triggered when the Dialog resizes.",
       "displayName": "ojResize",
-      "help": "#event:onOjResize"
+      "help": "#event:onOjResize",
+      "detail": {
+        "originalPosition": {
+          "type": "object",
+          "description": "original position of the resized element",
+          "properties": {
+            "x": {
+              "type": "number",
+              "description": "x coordinate"
+            },
+            "y": {
+              "type": "number",
+              "description": "y coordinate"
+            }
+          }
+        },
+        "originalSize": {
+          "type": "object",
+          "description": "original dimensions of the resized element",
+          "properties": {
+            "width": {
+              "type": "number",
+              "description": "element's width"
+            },
+            "height": {
+              "type": "number",
+              "description": "element's height"
+            }
+          }
+        },
+        "position": {
+          "type": "object",
+          "description": "current position of the resized element",
+          "properties": {
+            "x": {
+              "type": "number",
+              "description": "x coordinate"
+            },
+            "y": {
+              "type": "number",
+              "description": "y coordinate"
+            }
+          }
+        },
+        "size": {
+          "type": "object",
+          "description": "current dimensions of the resized element",
+          "properties": {
+            "width": {
+              "type": "number",
+              "description": "element's width"
+            },
+            "height": {
+              "type": "number",
+              "description": "element's height"
+            }
+          }
+        }
+      }
     },
     "ojResizeEnd": {
       "description": "Triggered immediately after the Dialog stops resizing.",
       "displayName": "ojResizeEnd",
-      "help": "#event:onOjResizeEnd"
+      "help": "#event:onOjResizeEnd",
+      "detail": {
+        "originalPosition": {
+          "type": "object",
+          "description": "original position of the resized element",
+          "properties": {
+            "x": {
+              "type": "number",
+              "description": "x coordinate"
+            },
+            "y": {
+              "type": "number",
+              "description": "y coordinate"
+            }
+          }
+        },
+        "originalSize": {
+          "type": "object",
+          "description": "original dimensions of the resized element",
+          "properties": {
+            "width": {
+              "type": "number",
+              "description": "element's width"
+            },
+            "height": {
+              "type": "number",
+              "description": "element's height"
+            }
+          }
+        },
+        "position": {
+          "type": "object",
+          "description": "current position of the resized element",
+          "properties": {
+            "x": {
+              "type": "number",
+              "description": "x coordinate"
+            },
+            "y": {
+              "type": "number",
+              "description": "y coordinate"
+            }
+          }
+        },
+        "size": {
+          "type": "object",
+          "description": "current dimensions of the resized element",
+          "properties": {
+            "width": {
+              "type": "number",
+              "description": "element's width"
+            },
+            "height": {
+              "type": "number",
+              "description": "element's height"
+            }
+          }
+        }
+      }
     }
   },
   "methods": {

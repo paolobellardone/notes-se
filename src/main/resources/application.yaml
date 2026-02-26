@@ -28,6 +28,11 @@ server:
         observers:
            health:
               details: true
+     static-content:
+       classpath:
+         - context: "/"
+           welcome: "index.html"
+           location: "/WEB"
 
 db:
   source: jdbc

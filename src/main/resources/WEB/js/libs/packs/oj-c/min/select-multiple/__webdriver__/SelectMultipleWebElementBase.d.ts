@@ -98,6 +98,13 @@ export declare class SelectMultipleWebElementBase extends OjWebElement {
      */
     getMatchBy(): Promise<Array<string> | null>;
     /**
+     * Gets the value of <code>maxWidth</code> property.
+     * The max width of the control.
+     * @return The value of <code>maxWidth</code> property.
+     *
+     */
+    getMaxWidth(): Promise<number | string>;
+    /**
      * Sets the value of <code>messagesCustom</code> property.
      * List of custom component messages
      * @param messagesCustom The value to set for <code>messagesCustom</code>
@@ -125,6 +132,13 @@ export declare class SelectMultipleWebElementBase extends OjWebElement {
      *
      */
     getReadonly(): Promise<boolean>;
+    /**
+     * Gets the value of <code>readonlyUserAssistanceShown</code> property.
+     * Specifies which user assistance types should be shown when the component is readonly.
+     * @return The value of <code>readonlyUserAssistanceShown</code> property.
+     *
+     */
+    getReadonlyUserAssistanceShown(): Promise<string>;
     /**
      * Gets the value of <code>required</code> property.
      * Specifies whether or not the component is required.
@@ -188,6 +202,13 @@ export declare class SelectMultipleWebElementBase extends OjWebElement {
      *
      */
     getVirtualKeyboard(): Promise<string>;
+    /**
+     * Gets the value of <code>width</code> property.
+     * The width of the control.
+     * @return The value of <code>width</code> property.
+     *
+     */
+    getWidth(): Promise<number | string>;
     /**
      * Gets the value of <code>valid</code> property.
      * Specifies how the valid state of the component

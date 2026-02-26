@@ -161,7 +161,7 @@ public class NotesService implements HttpService {
                                       note.getId()));
             } catch (URISyntaxException | UnknownHostException e) {
                 sendError(e, response);
-                LOGGER.severe(() -> "Coudl not get the URI of the created note" + e.getMessage());
+                LOGGER.severe(() -> "Could not get the URI of the created note" + e.getMessage());
             }
             LOGGER.fine(() -> "Created note with id [" + note.getId() + "] in the database.");
             response.status(Status.CREATED_201).send(note);    

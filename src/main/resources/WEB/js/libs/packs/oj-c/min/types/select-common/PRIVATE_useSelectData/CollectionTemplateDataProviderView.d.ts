@@ -23,8 +23,22 @@ export declare class CollectionTemplateDataProviderView<K, D> implements DataPro
     private filterCriterion?;
     private options;
     private get currentDataProvider();
+    /**
+     * Sets the filter criterion that will be injected into the fetch calls.
+     * @param filter The new filter
+     */
     setFilterCriterion(filter?: DataFilter.Filter<D>): void;
+    /**
+     * Sets the override data for the data provider
+     * @param dataStateOverride The override data
+     */
     setDataStateOverride(dataStateOverride?: ListDataState<K, D>): void;
+    /**
+     * Compares two data filters.
+     * @param fc1 first data filter
+     * @param fc2 second data filter
+     * @returns equality result
+     */
     private compareFilter;
     constructor(dataProvider: DataProvider<K, D>, options: CollectionTemplateDataProviderViewOptions<K, D>);
     fetchByOffset(parameters: FetchByOffsetParameters<D>): Promise<FetchByOffsetResults<K, D>>;

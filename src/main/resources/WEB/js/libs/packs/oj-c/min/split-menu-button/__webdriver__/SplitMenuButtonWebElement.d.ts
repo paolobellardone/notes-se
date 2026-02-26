@@ -16,7 +16,7 @@ export declare class SplitMenuButtonWebElement extends SplitMenuButtonWebElement
     /**
      * Helper util
      * */
-    findAsyncSequential<T>(array: T[], predicate: (t: T) => Promise<boolean>): Promise<T | undefined>;
+    private findAsyncSequential;
     /**
      * Fire the ojMenuAction event on the oj-c-split-menu-button, and
      * invoke the Action handler of the selected value.

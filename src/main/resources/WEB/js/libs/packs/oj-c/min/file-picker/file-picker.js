@@ -14,7 +14,112 @@ define(["require", "exports", "preact/jsx-runtime", '@oracle/oraclejet-preact/tr
         }
         return secondaryText;
     };
-    exports.FilePicker = (0, ojvcomponent_1.registerCustomElement)('oj-c-file-picker', (0, compat_1.forwardRef)(({ capture = 'none', disabled = false, selectionMode = 'multiple', trigger, accept, primaryText, secondaryText, onOjBeforeSelect, onOjSelect, onOjInvalidSelect, ...otherProps }, ref) => {
+    exports.FilePicker = (0, ojvcomponent_1.registerCustomElement)('oj-c-file-picker', (0, compat_1.forwardRef)(
+    /**
+     * @classdesc
+     * <h3 id="filePickerOverview-section">
+     *   JET File Picker
+     *   <a class="bookmarkable-link" title="Bookmarkable Link" href="#filePickerOverview-section"></a>
+     * </h3>
+     * <p>Description:</p>
+     * <p>By default the file picker shows a clickable dropzone for selecting files for upload. However, it can be replaced with any clickable element like a button. After the files are selected, the FilePicker fires a "select" event with the selected files. Application has to specify the listener in order to do the actual upload.  The types of files accepted are controlled by the accept attribute.  Additional custom validation can be done through the ojBeforeSelect event.</p>
+     *
+     * <pre class="prettyprint"><code>&lt;oj-c-file-picker >&lt;/oj-c-file-picker></code></pre>
+     * <h3 id="a11y-section">
+     *   Accessibility
+     *   <a class="bookmarkable-link" title="Bookmarkable Link" href="#a11y-section"></a>
+     * </h3>
+     * <p>
+     * {@include accessibility_doc.ts#a11y-section-disabled-content}
+     * </p>
+     *
+     * <h3 id="touch-section">
+     * Touch End User Information
+     *   <a class="bookmarkable-link" title="Bookmarkable Link" href="#touch-section"></a>
+     * </h3>
+     *
+     * <table class="keyboard-table">
+     *   <thead>
+     *     <tr>
+     *      <th>Target</th>
+     *       <th>Gesture</th>
+     *       <th>Action</th>
+     *     </tr>
+     *   </thead>
+     *   <tbody>
+     *     <tr>
+     *       <td>Clickable element</td>
+     *       <td><kbd>Tap</kbd></td>
+     *       <td>Launch the browser's file picker.</td>
+     *     </tr>
+     *   </tbody>
+     * </table>
+     *
+     * <h3 id="keyboard-section">
+     *   Keyboard End User Information
+     *   <a class="bookmarkable-link" title="Bookmarkable Link" href="#keyboard-section"></a>
+     * </h3>
+     *
+     * <table class="keyboard-table">
+     *   <thead>
+     *     <tr>
+     *       <th>Target</th>
+     *       <th>Key</th>
+     *       <th>Action</th>
+     *     </tr>
+     *   </thead>
+     *   <tbody>
+     *     <tr>
+     *       <td>Clickable element</td>
+     *       <td><kbd>Enter</kbd></td>
+     *       <td>Launch the browser's file picker.</td>
+     *     </tr>
+     *   </tbody>
+     * </table>
+     *
+     *
+     *
+     * @ojmetadata description "A file picker displays a clickable dropzone for selecting files from the device storage."
+     * @ojmetadata displayName "File Picker"
+     * @ojmetadata help "oj-c.FilePicker.html"
+     * @ojmetadata main "oj-c/file-picker"
+     * @ojmetadata status [
+     *   {
+     *     "type": "supersedes",
+     *     "since": "15.0.0",
+     *     "value": ["oj-file-picker"]
+     *   }
+     * ]
+     * @ojmetadata extension {
+     *   "catalog": {
+     *     "category": "Controls"
+     *   },
+     *   "vbdt": {
+     *     "module": "oj-c/file-picker"
+     *   },
+     *   "oracle": {
+     *    "icon": "oj-ux-ico-file-image",
+     *     "uxSpecs": [
+     *       "file-picker"
+     *     ]
+     *   }
+     * }
+     * @ojmetadata propertyLayout [
+     *   {
+     *     "propertyGroup": "common",
+     *     "items": [
+     *       "accept",
+     *       "selectionMode",
+     *       "disabled",
+     *       "primaryText",
+     *       "secondaryText"
+     *     ]
+     *   }
+     * ]
+     * @ojmetadata since "14.0.0"
+     */
+    ({ capture = 'none', disabled = false, selectionMode = 'multiple', trigger, accept, primaryText, secondaryText, onOjBeforeSelect, onOjSelect, onOjInvalidSelect, ...otherProps }, ref) => {
+        // this promise is used by the doSelectHelper to tell the webelement test file has been selected/rejected
         const elementPromiseResolverRef = (0, hooks_1.useRef)(null);
         const resolveTestPromise = (0, hooks_1.useCallback)(() => {
             if (elementPromiseResolverRef.current) {

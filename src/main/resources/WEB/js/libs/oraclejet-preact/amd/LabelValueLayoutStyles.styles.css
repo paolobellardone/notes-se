@@ -30,23 +30,26 @@
   display: inline-flex;
 }
 .LabelValueLayoutStyles_labelInnerStyles_startNotPureReadonly__z3rxc57 {
-  padding-block-start: calc((var(--height__w6gg1yg) - var(--fontSize__kn3t7f9) * var(--lineHeight__kn3t7f1))*0.5);
+  padding-block-start: calc((var(--height__w6gg1yi) - var(--fontSize__kn3t7f9) * var(--lineHeight__kn3t7f1))*0.5);
 }
-.LabelValueLayoutStyles_labelInnerStyles_startWithoutTopFormComponentWrapperUA__z3rxc58 {
-  padding-block-start: calc((calc(calc(9 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem)) + calc(2 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-density-units, 0px))) - var(--fontSize__kn3t7f9) * var(--lineHeight__kn3t7f1)) * 0.5);
+.LabelValueLayoutStyles_labelInnerStyles_startUnknownParent__z3rxc58 {
+  padding-block-start: 0;
 }
-.LabelValueLayoutStyles_labelInnerStyles_insideFormComponentWrapper__z3rxc59 {
+.LabelValueLayoutStyles_labelInnerStyles_startWithoutTopFormComponentWrapperUA__z3rxc59 {
+  padding-block-start: calc((calc(calc(9 * var(--oj-c-size-units, 0.25rem)) + calc(2 * var(--oj-c-density-units, 0px))) - var(--fontSize__kn3t7f9) * var(--lineHeight__kn3t7f1)) * 0.5);
+}
+.LabelValueLayoutStyles_labelInnerStyles_insideFormComponentWrapper__z3rxc5a {
   padding-block-start: calc(
-      (calc(calc(9 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem)) + calc(2 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-density-units, 0px))) - var(--fontSize__kn3t7f9) * var(--lineHeight__kn3t7f1))*0.5 + var(--oj-c-EXPERIMENTAL-DO-NOT-USE-density-units, 0px)
+      (calc(calc(9 * var(--oj-c-size-units, 0.25rem)) + calc(2 * var(--oj-c-density-units, 0px))) - var(--fontSize__kn3t7f9) * var(--lineHeight__kn3t7f1))*0.5 + var(--oj-c-density-units, 0px)
     );
 }
-.LabelValueLayoutStyles_labelInnerStyles_noWrap__z3rxc5a {
+.LabelValueLayoutStyles_labelInnerStyles_noWrap__z3rxc5b {
   white-space: nowrap;
   overflow-x: hidden;
   overflow-y: hidden;
   text-overflow: ellipsis;
 }
-.LabelValueLayoutStyles_valueSlotStyles__z3rxc5b {
+.LabelValueLayoutStyles_valueSlotStyles__z3rxc5c {
   flex: 1 1 100%;
   width: 100%;
   max-width: 100%;

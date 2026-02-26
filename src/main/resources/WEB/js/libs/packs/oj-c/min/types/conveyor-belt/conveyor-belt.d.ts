@@ -1,72 +1,161 @@
-import { JetElement, JetSettableProperties, JetElementCustomEventStrict, JetSetPropertyType } from 'ojs/index';
-import { GlobalProps } from 'ojs/ojvcomponent';
-import 'ojs/oj-jsx-interfaces';
 import { ExtendGlobalProps, PropertyChanged, TemplateSlot } from 'ojs/ojvcomponent';
-import { ComponentChildren, ComponentType, Ref, ComponentProps } from 'preact';
+import { ComponentChildren, Ref } from 'preact';
 import 'css!oj-c/conveyor-belt/conveyor-belt-styles.css';
-import { ConveyorItemContext } from './conveyorBeltItem';
+import { ConveyorBeltItemContext } from './conveyorBeltItem';
 import { DataProvider } from 'ojs/ojdataprovider';
 type ScrollableHandle = {
     scrollElementIntoView: (element: HTMLElement) => void;
 };
-export type ConveyorBeltDataItem = {
-    label?: string;
-};
-export type ConveyorBeltArrayDataItem<K, D> = {
-    data: D;
-    key: K;
-};
-export type ConevyorBeltPreactWrapperProps<K extends string | number, D> = {
+export type ConveyorBeltPreactWrapperProps<K extends string | number, D> = {
+    /**
+     * @ojmetadata description "The default slot is the content of the Conveyor Belt."
+     * @ojmetadata displayName "Default"
+     * @ojmetadata help "#default"
+     */
     children: ComponentChildren;
+    /**
+     *
+     * @description
+     * <p>Gets or sets the number of pixels that an element's content is scrolled from its initial position.
+     *
+     * <p>The default value of this property is 0.
+     *
+     * <p> There is no difference between LTR/RTL value assignment.
+     * In both LTR and RTL values changes from 0 and max scroll position >=0  if we scroll to the end.
+     * If we scroll to the beginning then the values changes from max scroll position >=0 to min scroll position = 0
+     * When the value exceeds max/min the value is constrained to the max/min scroll position accordingly.
+     *
+     * @ojmetadata description " Gets or sets the number of pixels that an element's content is scrolled from its initial position."
+     * @ojmetadata displayName "Scroll Position"
+     * @ojmetadata help "#scrollPosition"
+     */
     scrollPosition?: number;
+    /**
+     * @ojmetadata description "Writeback support for the scrollPosition property"
+     * @ojmetadata displayName "Scroll Position"
+     * @ojmetadata help "#scrollPosition"
+     */
     onScrollPositionChanged?: PropertyChanged<number>;
+    /**
+     * @description
+     * <p>Indicates whether overflow content arrows are visible or hidden.
+     *
+     * <p>The default value of this property varies by theme. If the default value is 'auto', then the behavior varies by device.
+     *
+     * @ojmetadata description "Specifies visibility of overflow arrow buttons."
+     * @ojmetadata displayName "Arrow Visibility"
+     * @ojmetadata help "#arrowVisibility"
+     */
     arrowVisibility?: 'auto' | 'visible' | 'hidden';
-    items?: Array<ConveyorBeltArrayDataItem<K, D>> | DataProvider<K, D>;
-    itemTemplate?: TemplateSlot<ConveyorItemContext<K, D>>;
+    /**
+     * @description
+     * An array of data items or a data provider that returns the items for the ConveyorBelt.
+     *
+     * @ojmetadata description "An array of data items or a data provider that returns the items for the ConveyorBelt."
+     * @ojmetadata displayName "Items"
+     * @ojmetadata help "#items"
+     */
+    items?: Array<D> | DataProvider<K, D>;
+    /**
+     * @description
+     * <p>The <code class="prettyprint">itemTemplate</code> slot is used to specify the template for rendering each item in the Conveyor Belt. The slot content must be a &lt;template> element.
+     * <p>When the template is executed for each item, it will have access to the binding context containing the following properties:</p>
+     * <ul>
+     *   <li>$current - an object that contains information for the current item.</li>
+     * </ul>
+     *
+     * @ojmetadata description "The itemTemplate slot is used to specify the template for rendering each item in the component. See the Help documentation for more information."
+     * @ojmetadata displayName "itemTemplate"
+     * @ojmetadata help "#itemTemplate"
+     * @ojmetadata maxItems 1
+     */
+    itemTemplate?: TemplateSlot<ConveyorBeltItemContext<K, D>>;
+    /**
+     * Specify the orientation of the conveyorBelt.
+     * "horizontal" Orient the conveyorBelt horizontally.
+     * "vertical" Orient the conveyorBelt vertically.
+     */
     orientation?: 'horizontal' | 'vertical';
 };
-export type ConveyorProps<K extends string | number, D extends ConveyorBeltDataItem> = ConevyorBeltPreactWrapperProps<K, D>;
-declare const ConveyorBeltComp: ({ children, orientation, ...rest }: ConevyorBeltPreactWrapperProps<string | number, ConveyorBeltDataItem>, ref?: Ref<ScrollableHandle>) => import("preact").JSX.Element;
-export declare const ConveyorBelt: ComponentType<ExtendGlobalProps<ComponentProps<typeof ConveyorBeltComp>>>;
+export type ConveyorProps<K extends string | number, D> = ConveyorBeltPreactWrapperProps<K, D>;
+/**
+ * This export corresponds to the ConveyorBelt Preact component. For the oj-c-conveyor-belt custom element, import CConveyorBeltElement instead.
+ */
+export declare const ConveyorBelt: <K extends string | number = string | number, D extends any = any>(props: ExtendGlobalProps<ConveyorBeltPreactWrapperProps<K, D>> & {
+    ref?: Ref<ScrollableHandle>;
+}) => ComponentChildren;
 export {};
-export interface CConveyorBeltElement extends JetElement<CConveyorBeltElementSettableProperties<string | number, ConveyorBeltDataItem>>, CConveyorBeltElementSettableProperties<string | number, ConveyorBeltDataItem> {
-    addEventListener<T extends keyof CConveyorBeltElementEventMap>(type: T, listener: (this: HTMLElement, ev: CConveyorBeltElementEventMap[T]) => any, options?: (boolean | AddEventListenerOptions)): void;
+import { JetElement, JetSettableProperties, JetElementCustomEventStrict, JetSetPropertyType } from 'ojs/index';
+import { GlobalProps } from 'ojs/ojvcomponent';
+import 'ojs/oj-jsx-interfaces';
+/**
+ * This export corresponds to the oj-c-conveyor-belt custom element. For the ConveyorBelt Preact component, import ConveyorBelt instead.
+ */
+export interface CConveyorBeltElement<K extends string | number = string | number, D extends any = any> extends JetElement<CConveyorBeltElementSettableProperties<K, D>>, CConveyorBeltElementSettableProperties<K, D> {
+    addEventListener<T extends keyof CConveyorBeltElementEventMap<K, D>>(type: T, listener: (this: HTMLElement, ev: CConveyorBeltElementEventMap<K, D>[T]) => any, options?: (boolean | AddEventListenerOptions)): void;
     addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: (boolean | AddEventListenerOptions)): void;
-    getProperty<T extends keyof CConveyorBeltElementSettableProperties<string | number, ConveyorBeltDataItem>>(property: T): CConveyorBeltElement[T];
+    getProperty<T extends keyof CConveyorBeltElementSettableProperties<K, D>>(property: T): CConveyorBeltElement<K, D>[T];
     getProperty(property: string): any;
-    setProperty<T extends keyof CConveyorBeltElementSettableProperties<string | number, ConveyorBeltDataItem>>(property: T, value: CConveyorBeltElementSettableProperties<string | number, ConveyorBeltDataItem>[T]): void;
-    setProperty<T extends string>(property: T, value: JetSetPropertyType<T, CConveyorBeltElementSettableProperties<string | number, ConveyorBeltDataItem>>): void;
-    setProperties(properties: CConveyorBeltElementSettablePropertiesLenient<string | number, ConveyorBeltDataItem>): void;
+    setProperty<T extends keyof CConveyorBeltElementSettableProperties<K, D>>(property: T, value: CConveyorBeltElementSettableProperties<K, D>[T]): void;
+    setProperty<T extends string>(property: T, value: JetSetPropertyType<T, CConveyorBeltElementSettableProperties<K, D>>): void;
+    setProperties(properties: CConveyorBeltElementSettablePropertiesLenient<K, D>): void;
+    /**
+     * Scrolls element into view.
+     */
     scrollElementIntoView: (element: HTMLElement) => void;
 }
 export namespace CConveyorBeltElement {
-    type arrowVisibilityChanged = JetElementCustomEventStrict<CConveyorBeltElement['arrowVisibility']>;
-    type itemsChanged = JetElementCustomEventStrict<CConveyorBeltElement['items']>;
-    type orientationChanged = JetElementCustomEventStrict<CConveyorBeltElement['orientation']>;
-    type scrollPositionChanged = JetElementCustomEventStrict<CConveyorBeltElement['scrollPosition']>;
-    type RenderItemTemplate<K extends string | number, D> = import('ojs/ojvcomponent').TemplateSlot<ConveyorItemContext<K, D>>;
+    type arrowVisibilityChanged<K extends string | number = string | number, D extends any = any> = JetElementCustomEventStrict<CConveyorBeltElement<K, D>['arrowVisibility']>;
+    type itemsChanged<K extends string | number = string | number, D extends any = any> = JetElementCustomEventStrict<CConveyorBeltElement<K, D>['items']>;
+    type orientationChanged<K extends string | number = string | number, D extends any = any> = JetElementCustomEventStrict<CConveyorBeltElement<K, D>['orientation']>;
+    type scrollPositionChanged<K extends string | number = string | number, D extends any = any> = JetElementCustomEventStrict<CConveyorBeltElement<K, D>['scrollPosition']>;
+    type ItemTemplateContext<K extends string | number = string | number, D extends any = any> = ConveyorBeltItemContext<K, D>;
+    type RenderItemTemplate<K extends string | number = string | number, D extends any = any> = import('ojs/ojvcomponent').TemplateSlot<ConveyorBeltItemContext<K, D>>;
 }
-export interface CConveyorBeltElementEventMap extends HTMLElementEventMap {
-    'arrowVisibilityChanged': JetElementCustomEventStrict<CConveyorBeltElement['arrowVisibility']>;
-    'itemsChanged': JetElementCustomEventStrict<CConveyorBeltElement['items']>;
-    'orientationChanged': JetElementCustomEventStrict<CConveyorBeltElement['orientation']>;
-    'scrollPositionChanged': JetElementCustomEventStrict<CConveyorBeltElement['scrollPosition']>;
+export interface CConveyorBeltElementEventMap<K extends string | number = string | number, D extends any = any> extends HTMLElementEventMap {
+    'arrowVisibilityChanged': JetElementCustomEventStrict<CConveyorBeltElement<K, D>['arrowVisibility']>;
+    'itemsChanged': JetElementCustomEventStrict<CConveyorBeltElement<K, D>['items']>;
+    'orientationChanged': JetElementCustomEventStrict<CConveyorBeltElement<K, D>['orientation']>;
+    'scrollPositionChanged': JetElementCustomEventStrict<CConveyorBeltElement<K, D>['scrollPosition']>;
 }
 export interface CConveyorBeltElementSettableProperties<K extends string | number, D> extends JetSettableProperties {
-    arrowVisibility?: ConevyorBeltPreactWrapperProps<K, D>['arrowVisibility'];
-    items?: ConevyorBeltPreactWrapperProps<K, D>['items'];
-    orientation?: ConevyorBeltPreactWrapperProps<K, D>['orientation'];
-    scrollPosition?: ConevyorBeltPreactWrapperProps<K, D>['scrollPosition'];
+    /**
+     * <p>Indicates whether overflow content arrows are visible or hidden.
+     *
+     * <p>The default value of this property varies by theme. If the default value is 'auto', then the behavior varies by device.
+     */
+    arrowVisibility?: ConveyorBeltPreactWrapperProps<K, D>['arrowVisibility'];
+    /**
+     * An array of data items or a data provider that returns the items for the ConveyorBelt.
+     */
+    items?: ConveyorBeltPreactWrapperProps<K, D>['items'];
+    /**
+     * Specify the orientation of the conveyorBelt.
+     * "horizontal" Orient the conveyorBelt horizontally.
+     * "vertical" Orient the conveyorBelt vertically.
+     */
+    orientation?: ConveyorBeltPreactWrapperProps<K, D>['orientation'];
+    /**
+     * <p>Gets or sets the number of pixels that an element's content is scrolled from its initial position.
+     *
+     * <p>The default value of this property is 0.
+     *
+     * <p> There is no difference between LTR/RTL value assignment.
+     * In both LTR and RTL values changes from 0 and max scroll position >=0  if we scroll to the end.
+     * If we scroll to the beginning then the values changes from max scroll position >=0 to min scroll position = 0
+     * When the value exceeds max/min the value is constrained to the max/min scroll position accordingly.
+     */
+    scrollPosition?: ConveyorBeltPreactWrapperProps<K, D>['scrollPosition'];
 }
 export interface CConveyorBeltElementSettablePropertiesLenient<K extends string | number, D> extends Partial<CConveyorBeltElementSettableProperties<K, D>> {
     [key: string]: any;
 }
 export interface ConveyorBeltIntrinsicProps extends Partial<Readonly<CConveyorBeltElementSettableProperties<any, any>>>, GlobalProps, Pick<preact.JSX.HTMLAttributes, 'ref' | 'key'> {
     children?: import('preact').ComponentChildren;
-    onarrowVisibilityChanged?: (value: CConveyorBeltElementEventMap['arrowVisibilityChanged']) => void;
-    onitemsChanged?: (value: CConveyorBeltElementEventMap['itemsChanged']) => void;
-    onorientationChanged?: (value: CConveyorBeltElementEventMap['orientationChanged']) => void;
-    onscrollPositionChanged?: (value: CConveyorBeltElementEventMap['scrollPositionChanged']) => void;
+    onarrowVisibilityChanged?: (value: CConveyorBeltElementEventMap<any, any>['arrowVisibilityChanged']) => void;
+    onitemsChanged?: (value: CConveyorBeltElementEventMap<any, any>['itemsChanged']) => void;
+    onorientationChanged?: (value: CConveyorBeltElementEventMap<any, any>['orientationChanged']) => void;
+    onscrollPositionChanged?: (value: CConveyorBeltElementEventMap<any, any>['scrollPositionChanged']) => void;
 }
 declare global {
     namespace preact.JSX {

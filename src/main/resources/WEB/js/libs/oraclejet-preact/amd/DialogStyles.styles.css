@@ -10,7 +10,7 @@
   outline-style: dotted;
   outline-width: 1px;
   outline-offset: 1px;
-  outline-color: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-border-keyboard-focus);
+  outline-color: var(--oj-c-border-keyboard-focus);
 }
 .DialogStyles_baseStyleDesktop__54385j1 {
   width: 600px;
@@ -77,12 +77,8 @@
   position: relative;
   display: flex;
   justify-content: space-between;
-  padding-top: var(--headerPaddingTop__9f8o6i9);
-  padding-right: var(--headerPaddingHorizontal__9f8o6ib);
-  padding-bottom: var(--headerPaddingBottom__9f8o6ia);
-  padding-left: var(--headerPaddingHorizontal__9f8o6ib);
-  background-color: var(--headerBackgroundColor__9f8o6ic);
-  border-bottom-color: var(--headerBorderBottomColor__9f8o6id);
+  background-color: var(--headerBackgroundColor__9f8o6id);
+  border-bottom-color: var(--headerBorderBottomColor__9f8o6ie);
 }
 .DialogStyles_dialogHeaderStyle__54385j9 > * {
   margin-top: 0 !important;
@@ -90,47 +86,75 @@
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
-.DialogStyles_dialogHeaderDecorationStyle__54385ja {
+.DialogStyles_dialogHeaderStyleDesktop__54385ja {
+  padding-top: var(--headerPaddingTop__9f8o6i9);
+  padding-right: var(--headerPaddingHorizontal__9f8o6ib);
+  padding-bottom: var(--headerPaddingBottom__9f8o6ia);
+  padding-left: var(--headerPaddingHorizontal__9f8o6ib);
+}
+.DialogStyles_dialogHeaderStyleSmall__54385jb {
+  padding-top: var(--headerPaddingTop__9f8o6i9);
+  padding-right: var(--headerPaddingHorizontalSmall__9f8o6ic);
+  padding-bottom: var(--headerPaddingBottom__9f8o6ia);
+  padding-left: var(--headerPaddingHorizontalSmall__9f8o6ic);
+}
+.DialogStyles_dialogHeaderDecorationStyle__54385jc {
   background-image: var(--backgroundImage__9f8o6i8);
   background-repeat: repeat-x;
   background-size: auto 1.25rem;
 }
-.DialogStyles_dialogHeaderCloseIconStyle__54385jb {
+.DialogStyles_dialogHeaderCloseIconStyle__54385jd {
   margin-block-start: -1.5rem;
   margin-inline-end: -1.5rem;
 }
-.DialogStyles_dialogBodyStyle__54385jc {
+.DialogStyles_dialogBodyStyle__54385je {
   position: relative;
   overflow-x: auto;
   overflow-y: auto;
   box-sizing: border-box;
   height: 100%;
-  padding-top: var(--bodyPaddingTop__9f8o6ie);
-  padding-right: var(--bodyPaddingHorizontal__9f8o6ig);
-  padding-bottom: var(--bodyPaddingBottom__9f8o6if);
-  padding-left: var(--bodyPaddingHorizontal__9f8o6ig);
 }
-.DialogStyles_dialogBodyStyle__54385jc > * {
+.DialogStyles_dialogBodyStyle__54385je > * {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
 }
-.DialogStyles_dialogFooterStyle__54385jd {
+.DialogStyles_dialogBodyStyleDesktop__54385jf {
+  padding-top: var(--bodyPaddingTop__9f8o6if);
+  padding-right: var(--bodyPaddingHorizontal__9f8o6ih);
+  padding-bottom: var(--bodyPaddingBottom__9f8o6ig);
+  padding-left: var(--bodyPaddingHorizontal__9f8o6ih);
+}
+.DialogStyles_dialogBodyStyleSmall__54385jg {
+  padding-top: var(--bodyPaddingTop__9f8o6if);
+  padding-right: var(--bodyPaddingHorizontalSmall__9f8o6ii);
+  padding-bottom: var(--bodyPaddingBottom__9f8o6ig);
+  padding-left: var(--bodyPaddingHorizontalSmall__9f8o6ii);
+}
+.DialogStyles_dialogFooterStyle__54385jh {
   display: flex;
   justify-content: flex-end;
   flex: 0 0 auto;
   text-align: end;
-  padding-top: var(--footerPaddingTop__9f8o6ih);
-  padding-right: var(--footerPaddingHorizontal__9f8o6ij);
-  padding-bottom: var(--footerPaddingBottom__9f8o6ii);
-  padding-left: var(--footerPaddingHorizontal__9f8o6ij);
   border-top: 1px solid;
-  border-color: var(--footerBorderColor__9f8o6ik);
+  border-color: var(--footerBorderColor__9f8o6io);
 }
-.DialogStyles_dialogFooterStyle__54385jd > * {
+.DialogStyles_dialogFooterStyle__54385jh > * {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
+}
+.DialogStyles_dialogFooterStyleDesktop__54385ji {
+  padding-top: var(--footerPaddingTop__9f8o6ij);
+  padding-right: var(--footerPaddingHorizontal__9f8o6im);
+  padding-bottom: var(--footerPaddingBottom__9f8o6ik);
+  padding-left: var(--footerPaddingHorizontal__9f8o6im);
+}
+.DialogStyles_dialogFooterStyleSmall__54385jj {
+  padding-top: var(--footerPaddingTop__9f8o6ij);
+  padding-right: var(--footerPaddingHorizontalSmall__9f8o6in);
+  padding-bottom: var(--footerPaddingBottomSmall__9f8o6il);
+  padding-left: var(--footerPaddingHorizontalSmall__9f8o6in);
 }

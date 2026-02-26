@@ -2,11 +2,14 @@ define(["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.CalendarMonthRangeValidator = void 0;
+    // This class is used to validate that a value falls within
+    // the range specified by min and max. If it doesn't, an Error is thrown with a message detail.
     class CalendarMonthRangeValidator {
         constructor(options) {
             if (options.min &&
                 options.max &&
                 CalendarMonthRangeValidator._compareCalendarMonths(options.min, options.max) > 0) {
+                // this is an app developer error, so it doesn't need to be translated.
                 throw new Error('min must be less than max');
             }
             this.defaultRangeOverflowMessageDetailFn = options.defaultRangeOverflowMessageDetailFn;
@@ -17,6 +20,7 @@ define(["require", "exports"], function (require, exports) {
             this.dateRangeUnderflowMessageDetail = options.dateRangeUnderflowMessageDetail;
             this.formatObj = options.formatObj;
         }
+        // Validates the minimum + maximum conditions. If the value is null, just return.
         validate(value) {
             const messageDetailRangeOverflow = this.dateRangeOverflowMessageDetail;
             const messageDetailRangeUnderflow = this.dateRangeUnderflowMessageDetail;
@@ -42,6 +46,14 @@ define(["require", "exports"], function (require, exports) {
             }
             return value;
         }
+        /**
+         * Compares two dates of type CalendarMonthRequired.
+         * @param {CalendarMonthRequired} val1 first month/year value
+         * @param {CalendarMonthRequired} val2 second month/year value
+         * @return {number} 0 if the same month and year. 1 if val1 > val2. -1 if val1 < val2.
+         * @private
+         * @static
+         */
         static _compareCalendarMonths(val1, val2) {
             if (val1.year === val2.year && val1.month === val2.month) {
                 return 0;

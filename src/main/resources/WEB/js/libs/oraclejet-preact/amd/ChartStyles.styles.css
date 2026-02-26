@@ -7,45 +7,52 @@
   width: 100%;
   height: 100%;
 }
-.ChartStyles_cursorEnable__19zsovb1 {
+.ChartStyles_refLine__19zsovb1 {
+  stroke: var(--oj-c-dvt-reference-object-line);
+  stroke-width: 1;
+}
+.ChartStyles_refArea__19zsovb2 {
+  fill: var(--oj-c-dvt-reference-object-area);
+}
+.ChartStyles_cursorEnable__19zsovb3 {
   cursor: pointer;
 }
-.ChartStyles_dimmed__19zsovb2 {
-  opacity: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-dimmed-opacity);
+.ChartStyles_dimmed__19zsovb4 {
+  opacity: var(--oj-c-dimmed-opacity);
 }
-.ChartStyles_selectedBorder__19zsovb3 {
-  fill: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-border-selected-neutral);
+.ChartStyles_selectedBorder__19zsovb5 {
+  fill: var(--oj-c-border-selected-neutral);
 }
-.ChartStyles_contrastBorder__19zsovb4 {
-  stroke: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-dvt-contrast-line);
+.ChartStyles_contrastBorder__19zsovb6 {
+  stroke: var(--oj-c-dvt-contrast-line);
   stroke-width: 1px;
 }
-.ChartStyles_dimensionStyle__19zsovb5 {
+.ChartStyles_dimensionStyle__19zsovb7 {
   width: 100%;
-  height: calc(112 * var(--oj-c-EXPERIMENTAL-DO-NOT-USE-size-units, 0.25rem));
+  height: calc(112 * var(--oj-c-size-units, 0.25rem));
 }
-.ChartStyles_dataLabelStyle__19zsovb6 {
-  font-size: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-label-sm-font-size);
-  fill: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-text-icon-primary);
+.ChartStyles_dataLabelStyle__19zsovb8 {
+  font-size: var(--oj-c-label-sm-font-size);
+  fill: var(--oj-c-text-icon-primary);
   dominant-baseline: middle;
   text-anchor: middle;
   pointer-events: none;
 }
-.ChartStyles_dataLabelContrast__19zsovb7 {
-  stroke: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-dvt-contrast-line);
+.ChartStyles_dataLabelContrast__19zsovb9 {
+  stroke: var(--oj-c-dvt-contrast-line);
   stroke-opacity: 0.8;
   stroke-width: 0.25em;
   stroke-linejoin: round;
   paint-order: stroke;
   font-weight: 600;
 }
-.ChartStyles_highContrastLabelStyle__19zsovb8 {
+.ChartStyles_highContrastLabelStyle__19zsovba {
   fill: CanvasText;
   stroke: Canvas;
 }
-.ChartStyles_stackLabelStyle__19zsovb9 {
-  font-size: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-label-sm-font-size);
-  fill: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-text-icon-primary);
+.ChartStyles_stackLabelStyle__19zsovbb {
+  font-size: var(--oj-c-label-sm-font-size);
+  fill: var(--oj-c-text-icon-primary);
   dominant-baseline: middle;
   text-anchor: middle;
   font-weight: bold;

@@ -18,6 +18,7 @@ define(["require", "exports", "preact/jsx-runtime", "preact/hooks", "@oracle/ora
         };
         const handleSelect = (event) => {
             if (event.value && event.value === 'overflow') {
+                //If overflow item is clicked after dropdown is open, the reason is outsideMouseDown and it needs to be closed
                 if (isOutsideMouseDown.current) {
                     setIsOverflowMenuOpen(false);
                 }

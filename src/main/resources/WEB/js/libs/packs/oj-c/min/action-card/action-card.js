@@ -8,6 +8,72 @@ define(["require", "exports", "preact/jsx-runtime", '@oracle/oraclejet-preact/tr
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.ActionCard = void 0;
+    /**
+     * @classdesc
+     * <h3 id="ActionCardOverview-section">
+     *   JET Action
+     *   <a class="bookmarkable-link" title="Bookmarkable Link" href="#CardOverview-section"></a>
+     * </h3>
+     * <p>Description: Themeable, WAI-ARIA-compliant element that represents a card.</p>
+     * <p>Action Card provides a styled rectangular area with hover/focus/active state rendering,
+     * along with an ojAction event.
+     *
+     * <pre class="prettyprint">
+     * <code>
+     * &lt;oj-c-action-card onAction="[[actionHandler]]">
+     *   Sample Text
+     * &lt;/oj-c-action-card>
+     *
+     * </code></pre>
+     *
+     * <h3 id="diff-section">
+     *   Differences between Cards in JET
+     *   <a class="bookmarkable-link" title="Bookmarkable Link" href="#diff-section"></a>
+     * </h3>
+     *
+     * <p>
+     * There are several different options for creating cards in JET applications.
+     * </p>
+     * <ul>
+     * <li><strong>oj-c-action-card:</strong> ActionCard fires action events and is supported for use stand alone or in oj-c-card-view. For accessibility reasons nothing interactive (for example links or buttons) can be put in an action card.</li>
+     * <li><strong>oj-c-selection-card:</strong> SelectionCard is supported for use in oj-c-card-view, with single or multiple selection.</li>
+     * <li><strong>oj-panel CSS class:</strong> For simple cases with no associated action or selection. Panel is supported for use in standalone or in oj-c-card-view.</li>
+     * </ul>
+     *
+     *
+     * <h3 id="a11y-section">
+     *   Accessibility
+     *   <a class="bookmarkable-link" title="Bookmarkable Link" href="#a11y-section"></a>
+     * </h3>
+     *
+     * <p>A clarification in a11y rules states that any element with role of ActionCard should not have interactive elements inside: https://www.w3.org/TR/html-aria/#allowed-descendants-of-aria-roles </p>
+     *
+     * @ojmetadata description "An Action Card is an actionable container rendering related information"
+     * @ojmetadata displayName "Action Card"
+     * @ojmetadata help "oj-c.ActionCard.html"
+     * @ojmetadata main "oj-c/action-card"
+     * @ojmetadata status [
+     *   {
+     *     type: "candidate",
+     *     since: "17.0.0"
+     *   }
+     * ]
+     * @ojmetadata extension {
+     *   "catalog": {
+     *     "category": "Layout & Nav"
+     *   },
+     *   "oracle": {
+     *     "icon": "oj-ux-ico-object-card",
+     *     "uxSpecs": ["card"]
+     *   },
+     *   "vbdt": {
+     *     "module": "oj-c/action-card",
+     *     "defaultColumns": 1,
+     *     "minColumns": 1
+     *   }
+     * }
+     * @ojmetadata since "16.0.0"
+     */
     let ActionCard = class ActionCard extends preact_1.Component {
         constructor() {
             super(...arguments);
@@ -16,12 +82,24 @@ define(["require", "exports", "preact/jsx-runtime", '@oracle/oraclejet-preact/tr
         render({ children, onOjAction }) {
             return ((0, jsx_runtime_1.jsx)(ojvcomponent_1.Root, { children: (0, jsx_runtime_1.jsx)(FunctionalActionCard, { ref: this.actionCardRef, onAction: onOjAction, width: "100%", height: "100%", children: children }) }));
         }
+        /**
+         * blurs the card
+         * @ignore
+         */
         click() {
             this.actionCardRef.current?.click();
         }
+        /**
+         * blurs the card
+         * @ignore
+         */
         blur() {
             this.actionCardRef.current?.blur();
         }
+        /**
+         * focuses the card
+         * @ignore
+         */
         focus() {
             this.actionCardRef.current?.focus();
         }
@@ -37,6 +115,13 @@ define(["require", "exports", "preact/jsx-runtime", '@oracle/oraclejet-preact/tr
     ], ActionCard);
     const FunctionalActionCard = (0, compat_1.forwardRef)((props, ref) => {
         const actionCardRef = (0, hooks_1.useRef)();
+        // We need to support methods on the custom-element layer which can only
+        // be done using a class-based component. So, we will wrap this
+        // functionality-packed functional component in a class-based component.
+        // But, the class-based component will still need a way to pass through
+        // method calls, so we will be using useImperativeHandle to add these
+        // methods to this functional component's ref which can then be called
+        // by the wrapping class-based component.
         (0, hooks_1.useImperativeHandle)(ref, () => ({
             focus: () => actionCardRef.current?.focus(),
             blur: () => actionCardRef.current?.blur(),

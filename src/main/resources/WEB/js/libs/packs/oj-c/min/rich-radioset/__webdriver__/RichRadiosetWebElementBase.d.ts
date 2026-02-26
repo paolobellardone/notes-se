@@ -98,6 +98,13 @@ export declare class RichRadiosetWebElementBase extends OjWebElement {
      */
     getReadonly(): Promise<boolean>;
     /**
+     * Gets the value of <code>readonlyUserAssistanceShown</code> property.
+     * Specifies which user assistance types should be shown when the component is readonly.
+     * @return The value of <code>readonlyUserAssistanceShown</code> property.
+     *
+     */
+    getReadonlyUserAssistanceShown(): Promise<string>;
+    /**
      * Gets the value of <code>required</code> property.
      * Specifies whether or not the component is required.
      * @return The value of <code>required</code> property.

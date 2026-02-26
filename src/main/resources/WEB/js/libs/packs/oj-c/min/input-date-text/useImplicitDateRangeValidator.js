@@ -2,6 +2,12 @@ define(["require", "exports", "ojs/ojvalidator-localdaterange", "preact/hooks"],
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.useImplicitDateRangeValidator = useImplicitDateRangeValidator;
+    /**
+     * Custom hook that creates an implicit DateTimeRangeValidator for oj-c-input-date if there is a min or max property.
+     * Otherwise it will return null.
+     *
+     * @returns A DateTimeRangeValidator instance or null
+     */
     function useImplicitDateRangeValidator({ formatObj, dateRangeOverflowMessageDetail, dateRangeUnderflowMessageDetail, max, min }) {
         const dateRangeValidator = (0, hooks_1.useMemo)(() => {
             if (min !== undefined || max !== undefined) {

@@ -1,7 +1,7 @@
 {
   "name": "tab-bar-mixed",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -27,7 +27,11 @@
       "module": "oj-c/tab-bar-mixed"
     },
     "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/TabBarMixedWebElement.html"
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/TabBarMixedWebElement.html",
+      "export": "findTabBarMixed",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   },
   "since": "16.1.0",

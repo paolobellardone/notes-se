@@ -3,7 +3,10 @@ import type { InputDateMask as PreactInputDateMask } from '@oracle/oraclejet-pre
 import type { InputDateMask } from 'oj-c/input-date-mask';
 type PreactInputDateMaskProps = ComponentProps<typeof PreactInputDateMask>;
 type InputDateMaskProps = ComponentProps<typeof InputDateMask>;
-export declare function useInputDateMaskPreact({ dateRangeOverflowMessageDetail, dateRangeUnderflowMessageDetail, disabled, displayOptions, labelEdge, labelHint, labelStartWidth, max, messagesCustom, min, readonly, required, requiredMessageDetail, textAlign, userAssistanceDensity, validators, value: propValue, onMessagesCustomChanged, onRawValueChanged, onValidChanged, onValueChanged, ...otherProps }: InputDateMaskProps, addBusyState?: (desc?: string) => () => void): {
+/**
+ * This hook manages state and other related props for the Input Date Mask component.
+ */
+export declare function useInputDateMaskPreact({ dateRangeOverflowMessageDetail, dateRangeUnderflowMessageDetail, disabled, displayOptions, labelEdge, labelHint, labelStartWidth, max, messagesCustom, min, readonly, readonlyUserAssistanceShown, required, requiredMessageDetail, textAlign, userAssistanceDensity, validators, value: propValue, onMessagesCustomChanged, onRawValueChanged, onValidChanged, onValueChanged, ...otherProps }: InputDateMaskProps, addBusyState?: (desc?: string) => () => void): {
     methods: {
         reset: () => void;
         showMessages: () => void;

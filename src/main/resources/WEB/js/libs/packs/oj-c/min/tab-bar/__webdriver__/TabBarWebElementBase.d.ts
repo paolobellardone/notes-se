@@ -69,4 +69,17 @@ export declare class TabBarWebElementBase extends OjWebElement {
      *
      */
     getTruncation(): Promise<string>;
+    /**
+     * Gets the value of <code>contextMenuConfig</code> property.
+     * Specifies a context menu configuration.
+     * @return The value of <code>contextMenuConfig</code> property.
+     *
+     */
+    getContextMenuConfig(): Promise<ContextMenuConfig>;
+}
+export interface ContextMenuConfig {
+    /**
+     *
+     */
+    accessibleLabel: string;
 }

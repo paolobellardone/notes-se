@@ -3,9 +3,13 @@ oj-c-input-number:not(.oj-complete) {
 }
 
 oj-c-input-number {
-	display: inline-block;
+  display: inline-block;
   max-width: 100%;
   width: 100%;
+}
+
+oj-c-input-number.in-form-layout {
+  display: block;
 }
 
 oj-c-input-number[hidden] {

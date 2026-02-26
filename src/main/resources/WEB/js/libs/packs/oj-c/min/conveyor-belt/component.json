@@ -1,7 +1,7 @@
 {
   "name": "conveyor-belt",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -35,53 +35,11 @@
       "help": "#itemTemplate",
       "maxItems": 1,
       "data": {
+        "key": {
+          "type": "string|number"
+        },
         "data": {
           "type": "any"
-        },
-        "item": {
-          "type": "object",
-          "properties": {
-            "data": {
-              "type": "any"
-            },
-            "metadata": {
-              "type": "object",
-              "properties": {
-                "indexFromParent": {
-                  "type": "number"
-                },
-                "isLeaf": {
-                  "type": "boolean"
-                },
-                "key": {
-                  "type": "any"
-                },
-                "message": {
-                  "type": "object",
-                  "properties": {
-                    "detail": {
-                      "type": "string"
-                    },
-                    "severity": {
-                      "type": "string|number"
-                    },
-                    "summary": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "parentKey": {
-                  "type": "any"
-                },
-                "suggestion": {
-                  "type": "object"
-                },
-                "treeDepth": {
-                  "type": "number"
-                }
-              }
-            }
-          }
         }
       }
     }
@@ -106,7 +64,7 @@
       ]
     },
     "items": {
-      "type": "Array<object>|DataProvider",
+      "type": "Array<any>|DataProvider",
       "description": "An array of data items or a data provider that returns the items for the ConveyorBelt.",
       "displayName": "Items",
       "help": "#items"
@@ -175,7 +133,11 @@
   },
   "extension": {
     "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/ConveyorBeltWebElement.html"
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/ConveyorBeltWebElement.html",
+      "export": "findConveyorBelt",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   }
 }

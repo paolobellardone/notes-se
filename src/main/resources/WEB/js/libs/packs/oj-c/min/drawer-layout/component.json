@@ -1,7 +1,7 @@
 {
   "name": "drawer-layout",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -36,7 +36,11 @@
       ]
     },
     "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/DrawerLayoutWebElement.html"
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/DrawerLayoutWebElement.html",
+      "export": "findDrawerLayout",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   },
   "propertyLayout": [
@@ -138,10 +142,18 @@
         },
         "edge": {
           "type": "string",
+          "description": "edge from which the drawer slides into the layout.",
           "enumValues": [
             "end",
             "start",
             "bottom"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "description": "reason for closing the drawer",
+          "enumValues": [
+            "escapeKey"
           ]
         }
       }
@@ -153,11 +165,16 @@
       "detail": {
         "edge": {
           "type": "string",
+          "description": "edge from which the drawer slides into the layout.",
           "enumValues": [
             "end",
             "start",
             "bottom"
           ]
+        },
+        "value": {
+          "type": "boolean",
+          "description": "opened value"
         }
       }
     }

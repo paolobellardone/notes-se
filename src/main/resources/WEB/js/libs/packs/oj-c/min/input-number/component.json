@@ -1,7 +1,7 @@
 {
   "name": "input-number",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -9,7 +9,7 @@
   "implements": [
     "CInputNumberElement"
   ],
-  "displayName": "InputNumber",
+  "displayName": "Input Number",
   "description": "An input number allows the user to enter a number value.",
   "help": "oj-c.InputNumber.html",
   "main": "oj-c/input-number",
@@ -38,7 +38,11 @@
       ]
     },
     "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/InputNumberWebElement.html"
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/InputNumberWebElement.html",
+      "export": "findInputNumber",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   },
   "propertyLayout": [
@@ -61,6 +65,23 @@
     }
   ],
   "since": "14.0.0",
+  "requirements": [
+    {
+      "type": "anyOf",
+      "label": "accessibility",
+      "properties": [
+        "labelHint"
+      ]
+    },
+    {
+      "type": "not",
+      "label": "accessibility",
+      "properties": [
+        "aria-label",
+        "aria-labelledby"
+      ]
+    }
+  ],
   "properties": {
     "autocomplete": {
       "type": "string",
@@ -234,6 +255,13 @@
     },
     "labelWrapping": {
       "type": "string",
+      "status": [
+        {
+          "type": "deprecated",
+          "since": "18.0.0",
+          "description": "Label truncation for 'start' and 'top' aligned labels is no longer recommended by the Redwood Design System. The default for labelWrapping was 'wrap' and that is now the only suggested pattern by UX design for 'start' and 'top' aligned labels. 'inside' aligned labels are always truncated per UX design and are not affected by this property's value."
+        }
+      ],
       "description": "Should the labels wrap or truncate when there is not enough available space.",
       "displayName": "Label Wrapping",
       "help": "#labelWrapping",
@@ -247,13 +275,6 @@
           "displayName": "Wrap"
         }
       },
-      "status": [
-        {
-          "type": "deprecated",
-          "since": "18.0.0",
-          "description": "Label truncation for 'start' and 'top' aligned labels is no longer recommended by the Redwood Design System. The default for labelWrapping was 'wrap' and that is now the only suggested pattern by UX design for 'start' and 'top' aligned labels. 'inside' aligned labels are always truncated per UX design and are not affected by this property's value."
-        }
-      ],
       "enumValues": [
         "truncate",
         "wrap"
@@ -269,6 +290,16 @@
       "description": "The maximum allowed value",
       "displayName": "Max",
       "help": "#max"
+    },
+    "maxWidth": {
+      "type": "number|string",
+      "description": "The max width of the control.",
+      "displayName": "Max Width",
+      "help": "#maxWidth",
+      "propertyEditorValues": {
+        "sm": {},
+        "md": {}
+      }
     },
     "min": {
       "type": "number|null",
@@ -314,16 +345,16 @@
     },
     "numberRangeOverflowMessageDetail": {
       "type": "string",
-      "description": "Overrides the default NumberRangeValidator's exact message detail.",
-      "displayName": "Number Range Exact Message Detail",
-      "help": "#numberRangeExactMessageDetail",
+      "description": "Overrides the default NumberRangeValidator's overflow message detail.",
+      "displayName": "Number Range Overflow Message Detail",
+      "help": "#numberRangeOverflowMessageDetail",
       "translatable": true
     },
     "numberRangeUnderflowMessageDetail": {
       "type": "string",
-      "description": "Overrides the default NumberRangeValidator's exact message detail.",
-      "displayName": "Number Range Exact Message Detail",
-      "help": "#numberRangeExactMessageDetail",
+      "description": "Overrides the default NumberRangeValidator's underflow message detail.",
+      "displayName": "Number Range Underflow Message Detail",
+      "help": "#numberRangeUnderflowMessageDetail",
       "translatable": true
     },
     "placeholder": {
@@ -343,6 +374,17 @@
           "name": "containerReadonly"
         }
       }
+    },
+    "readonlyUserAssistanceShown": {
+      "type": "string",
+      "description": "Specifies which user assistance types should be shown when the component is readonly.",
+      "displayName": "ReadonlyUserAssistanceShown",
+      "help": "#readonlyUserAssistanceShown",
+      "enumValues": [
+        "none",
+        "confirmationAndInfoMessages"
+      ],
+      "value": "none"
     },
     "required": {
       "type": "boolean",
@@ -480,6 +522,16 @@
         "text"
       ],
       "value": "auto"
+    },
+    "width": {
+      "type": "number|string",
+      "description": "The width of the control.",
+      "displayName": "Width",
+      "help": "#width",
+      "propertyEditorValues": {
+        "sm": {},
+        "md": {}
+      }
     },
     "rawValue": {
       "type": "string",

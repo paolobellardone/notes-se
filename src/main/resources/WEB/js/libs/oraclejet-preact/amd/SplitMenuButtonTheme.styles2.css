@@ -1,8 +1,8 @@
 .SplitMenuButtonTheme_baseTheme__4kpf330 {
-  --borderColor__1chzim70: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-border-enabled);
-  --borderColorDisabled__1chzim71: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-border-disabled);
-  --styleVariants-outlined-borderColor__1chzim72: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-border-enabled);
-  --styleVariants-outlined-borderColorDisabled__1chzim73: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-border-disabled);
+  --borderColor__1chzim70: var(--oj-c-border-enabled);
+  --borderColorDisabled__1chzim71: var(--oj-c-border-disabled);
+  --styleVariants-outlined-borderColor__1chzim72: var(--oj-c-border-enabled);
+  --styleVariants-outlined-borderColorDisabled__1chzim73: var(--oj-c-border-disabled);
   --styleVariants-solid-borderColor__1chzim74: transparent;
   --styleVariants-solid-borderColorDisabled__1chzim75: transparent;
   --styleVariants-callToAction-borderColor__1chzim76: transparent;

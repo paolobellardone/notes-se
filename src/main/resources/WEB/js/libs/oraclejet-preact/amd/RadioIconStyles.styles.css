@@ -10,17 +10,17 @@
   color: var(--iconColorUnselected__bwcdcl2) !important;
 }
 .RadioIconStyles_radioSvgDisabledColor__o5p6af3 {
-  color: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-text-icon-disabled) !important;
+  color: var(--oj-c-text-icon-disabled) !important;
 }
 .RadioIconStyles_radioSvgPrimaryColor__o5p6af4 {
-  color: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-text-icon-primary) !important;
+  color: var(--oj-c-text-icon-primary) !important;
 }
 .RadioIconStyles_radioSvgReadonlyColor__o5p6af5 {
-  color: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-text-icon-secondary) !important;
+  color: var(--oj-c-text-icon-secondary) !important;
 }
 .RadioIconStyles_radioIconActive__o5p6af6 {
   transform: var(--iconTransformActive__bwcdcl3);
   transition-property: transform;
-  transition-duration: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-duration-xs);
-  transition-timing-function: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-easing-persist);
+  transition-duration: var(--oj-c-duration-xs);
+  transition-timing-function: var(--oj-c-easing-persist);
 }

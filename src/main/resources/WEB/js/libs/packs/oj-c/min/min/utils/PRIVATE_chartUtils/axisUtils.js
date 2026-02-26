@@ -1,8 +1,15 @@
+/**
+ * @license
+ * Copyright (c) %FIRST_YEAR% %CURRENT_YEAR%, Oracle and/or its affiliates.
+ * The Universal Permissive License (UPL), Version 1.0
+ * as shown at https://oss.oracle.com/licenses/upl/
+ * @ignore
+ */
 define(["require", "exports"], function (require, exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.getPreactAxisProps = void 0;
-    const getPreactAxisProps = (axisProps) => {
+    const getPreactAxisProps = (axisProps, styleDefaults, viewportMin, viewportMax) => {
         const newProps = {};
         const { tickLabel, ...rest } = axisProps;
         if (tickLabel?.converter) {
@@ -19,7 +26,17 @@ define(["require", "exports"], function (require, exports) {
         newProps['isRendered'] = tickLabel?.rendered != 'off';
         newProps['style'] = tickLabel?.style;
         newProps['rotation'] = tickLabel?.rotation != 'none' ? 'autoRotate' : 'none';
-        return { tickLabel: newProps, ...rest };
+        const isGroupSepRendered = styleDefaults?.['groupSeparators']?.rendered !== 'off';
+        return {
+            tickLabel: newProps,
+            ...rest,
+            viewportMin,
+            viewportMax,
+            groupSeparators: {
+                isRendered: isGroupSepRendered,
+                color: styleDefaults?.['groupSeparators']?.color
+            }
+        };
     };
     exports.getPreactAxisProps = getPreactAxisProps;
 });

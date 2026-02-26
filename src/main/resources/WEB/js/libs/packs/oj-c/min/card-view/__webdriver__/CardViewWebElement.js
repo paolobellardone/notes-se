@@ -48,7 +48,7 @@ class CardViewWebElement extends CardViewWebElementBase_1.CardViewWebElementBase
     async findItem(itemLocator) {
         try {
             await this.whenReady();
-            return (0, oraclejet_webdriver_1.slotProxy)(await this.findElement(selenium_webdriver_1.By.css(`[role="gridcell"][data-oj-key="${itemLocator.key}"]`)));
+            return (0, oraclejet_webdriver_1.slotProxy)(await this.findElement(selenium_webdriver_1.By.css(`[data-oj-card-item][data-oj-key="${itemLocator.key}"]`)));
         }
         catch (ex) {
             throw Error(`No corresponding item found for the itemLocator ${JSON.stringify(itemLocator, null, 2)}`);

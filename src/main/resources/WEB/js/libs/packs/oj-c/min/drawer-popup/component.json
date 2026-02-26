@@ -1,7 +1,7 @@
 {
   "name": "drawer-popup",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -63,7 +63,11 @@
       ]
     },
     "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/DrawerPopupWebElement.html"
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/DrawerPopupWebElement.html",
+      "export": "findDrawerPopup",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   },
   "since": "16.0.0",
@@ -150,6 +154,14 @@
         "accept": {
           "description": "This method can be called with an application-created Promise to cancel this event asynchronously.  The Promise should be resolved or rejected to accept or cancel the event, respectively.",
           "type": "function"
+        },
+        "reason": {
+          "type": "string",
+          "enumValues": [
+            "outsideClick",
+            "escapeKey",
+            "swipe"
+          ]
         }
       }
     },

@@ -1,7 +1,19 @@
+/**
+ * @license
+ * Copyright (c) %FIRST_YEAR% %CURRENT_YEAR%, Oracle and/or its affiliates.
+ * The Universal Permissive License (UPL), Version 1.0
+ * as shown at https://oss.oracle.com/licenses/upl/
+ * @ignore
+ */
 define(["require", "exports", "ojs/ojkeyset"], function (require, exports, ojkeyset_1) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.isEqual = exports.getFirstKey = exports.isEmpty = exports.keysToKeySet = exports.keySetToKeys = void 0;
+    /**
+     * Helper to convert Keyset (legacy) to Keys (preact).
+     * @param keyset
+     * @returns keys
+     */
     const keySetToKeys = (keySet) => {
         if (!keySet) {
             return { all: false, keys: new Set() };
@@ -18,6 +30,11 @@ define(["require", "exports", "ojs/ojkeyset"], function (require, exports, ojkey
         return keys;
     };
     exports.keySetToKeys = keySetToKeys;
+    /**
+     * Helper to convert Keys (preact) to ImmutableKeySet (core pack).
+     * @param keys
+     * @returns KeySet
+     */
     const keysToKeySet = (keys) => {
         let keySet;
         if (keys.all) {

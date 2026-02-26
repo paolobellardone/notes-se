@@ -10,32 +10,26 @@
 .ConveyorBeltStyles_conveyorStyle__1u3kg3i2:focus {
   outline-style: dotted;
   outline-width: 1px;
-  outline-color: var(--oj-c-EXPERIMENTAL-DO-NOT-USE-border-keyboard-focus);
+  outline-color: var(--oj-c-border-keyboard-focus);
   outline-offset: -1px;
 }
 .ConveyorBeltStyles_endButtonClipPath__1u3kg3i3 {
-  -webkit-clip-path: inset(0rem var(--oj-c-EXPERIMENTAL-DO-NOT-USE-base-button-sizes-sm-height) 0rem 0rem);
-          clip-path: inset(0rem var(--oj-c-EXPERIMENTAL-DO-NOT-USE-base-button-sizes-sm-height) 0rem 0rem);
+  clip-path: inset(0rem var(--oj-c-base-button-sizes-sm-height) 0rem 0rem);
 }
 .ConveyorBeltStyles_startButtonClipPath__1u3kg3i4 {
-  -webkit-clip-path: inset(0rem 0rem 0rem var(--oj-c-EXPERIMENTAL-DO-NOT-USE-base-button-sizes-sm-height));
-          clip-path: inset(0rem 0rem 0rem var(--oj-c-EXPERIMENTAL-DO-NOT-USE-base-button-sizes-sm-height));
+  clip-path: inset(0rem 0rem 0rem var(--oj-c-base-button-sizes-sm-height));
 }
 .ConveyorBeltStyles_topButtonClipPath__1u3kg3i5 {
-  -webkit-clip-path: inset(var(--oj-c-EXPERIMENTAL-DO-NOT-USE-base-button-sizes-sm-height) 0rem 0rem 0rem);
-          clip-path: inset(var(--oj-c-EXPERIMENTAL-DO-NOT-USE-base-button-sizes-sm-height) 0rem 0rem 0rem);
+  clip-path: inset(var(--oj-c-base-button-sizes-sm-height) 0rem 0rem 0rem);
 }
 .ConveyorBeltStyles_bottomButtonClipPath__1u3kg3i6 {
-  -webkit-clip-path: inset(0rem  0rem var(--oj-c-EXPERIMENTAL-DO-NOT-USE-base-button-sizes-sm-height) 0rem);
-          clip-path: inset(0rem  0rem var(--oj-c-EXPERIMENTAL-DO-NOT-USE-base-button-sizes-sm-height) 0rem);
+  clip-path: inset(0rem  0rem var(--oj-c-base-button-sizes-sm-height) 0rem);
 }
 .ConveyorBeltStyles_bothHorizontalButtonClipPath__1u3kg3i7 {
-  -webkit-clip-path: inset(0rem var(--oj-c-EXPERIMENTAL-DO-NOT-USE-base-button-sizes-sm-height) 0rem var(--oj-c-EXPERIMENTAL-DO-NOT-USE-base-button-sizes-sm-height));
-          clip-path: inset(0rem var(--oj-c-EXPERIMENTAL-DO-NOT-USE-base-button-sizes-sm-height) 0rem var(--oj-c-EXPERIMENTAL-DO-NOT-USE-base-button-sizes-sm-height));
+  clip-path: inset(0rem var(--oj-c-base-button-sizes-sm-height) 0rem var(--oj-c-base-button-sizes-sm-height));
 }
 .ConveyorBeltStyles_bothVerticalButtonClipPath__1u3kg3i8 {
-  -webkit-clip-path: inset(var(--oj-c-EXPERIMENTAL-DO-NOT-USE-base-button-sizes-sm-height) 0rem var(--oj-c-EXPERIMENTAL-DO-NOT-USE-base-button-sizes-sm-height) 0rem);
-          clip-path: inset(var(--oj-c-EXPERIMENTAL-DO-NOT-USE-base-button-sizes-sm-height) 0rem var(--oj-c-EXPERIMENTAL-DO-NOT-USE-base-button-sizes-sm-height) 0rem);
+  clip-path: inset(var(--oj-c-base-button-sizes-sm-height) 0rem var(--oj-c-base-button-sizes-sm-height) 0rem);
 }
 .ConveyorBeltStyles_buttonContainer__1u3kg3i9 {
   display: flex;
@@ -70,25 +64,25 @@
   height: 100%;
   position: absolute;
   left: calc(var(--boxShadow-width__114pbvl0) * -1);
-  box-shadow: rgba(var(--oj-c-EXPERIMENTAL-DO-NOT-USE-boxshadow-shadowcolor), 0.2) var(--boxShadow-width__114pbvl0) 0px var(--boxShadow-width__114pbvl0) calc(var(--boxShadow-width__114pbvl0) * -1);
+  box-shadow: rgba(var(--oj-c-boxshadow-shadowcolor), 0.2) var(--boxShadow-width__114pbvl0) 0px var(--boxShadow-width__114pbvl0) calc(var(--boxShadow-width__114pbvl0) * -1);
 }
 .ConveyorBeltStyles_endButton__1u3kg3id {
   height: 100%;
   position: absolute;
   right: calc(var(--boxShadow-width__114pbvl0) * -1);
-  box-shadow: rgba(var(--oj-c-EXPERIMENTAL-DO-NOT-USE-boxshadow-shadowcolor), 0.2) calc(var(--boxShadow-width__114pbvl0) * -1) 0px var(--boxShadow-width__114pbvl0) calc(var(--boxShadow-width__114pbvl0) * -1);
+  box-shadow: rgba(var(--oj-c-boxshadow-shadowcolor), 0.2) calc(var(--boxShadow-width__114pbvl0) * -1) 0px var(--boxShadow-width__114pbvl0) calc(var(--boxShadow-width__114pbvl0) * -1);
 }
 .ConveyorBeltStyles_topButton__1u3kg3ie {
   width: 100%;
   position: absolute;
   top: calc(var(--boxShadow-width__114pbvl0) * -1);
-  box-shadow: 0px var(--boxShadow-width__114pbvl0) var(--boxShadow-width__114pbvl0) calc(var(--boxShadow-width__114pbvl0) * -1) rgba(var(--oj-c-EXPERIMENTAL-DO-NOT-USE-boxshadow-shadowcolor), .2);
+  box-shadow: 0px var(--boxShadow-width__114pbvl0) var(--boxShadow-width__114pbvl0) calc(var(--boxShadow-width__114pbvl0) * -1) rgba(var(--oj-c-boxshadow-shadowcolor), .2);
 }
 .ConveyorBeltStyles_bottomButton__1u3kg3if {
   width: 100%;
   position: absolute;
   bottom: calc(var(--boxShadow-width__114pbvl0) * -1);
-  box-shadow: 0px calc(var(--boxShadow-width__114pbvl0) * -1) var(--boxShadow-width__114pbvl0) calc(var(--boxShadow-width__114pbvl0) * -1) rgba(var(--oj-c-EXPERIMENTAL-DO-NOT-USE-boxshadow-shadowcolor), .2);
+  box-shadow: 0px calc(var(--boxShadow-width__114pbvl0) * -1) var(--boxShadow-width__114pbvl0) calc(var(--boxShadow-width__114pbvl0) * -1) rgba(var(--oj-c-boxshadow-shadowcolor), .2);
 }
 .ConveyorBeltStyles_conveyorBeltItemStyle__1u3kg3ig {
   width: 100%;

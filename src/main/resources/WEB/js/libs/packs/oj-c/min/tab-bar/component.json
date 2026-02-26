@@ -1,7 +1,7 @@
 {
   "name": "tab-bar",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -15,8 +15,11 @@
   "main": "oj-c/tab-bar",
   "status": [
     {
-      "type": "candidate",
-      "since": "17.0.0"
+      "type": "supersedes",
+      "since": "19.0.0",
+      "value": [
+        "oj-tab-bar"
+      ]
     }
   ],
   "since": "17.0.0",
@@ -130,6 +133,20 @@
         "progressive"
       ],
       "value": "none"
+    },
+    "contextMenuConfig": {
+      "type": "object",
+      "description": "Specifies a context menu configuration.",
+      "displayName": "Context Menu Config",
+      "help": "#contextMenuConfig",
+      "properties": {
+        "items": {
+          "type": "function"
+        },
+        "accessibleLabel": {
+          "type": "string"
+        }
+      }
     }
   },
   "events": {
@@ -237,7 +254,11 @@
   },
   "extension": {
     "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/TabBarWebElement.html"
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/TabBarWebElement.html",
+      "export": "findTabBar",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "name": "radioset",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -22,23 +22,6 @@
       ]
     }
   ],
-  "extension": {
-    "catalog": {
-      "category": "Forms"
-    },
-    "vbdt": {
-      "module": "oj-c/radioset"
-    },
-    "oracle": {
-      "icon": "oj-ux-ico-radioset",
-      "uxSpecs": [
-        "radioset"
-      ]
-    },
-    "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/RadiosetWebElement.html"
-    }
-  },
   "propertyLayout": [
     {
       "propertyGroup": "common",
@@ -46,7 +29,6 @@
         "disabled",
         "labelHint",
         "direction",
-        "placeholder",
         "readonly",
         "required"
       ]
@@ -60,6 +42,24 @@
     }
   ],
   "since": "16.0.0",
+  "requirements": [
+    {
+      "type": "anyOf",
+      "label": "accessibility",
+      "properties": [
+        "labelHint",
+        "options"
+      ]
+    },
+    {
+      "type": "not",
+      "label": "accessibility",
+      "properties": [
+        "aria-label",
+        "aria-labelledby"
+      ]
+    }
+  ],
   "properties": {
     "containerReadonly": {
       "type": "boolean",
@@ -200,6 +200,13 @@
     },
     "labelWrapping": {
       "type": "string",
+      "status": [
+        {
+          "type": "deprecated",
+          "since": "18.0.0",
+          "description": "Label truncation for 'start' and 'top' aligned labels is no longer recommended by the Redwood Design System. The default for labelWrapping was 'wrap' and that is now the only suggested pattern by UX design for 'start' and 'top' aligned labels. 'inside' aligned labels are always truncated per UX design and are not affected by this property's value."
+        }
+      ],
       "description": "Should the labels wrap or truncate when there is not enough available space.",
       "displayName": "Label Wrapping",
       "help": "#labelWrapping",
@@ -213,13 +220,6 @@
           "displayName": "Wrap"
         }
       },
-      "status": [
-        {
-          "type": "deprecated",
-          "since": "18.0.0",
-          "description": "Label truncation for 'start' and 'top' aligned labels is no longer recommended by the Redwood Design System. The default for labelWrapping was 'wrap' and that is now the only suggested pattern by UX design for 'start' and 'top' aligned labels. 'inside' aligned labels are always truncated per UX design and are not affected by this property's value."
-        }
-      ],
       "enumValues": [
         "truncate",
         "wrap"
@@ -307,6 +307,17 @@
           "name": "containerReadonly"
         }
       }
+    },
+    "readonlyUserAssistanceShown": {
+      "type": "string",
+      "description": "Specifies which user assistance types should be shown when the component is readonly.",
+      "displayName": "ReadonlyUserAssistanceShown",
+      "help": "#readonlyUserAssistanceShown",
+      "enumValues": [
+        "none",
+        "confirmationAndInfoMessages"
+      ],
+      "value": "none"
     },
     "required": {
       "type": "boolean",
@@ -422,6 +433,15 @@
         }
       ],
       "return": "void"
+    }
+  },
+  "extension": {
+    "webelement": {
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/RadiosetWebElement.html",
+      "export": "findRadioset",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   }
 }

@@ -96,6 +96,12 @@ type State<V, DV> = Readonly<{
     previousValue?: Optional<V>;
     transientValue?: Optional<V>;
 }>;
+/**
+ * Reducer which manages state for useEditableValue hook.
+ * @param state
+ * @param action
+ * @returns
+ */
 declare function reducer<V, DV>(state: State<V, DV>, action: Action<V, DV>): State<V, DV>;
 declare function updateDisplayValue<V, DV>(dispatch: Dispatch<Action<V, DV>>, displayValue: DV, { onRawValueChanged }: Callbacks<V, DV>): void;
 declare function updateValidStatus<V, DV>(dispatch: Dispatch<Action<V, DV>>, state: ValidState, { onValidChanged }: Callbacks<V, DV>): void;

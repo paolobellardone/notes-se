@@ -62,4 +62,11 @@ export declare class ButtonWebElementBase extends OjWebElement {
      *
      */
     getChroming(): Promise<string>;
+    /**
+     * Gets the value of <code>buttonType</code> property.
+     * Specifes the button type to be rendered. This can be used to prevent form submission from happening when the value is set to &quot;button&quot;.
+     * @return The value of <code>buttonType</code> property.
+     *
+     */
+    getButtonType(): Promise<string>;
 }

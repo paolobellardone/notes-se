@@ -1,7 +1,7 @@
 {
   "name": "labelled-link",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -38,7 +38,11 @@
       ]
     },
     "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/LabelledLinkWebElement.html"
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/LabelledLinkWebElement.html",
+      "export": "findLabelledLink",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   },
   "propertyLayout": [
@@ -139,6 +143,13 @@
     },
     "labelWrapping": {
       "type": "string",
+      "status": [
+        {
+          "type": "deprecated",
+          "since": "18.0.0",
+          "description": "Label truncation for 'start' and 'top' aligned labels is no longer recommended by the Redwood Design System. The default for labelWrapping was 'wrap' and that is now the only suggested pattern by UX design for 'start' and 'top' aligned labels. 'inside' aligned labels are always truncated per UX design and are not affected by this property's value."
+        }
+      ],
       "description": "Should the labels wrap or truncate when there is not enough available space.",
       "displayName": "Label Wrapping",
       "help": "#labelWrapping",
@@ -152,13 +163,6 @@
           "displayName": "Wrap"
         }
       },
-      "status": [
-        {
-          "type": "deprecated",
-          "since": "18.0.0",
-          "description": "Label truncation for 'start' and 'top' aligned labels is no longer recommended by the Redwood Design System. The default for labelWrapping was 'wrap' and that is now the only suggested pattern by UX design for 'start' and 'top' aligned labels. 'inside' aligned labels are always truncated per UX design and are not affected by this property's value."
-        }
-      ],
       "enumValues": [
         "truncate",
         "wrap"
@@ -168,6 +172,12 @@
           "name": "labelWrapping"
         }
       }
+    },
+    "lineClamp": {
+      "type": "number",
+      "description": "Truncates text at a specific number of lines and then displays an ellipsis (…) at the end of the last line. The parent of the element needs to have a specific width so that text starts overflowing and produces a truncation. The lineClamp property is ignored when the oj-c-labelled-link is in a oj-c-form-layout.",
+      "displayName": "lineClamp",
+      "help": "#lineClamp"
     },
     "target": {
       "type": "string",
@@ -179,7 +189,8 @@
       "type": "string",
       "description": "Specifies the text that should appear in the field.",
       "displayName": "Text",
-      "help": "#text"
+      "help": "#text",
+      "translatable": true
     },
     "textAlign": {
       "type": "string",

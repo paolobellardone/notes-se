@@ -1,7 +1,7 @@
 {
   "name": "menu-button",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -60,27 +60,13 @@
       ]
     },
     "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/MenuButtonWebElement.html"
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/MenuButtonWebElement.html",
+      "export": "findMenuButton",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   },
-  "propertyLayout": [
-    {
-      "propertyGroup": "common",
-      "items": [
-        "label",
-        "tooltip",
-        "display",
-        "chroming",
-        "size",
-        "width",
-        "edge",
-        "disabled",
-        "suffix",
-        "items",
-        "selection"
-      ]
-    }
-  ],
   "since": "16.0.0",
   "status": [
     {
@@ -89,6 +75,22 @@
       "value": [
         "oj-menu-button",
         "oj-menu-select-many"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "type": "anyOf",
+      "label": "accessibility",
+      "properties": [
+        "label"
+      ]
+    },
+    {
+      "type": "not",
+      "label": "accessibility",
+      "properties": [
+        "aria-label"
       ]
     }
   ],
@@ -272,7 +274,7 @@
       "help": "#event:ojMenuSelection",
       "detail": {
         "value": {
-          "type": "any"
+          "type": "string|Array<string>"
         },
         "menuSelectionGroupKey": {
           "type": "string"

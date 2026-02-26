@@ -1,7 +1,7 @@
 {
   "name": "input-date-picker",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -9,7 +9,7 @@
   "implements": [
     "CInputDatePickerElement"
   ],
-  "displayName": "InputDatePicker",
+  "displayName": "Input Date Picker",
   "description": "An input date picker allows users to enter or select a single date using a calendar interface.",
   "help": "oj-c.InputDatePicker.html",
   "main": "oj-c/input-date-picker",
@@ -35,7 +35,11 @@
       "icon": "oj-ux-ico-type-date-input"
     },
     "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/InputDatePickerWebElement.html"
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/InputDatePickerWebElement.html",
+      "export": "findInputDatePicker",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   },
   "propertyLayout": [
@@ -238,6 +242,13 @@
     },
     "labelWrapping": {
       "type": "string",
+      "status": [
+        {
+          "type": "deprecated",
+          "since": "18.0.0",
+          "description": "Label truncation for 'start' and 'top' aligned labels is no longer recommended by the Redwood Design System. The default for labelWrapping was 'wrap' and that is now the only suggested pattern by UX design for 'start' and 'top' aligned labels. 'inside' aligned labels are always truncated per UX design and are not affected by this property's value."
+        }
+      ],
       "description": "Should the labels wrap or truncate when there is not enough available space.",
       "displayName": "Label Wrapping",
       "help": "#labelWrapping",
@@ -251,13 +262,6 @@
           "displayName": "Wrap"
         }
       },
-      "status": [
-        {
-          "type": "deprecated",
-          "since": "18.0.0",
-          "description": "Label truncation for 'start' and 'top' aligned labels is no longer recommended by the Redwood Design System. The default for labelWrapping was 'wrap' and that is now the only suggested pattern by UX design for 'start' and 'top' aligned labels. 'inside' aligned labels are always truncated per UX design and are not affected by this property's value."
-        }
-      ],
       "enumValues": [
         "truncate",
         "wrap"
@@ -274,6 +278,16 @@
       "displayName": "Max",
       "help": "#max",
       "format": "date"
+    },
+    "maxWidth": {
+      "type": "number|string",
+      "description": "The max width of the control.",
+      "displayName": "Max Width",
+      "help": "#maxWidth",
+      "propertyEditorValues": {
+        "sm": {},
+        "md": {}
+      }
     },
     "messagesCustom": {
       "type": "Array<object>",
@@ -342,6 +356,17 @@
           "name": "containerReadonly"
         }
       }
+    },
+    "readonlyUserAssistanceShown": {
+      "type": "string",
+      "description": "Specifies which user assistance types should be shown when the component is readonly.",
+      "displayName": "ReadonlyUserAssistanceShown",
+      "help": "#readonlyUserAssistanceShown",
+      "enumValues": [
+        "none",
+        "confirmationAndInfoMessages"
+      ],
+      "value": "none"
     },
     "required": {
       "type": "boolean",
@@ -475,6 +500,16 @@
         "none"
       ],
       "value": "none"
+    },
+    "width": {
+      "type": "number|string",
+      "description": "The width of the control.",
+      "displayName": "Width",
+      "help": "#width",
+      "propertyEditorValues": {
+        "sm": {},
+        "md": {}
+      }
     },
     "rawValue": {
       "type": "object",

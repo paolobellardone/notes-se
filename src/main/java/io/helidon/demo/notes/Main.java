@@ -26,18 +26,18 @@ package io.helidon.demo.notes;
 
 import java.util.logging.Logger;
 
-import io.helidon.logging.common.LogConfig;
 import io.helidon.common.context.Contexts;
 import io.helidon.config.Config;
 import io.helidon.cors.CrossOriginConfig;
 import io.helidon.dbclient.DbClient;
 import io.helidon.dbclient.health.DbClientHealthCheck;
+import io.helidon.logging.common.LogConfig;
+import io.helidon.service.registry.Services;
 import io.helidon.webserver.WebServer;
 import io.helidon.webserver.WebServerConfig;
 import io.helidon.webserver.cors.CorsSupport;
 import io.helidon.webserver.observe.ObserveFeature;
 import io.helidon.webserver.observe.health.HealthObserver;
-import io.helidon.webserver.staticcontent.StaticContentService;
 
 /**
  * Main class that starts up server and registers Notes services.
@@ -86,7 +86,8 @@ public final class Main {
 
         // By default this will pick up application.yaml from the classpath
         config = Config.create();
-        Config.global(config);
+        //Config.global(config);
+        Services.set(Config.class, config);
 
         // Prepare routing and build server
         WebServer server = setupServer(WebServer.builder());
@@ -143,11 +144,7 @@ public final class Main {
         return builder
                       .config(config.get("server"))
                       .addFeature(observe)
-                      .routing(routing -> routing.register("/", StaticContentService.builder("WEB")
-                                                 .welcomeFileName("index.html")
-                                                 .build())                                                         // UI at "/"
-                                                 .register("/notes", corsSupport, new NotesService(dbClient)) // API at "/notes"
-                      )
+                      .routing(routing -> routing.register("/notes", corsSupport, new NotesService(dbClient))) // API at "/notes"
                       .build();
 
         // Other paths:

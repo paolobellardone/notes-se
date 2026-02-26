@@ -1,7 +1,7 @@
 {
   "name": "legend",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -35,7 +35,11 @@
       ]
     },
     "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/LegendWebElement.html"
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/LegendWebElement.html",
+      "export": "findLegend",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   },
   "propertyLayout": [
@@ -57,6 +61,16 @@
     }
   ],
   "since": "15.0.0",
+  "requirements": [
+    {
+      "type": "anyOf",
+      "label": "accessibility",
+      "properties": [
+        "aria-label",
+        "aria-labelledby"
+      ]
+    }
+  ],
   "properties": {
     "data": {
       "type": "DataProvider|null",
@@ -333,6 +347,10 @@
           "type": "function"
         }
       }
+    },
+    "datatipConfig": {
+      "type": "function",
+      "description": "The DatatipConfig object is used to allow applications to control the appearance and behavior of the datatip."
     }
   },
   "slots": {
@@ -381,6 +399,240 @@
           "type": "number"
         }
       }
+    },
+    "datatipTemplate": {
+      "description": "The datatipTemplate slot is used to specify custom datatip content.",
+      "data": {
+        "color": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "id": {
+          "type": "any"
+        },
+        "itemData": {
+          "type": "any"
+        },
+        "sectionId": {
+          "type": "any"
+        },
+        "sectionData": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "any"
+            },
+            "items": {
+              "type": "Array<object>",
+              "extension": {
+                "vbdt": {
+                  "itemProperties": {
+                    "id": {
+                      "type": "any"
+                    },
+                    "text": {
+                      "type": "string",
+                      "description": "The legend item text.",
+                      "displayName": "Text",
+                      "help": "#text",
+                      "required": true,
+                      "translatable": true
+                    },
+                    "categories": {
+                      "type": "Array<string>",
+                      "description": "An array of categories for the legend item. Legend items currently only support a single category.",
+                      "displayName": "Categories",
+                      "help": "#categories"
+                    },
+                    "symbolType": {
+                      "type": "string",
+                      "description": "The type of legend symbol to display.",
+                      "displayName": "Symbol Type",
+                      "help": "#symbolType",
+                      "propertyEditorValues": {
+                        "line": {
+                          "description": "The legend symbol will be a line.",
+                          "displayName": "Line"
+                        },
+                        "lineWithMarker": {
+                          "description": "The legend symbol will be a line and a marker.",
+                          "displayName": "LineWithMarker"
+                        },
+                        "image": {
+                          "description": "The legend symbol will be an image.",
+                          "displayName": "Image"
+                        },
+                        "marker": {
+                          "description": "The legend symbol will be a marker.",
+                          "displayName": "Marker"
+                        }
+                      },
+                      "enumValues": [
+                        "marker",
+                        "image",
+                        "line",
+                        "lineWithMarker"
+                      ]
+                    },
+                    "source": {
+                      "type": "string",
+                      "description": "The URI of the image of the legend symbol.",
+                      "displayName": "Source",
+                      "help": "#source"
+                    },
+                    "color": {
+                      "type": "string",
+                      "description": "The color of the legend symbol (line or marker). When symbolType is \"lineWithMarker\", this attribute defines the line color and the markerColor attribute defines the marker color.",
+                      "displayName": "Color",
+                      "help": "#color"
+                    },
+                    "borderColor": {
+                      "type": "string",
+                      "description": "The border color of the marker. Only applies if symbolType is \"marker\" or \"lineWithMarker.",
+                      "displayName": "Border Color",
+                      "help": "#borderColor"
+                    },
+                    "lineStyle": {
+                      "type": "string",
+                      "description": "The line style. Only applies when the symbolType is \"line\" or \"lineWithMarker\".",
+                      "displayName": "Line Style",
+                      "help": "#lineStyle",
+                      "propertyEditorValues": {
+                        "dotted": {
+                          "description": "Line will have dotted strokes.",
+                          "displayName": "Dotted"
+                        },
+                        "dashed": {
+                          "description": "Line will have dashed strokes.",
+                          "displayName": "Dashed"
+                        },
+                        "solid": {
+                          "description": "Line will have a solid stroke.",
+                          "displayName": "Solid"
+                        }
+                      },
+                      "enumValues": [
+                        "dashed",
+                        "solid",
+                        "dotted"
+                      ]
+                    },
+                    "lineWidth": {
+                      "type": "number",
+                      "description": "The line width in pixels. Only applies when the symbolType is \"line\" or \"lineWithMarker.",
+                      "displayName": "Line Width",
+                      "help": "#lineWidth"
+                    },
+                    "markerShape": {
+                      "type": "string",
+                      "description": "The shape of the marker. Only applies if symbolType is \"marker\" or \"lineWithMarker\". Does not apply if a custom image is specified.",
+                      "displayName": "Marker Shape",
+                      "help": "#markerShape",
+                      "propertyEditorValues": {
+                        "circle": {
+                          "description": "The marker will be of circular shape.",
+                          "displayName": "Circle"
+                        },
+                        "diamond": {
+                          "description": "The marker will be of diamond shape.",
+                          "displayName": "Diamond"
+                        },
+                        "ellipse": {
+                          "description": "The marker will be of ellipse shape.",
+                          "displayName": "Ellipse"
+                        },
+                        "human": {
+                          "description": "The marker will be of human shape.",
+                          "displayName": "Human"
+                        },
+                        "plus": {
+                          "description": "The marker will be of plus shape.",
+                          "displayName": "Plus"
+                        },
+                        "rectangle": {
+                          "description": "The marker will be of rectangular shape.",
+                          "displayName": "Rectangle"
+                        },
+                        "square": {
+                          "description": "The marker will be of square shape.",
+                          "displayName": "Square"
+                        },
+                        "star": {
+                          "description": "The marker will be of star shape.",
+                          "displayName": "Star"
+                        },
+                        "triangleDown": {
+                          "description": "The  marker will be of triangular shape facing down.",
+                          "displayName": "Triangle Down"
+                        },
+                        "triangleUp": {
+                          "description": "The  marker will be of triangular shape facing up.",
+                          "displayName": "Triangle Up"
+                        }
+                      },
+                      "enumValues": [
+                        "square",
+                        "circle",
+                        "ellipse",
+                        "diamond",
+                        "human",
+                        "plus",
+                        "star",
+                        "triangleDown",
+                        "triangleUp",
+                        "rectangle"
+                      ]
+                    },
+                    "markerColor": {
+                      "type": "string",
+                      "description": "The color of the marker, if different than the line color. Only applies if the symbolType is \"lineWithMarker\".",
+                      "displayName": "sections",
+                      "help": "#sections"
+                    },
+                    "shortDesc": {
+                      "type": "string",
+                      "description": "The description of this legend item. This is used for accessibility and for customizing the datatip text.",
+                      "displayName": "Short Desc",
+                      "help": "#shortDesc",
+                      "translatable": true
+                    },
+                    "drilling": {
+                      "type": "string",
+                      "description": "Whether drilling is enabled on the legend item.",
+                      "displayName": "Drilling",
+                      "help": "#drilling",
+                      "propertyEditorValues": {
+                        "inherit": {
+                          "description": "The drilling behavior is inherited from legend.",
+                          "displayName": "Inherit"
+                        },
+                        "off": {
+                          "description": "The legend item will not be drillable.",
+                          "displayName": "Off"
+                        },
+                        "on": {
+                          "description": "The legend item will be drillable.",
+                          "displayName": "On"
+                        }
+                      },
+                      "enumValues": [
+                        "off",
+                        "inherit",
+                        "on"
+                      ]
+                    }
+                  }
+                }
+              }
+            },
+            "title": {
+              "type": "string"
+            }
+          }
+        }
+      }
     }
   },
   "events": {
@@ -405,7 +657,7 @@
           "type": "string"
         },
         "contextMenuContext": {
-          "type": "any"
+          "type": "object"
         }
       }
     },
@@ -420,7 +672,7 @@
           "type": "string|Array<string>"
         },
         "contextMenuContext": {
-          "type": "any"
+          "type": "object"
         },
         "menuSelectionGroupKey": {
           "type": "string"

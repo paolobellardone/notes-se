@@ -3,6 +3,7 @@ define(["require", "exports", "preact/jsx-runtime", "@oracle/oraclejet-preact/UN
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.TabBarRenderer = TabBarRenderer;
     exports.OverflowTabBarRenderer = OverflowTabBarRenderer;
+    //To limit regualar badge to 999+ and Stacked and Only Icon badges to 99+
     const badgeRenderer = (badgeValue, display) => {
         if (badgeValue != null) {
             let modifiedBadge = '';

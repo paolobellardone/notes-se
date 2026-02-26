@@ -7,14 +7,18 @@
 	 }
 */
 
-oj-c-select-single:not(.oj-complete){
+oj-c-select-single:not(.oj-complete) {
   visibility: hidden;
 }
 
-oj-c-select-single{
-	display: inline-block;
+oj-c-select-single {
+  display: inline-block;
   max-width: 100%;
   width: 100%;
+}
+
+oj-c-select-single.in-form-layout {
+  display: block;
 }
 
 oj-c-select-single[hidden] {

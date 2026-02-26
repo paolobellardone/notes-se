@@ -8,6 +8,10 @@ oj-c-text-area {
   width: 100%;
 }
 
+oj-c-text-area.in-form-layout {
+  display: block;
+}
+
 oj-c-text-area[hidden] {
   display: none;
 }

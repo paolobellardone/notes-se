@@ -9,6 +9,9 @@ define(["require", "exports", "preact/jsx-runtime", "preact/hooks", "@oracle/ora
             let timeoutId;
             if (props.isFetching) {
                 timeoutId = setTimeout(() => {
+                    // check if we are still fetching after the delay
+                    // if it is then we should render the data finish fetching
+                    // message when isFetching becomes false
                     if (props.isFetching) {
                         setFetchingMsgRendered(true);
                     }

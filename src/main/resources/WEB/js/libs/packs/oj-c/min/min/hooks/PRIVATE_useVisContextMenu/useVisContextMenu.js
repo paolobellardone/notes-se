@@ -4,31 +4,31 @@ define(["require", "exports", "preact/jsx-runtime", "preact/hooks", "../../utils
     exports.useVisContextMenu = useVisContextMenu;
     function useVisContextMenu(idToDPItemMap, contextMenuConfig, onOjContextMenuAction, onOjContextMenuSelection, transformContext) {
         const itemsRenderer = (0, hooks_1.useCallback)((context) => {
-            let itemDetail = transformContext ? transformContext(context) : context;
-            if (!transformContext && context.type === 'item') {
-                const preactItemId = context.data?.id;
+            let corepackContext = transformContext ? transformContext(context) : context;
+            if (!transformContext && context['type'] === 'item' && context['data'] != undefined) {
+                const preactItemId = context['data']?.['id'];
                 const itemData = idToDPItemMap.get(preactItemId);
-                itemDetail = { ...context, itemData };
+                corepackContext = { ...context, data: itemData };
             }
-            const items = contextMenuConfig?.items(itemDetail);
+            const items = contextMenuConfig?.items(corepackContext);
             return ((0, jsx_runtime_1.jsx)(items_menu_1.ItemsMenu, { items: items, onOjMenuAction: ({ key }) => {
                     onOjContextMenuAction?.({
                         menuItemKey: key,
-                        contextMenuContext: itemDetail
+                        contextMenuContext: corepackContext
                     });
                 }, onOjMenuSelection: ({ value, menuSelectionGroupKey }) => {
                     onOjContextMenuSelection?.({
                         value,
-                        contextMenuContext: itemDetail,
+                        contextMenuContext: corepackContext,
                         menuSelectionGroupKey
                     });
                 } }));
         }, [
-            contextMenuConfig?.items,
             onOjContextMenuAction,
             onOjContextMenuSelection,
             idToDPItemMap,
-            transformContext
+            transformContext,
+            contextMenuConfig
         ]);
         const preactContextMenuConfig = (0, hooks_1.useMemo)(() => {
             return {

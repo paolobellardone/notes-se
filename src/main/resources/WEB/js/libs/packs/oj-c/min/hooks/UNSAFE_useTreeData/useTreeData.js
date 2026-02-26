@@ -5,6 +5,12 @@ define(["require", "exports", "ojs/ojflattenedtreedataproviderview", "../UNSAFE_
     const defaultOptions = {
         isInitialFetchDeferred: false
     };
+    /**
+     * A hook that takes a TreeDataProvider and returns a FlattenedDataState object and callback functions.
+     * @param data the TreeDataProvider
+     * @param options the optional arguments used for fetchFirst
+     * @return an array containing: 1) TreeDataState 2) Callback for loadRange 3) Callback for handling onToggle event
+     */
     const useTreeData = (data, options = defaultOptions) => {
         const actualExpandedRef = (0, hooks_1.useRef)(options.expanded);
         const currentExpandedRef = (0, hooks_1.useRef)(options.expanded);
@@ -52,6 +58,12 @@ define(["require", "exports", "ojs/ojflattenedtreedataproviderview", "../UNSAFE_
         return [treeDataState, onLoadRange, toggleExpanded];
     };
     exports.useTreeData = useTreeData;
+    /**
+     * Helper convert keys to keySet.
+     * @param listDataState
+     * @param dataProvider
+     * @returns
+     */
     const fetchParents = async (listDataState, dataProvider) => {
         if (listDataState.status === 'success' && listDataState.data.data.length > 0) {
             let parentKey = listDataState.data.data[0].metadata.parentKey;
@@ -68,6 +80,11 @@ define(["require", "exports", "ojs/ojflattenedtreedataproviderview", "../UNSAFE_
         }
         return null;
     };
+    /**
+     * Helper convert keyset to keys.
+     * @param keyset
+     * @returns
+     */
     const keySetToKeys = (keySet) => {
         if (!keySet) {
             return getEmptyExpanded();
@@ -84,9 +101,20 @@ define(["require", "exports", "ojs/ojflattenedtreedataproviderview", "../UNSAFE_
         }
         return keys;
     };
+    /**
+     * Helper method to return empty keys object.
+     * @returns
+     */
     const getEmptyExpanded = () => {
         return { all: false, keys: new Set() };
     };
+    /**
+     * Helper to convert listData to treeData.
+     * @param listData
+     * @param expanded
+     * @param parents
+     * @returns
+     */
     const listToTreeData = (listData, expanded, parents) => {
         if (!expanded) {
             expanded = getEmptyExpanded();
@@ -94,23 +122,26 @@ define(["require", "exports", "ojs/ojflattenedtreedataproviderview", "../UNSAFE_
         const treeDataState = {
             status: listData.status
         };
-        if (treeDataState.status === 'loading' && listData.status === 'loading') {
-            treeDataState.data = listData.data;
-        }
-        else if (treeDataState.status === 'error' && listData.status === 'error') {
+        if (treeDataState.status === 'error' && listData.status === 'error') {
             treeDataState.error = listData.error;
         }
-        else if (treeDataState.status === 'success' && listData.status === 'success') {
-            const flattenedDataState = { ...listData.data };
-            flattenedDataState.expanded = expanded;
-            if (parents !== null) {
-                flattenedDataState.closestParents = [];
-                parents.forEach((item) => {
-                    const dataState = { data: item.data, metadata: item.metadata };
-                    flattenedDataState.closestParents.push(dataState);
-                });
+        else if ((treeDataState.status === 'success' && listData.status === 'success') ||
+            (treeDataState.status === 'loading' && listData.status === 'loading')) {
+            if (listData.data) {
+                const flattenedDataState = { ...listData.data };
+                flattenedDataState.expanded = expanded;
+                if (parents !== null) {
+                    flattenedDataState.closestParents = [];
+                    parents.forEach((item) => {
+                        const dataState = { data: item.data, metadata: item.metadata };
+                        flattenedDataState.closestParents.push(dataState);
+                    });
+                }
+                treeDataState.data = flattenedDataState;
             }
-            treeDataState.data = flattenedDataState;
+            else {
+                treeDataState.data = listData.data;
+            }
         }
         return treeDataState;
     };

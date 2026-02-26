@@ -1,7 +1,7 @@
 {
   "name": "collapsible",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -15,8 +15,11 @@
   "main": "oj-c/collapsible",
   "status": [
     {
-      "type": "candidate",
-      "since": "17.0.0"
+      "type": "supersedes",
+      "since": "20.0.0",
+      "value": [
+        "oj-collapsible"
+      ]
     }
   ],
   "extension": {
@@ -33,7 +36,11 @@
       ]
     },
     "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/CollapsibleWebElement.html"
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/CollapsibleWebElement.html",
+      "export": "findCollapsible",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
     }
   },
   "propertyLayout": [

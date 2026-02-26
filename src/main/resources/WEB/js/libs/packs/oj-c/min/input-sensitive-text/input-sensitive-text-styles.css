@@ -3,9 +3,13 @@ oj-c-input-sensitive-text:not(.oj-complete) {
 }
 
 oj-c-input-sensitive-text {
-	display: inline-block;
+  display: inline-block;
   max-width: 100%;
   width: 100%;
+}
+
+oj-c-input-sensitive-text.in-form-layout {
+  display: block;
 }
 
 oj-c-input-sensitive-text[hidden] {

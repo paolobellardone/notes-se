@@ -1,7 +1,7 @@
 {
   "name": "rich-checkboxset",
-  "version": "18.1.0",
-  "jetVersion": "^18.1.0",
+  "version": "20.0.0",
+  "jetVersion": "^20.0.0",
   "pack": "oj-c",
   "type": "composite",
   "dependencyScope": "runtime",
@@ -14,10 +14,33 @@
   "main": "oj-c/rich-checkboxset",
   "status": [
     {
-      "type": "candidate",
+      "type": "production",
       "since": "18.1.0"
     }
   ],
+  "extension": {
+    "catalog": {
+      "category": "Forms"
+    },
+    "vbdt": {
+      "module": "oj-c/rich-checkboxset",
+      "defaultColumns": 6,
+      "minColumns": 2
+    },
+    "oracle": {
+      "icon": "oj-ux-ico-checkbox-on",
+      "uxSpecs": [
+        "checkboxset"
+      ]
+    },
+    "webelement": {
+      "package": "@oracle/oraclejet-core-pack",
+      "version": "20.0.0",
+      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/RichCheckboxsetWebElement.html",
+      "export": "findRichCheckboxset",
+      "main": "@oracle/oraclejet-core-pack/webdriver"
+    }
+  },
   "propertyLayout": [
     {
       "propertyGroup": "common",
@@ -25,7 +48,6 @@
         "disabled",
         "labelHint",
         "direction",
-        "placeholder",
         "readonly",
         "required"
       ]
@@ -39,6 +61,25 @@
     }
   ],
   "since": "18.1.0",
+  "requirements": [
+    {
+      "type": "anyOf",
+      "label": "accessibility",
+      "properties": [
+        "labelHint",
+        "layout",
+        "options"
+      ]
+    },
+    {
+      "type": "not",
+      "label": "accessibility",
+      "properties": [
+        "aria-label",
+        "aria-labelledby"
+      ]
+    }
+  ],
   "properties": {
     "containerReadonly": {
       "type": "boolean",
@@ -217,6 +258,17 @@
           "name": "containerReadonly"
         }
       }
+    },
+    "readonlyUserAssistanceShown": {
+      "type": "string",
+      "description": "Specifies which user assistance types should be shown when the component is readonly.",
+      "displayName": "ReadonlyUserAssistanceShown",
+      "help": "#readonlyUserAssistanceShown",
+      "enumValues": [
+        "none",
+        "confirmationAndInfoMessages"
+      ],
+      "value": "none"
     },
     "required": {
       "type": "boolean",
@@ -398,11 +450,6 @@
         }
       ],
       "return": "void"
-    }
-  },
-  "extension": {
-    "webelement": {
-      "docUrl": "https://www.oracle.com/webfolder/technetwork/jet/cpwdtsdoc/classes/RichCheckboxsetWebElement.html"
     }
   }
 }

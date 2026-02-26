@@ -8,6 +8,10 @@ oj-c-input-date-picker {
   width: 100%;
 }
 
+oj-c-input-date-picker.in-form-layout {
+  display: block;
+}
+
 oj-c-input-date-picker[hidden] {
   display: none;
 }

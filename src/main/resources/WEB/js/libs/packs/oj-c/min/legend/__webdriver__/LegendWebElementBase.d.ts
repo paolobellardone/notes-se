@@ -125,6 +125,13 @@ export declare class LegendWebElementBase extends OjWebElement {
      *
      */
     getContextMenuConfig(): Promise<ContextMenuConfig>;
+    /**
+     * Gets the value of <code>datatipConfig</code> property.
+     * The DatatipConfig object is used to allow applications to control the appearance and behavior of the datatip.
+     * @return The value of <code>datatipConfig</code> property.
+     *
+     */
+    getDatatipConfig(): Promise<null>;
 }
 export interface TextStyle {
     /**

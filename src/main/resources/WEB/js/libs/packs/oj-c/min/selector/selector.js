@@ -2,6 +2,103 @@ define(["require", "exports", "preact/jsx-runtime", '@oracle/oraclejet-preact/tr
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.Selector = void 0;
+    /**
+     * @classdesc
+     * <h3 id="selectorOverview-section">
+     *   JET Selector
+     *   <a class="bookmarkable-link" title="Bookmarkable Link" href="#selectorOverview-section"></a>
+     * </h3>
+     * <p>Description: A checkbox to support selection in Collection Components</p>
+     * <p>The oj-c-selector is a component that may be placed within a template for Table, ListView.
+     * It presents as a checkbox when the Collection Component is configured for multi-selection.
+     *
+     * <pre class="prettyprint">
+     * <code>
+     * &lt;oj-c-list-view
+     *    id="listview"
+     *    data="[[dataProvider]]"
+     *    selected="{{selectedItems}}"
+     *    selection-mode="[[selectedSelectionMode]]">
+     *  &lt;template slot="itemTemplate" data-oj-as="item">
+     *    &lt;oj-c-list-item-layout>
+     *      &lt;oj-c-selector
+     *        slot="selector">
+     *      &lt;/oj-c-selector>
+     *      &lt;span>
+     *        &lt;oj-bind-text value="[[item.data.name]]">&lt;/oj-bind-text>
+     *      &lt;/span>
+     *    &lt;/oj-c-list-item-layout>
+     *  &lt;/template>
+     * &lt;/oj-c-list-view>
+     * </code></pre>
+     *
+     * <h3 id="keyboard-section">
+     *   Keyboard End User Information
+     *   <a class="bookmarkable-link" title="Bookmarkable Link" href="#keyboard-section"></a>
+     * </h3>
+     *
+     * <table class="keyboard-table">
+     *   <thead>
+     *     <tr>
+     *       <td>Target</td>
+     *       <td>Key</td>
+     *       <td>Action</td>
+     *     </tr>
+     *   </thead>
+     *   <tbody>
+     *     <tr>
+     *       <td rowspan = "3" nowrap>Selector</td>
+     *       <td><kbd>Tab</kbd></td>
+     *       <td>Focus the current selector.</td>
+     *     </tr>
+     *     <tr>
+     *       <td><kbd>Space</kbd></td>
+     *       <td>Select and deselect the current selector.</td>
+     *     </tr>
+     *     <tr>
+     *       <td>Enter</td>
+     *       <td>No action.</td>
+     *     </tr>
+     *   </tbody>
+     *</table>
+     *
+     * <h3 id="a11y-section">
+     *   Accessibility
+     *   <a class="bookmarkable-link" title="Bookmarkable Link" href="#a11y-section"></a>
+     * </h3>
+     *
+     * {@include accessibility_doc.ts#a11y-section-aria-attributes}
+     *
+     * <p>Application must specify a value for the aria-label attribute with a meaningful description of the purpose of this selector in order for this to be accessible.</p>
+     *
+     * @typeparam K Type of key
+     * @ojmetadata description "The selector component renders checkboxes in collections to support selection."
+     * @ojmetadata displayName "Selector"
+     * @ojmetadata extension {
+     *   "catalog": {
+     *     "category": "Collections"
+     *   },
+     *   "vbdt": {
+     *     "module": "oj-c/selector"
+     *   }
+     * }
+     * @ojmetadata help "oj-c.Selector.html"
+     * @ojmetadata since "15.0.0"
+     * @ojmetadata requirements [
+     *   {
+     *     type: "anyOf",
+     *     label: "accessibility",
+     *     properties: [ "aria-label", "aria-labelledby"]
+     *   }
+     * ]
+     * @ojmetadata status [
+     *   {
+     *     "type": "supersedes",
+     *     "since": "16.0.0",
+     *     "value": ["oj-selector"]
+     *   }
+     * ]
+     */
     const SelectorImpl = ({ rowKey, selectedKeys, indeterminate = false, selectionMode, onSelectedKeysChanged, ...otherProps }) => {
         const itemKey = (0, useItemKeyContext_1.useItemKeyContext)();
         if (itemKey !== undefined) {
@@ -35,9 +132,16 @@ define(["require", "exports", "preact/jsx-runtime", '@oracle/oraclejet-preact/tr
                     onSelectedKeysChanged?.(keySet);
                 }, [selectedListener, onSelectedKeysChanged]) }, rowKey) }));
     };
-    exports.Selector = (0, ojvcomponent_1.registerCustomElement)('oj-c-selector', SelectorImpl, "Selector", { "properties": { "rowKey": { "type": "string|number" }, "selectedKeys": { "type": "object", "writeback": true }, "indeterminate": { "type": "boolean" }, "selectionMode": { "type": "string", "enumValues": ["multiple", "single"] } }, "extension": { "_WRITEBACK_PROPS": ["selectedKeys"], "_READ_ONLY_PROPS": [], "_OBSERVED_GLOBAL_PROPS": ["aria-label"] } }, { "indeterminate": false }, {
+    // This custom element supports generic parameters, but was introduced before the pattern for exposing
+    // generic parameters on the functional value-based element was established.  In order to introduce the generics in
+    // a backwards-compatible way, they must be defaulted, but we don't want the defaults to be added to the existing
+    // types which had generics from the start.  The solution is to use two consts:
+    //   * the first is not exported, but is used as the basis for the custom element types and does not default its generics
+    //   * the second is the exported functional value-based element and defaults the generics for backwards compatibility
+    const SelectorWithoutDefaultedGenerics = (0, ojvcomponent_1.registerCustomElement)('oj-c-selector', SelectorImpl, "Selector", { "properties": { "rowKey": { "type": "string|number" }, "selectedKeys": { "type": "object", "writeback": true }, "indeterminate": { "type": "boolean" }, "selectionMode": { "type": "string", "enumValues": ["multiple", "single"] } }, "extension": { "_WRITEBACK_PROPS": ["selectedKeys"], "_READ_ONLY_PROPS": [], "_OBSERVED_GLOBAL_PROPS": ["aria-label", "aria-labelledby", "aria-describedby"] } }, { "indeterminate": false }, {
         '@oracle/oraclejet-preact': translationBundle_1.default
     }, {
         consume: [UNSAFE_useCollectionInteractionContext_1.CollectionInteractionContext, UNSAFE_useTabbableMode_1.TabbableModeContext, SelectionContext_1.SelectionContext, ItemKeyContext_1.ItemKeyContext]
     });
+    exports.Selector = SelectorWithoutDefaultedGenerics;
 });

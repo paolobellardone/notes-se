@@ -35,13 +35,13 @@
     <parent>
         <groupId>io.helidon.applications</groupId>
         <artifactId>helidon-se</artifactId>
-        <version>4.3.4</version>
+        <version>4.5.2</version>
         <relativePath />
     </parent>
 
     <groupId>io.helidon.demo</groupId>
     <artifactId>notes-se</artifactId>
-    <version>1.5.0</version>
+    <version>1.5.1</version>
     <name>${project.artifactId}</name>
 
     <properties>

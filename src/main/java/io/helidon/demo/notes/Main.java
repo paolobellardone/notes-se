@@ -1,7 +1,7 @@
 /*
  * MIT License
  *
- *  Copyright (c) 2022, 2024 PaoloB
+ *  Copyright (c) 2022, 2024, 2026 PaoloB
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -28,14 +28,13 @@ import java.util.logging.Logger;
 
 import io.helidon.common.context.Contexts;
 import io.helidon.config.Config;
-import io.helidon.cors.CrossOriginConfig;
 import io.helidon.dbclient.DbClient;
 import io.helidon.dbclient.health.DbClientHealthCheck;
 import io.helidon.logging.common.LogConfig;
 import io.helidon.service.registry.Services;
 import io.helidon.webserver.WebServer;
 import io.helidon.webserver.WebServerConfig;
-import io.helidon.webserver.cors.CorsSupport;
+import io.helidon.webserver.cors.CorsFeature;
 import io.helidon.webserver.observe.ObserveFeature;
 import io.helidon.webserver.observe.health.HealthObserver;
 
@@ -117,7 +116,7 @@ public final class Main {
         DbClient dbClient = DbClient.create(dbConfig);
         Contexts.globalContext().register(dbClient);
 
-        ObserveFeature observe = ObserveFeature.builder()
+        ObserveFeature observeFeature = ObserveFeature.builder()
                                                .config(config.get("server.features.observe"))
                                                .addObserver(HealthObserver.builder()
                                                                           .useSystemServices(true)
@@ -127,15 +126,14 @@ public final class Main {
                                                                           .build())
                                                .build();
 
-        CorsSupport corsSupport = CorsSupport.builder()
-                                             .addCrossOrigin(CrossOriginConfig.builder()
-                                                                              .exposeHeaders("*")
-                                                                              .allowHeaders("*")
-                                                                              .allowMethods("*")
-                                                                              .allowOrigins("*")
-                                                                              .allowCredentials(true)
-                                                                              .build())
-                                             .build();
+        CorsFeature corsFeature = CorsFeature.builder()
+                                            .addPath(path -> path
+                                                .pathPattern("/*")
+                                                .addAllowOrigin("*")
+                                                .addAllowMethod("*")
+                                                .addAllowHeader("*")
+                                                .addExposeHeader("*"))
+                                            .build();
 
         // Initialize database schema
         if (initDB)
@@ -143,8 +141,9 @@ public final class Main {
 
         return builder
                       .config(config.get("server"))
-                      .addFeature(observe)
-                      .routing(routing -> routing.register("/notes", corsSupport, new NotesService(dbClient))) // API at "/notes"
+                      .addFeature(observeFeature)
+                      .addFeature(corsFeature)
+                      .routing(routing -> routing.register("/notes", new NotesService(dbClient))) // API at "/notes"
                       .build();
 
         // Other paths:
